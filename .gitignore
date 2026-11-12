@@ -3,6 +3,8 @@
 !.env.example
 .cache/
 .agents/
+tooling/
+scripts/verify_skills.py
 .venv/
 node_modules/
 dist/

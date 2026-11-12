@@ -149,4 +149,4 @@ Os testes existentes do backend não chamam Gemini. A avaliação comparativa re
 
 Os testes focam comportamentos que podem perder dados ou retornar locais incorretos; não há testes de aparência. O build gera e permite inspecionar manifest, ícones e precache. Instalação, recarga offline e aparência em um celular real ainda precisam de conferência manual.
 
-As skills em `.agents/skills/` são ferramentas locais de desenvolvimento e não são incluídas no repositório nem necessárias para executar o app. Origens, versões e licenças ficam registradas em `tooling/`; se as skills estiverem instaladas localmente, `python scripts/verify_skills.py` verifica sua integridade. Ícones PNG já estão incluídos; para regenerá-los, execute `scripts/generate-icons.py` em Python com Pillow instalado. Decisões e plano desta versão estão em [DESIGN.md](DESIGN.md) e [PLAN.md](PLAN.md).
+Ícones PNG já estão incluídos; para regenerá-los, execute `scripts/generate-icons.py` em Python com Pillow instalado. Decisões e plano desta versão estão em [DESIGN.md](DESIGN.md) e [PLAN.md](PLAN.md).

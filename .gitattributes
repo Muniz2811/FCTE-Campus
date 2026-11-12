@@ -1,5 +1,4 @@
 # Preserve os bytes das skills e evidências: seus hashes fazem parte da procedência.
-tooling/licenses/** -text
 backend/data/** -text
 backend/avaliacao/** -text
 data/imports/** -text
