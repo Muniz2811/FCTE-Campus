@@ -1,0 +1,30 @@
+# Passo 1: só o necessário para configuração, catálogo e testes.
+# Bibliotecas de embeddings, Chroma e Gemini entram nos passos em que forem usadas.
+pyyaml==6.0.2
+pytest==8.3.4
+
+# Passo 2: aquisição
+httpx==0.28.1
+tzdata==2025.2
+
+# Passo 2: extração
+beautifulsoup4==4.13.4
+lxml==5.3.0
+
+# Passo 3: chunking (só o tokenizer do E5, não o modelo)
+tokenizers==0.21.1
+
+# Passo 4: embeddings locais e banco vetorial persistente
+sentence-transformers==3.4.1
+transformers==4.49.0
+torch==2.8.0
+chromadb==1.5.0
+filelock==4.2.10
+
+# API local do RAG (Gemini via REST/httpx, sem SDK extra)
+fastapi==0.162.0
+uvicorn==0.54.0
+python-dotenv==1.2.4
+
+# Extração de PDFs com referências por página
+pymupdf==1.26.6

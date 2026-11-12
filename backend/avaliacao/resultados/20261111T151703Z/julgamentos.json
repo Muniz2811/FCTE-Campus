@@ -1,0 +1,1095 @@
+{
+  "avaliador": "Codex, julgamento assistido único por leitura de resposta e evidências; sem segunda revisão humana",
+  "julgado_em": "2026-11-11T17:19:23.086533+00:00",
+  "protocolo": "Rubrica e metas congeladas em gabarito.json antes das chamadas. O gabarito de fontes esperadas é inicial, não exaustivo: evidência adicional foi aceita somente após leitura do conteúdo e está registrada.",
+  "nota_fundamentacao": "As 35 afirmações foram decompostas pelo avaliador. Julgamento semântico é assistido e sujeito a revisão; resolução de citações teve conferência mecânica de IDs, texto, versão, catálogo, extraído e hash dos originais. Mensagens de insuficiência não contêm fato externo adicional nesta rodada.",
+  "perguntas": [
+    {
+      "id": "Q01",
+      "trechos": [
+        {
+          "chunk_id": "c_df45b0823ed5a0bc",
+          "relevante": false,
+          "motivo": "Não associa o COSMOS a prédio, andar ou sala. A descrição temática do COSMOS não basta."
+        },
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "motivo": "Associa COSMOS a LDTEA, segundo andar, sala 304."
+        },
+        {
+          "chunk_id": "c_cd613d115a6c619e",
+          "relevante": false,
+          "motivo": "Não associa o COSMOS a prédio, andar ou sala. A descrição temática do COSMOS não basta."
+        },
+        {
+          "chunk_id": "c_5faca10e6e792b67",
+          "relevante": false,
+          "motivo": "Não associa o COSMOS a prédio, andar ou sala. A descrição temática do COSMOS não basta."
+        },
+        {
+          "chunk_id": "c_0cf9944816258a3e",
+          "relevante": false,
+          "motivo": "Não associa o COSMOS a prédio, andar ou sala. A descrição temática do COSMOS não basta."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Recuperação acertou no segundo lugar, mas Gemini excedeu 90 s. Falha técnica, sem resposta factual a julgar."
+    },
+    {
+      "id": "Q02",
+      "trechos": [
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "motivo": "Associa CPL a Contêiner 07."
+        },
+        {
+          "chunk_id": "c_d9b12bba2ecf376c",
+          "relevante": false,
+          "motivo": "Trata de outros laboratórios ou áreas; não localiza o CPL."
+        },
+        {
+          "chunk_id": "c_86466a41ada2febd",
+          "relevante": false,
+          "motivo": "Trata de outros laboratórios ou áreas; não localiza o CPL."
+        },
+        {
+          "chunk_id": "c_71c41fbd6b258f1b",
+          "relevante": false,
+          "motivo": "Trata de outros laboratórios ou áreas; não localiza o CPL."
+        },
+        {
+          "chunk_id": "c_df45b0823ed5a0bc",
+          "relevante": false,
+          "motivo": "Trata de outros laboratórios ou áreas; não localiza o CPL."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "O CPL fica no Contêiner 07.",
+          "chunk_ids_citados": [
+            "c_f2c6f00293fae365"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-005",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial"
+            ],
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "sha256_original": "dc417807f148d3dbb2d21e1242b64a19727079bab599d9b61c629ebcfd1f3e09",
+            "original": "data/originais/DOC-005/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-005__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Resposta atende ao solicitado nos trechos citados. Vigência desconhecida não foi explicitamente atribuída na redação; citações permitem consultar a fonte."
+    },
+    {
+      "id": "Q03",
+      "trechos": [
+        {
+          "chunk_id": "c_84847b7559c2bfb8",
+          "relevante": false,
+          "motivo": "Descreve LEMA/equipamentos ou outros laboratórios, mas não fornece sua localização."
+        },
+        {
+          "chunk_id": "c_4e7588ca515d195f",
+          "relevante": false,
+          "motivo": "Descreve LEMA/equipamentos ou outros laboratórios, mas não fornece sua localização."
+        },
+        {
+          "chunk_id": "c_f1e118670e2e6123",
+          "relevante": false,
+          "motivo": "Descreve LEMA/equipamentos ou outros laboratórios, mas não fornece sua localização."
+        },
+        {
+          "chunk_id": "c_c6231193313d7044",
+          "relevante": false,
+          "motivo": "Descreve LEMA/equipamentos ou outros laboratórios, mas não fornece sua localização."
+        },
+        {
+          "chunk_id": "c_44eeb8e1d7649f24",
+          "relevante": false,
+          "motivo": "Descreve LEMA/equipamentos ou outros laboratórios, mas não fornece sua localização."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Abstenção indevida: existe localização no corpus em DOC-005, mas não veio ao contexto. Mensagem sobre insuficiência não é afirmação factual sobre o mundo no denominador F; não conta como acerto de ausência."
+    },
+    {
+      "id": "Q04",
+      "trechos": [
+        {
+          "chunk_id": "c_45e04c73c85bdc29",
+          "relevante": true,
+          "motivo": "Lista os setores na UED."
+        },
+        {
+          "chunk_id": "c_cce3adec306aa20f",
+          "relevante": true,
+          "motivo": "Informa dois laboratórios na UED, evidência adicional específica."
+        },
+        {
+          "chunk_id": "c_89297cda3ce1be6c",
+          "relevante": true,
+          "motivo": "Informa direção na UED, evidência adicional; também expõe divergência sobre secretaria com DOC-001."
+        },
+        {
+          "chunk_id": "c_729881e9497a432e",
+          "relevante": false,
+          "motivo": "Não estabelece setor localizado na UED."
+        },
+        {
+          "chunk_id": "c_0cf9944816258a3e",
+          "relevante": false,
+          "motivo": "Não estabelece setor localizado na UED."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A UED abriga salas de professores.",
+          "chunk_ids_citados": [
+            "c_45e04c73c85bdc29"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A UED abriga serviços de secretaria.",
+          "chunk_ids_citados": [
+            "c_45e04c73c85bdc29"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A UED abriga laboratórios.",
+          "chunk_ids_citados": [
+            "c_45e04c73c85bdc29"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A UED abriga a diretoria.",
+          "chunk_ids_citados": [
+            "c_45e04c73c85bdc29"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A UED abriga a coordenação acadêmica.",
+          "chunk_ids_citados": [
+            "c_45e04c73c85bdc29"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "A UED abriga laboratório de Mocap virtual.",
+          "chunk_ids_citados": [
+            "c_cce3adec306aa20f"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "A UED abriga Laboratório de Software e Simulação.",
+          "chunk_ids_citados": [
+            "c_cce3adec306aa20f"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 2,
+          "texto": "A direção da FCTE está na UED.",
+          "chunk_ids_citados": [
+            "c_89297cda3ce1be6c"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_45e04c73c85bdc29",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-001",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Infraestrutura"
+            ],
+            "url": "https://fcte.unb.br/infraestrutura/",
+            "sha256_original": "ceadfb0cc3356250926466b5f5490f14b208273953e0be1d4a1f054f9b3781f9",
+            "original": "data/originais/DOC-001/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-001__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 1,
+          "chunk_id": "c_cce3adec306aa20f",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-006",
+            "versao": "2026-11-11",
+            "secoes": [
+              ""
+            ],
+            "url": "https://software.unb.br/laboratorios-de-ensino/",
+            "sha256_original": "21c07ecffebe38c188d8ab70e428785883faa5311fa94e3253d46219f02933d6",
+            "original": "data/originais/DOC-006/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-006__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 2,
+          "chunk_id": "c_89297cda3ce1be6c",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-002",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Secretaria de Graduação > SECRETARIA DE GRADUAÇÃO",
+              "Secretaria de Graduação > DIREÇÃO"
+            ],
+            "url": "https://fcte.unb.br/contato/",
+            "sha256_original": "984d9c12fb8e5c32e284225c900c32b3cc412d05ee0e541945d42890503f4640",
+            "original": "data/originais/DOC-002/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-002__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Os fatos têm apoio nos chunks citados. Contudo DOC-001 situa secretaria na UED e DOC-002 situa Secretaria de Graduação na UAC. Não são necessariamente o mesmo serviço, mas há divergência/ambiguidade a curar e a resposta não a discute. Também não atribui explicitamente a vigência desconhecida à fonte."
+    },
+    {
+      "id": "Q05",
+      "trechos": [
+        {
+          "chunk_id": "c_45e04c73c85bdc29",
+          "relevante": true,
+          "motivo": "Biblioteca e auditório na UAC."
+        },
+        {
+          "chunk_id": "c_0cf9944816258a3e",
+          "relevante": true,
+          "motivo": "Prédio UAC e sala de consulta na biblioteca: evidência parcial da localização da biblioteca."
+        },
+        {
+          "chunk_id": "c_cce3adec306aa20f",
+          "relevante": false,
+          "motivo": "Não localiza a biblioteca nem o auditório em uma unidade."
+        },
+        {
+          "chunk_id": "c_629af094586c5112",
+          "relevante": false,
+          "motivo": "Não localiza a biblioteca nem o auditório em uma unidade."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não localiza a biblioteca nem o auditório em uma unidade."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Evidência correta recuperada; indisponibilidade do provedor na geração."
+    },
+    {
+      "id": "Q06",
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": true,
+          "motivo": "Cabines individuais e mesas para estudo em grupo."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não descreve espaços individuais e em grupo na biblioteca. Acervo digital ou outro laboratório não responde."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "motivo": "Não descreve espaços individuais e em grupo na biblioteca. Acervo digital ou outro laboratório não responde."
+        },
+        {
+          "chunk_id": "c_5faca10e6e792b67",
+          "relevante": false,
+          "motivo": "Não descreve espaços individuais e em grupo na biblioteca. Acervo digital ou outro laboratório não responde."
+        },
+        {
+          "chunk_id": "c_0a5abc6e344294e8",
+          "relevante": false,
+          "motivo": "Não descreve espaços individuais e em grupo na biblioteca. Acervo digital ou outro laboratório não responde."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A biblioteca possui cabines individuais para estudo.",
+          "chunk_ids_citados": [
+            "c_c8a0b710c3c50b09"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A biblioteca possui mesas para estudo em grupo.",
+          "chunk_ids_citados": [
+            "c_c8a0b710c3c50b09"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "BIBLIOTECA SETORIAL CAMPUS GAMA"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Resposta atende ao solicitado nos trechos citados. Vigência desconhecida não foi explicitamente atribuída na redação; citações permitem consultar a fonte."
+    },
+    {
+      "id": "Q07",
+      "trechos": [
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": true,
+          "motivo": "Acesso aberto à comunidade externa, sem credenciamento ou agendamento."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não define acesso ou empréstimo para comunidade externa. Horário, contato e acervo não bastam."
+        },
+        {
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "relevante": true,
+          "motivo": "Empréstimo restrito à comunidade acadêmica; consulta local para externos."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": false,
+          "motivo": "Não define acesso ou empréstimo para comunidade externa. Horário, contato e acervo não bastam."
+        },
+        {
+          "chunk_id": "c_67bff220dfeab17f",
+          "relevante": false,
+          "motivo": "Não define acesso ou empréstimo para comunidade externa. Horário, contato e acervo não bastam."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "O acesso é aberto à comunidade externa.",
+          "chunk_ids_citados": [
+            "c_1cfe0848c545f27c",
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "O acesso externo dispensa credenciamento.",
+          "chunk_ids_citados": [
+            "c_1cfe0848c545f27c",
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "O acesso externo dispensa agendamento.",
+          "chunk_ids_citados": [
+            "c_1cfe0848c545f27c",
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "É necessário preencher o formulário de atendimento na entrada.",
+          "chunk_ids_citados": [
+            "c_1cfe0848c545f27c",
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "O empréstimo é restrito à comunidade acadêmica da UnB.",
+          "chunk_ids_citados": [
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "A comunidade externa pode consultar as obras localmente, sem empréstimo.",
+          "chunk_ids_citados": [
+            "c_d18e321ba2d41ac7"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_1cfe0848c545f27c",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Serviços",
+              "Comunidade Externa"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 0,
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Comunidade Externa > Formulário de atendimento",
+              "Comunidade Externa > Acervo especializado",
+              "Comunidade Externa > Comunidade Acadêmica"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 1,
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Comunidade Externa > Formulário de atendimento",
+              "Comunidade Externa > Acervo especializado",
+              "Comunidade Externa > Comunidade Acadêmica"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "O apenas da consulta foi interpretado em oposição ao empréstimo, no escopo da pergunta. Não prova que outros serviços locais sejam proibidos."
+    },
+    {
+      "id": "Q08",
+      "trechos": [
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": true,
+          "motivo": "Procedimento de doação, pré-seleção, entrega e conservação."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "motivo": "Não apresenta procedimento de doação. Contato isolado da biblioteca não explica como doar."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não apresenta procedimento de doação. Contato isolado da biblioteca não explica como doar."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": false,
+          "motivo": "Não apresenta procedimento de doação. Contato isolado da biblioteca não explica como doar."
+        },
+        {
+          "chunk_id": "c_3d4281f8af790336",
+          "relevante": false,
+          "motivo": "Não apresenta procedimento de doação. Contato isolado da biblioteca não explica como doar."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A doação começa pelo envio de uma lista por e-mail.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar os títulos.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar os autores.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar a edição.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar o ISBN.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "O agendamento de entrega ocorre após a pré-seleção.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 1,
+          "texto": "A entrega é na Biblioteca do Campus Gama.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 2,
+          "texto": "No dia da entrega é conferido o estado de conservação.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 2,
+          "texto": "Os itens aprovados passam por processamento técnico.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 2,
+          "texto": "Os itens aprovados são incorporados ao acervo.",
+          "chunk_ids_citados": [
+            "c_7487f9e90557b28d"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Doações",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Responsável",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Funcionamento"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 1,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Doações",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Responsável",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Funcionamento"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        },
+        {
+          "claim": 2,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-012",
+            "versao": "2026-11-11",
+            "secoes": [
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Doações",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Responsável",
+              "BIBLIOTECA SETORIAL CAMPUS GAMA > Funcionamento"
+            ],
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+            "original": "data/originais/DOC-012/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-012__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Resposta atende ao solicitado nos trechos citados. Vigência desconhecida não foi explicitamente atribuída na redação; citações permitem consultar a fonte."
+    },
+    {
+      "id": "Q09",
+      "trechos": [
+        {
+          "chunk_id": "c_a329b12b7f9edc9c",
+          "relevante": true,
+          "motivo": "Informar origem ou destino e consultar linhas, horários e pontos."
+        },
+        {
+          "chunk_id": "c_436a2249e7a6d0fb",
+          "relevante": false,
+          "motivo": "Não explica pesquisa por origem/destino. Busca por número da linha, divulgação geral e auxílio-transporte não respondem."
+        },
+        {
+          "chunk_id": "c_651a8b71267b928b",
+          "relevante": false,
+          "motivo": "Não explica pesquisa por origem/destino. Busca por número da linha, divulgação geral e auxílio-transporte não respondem."
+        },
+        {
+          "chunk_id": "c_a98948e2bed7c50a",
+          "relevante": false,
+          "motivo": "Não explica pesquisa por origem/destino. Busca por número da linha, divulgação geral e auxílio-transporte não respondem."
+        },
+        {
+          "chunk_id": "c_c588ea758007149f",
+          "relevante": false,
+          "motivo": "Não explica pesquisa por origem/destino. Busca por número da linha, divulgação geral e auxílio-transporte não respondem."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A pesquisa geral usa o local de partida ou destino.",
+          "chunk_ids_citados": [
+            "c_a329b12b7f9edc9c"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A pesquisa permite acessar horários.",
+          "chunk_ids_citados": [
+            "c_a329b12b7f9edc9c"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A pesquisa permite acessar linhas disponíveis.",
+          "chunk_ids_citados": [
+            "c_a329b12b7f9edc9c"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "A pesquisa permite acessar pontos de parada próximos.",
+          "chunk_ids_citados": [
+            "c_a329b12b7f9edc9c"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_a329b12b7f9edc9c",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-026",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Pesquisa Geral"
+            ],
+            "url": "https://dfnoponto.semob.df.gov.br/pesquisa-geral/",
+            "sha256_original": "9a760a58c4e8f61261975bcbf3675ef1aa68d73a01f741320e5f21f2551e4120",
+            "original": "data/originais/DOC-026/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-026__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Resposta atende ao solicitado nos trechos citados. Vigência desconhecida não foi explicitamente atribuída na redação; citações permitem consultar a fonte."
+    },
+    {
+      "id": "Q10",
+      "trechos": [
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "motivo": "Não informa o horário de abertura da biblioteca. Horário de outro setor ou disponibilidade do empréstimo sem horas não basta."
+        },
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": true,
+          "motivo": "Horário solicitado, incluindo exceção de feriados."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": true,
+          "motivo": "Contato da FCTE também informa horário da biblioteca 7h–19h em dias úteis; evidência parcial corroborante, embora o gabarito previsse DOC-012."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não informa o horário de abertura da biblioteca. Horário de outro setor ou disponibilidade do empréstimo sem horas não basta."
+        },
+        {
+          "chunk_id": "c_89297cda3ce1be6c",
+          "relevante": false,
+          "motivo": "Não informa o horário de abertura da biblioteca. Horário de outro setor ou disponibilidade do empréstimo sem horas não basta."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Evidência correta recuperada; indisponibilidade do provedor na geração."
+    },
+    {
+      "id": "Q11",
+      "trechos": [
+        {
+          "chunk_id": "c_df45b0823ed5a0bc",
+          "relevante": false,
+          "motivo": "Não informa a localização do COSMOS, ainda que mencione COSMOS ou outro laboratório no mesmo prédio."
+        },
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "motivo": "Local correto do COSMOS contradiz a premissa."
+        },
+        {
+          "chunk_id": "c_0cf9944816258a3e",
+          "relevante": false,
+          "motivo": "Não informa a localização do COSMOS, ainda que mencione COSMOS ou outro laboratório no mesmo prédio."
+        },
+        {
+          "chunk_id": "c_2d85dbef5af80376",
+          "relevante": false,
+          "motivo": "Não informa a localização do COSMOS, ainda que mencione COSMOS ou outro laboratório no mesmo prédio."
+        },
+        {
+          "chunk_id": "c_0e12f3858918d20b",
+          "relevante": false,
+          "motivo": "Não informa a localização do COSMOS, ainda que mencione COSMOS ou outro laboratório no mesmo prédio."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "O COSMOS fica no prédio LDTEA.",
+          "chunk_ids_citados": [
+            "c_f2c6f00293fae365"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "O COSMOS fica no segundo andar.",
+          "chunk_ids_citados": [
+            "c_f2c6f00293fae365"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        },
+        {
+          "claim": 0,
+          "texto": "O COSMOS fica na sala 304.",
+          "chunk_ids_citados": [
+            "c_f2c6f00293fae365"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-005",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial"
+            ],
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "sha256_original": "dc417807f148d3dbb2d21e1242b64a19727079bab599d9b61c629ebcfd1f3e09",
+            "original": "data/originais/DOC-005/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-005__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Corrige a premissa fornecendo localização incompatível com a sugestão errada, mesmo sem iniciar por não.",
+      "premissa_corrigida": true
+    },
+    {
+      "id": "Q12",
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": false,
+          "motivo": "Não identifica em qual prédio está a biblioteca. Mencionar campus ou acervo não corrige UED/UAC."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não identifica em qual prédio está a biblioteca. Mencionar campus ou acervo não corrige UED/UAC."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": true,
+          "motivo": "Fonte adicional não prevista: contato institucional associa BIBLIOTECA a UAC, corrigindo a premissa."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "motivo": "Não identifica em qual prédio está a biblioteca. Mencionar campus ou acervo não corrige UED/UAC."
+        },
+        {
+          "chunk_id": "c_60620abc461279dd",
+          "relevante": false,
+          "motivo": "Não identifica em qual prédio está a biblioteca. Mencionar campus ou acervo não corrige UED/UAC."
+        }
+      ],
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A biblioteca do Campus Gama fica na UAC.",
+          "chunk_ids_citados": [
+            "c_ff640f1875faa059"
+          ],
+          "sustentado": true,
+          "justificativa": "Verificado pelo avaliador no texto dos chunks citados; conferir resposta e contexto integrais em execucoes.json."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_ff640f1875faa059",
+          "resolvida": true,
+          "prova": {
+            "source_id": "DOC-002",
+            "versao": "2026-11-11",
+            "secoes": [
+              "Secretaria de Graduação > ADMINISTRAÇÃO",
+              "Secretaria de Graduação > BIBLIOTECA"
+            ],
+            "url": "https://fcte.unb.br/contato/",
+            "sha256_original": "984d9c12fb8e5c32e284225c900c32b3cc412d05ee0e541945d42890503f4640",
+            "original": "data/originais/DOC-002/2026-11-11/original.html",
+            "extraido": "data/extraido/DOC-002__2026-11-11.json"
+          }
+        }
+      ],
+      "resposta_completa": true,
+      "observacoes": "Corrige UED para UAC usando DOC-002, evidência adicional não prevista no gabarito. Não alterar gabarito para esconder descoberta.",
+      "premissa_corrigida": true
+    },
+    {
+      "id": "Q13",
+      "trechos": [
+        {
+          "chunk_id": "c_cd638caa1b0d517e",
+          "relevante": false,
+          "motivo": "Não informa ocupação atual da I10; nenhuma evidência responde ao instante solicitado."
+        },
+        {
+          "chunk_id": "c_0904be5ddfac8a87",
+          "relevante": false,
+          "motivo": "Não informa ocupação atual da I10; nenhuma evidência responde ao instante solicitado."
+        },
+        {
+          "chunk_id": "c_78aefd971e83ca2c",
+          "relevante": false,
+          "motivo": "Não informa ocupação atual da I10; nenhuma evidência responde ao instante solicitado."
+        },
+        {
+          "chunk_id": "c_def12e461bfc328e",
+          "relevante": false,
+          "motivo": "Não informa ocupação atual da I10; nenhuma evidência responde ao instante solicitado."
+        },
+        {
+          "chunk_id": "c_3ec499d6018e067b",
+          "relevante": false,
+          "motivo": "Não informa ocupação atual da I10; nenhuma evidência responde ao instante solicitado."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Declara ausência de ocupação atual, sem dar palpite.",
+      "ausencia_correta": true
+    },
+    {
+      "id": "Q14",
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": false,
+          "motivo": "Não informa a contagem atual de pessoas na biblioteca."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "motivo": "Não informa a contagem atual de pessoas na biblioteca."
+        },
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": false,
+          "motivo": "Não informa a contagem atual de pessoas na biblioteca."
+        },
+        {
+          "chunk_id": "c_5faca10e6e792b67",
+          "relevante": false,
+          "motivo": "Não informa a contagem atual de pessoas na biblioteca."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": false,
+          "motivo": "Não informa a contagem atual de pessoas na biblioteca."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Declara ausência de contagem atual, sem inventar quantidade.",
+      "ausencia_correta": true
+    },
+    {
+      "id": "Q15",
+      "trechos": [
+        {
+          "chunk_id": "c_bdf6877d01ab763b",
+          "relevante": false,
+          "motivo": "Não informa ônibus para a entrada da FCTE nos próximos cinco minutos."
+        },
+        {
+          "chunk_id": "c_45e04c73c85bdc29",
+          "relevante": false,
+          "motivo": "Não informa ônibus para a entrada da FCTE nos próximos cinco minutos."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": false,
+          "motivo": "Não informa ônibus para a entrada da FCTE nos próximos cinco minutos."
+        },
+        {
+          "chunk_id": "c_38179b5938368adb",
+          "relevante": false,
+          "motivo": "Não informa ônibus para a entrada da FCTE nos próximos cinco minutos."
+        },
+        {
+          "chunk_id": "c_87b53807e864553c",
+          "relevante": false,
+          "motivo": "Não informa ônibus para a entrada da FCTE nos próximos cinco minutos."
+        }
+      ],
+      "fatos": [],
+      "citacoes": [],
+      "resposta_completa": false,
+      "observacoes": "Indisponibilidade do provedor. Não é abstenção correta, mesmo sendo uma pergunta sem resposta na base.",
+      "ausencia_correta": false
+    }
+  ]
+}

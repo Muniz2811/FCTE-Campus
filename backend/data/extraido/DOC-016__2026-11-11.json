@@ -1,0 +1,123 @@
+{
+  "source_id": "DOC-016",
+  "versao": "2026-11-11",
+  "sha256_original": "60d5f95a50b89100bfee852af7fae385440d7eed0ea1f7eb6a6e8bff92d4f700",
+  "url": "https://lite.unb.br/quem-somos/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Quem somos - FCTE / LITE",
+  "palavras": 1161,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Quem somos"
+      ],
+      "paragrafos": [
+        "O LITE (Laboratórios Integrados de Tecnologias em Engenharias) é um laboratório multidisciplinar formado com a integração entre laboratórios da Faculdade de Ciências e Tecnologia em Engenharia (FCTE), na Universidade de Brasília (UnB). Este laboratório foi concebido para ser um centro de excelência em pesquisa, desenvolvimento tecnológico e formação de engenheiros altamente qualificados, que atuam em várias áreas como Engenharia Aeroespacial, Engenharia Automotiva, Engenharia de Energia, Engenharia Eletrônica, e Engenharia de Software.",
+        "A infraestrutura do LITE, com equipamentos de última geração e softwares avançados, proporciona um ambiente propício para o desenvolvimento de soluções tecnológicas inovadoras. O laboratório se destaca pela integração entre as diferentes áreas da engenharia, o que permite uma abordagem colaborativa e multidisciplinar em projetos de pesquisa, ensino e extensão."
+      ]
+    },
+    {
+      "caminho": [
+        "Uma Infraestrutura de Ponta para Pesquisa e Desenvolvimento"
+      ],
+      "paragrafos": [
+        "No LITE, a excelência em pesquisa é alavancada por uma infraestrutura moderna e versátil, que atende tanto à comunidade acadêmica quanto à demanda do setor industrial. As instalações incluem:",
+        "Laboratórios especializados, equipados com ferramentas e tecnologias de ponta para testes, simulações e desenvolvimento de protótipos.",
+        "Simuladores avançados para modelagem de veículos aeroespaciais, automotivos, eletromagnéticos e sistemas energéticos, facilitando a criação de soluções otimizadas para desafios complexos.",
+        "Equipamentos de precisão utilizados para análise de materiais, testes de vibrações, medições acústicas, bancadas de caracterização eletromagnética de alta frequência, telecomunicações e experimentos com eletrônica e sistemas embarcados.",
+        "Essa infraestrutura não apenas suporta o desenvolvimento de projetos de alunos e pesquisadores, mas também oferece serviços técnicos especializados para empresas e instituições que buscam inovação tecnológica de alto nível."
+      ]
+    },
+    {
+      "caminho": [
+        "Oportunidades de Parcerias com o Setor Industrial"
+      ],
+      "paragrafos": [
+        "O LITE possui uma forte ligação com a indústria, atuando como um parceiro estratégico para empresas que buscam desenvolver novas tecnologias ou melhorar seus processos. Entre os serviços oferecidos pelo LITE, estão:",
+        "Consultoria técnica especializada em projetos de engenharia, envolvendo desde o planejamento até a execução de testes e protótipos.",
+        "Colaboração científica para desenvolvimento de novas tecnologias, com base em pesquisas de ponta conduzidas por equipes de professores e alunos da UnB.",
+        "Prestação de serviços de análise e testes laboratoriais, utilizando os equipamentos de alta precisão disponíveis no laboratório, com foco em atender as demandas específicas de cada setor, como o automotivo, aeroespacial, eletrônico e de energia"
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratórios Integrados:"
+      ],
+      "paragrafos": [
+        "O LITE é composto por laboratórios associados que trabalham em sinergia para cobrir uma ampla gama de áreas tecnológicas. Esses laboratórios incluem:",
+        "ARC – Automotive Research Center: Laboratório especializado em pesquisa e desenvolvimento automotivo, focado em soluções inovadoras para a indústria de veículos.",
+        "Biogama: Laboratório voltado para tecnologias ambientais e energéticas, contribuindo para soluções sustentáveis em biotecnologia e engenharia ambiental.",
+        "COSMOS – Computational Aerospace Simulations & Modeling Laboratory: Focado em simulações e modelagem computacional aplicada ao setor aeroespacial, permitindo o desenvolvimento de tecnologias de ponta para veículos espaciais.",
+        "GMEC – Grupo de Mecânica Experimental e Computacional: Laboratório que estuda a mecânica dos materiais e das estruturas, realizando simulações computacionais e testes experimentais para diversas aplicações.",
+        "LabNVH – Laboratório de Acústica e Vibrações: Especializado em testes acústicos e de vibração, com aplicação nas indústrias automotiva e aeroespacial para melhorar a performance e segurança de veículos.",
+        "LabMicro – Laboratório de Microeletrônica e Sistemas Embarcados: Desenvolve soluções em microeletrônica e sistemas embarcados, com aplicação em setores automotivos, aeronáuticos e industriais.",
+        "LaPRREn – Laboratório de Pesquisa e Desenvolvimento em Recursos Renováveis e Energéticos: Dedicado à pesquisa de tecnologias sustentáveis e fontes de energia renovável.",
+        "LARSIS – Laboratório de Robótica e Sistemas de Controle: Dedica-se à automação industrial e desenvolvimento de robôs, colaborando com indústrias que buscam eficiência e inovação por meio de sistemas de controle avançados.",
+        "LaSE – Laboratório de Sistemas Espaciais: Focado em pesquisa e desenvolvimento de tecnologias espaciais, contribuindo para avanços em satélites, foguetes e veículos espaciais.",
+        "LASEE – Laboratório de Sistemas de Energia Elétrica: Um centro de excelência para o desenvolvimento de soluções em energias renováveis e eficiência energética, atuando em projetos de grande porte, como microgrids.",
+        "LATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia: Atua em pesquisa de tecnologias sustentáveis, materiais avançados e soluções inovadoras para o setor energético.",
+        "LabTermo – Laboratório de Termofluidos: Especializado em pesquisas envolvendo fluidos térmicos, fundamentais para o desenvolvimento de sistemas de resfriamento e aquecimento em indústrias variadas.",
+        "LMPIE – Laboratório Multidisciplinar de Pesquisa e Inovação em Energia: Dedicado à pesquisa de novas tecnologias energéticas, com foco em fontes sustentáveis e melhoria da eficiência energética.",
+        "NANOTEC – Laboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia: Focado em soluções em nanociência e nanotecnologia, aplicáveis a diversas áreas, desde a eletrônica até a medicina.",
+        "LabTelecom – Laboratório Compartilhado de Ensino e Pesquisa em Telecomunicações: Dedica-se à pesquisa em telecomunicações, desenvolvendo soluções inovadoras em redes e sistemas de comunicação.",
+        "LEA – Laboratório de Estruturas Aeroespaciais: Focado na análise e desenvolvimento de estruturas aeroespaciais, com aplicação em aviões, satélites e outros veículos espaciais.",
+        "LTB – Laboratório de Testes e Bancos de Provas: Especializado em testes de materiais e sistemas mecânicos, permitindo simulações de desempenho sob diversas condições extremas."
+      ]
+    },
+    {
+      "caminho": [
+        "Ambiente Multiusuário"
+      ],
+      "paragrafos": [
+        "O Laboratório Integrado de Tecnologias em Engenharias (LITE) oferece um ambiente multiusuário altamente flexível e equipado, permitindo que seus equipamentos de última geração e infraestrutura sejam acessados por usuários externos de forma eficiente e segura. O conceito de plataforma multiusuário do LITE tem como objetivo não apenas apoiar as atividades de pesquisa e ensino internas da Faculdade de Ciências e Tecnologia em Engenharia (FCTE), mas também permitir o uso colaborativo por meio de duas modalidades principais: parcerias científicas e prestação de serviços."
+      ]
+    },
+    {
+      "caminho": [
+        "Ambiente Multiusuário",
+        "1. Colaboração Científica"
+      ],
+      "paragrafos": [
+        "O LITE se posiciona como um centro de pesquisa colaborativa, facilitando parcerias com empresas e instituições de pesquisa que desejam desenvolver tecnologias avançadas ou investigar soluções inovadoras. Esses acordos de colaboração científica permitem que especialistas externos utilizem os recursos do LITE para realizar pesquisas conjuntas, integrando o conhecimento acadêmico com as demandas do setor industrial. Isso inclui o desenvolvimento de novos produtos, protótipos, e soluções tecnológicas, além de fornecer suporte para publicação de artigos e geração de patentes.",
+        "Essas colaborações têm o benefício de alavancar a expertise dos pesquisadores da UnB, ao mesmo tempo em que compartilham o uso de equipamentos sofisticados e instalações especializadas. Ao colaborar com o LITE, as empresas podem acelerar seu desenvolvimento de P&D (pesquisa e desenvolvimento) e criar produtos mais competitivos no mercado."
+      ]
+    },
+    {
+      "caminho": [
+        "Ambiente Multiusuário",
+        "2. Prestação de Serviços"
+      ],
+      "paragrafos": [
+        "Além das colaborações científicas, o LITE também oferece serviços técnicos especializados para usuários externos. Empresas e organizações podem acessar os laboratórios para realizar uma variedade de análises, testes e avaliações técnicas, como:",
+        "Testes de protótipos em ambientes controlados, utilizando equipamentos de alta precisão para verificar o desempenho sob diferentes condições operacionais;",
+        "Análises de viabilidade de projetos, com base em simulações avançadas e modelagens computacionais realizadas com os softwares e equipamentos do LITE;",
+        "Desenvolvimento de soluções personalizadas para desafios tecnológicos específicos enfrentados por indústrias, especialmente nos setores de energia, automação, e transportes.",
+        "A prestação de serviços permite que empresas utilizem os recursos do LITE de forma direta e com suporte técnico especializado, sem a necessidade de firmar um acordo de longo prazo ou envolver-se em um projeto acadêmico. Isso é especialmente útil para a validação de novos produtos e para empresas que precisam de avaliações técnicas detalhadas em curto prazo."
+      ]
+    }
+  ]
+}

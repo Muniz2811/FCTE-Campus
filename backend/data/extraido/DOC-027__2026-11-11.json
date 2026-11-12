@@ -1,0 +1,52 @@
+{
+  "source_id": "DOC-027",
+  "versao": "2026-11-11",
+  "sha256_original": "8de3bca65216f39091a2a31f898ef4e3e1e4e1c9031bd4bb26bbe698b15a2932",
+  "url": "https://dfnoponto.semob.df.gov.br/pesquisa-por-linhas/",
+  "regras": {
+    "conteudo": "#ajax-content-wrap",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button",
+      "#header-outer",
+      "#search-outer",
+      "#footer1",
+      "#footer2",
+      "#slide-out-widget-area"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": [
+      "Baixe o aplicativo agora mesmo!"
+    ]
+  },
+  "titulo_pagina": "Pesquisa por Linhas - Consulte todas as informações da sua linha de ônibus.",
+  "palavras": 38,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 5,
+  "avisos": [
+    "pouco texto: 38 palavras"
+  ],
+  "secoes": [
+    {
+      "caminho": [
+        "Pesquisa por Linhas"
+      ],
+      "paragrafos": [
+        "Fazer uma pesquisa por linhas no DF NO PONTO é prático e eficiente. Basta informar a linha de ônibus (ex. 517.2) para acessar um relatório simplificado, com tabelas de horárias e localização dos ônibus da linha no mapa."
+      ]
+    }
+  ]
+}

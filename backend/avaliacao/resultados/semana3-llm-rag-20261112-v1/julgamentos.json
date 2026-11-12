@@ -1,0 +1,1349 @@
+{
+  "avaliador": "Codex, julgamento assistido único em 12/11/2026; sem dupla revisão humana independente. Gemini não foi usado como juiz.",
+  "rubrica": "Gabarito congelado antes das chamadas. Cobertura dos itens essenciais separada de fatos adicionais. Decomposição atômica posterior à leitura das respostas; ausência de comprovação não equivale a contradição. Orientações e afirmações sobre incapacidade do sistema não entram como fatos do campus.",
+  "perguntas": [
+    {
+      "qid": "Q01",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Conferência direta com os atributos do gabarito.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q01",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Conferência direta com os atributos do gabarito.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "COSMOS fica no LDTEA.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "COSMOS fica no segundo andar.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "COSMOS fica na sala 304.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_df45b0823ed5a0bc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_2d85dbef5af80376",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_553a868a5910bf1c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_87b53807e864553c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q02",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Conferência direta com os atributos do gabarito.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q02",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Conferência direta com os atributos do gabarito.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "CPL fica no Contêiner 07.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_86466a41ada2febd",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q03",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM inventa outra expansão da sigla e não fornece prédio/andar/sala. O RAG mantém a associação do diretório.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "LEMA corresponde a Laboratório de Ensino de Matemática e Estatística.",
+          "corroborado": false,
+          "classificacao": "contradito",
+          "nota": "DOC-005 identifica o laboratório aeroespacial."
+        },
+        {
+          "claim": 0,
+          "texto": "LEMA fica no campus Gama da UnB.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "Concedido ao acrônimo correto apesar da expansão incorreta; localização genérica insuficiente para a pergunta."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://fcte.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q03",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM inventa outra expansão da sigla e não fornece prédio/andar/sala. O RAG mantém a associação do diretório.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "LEMA corresponde a Laboratório de Estruturas e Materiais Aeroespaciais.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "LEMA fica no LDTEA.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "LEMA fica no térreo.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "LEMA fica na sala 103.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_84847b7559c2bfb8",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_c6231193313d7044",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_44eeb8e1d7649f24",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_2822bad93b05661e",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q04",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM menciona parte dos setores, mas omite secretaria, diretoria e coordenação. A referência a departamentos não está corroborada.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Há laboratórios de ensino na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "Há laboratórios usados para pesquisa na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "Corroboração por combinação: DOC-006 situa MOCAP na UED e descreve seu uso para ensino e pesquisa."
+        },
+        {
+          "claim": 0,
+          "texto": "Há gabinetes/salas de professores na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "Há salas associadas aos departamentos acadêmicos na UED.",
+          "corroborado": false,
+          "classificacao": "nao_corroborado",
+          "nota": "A base registra coordenação acadêmica, não confirma a organização em departamentos ou suas salas."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://fcte.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q04",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM menciona parte dos setores, mas omite secretaria, diretoria e coordenação. A referência a departamentos não está corroborada.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Salas de professores ficam na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Serviços de secretaria ficam na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Laboratórios ficam na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Diretoria fica na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Coordenação acadêmica fica na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_45e04c73c85bdc29",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_cce3adec306aa20f",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_0cf9944816258a3e",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_629af094586c5112",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_bdf6877d01ab763b",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_45e04c73c85bdc29",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q05",
+      "braco": "llm",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "O acerto do prédio é concedido à LLM na completude; o nome expandido incorreto é penalizado separadamente na avaliação factual.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Biblioteca fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "Auditório fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "UAC significa Unidade de Atividades Acadêmicas.",
+          "corroborado": false,
+          "classificacao": "contradito",
+          "nota": "DOC-001 e DOC-007 denominam Unidade Acadêmica."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://fcte.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q05",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "O acerto do prédio é concedido à LLM na completude; o nome expandido incorreto é penalizado separadamente na avaliação factual.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Biblioteca fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Auditório fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "UAC significa Unidade Acadêmica.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_45e04c73c85bdc29",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_cce3adec306aa20f",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_731826bb1c0cfdfc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_45e04c73c85bdc29",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q06",
+      "braco": "llm",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "As duas modalidades de estudo são concedidas como cobertas pela LLM; a menção adicional a salas específicas não está comprovada.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A biblioteca permite estudo individual.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "Aceita equivalência semântica com cabines individuais; não se exige a mesma expressão."
+        },
+        {
+          "claim": 0,
+          "texto": "A biblioteca permite estudo em grupo.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "A biblioteca dispõe de salas para estudo em grupo.",
+          "corroborado": false,
+          "classificacao": "nao_corroborado",
+          "nota": "DOC-012 confirma mesas/espaço para grupo; não confirma salas dedicadas. Não classificado como falso, mas como não corroborado."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://www.bce.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q06",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "As duas modalidades de estudo são concedidas como cobertas pela LLM; a menção adicional a salas específicas não está comprovada.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A biblioteca dispõe de cabines individuais.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A biblioteca dispõe de mesas para estudo em grupo.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_5faca10e6e792b67",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q07",
+      "braco": "llm",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Ambos cobrem acesso e empréstimo; o RAG também recupera a exigência do formulário sem expor dados pessoais solicitados no formulário.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Público externo pode acessar a biblioteca do Gama.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "Público externo pode consultar o acervo localmente.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 1,
+          "texto": "Empréstimo é restrito ao vínculo com a UnB, como alunos, professores e servidores.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "Interpretação da enumeração como categorias da comunidade acadêmica, sem exigir detalhamento de todas as categorias possíveis."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://bce.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        },
+        {
+          "claim": 1,
+          "url": "https://bce.unb.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q07",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Ambos cobrem acesso e empréstimo; o RAG também recupera a exigência do formulário sem expor dados pessoais solicitados no formulário.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Biblioteca é aberta à comunidade externa.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Acesso externo dispensa credenciamento.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Acesso externo dispensa agendamento.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 1,
+          "texto": "Público externo deve preencher o formulário de atendimento na entrada.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 2,
+          "texto": "Empréstimo é disponibilizado apenas à comunidade acadêmica da UnB.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 2,
+          "texto": "Público externo pode consultar as obras localmente.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_b83014a572f0a800",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_f8ededb7adec2e05",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_1cfe0848c545f27c",
+          "resolvida": true,
+          "sustenta_claim": true
+        },
+        {
+          "claim": 1,
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "resolvida": true,
+          "sustenta_claim": true
+        },
+        {
+          "claim": 2,
+          "chunk_id": "c_d18e321ba2d41ac7",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q08",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM fornece orientação genérica e omite lista com campos, pré-seleção e entrega agendada. O domínio de suas duas URLs diverge do institucional.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A doação exige contato prévio com a biblioteca.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "O contato prévio verifica a relevância dos títulos especificamente para os cursos do campus.",
+          "corroborado": false,
+          "classificacao": "nao_corroborado",
+          "nota": "A página menciona lista e pré-seleção, sem confirmar esse critério operacional específico."
+        },
+        {
+          "claim": 1,
+          "texto": "Os itens são avaliados quanto à conservação.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 1,
+          "texto": "A avaliação técnica aplica o critério de adequação ao acervo.",
+          "corroborado": false,
+          "classificacao": "nao_corroborado",
+          "nota": "Critério plausível, mas não explicitado na evidência preservada. Não equivale a comprovar uma afirmação falsa."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://bce.unb.com.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        },
+        {
+          "claim": 1,
+          "url": "https://bce.unb.com.br/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q08",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "A LLM fornece orientação genérica e omite lista com campos, pré-seleção e entrega agendada. O domínio de suas duas URLs diverge do institucional.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Doação começa por e-mail.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar títulos.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar autores.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar edição.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A lista deve informar ISBN.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 1,
+          "texto": "Há pré-seleção dos materiais.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 1,
+          "texto": "A entrega é agendada na biblioteca do Gama.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 1,
+          "texto": "Na entrega é conferido o estado de conservação.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 2,
+          "texto": "Itens aprovados são incorporados ao acervo.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 2,
+          "texto": "A incorporação ocorre após processamento técnico.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_731826bb1c0cfdfc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_b835d61f603ffe67",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "sustenta_claim": true
+        },
+        {
+          "claim": 1,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "sustenta_claim": true
+        },
+        {
+          "claim": 2,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q09",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Pergunta documental sobre a ferramenta; não testa cálculo de rota nem previsão ao vivo.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q09",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "Pergunta documental sobre a ferramenta; não testa cálculo de rota nem previsão ao vivo.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A pesquisa geral aceita local de partida ou destino.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A consulta apresenta horários.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A consulta apresenta linhas disponíveis.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A consulta apresenta pontos de parada próximos.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_a329b12b7f9edc9c",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_436a2249e7a6d0fb",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_a98948e2bed7c50a",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_651a8b71267b928b",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_2822bad93b05661e",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_a329b12b7f9edc9c",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q10",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "RAG cobre o horário da página, mas a redação poderia atribuí-lo mais explicitamente à fonte. A interface mostra versão e validade desconhecida.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q10",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": null,
+      "observacao": "RAG cobre o horário da página, mas a redação poderia atribuí-lo mais explicitamente à fonte. A interface mostra versão e validade desconhecida.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A página informa funcionamento de segunda a sexta.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "Feriados são exceção.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A faixa informada é das 7h às 19h.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_731826bb1c0cfdfc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_7487f9e90557b28d",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q11",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": null,
+      "premissa_corrigida": false,
+      "observacao": "A LLM se abstém e não corrige a premissa. Sua mensagem referencia a UAC da pergunta com ressalva; não foi contada como confirmação factual expressa.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q11",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": true,
+      "observacao": "A LLM se abstém e não corrige a premissa. Sua mensagem referencia a UAC da pergunta com ressalva; não foi contada como confirmação factual expressa.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "COSMOS fica no LDTEA.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "COSMOS fica no segundo andar.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "COSMOS fica na sala 304.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_f2c6f00293fae365",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        },
+        {
+          "chunk_id": "c_df45b0823ed5a0bc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_8574eccbc342feec",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_2d85dbef5af80376",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_f2c6f00293fae365",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q12",
+      "braco": "llm",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": true,
+      "observacao": "A LLM corrige o prédio, por isso recebe acerto de premissa e cobertura, apesar da expansão errada de UAC e URL de domínio divergente.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "Biblioteca não fica na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "Biblioteca fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": ""
+        },
+        {
+          "claim": 0,
+          "texto": "UAC significa Unidade de Aulas e Atendimento.",
+          "corroborado": false,
+          "classificacao": "contradito",
+          "nota": "DOC-001 e DOC-007 denominam Unidade Acadêmica."
+        }
+      ],
+      "trechos": [],
+      "citacoes": [
+        {
+          "claim": 0,
+          "url": "https://fcte.unb.cz/",
+          "resolvida": false,
+          "justificativa": "A saída indica URL, sem trecho nem versão; não permite comprovar a evidência efetivamente utilizada."
+        }
+      ]
+    },
+    {
+      "qid": "Q12",
+      "braco": "rag",
+      "completa": true,
+      "ausencia_correta": null,
+      "premissa_corrigida": true,
+      "observacao": "A LLM corrige o prédio, por isso recebe acerto de premissa e cobertura, apesar da expansão errada de UAC e URL de domínio divergente.",
+      "fatos": [
+        {
+          "claim": 0,
+          "texto": "A biblioteca fica na UAC.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        },
+        {
+          "claim": 0,
+          "texto": "A biblioteca não fica na UED.",
+          "corroborado": true,
+          "classificacao": "corroborado",
+          "nota": "",
+          "fundamentado": true
+        }
+      ],
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_1cfe0848c545f27c",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_731826bb1c0cfdfc",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_ff640f1875faa059",
+          "relevante": true,
+          "justificativa": "Evidência para ao menos uma parte essencial da pergunta."
+        }
+      ],
+      "citacoes": [
+        {
+          "claim": 0,
+          "chunk_id": "c_ff640f1875faa059",
+          "resolvida": true,
+          "sustenta_claim": true
+        }
+      ]
+    },
+    {
+      "qid": "Q13",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Sem fatos adicionais: as mensagens tratam da limitação do sistema.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q13",
+      "braco": "rag",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Sem fatos adicionais: as mensagens tratam da limitação do sistema.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q14",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Os quatro trechos sobre biblioteca não respondem à contagem atual; ambos se abstêm.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q14",
+      "braco": "rag",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Os quatro trechos sobre biblioteca não respondem à contagem atual; ambos se abstêm.",
+      "fatos": [],
+      "trechos": [
+        {
+          "chunk_id": "c_c8a0b710c3c50b09",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_7487f9e90557b28d",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_17241a7563801760",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        },
+        {
+          "chunk_id": "c_5faca10e6e792b67",
+          "relevante": false,
+          "justificativa": "Não fornece o fato solicitado nem corrige a premissa; proximidade temática não basta."
+        }
+      ],
+      "citacoes": []
+    },
+    {
+      "qid": "Q15",
+      "braco": "llm",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Não se confunde orientação do DF no Ponto com uma previsão de passagem neste instante.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    },
+    {
+      "qid": "Q15",
+      "braco": "rag",
+      "completa": false,
+      "ausencia_correta": true,
+      "premissa_corrigida": null,
+      "observacao": "Não se confunde orientação do DF no Ponto com uma previsão de passagem neste instante.",
+      "fatos": [],
+      "trechos": [],
+      "citacoes": []
+    }
+  ]
+}

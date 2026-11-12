@@ -1,0 +1,96 @@
+{
+  "source_id": "DOC-036",
+  "versao": "2026-11-11",
+  "sha256_original": "d8a61082e7e3f1dd3dbbfb04af620a70b24f73a2250aae6a29c0da08ffca1bbd",
+  "url": "https://bce.unb.br/wp-content/uploads/2025/09/Portal-Capes-Tutorial-acesso-REMOTO.pdf",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Tutorial - Capes",
+  "secoes": [
+    {
+      "caminho": [
+        "Página 1"
+      ],
+      "pagina": 1,
+      "paragrafos": [
+        "Universidade de Brasília (UnB) Sistema de Bibliotecas da Universidade de Brasília (SiB-UnB) Biblioteca Central (BCE) Coordenadoria de Atendimento aos Usuários (AUS) Setor de Referência (REF)",
+        "ACESSO REMOTO AO PORTAL DE PERIÓDICOS DA CAPES",
+        "Importante! Para acessar o conteúdo completo do portal dentro do ambiente da UnB, basta estar conectado à rede UnB Wireless. A conexão por meio da rede CAFe será realizada automaticamente.",
+        "1. Acesse a página do Portal de Periódicos da Capes (clique aqui).",
+        "2. Na parte superior esquerda, clique em Acesso CAFe.",
+        "3. Na caixa de busca, digite UnB e selecione a opção UNB - UNIVERSIDADE DE",
+        "BRASÍLIA na lista de instituições. Em seguida, clique em Enviar.",
+        "Biblioteca Central - Campus Universitário Darcy Ribeiro, Gleba A CEP: 70910-900 Brasília - DF, Brasil"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 2"
+      ],
+      "pagina": 2,
+      "paragrafos": [
+        "Universidade de Brasília (UnB) Sistema de Bibliotecas da Universidade de Brasília (SiB-UnB) Biblioteca Central (BCE) Coordenadoria de Atendimento aos Usuários (AUS) Setor de Referência (REF)",
+        "4. Na tela seguinte, informe o login e senha, conforme exemplo. Em seguida,",
+        "clique em Entrar.",
+        "Categorias E-mail institucional Login Senha",
+        "matrícula@aluno.unb.br matrícula",
+        "Senha do SIGAA/ E-mail",
+        "Estudantes (Graduação/Pós-graduação)",
+        "institucional",
+        "nome@unb.br",
+        "nome",
+        "Senha do SIGRH/ E-mail",
+        "Servidores (Docentes/Técnicos)",
+        "institucional",
+        "OBSERVAÇÃO: Caso não consiga acessar utilizando apenas o login, informe o e- mail institucional completo, por exemplo: matrícula@aluno.unb.br ou nome@unb.br",
+        "Biblioteca Central - Campus Universitário Darcy Ribeiro, Gleba A CEP: 70910-900 Brasília - DF, Brasil"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 3"
+      ],
+      "pagina": 3,
+      "paragrafos": [
+        "Universidade de Brasília (UnB) Sistema de Bibliotecas da Universidade de Brasília (SiB-UnB) Biblioteca Central (BCE) Coordenadoria de Atendimento aos Usuários (AUS) Setor de Referência (REF)",
+        "5. Será apresentada a tela inicial do portal. Observe se na parte superior esquerda",
+        "aparece a sigla UNB, indicando que está acessando o conteúdo restrito.",
+        "6. Para encontrar uma base específica, clique em Lista de Bases e Coleções.",
+        "Escreva o nome da base de interesse e clique em pesquisar.",
+        "Biblioteca Central - Campus Universitário Darcy Ribeiro, Gleba A CEP: 70910-900 Brasília - DF, Brasil"
+      ]
+    }
+  ],
+  "paginas_total": 3,
+  "paginas_selecionadas": [
+    1,
+    2,
+    3
+  ],
+  "palavras": 312,
+  "avisos": [
+    "Conferir leitura de tabelas e diagramas no original"
+  ],
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0
+}

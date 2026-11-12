@@ -1,0 +1,49 @@
+{
+  "source_id": "DOC-010",
+  "versao": "2026-11-11",
+  "sha256_original": "b6f8724b3c551a2f855ea56cca06a9624892f0dbef1513f7e1702a0e6b30fb7f",
+  "url": "https://software.unb.br/apoio-psicopedagogico/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Apoio Psicopedagógico – Engenharia de Software – UnB",
+  "palavras": 227,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "O Serviço de Orientação ao Universitário (SOU) é o órgão de apoio acadêmico e de orientação psicoeducacional criado para assistir aos estudantes da Universidade de Brasília. Na UnB, o SOU é uma das coordenações da Diretoria de Acompanhamento e Integração Acadêmica (DAIA) vinculada ao Decanato de Ensino de Graduação (DEG). Em particular na FCTE, o SOU possui um posto avançado com profissionais da área de pedagogia e psicologia para realizar atendimento aos estudantes da comunidade.",
+        "O que o SOU faz?",
+        "Acolhe, atende e orienta estudantes de graduação em suas dúvidas e questões acadêmicas e pessoais, apoiando-os para o pleno desenvolvimento do ser universitário e universitária;",
+        "Identifica obstáculos na estrutura e funcionamento institucional que impeçam o desenvolvimento educacional e informa aos órgãos competentes, solicitando providências e propondo mudanças que viabilizem melhores condições para o processo de ensino-aprendizagem;",
+        "Apóia os professores e os funcionários na construção de seus papéis de educadores;",
+        "Colabora com coordenadores de curso na orientação aos estudantes do seu curso;",
+        "Acolhe os pais ou responsáveis que se interessam e desejam conhecer mais a Universidade de Brasília para melhor acompanhar seus filhos e filhas, agora na condição de estudantes universitários.",
+        "Com uma proposta interdisciplinar pautada no diálogo e uma equipe multiprofissional composta de psicólogos e pedagogos, o SOU atua de modo a promover o desenvolvimento integral do universitário, atendendo-o em suas necessidades específicas.",
+        "Mais informações em https://dds.dac.unb.br/"
+      ]
+    }
+  ]
+}

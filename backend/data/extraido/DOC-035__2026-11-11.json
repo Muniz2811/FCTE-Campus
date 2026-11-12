@@ -1,0 +1,59 @@
+{
+  "source_id": "DOC-035",
+  "versao": "2026-11-11",
+  "sha256_original": "328ee2c537644d468840c91083ca40b4f5aab1d9bc688f53ba8853f704523209",
+  "url": "https://dasu.unb.br/acolhimento-psicossocial/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Coordenação de Atenção Psicossocial (Coap) – DASU UnB",
+  "palavras": 378,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "1. Triagem\nProcesso inicial de separação das queixas e/ou encaminhamentos apresentados à coordenação essencialmente pelo e-mail coapsicossocial@unb.br, mas também pelo SEI. Essa primeira avaliação permite selecionar os encaminhamentos a serem cumpridos dentro do âmbito da universidade e os alheios à Coap/Dasu e/ou a esferas externas.",
+        "2. Serviço de Acolhimento Psicossocial Individual\nConsiste no espaço sigiloso de escuta de queixas, angústias ou problemas do estudante, servidor técnico ou docente que se encontra em sofrimento psíquico. Após identificação da situação apresentada, realiza-se o encaminhamento devido para rede interna ou externa.",
+        "O ingresso se dá por procura espontânea do(a) interessado(a). Para maiores informações, envie e-mail ao endereço coapsicossocial@unb.br.",
+        "Frisamos que a Coap não realiza atendimentos de emergência. Em situação de crise psíquica, dirija-se:\ni. à unidade de saúde ou CAPS – Centros de Atenção Psicossocial mais próximo a sua residência;\nii. ao Hospital São Vicente de Paulo – HSVP (Endereço: QSC 01, Área Especial, Setor C Sul, Taguatinga Sul – Telefone: (61) 3449-7788/7789 – informações do site da Secretaria de Saúde do DF) Pronto Socorro: atendimento 24 horas;\niii. entre em contato com o SAMU-NUSAM (192) ou Bombeiros (193).",
+        "Fluxo de atendimento a urgência e emergência em saúde mental na UnB",
+        "2.1. Escuta do processo de enlutamento coletivo e individual referente à perda de membros da comunidade universitária\nConsiste no espaço sigiloso de escuta coletiva e/ou individual de angústias ou dificuldades de estudantes, servidores técnicos e docentes que se encontram em sofrimento psíquico em decorrência de suicídio ou tentativa de suicídio.",
+        "3. Serviço de Atendimento Psicológico\nConsiste no atendimento psicológico individual do estudante, servidor técnico ou docente a fim de evitar seu agravamento ou cronificação, priorizando os que se encontram em vulnerabilidade socioeconômica. O atendimento psicológico ocorre de segunda a sexta-feira, no período das 07h às 19h.",
+        "O ingresso se dá por meio do encaminhamento realizado pelo Serviço de Acolhimento Psicossocial.",
+        "4. Serviço de Atendimento Nutricional\nConsiste no atendimento nutricional individual de estudantes, priorizando os que se encontram em vulnerabilidade socioeconômica. A orientação nutricional é oferecida àqueles que necessitam de tratamento dietoterápico para:",
+        "Diabetes;",
+        "Obesidade;",
+        "Hipertensão;",
+        "Dislipidemia;",
+        "Baixo peso;",
+        "Doenças do trato digestório;",
+        "Doenças renais;",
+        "Doenças autoimunes;",
+        "Entre outras doenças.",
+        "O ingresso se dá por meio de inscrição que é divulgada nas redes sociais da Dasu quando há disponibilidade de vagas."
+      ]
+    }
+  ]
+}

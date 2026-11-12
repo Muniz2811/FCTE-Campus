@@ -1,0 +1,43 @@
+{
+  "source_id": "DOC-001",
+  "versao": "2026-11-11",
+  "sha256_original": "ceadfb0cc3356250926466b5f5490f14b208273953e0be1d4a1f054f9b3781f9",
+  "url": "https://fcte.unb.br/infraestrutura/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Infraestrutura – FCTE",
+  "palavras": 83,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Infraestrutura"
+      ],
+      "paragrafos": [
+        "A atual sede do campus da FCTE conta com uma Unidade Acadêmica (UAC), uma Unidade de Ensino e Docência (UED) e um centro de convivência. Os edifícios são de dois pavimentos, sendo o centro de convivência no andar térreo. A área construída prevista para cada uma das unidades é de aproximadamente 5.200 m². Na UED estão locadas as salas de professores, os serviços de secretaria, laboratórios, diretoria e coordenação acadêmica. Na UAC, estão locadas salas de aula, laboratórios de informática, biblioteca e auditório."
+      ]
+    }
+  ]
+}

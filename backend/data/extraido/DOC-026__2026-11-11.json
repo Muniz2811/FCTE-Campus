@@ -1,0 +1,52 @@
+{
+  "source_id": "DOC-026",
+  "versao": "2026-11-11",
+  "sha256_original": "9a760a58c4e8f61261975bcbf3675ef1aa68d73a01f741320e5f21f2551e4120",
+  "url": "https://dfnoponto.semob.df.gov.br/pesquisa-geral/",
+  "regras": {
+    "conteudo": "#ajax-content-wrap",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button",
+      "#header-outer",
+      "#search-outer",
+      "#footer1",
+      "#footer2",
+      "#slide-out-widget-area"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": [
+      "Baixe o aplicativo agora mesmo!"
+    ]
+  },
+  "titulo_pagina": "Pesquisa Geral - Consulte os horários, linhas e pontos de parada.",
+  "palavras": 30,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 5,
+  "avisos": [
+    "pouco texto: 30 palavras"
+  ],
+  "secoes": [
+    {
+      "caminho": [
+        "Pesquisa Geral"
+      ],
+      "paragrafos": [
+        "Fazer uma pesquisa geral no DF NO PONTO é rápido e intuitivo. Basta informar o local de partida ou destino para acessar horários, linhas disponíveis e pontos de parada próximos."
+      ]
+    }
+  ]
+}

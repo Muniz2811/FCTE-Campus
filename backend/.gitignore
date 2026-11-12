@@ -1,0 +1,18 @@
+# Dados que não vão para o git (originais, coleta real, índice, logs)
+data/originais/
+data/fichas/
+data/index/
+data/execucoes/
+
+# Segredos
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.cache/
+
+# Chunks de rascunho (fontes pendentes tratadas como aprovadas)
+data/chunks/chunks_rascunho*

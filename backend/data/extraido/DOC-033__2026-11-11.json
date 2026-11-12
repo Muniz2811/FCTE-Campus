@@ -1,0 +1,62 @@
+{
+  "source_id": "DOC-033",
+  "versao": "2026-11-11",
+  "sha256_original": "1a8cdcd5e63ca05cc4713df015495d1a4fe3dc552995be2be0ef49a73056984d",
+  "url": "https://acessibilidade.unb.br/solicitacao-de-atendimento-para-discentes/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Solicitação de atendimento para discentes – acessibilidade",
+  "palavras": 292,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "Para acesso aos serviços e programas desenvolvidos pela DACES/DAC é necessário que o/a estudante esteja com matrícula ativa na Universidade e tenha seu cadastro efetivado na Diretoria de Acessibilidade.",
+        "A solicitação de atendimento deve ser inicialmente registrada no Sistema Integrado de Gestão de Atividades Acadêmicas – SIGAA.",
+        "Após essa ação, o/a discente receberá um e-mail da nossa equipe, a qual indicará a necessidade de envio de documento que comprove a condição já indicada no pedido.",
+        "Tendo sido aprovada a documentação, nossa equipe fará o agendamento da entrevista de acolhimento. Esse procedimento visa conhecer a demanda específica do/a estudante e informar sobre as ações da DACES/DAC."
+      ]
+    },
+    {
+      "caminho": [
+        "Tutorial de cadastro na DACES"
+      ],
+      "paragrafos": [
+        "1º PASSO: Acesse o endereço eletrônico: https://autenticacao.unb.br",
+        "Quando a página carregar clique em ”SIGAA (Acadêmico)”, você será redirecionado para a página de login do estudante.",
+        "Após o redirecionamento, escreva seu login e senha na caixa de autenticação integrada e clique em “ENTRAR”.",
+        "2º PASSO: Após fazer login você será redirecionado para a página inicial do SIGAA.",
+        "No menu horizontal passe o mouse em cima de “Outros”, depois vá em “Necessidades Educacionais Específicas” e logo em seguida clique em “Solicitar Apoio a DACES”.",
+        "3º PASSO: Você será redirecionado à página de",
+        "“Cadastro de Discente com DACES”.",
+        "Em “DADOS DA SOLICITAÇÃO” você irá marcar quais são suas necessidades educacionais e, abaixo, no campo de texto, você irá escrever a justificativa para a sua solicitação de apoio à DACES. Antecipe informações sobre suas demandas de acessibilidade e as barreiras que você enfrenta no processo de aprendizagem.",
+        "Confira todas as informações e depois clique em “Cadastrar”.",
+        "4º PASSO: Após clicar em “Cadastrar” você será redirecionado novamente à página inicial do SIGAA e irá aparecer a mensagem “Operação realizada com sucesso!”.",
+        "Pronto, sua solicitação de atendimento à Diretoria de Acessibilidade foi feita!"
+      ]
+    }
+  ]
+}

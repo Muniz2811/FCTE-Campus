@@ -1,0 +1,73 @@
+{
+  "source_id": "DOC-030",
+  "versao": "2026-11-11",
+  "sha256_original": "89b116a741d2c7c0fa28f39bf36cb8b02fbdaacd0e4f292b626152cd8cad93d6",
+  "url": "https://sti.unb.br/unb-wireless-e-eduroam/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "UnB Wireless e Eduroam – STI/UnB",
+  "palavras": 182,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "Active Directory (AD)",
+        "Cadastro de Visitantes na Rede Wireless",
+        "E-mail Institucional",
+        "Lista de Discussão",
+        "Microsoft Office 365 na UnB",
+        "Outsourcing de Impressão",
+        "Rede e Conectividade",
+        "Segurança da Informação",
+        "Sistemas Acadêmicos",
+        "Sistemas Administrativos",
+        "Sistema de Comunicação Integrada",
+        "Sites Corporativos",
+        "Suporte Técnico",
+        "UnB Wireless e Eduroam"
+      ]
+    },
+    {
+      "caminho": [
+        "UnB WIRELESS E EDUROAM"
+      ],
+      "paragrafos": [
+        "A UnB Wireless e a EDURoam são serviços de acesso sem fio seguros, que permitem que discentes, docentes e técnicos-administrativos da UnB obtenham conectividade à Internet, por meio de conexão sem fio (Wi-Fi), no âmbito da UnB.",
+        "Credenciais de Acesso:",
+        "EDURoam: login e senha do e-mail da sua instituição (para maiores informações, acesse aqui)",
+        "UNB Wireless: login (sem @unb.br ou @aluno.unb.br) senha do e-mail institucional da UnB",
+        "Visitantes sem vínculo com a UnB ou EduRoam:",
+        "O Acesso à Rede Sem Fio para visitantes se dá por meio do cadastro realizado nas unidades acadêmicas e administrativas da UnB realizada pelo agente de relacionamento. É concedido ao visitante apenas o serviço de acesso à UnB Wireless para acesso à Internet.",
+        "Para instruções detalhadas, por favor, selecione o sistema do seu computador ou dispositivo abaixo:",
+        "Android",
+        "Apple iOS",
+        "Windows",
+        "MAC",
+        "Ubuntu"
+      ]
+    }
+  ]
+}

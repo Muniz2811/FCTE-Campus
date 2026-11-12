@@ -1,0 +1,63 @@
+{
+  "source_id": "DOC-029",
+  "versao": "2026-11-11",
+  "sha256_original": "d022bf234df9f2c62c2923bf5960c24a8004f35ea6d4821156f5b0bd3003f998",
+  "url": "https://ceplan.unb.br/wp-content/uploads/2026/02/Campus-Gama.pdf",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Layout1",
+  "secoes": [
+    {
+      "caminho": [
+        "Página 1"
+      ],
+      "pagina": 1,
+      "paragrafos": [
+        "INFORMAÇÕES",
+        "RODOVIA DF- 480 RODOVIA DF- 480",
+        "ARTICULAÇÃO DOS FORMATOS",
+        "RODOVIA DF- 480 RODOVIA DF- 480",
+        "RODOVIA DF- 480",
+        "01/02 02/02",
+        "ORIENTAÇÃO GEOGRÁFICA",
+        "LEGENDA",
+        "Pr jesolos",
+        "Topografia e Consultoria (31) 2514-4630 / 9487-0506",
+        "Fundação Universidade de Brasília",
+        "Campus da Faculdade UnB de Gama",
+        "LEVANTAMENTO PLANIALTIMÉTRICO CADASTRAL",
+        "02/02"
+      ]
+    }
+  ],
+  "paginas_total": 1,
+  "paginas_selecionadas": [
+    1
+  ],
+  "palavras": 47,
+  "avisos": [
+    "Conferir leitura de tabelas e diagramas no original"
+  ],
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0
+}

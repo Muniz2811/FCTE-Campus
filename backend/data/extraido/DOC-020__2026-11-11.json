@@ -1,0 +1,83 @@
+{
+  "source_id": "DOC-020",
+  "versao": "2026-11-11",
+  "sha256_original": "62389e64562d7cbad9d15d991fd44fec702822b973066665cd53457a87c57413",
+  "url": "https://lite.unb.br/laboratorio-de-pesquisa-em-recursos-renovaveis-e-energeticos/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Laboratório de Pesquisa em Recursos Renováveis e Energéticos Laboratório de Pesquisa em Recursos Renováveis e Energéticos - FCTE / LITE",
+  "palavras": 337,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Laboratório de Pesquisa em Recursos Renováveis e Energéticos"
+      ],
+      "paragrafos": [
+        "O Laboratório de Pesquisa em Recursos Renováveis e Energéticos (LAPRREn), coordenado pela Prof.ª Roseany de Vasconcelos Vieira Lopes, é um centro de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), dedicado ao estudo e desenvolvimento de soluções sustentáveis para o setor energético. O laboratório se concentra em tecnologias inovadoras, como biocombustíveis, rotas de produção de hidrogênio, células a combustível, e na síntese e caracterização de materiais avançados para aplicações energéticas."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Pesquisa em Recursos Renováveis e Energéticos",
+        "Missão e Objetivos"
+      ],
+      "paragrafos": [
+        "A missão do LAPRREn é promover a pesquisa e inovação em recursos renováveis, contribuindo para a transição energética e a sustentabilidade ambiental. O laboratório desenvolve soluções que abrangem desde a produção de combustíveis alternativos até o avanço de tecnologias para geração e armazenamento de energia, preparando alunos e pesquisadores para enfrentar os desafios do futuro energético."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Pesquisa em Recursos Renováveis e Energéticos",
+        "Áreas de Especialização"
+      ],
+      "paragrafos": [
+        "O LAPRREn é especializado em áreas-chave da engenharia energética:",
+        "Biocombustíveis: Desenvolvimento de processos para produção de combustíveis renováveis a partir de fontes vegetais e resíduos orgânicos, com foco na redução de emissões e no aproveitamento sustentável de recursos.",
+        "Rotas de Produção de Hidrogênio: Pesquisa de métodos para produzir hidrogênio, um combustível limpo e eficiente, utilizando recursos renováveis e processos inovadores.",
+        "Células a Combustível: Estudo e desenvolvimento de tecnologias para geração de energia elétrica a partir de hidrogênio, promovendo sistemas mais eficientes e com menor impacto ambiental.",
+        "Síntese e Caracterização de Materiais: Desenvolvimento de materiais avançados para aplicações em processos energéticos, como catalisadores e componentes para células a combustível."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Pesquisa em Recursos Renováveis e Energéticos",
+        "Infraestrutura e Capacidades Técnicas"
+      ],
+      "paragrafos": [
+        "O LAPRREn conta com uma infraestrutura moderna que permite a condução de pesquisas em larga escala e análises detalhadas de materiais e processos. Os equipamentos incluem sistemas de síntese de materiais, instrumentos de caracterização físico-química e dispositivos para teste e validação de tecnologias energéticas."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Pesquisa em Recursos Renováveis e Energéticos",
+        "Contribuição para Sustentabilidade e Inovação"
+      ],
+      "paragrafos": [
+        "O LAPRREn desempenha um papel fundamental na pesquisa e desenvolvimento de tecnologias limpas, contribuindo para a formação de engenheiros e cientistas voltados para soluções sustentáveis. Suas atividades de pesquisa fortalecem a busca por fontes de energia renováveis, promovendo a inovação e apoiando a transição para uma matriz energética mais limpa e eficiente."
+      ]
+    }
+  ]
+}

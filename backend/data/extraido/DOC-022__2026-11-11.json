@@ -1,0 +1,86 @@
+{
+  "source_id": "DOC-022",
+  "versao": "2026-11-11",
+  "sha256_original": "7dc107c9f29a94f17551dc0c38f9c4b98a72286f69ffc35a1b2409cd28bb86c9",
+  "url": "https://lite.unb.br/laboratorio-de-termofluidos/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Laboratório de Termofluidos",
+  "palavras": 299,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Laboratório de Termofluidos"
+      ],
+      "paragrafos": [
+        "O Laboratório de Termofluidos (LabTermo), coordenado pelo Prof. Luciano Gonçalves Noleto, é uma unidade de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), dedicada ao estudo e desenvolvimento em áreas relacionadas à mecânica dos fluidos, transferência de calor e aproveitamento de energia. Com uma abordagem multidisciplinar, o LabTermo foca no avanço de tecnologias para sistemas térmicos e hidráulicos, promovendo a eficiência energética e soluções sustentáveis para aplicações industriais e acadêmicas."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Termofluidos",
+        "Missão e Objetivos"
+      ],
+      "paragrafos": [
+        "A missão do LabTermo é impulsionar a pesquisa em engenharia térmica e de fluidos, contribuindo para o desenvolvimento de tecnologias inovadoras que melhorem o aproveitamento de recursos energéticos. O laboratório busca formar profissionais qualificados, integrando experimentação, modelagem e análise para resolver problemas complexos relacionados à transferência de calor, escoamentos e sistemas hidráulicos."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Termofluidos",
+        "Áreas de Especialização"
+      ],
+      "paragrafos": [
+        "O LabTermo abrange diversas áreas da engenharia térmica e de fluidos:",
+        "Mecânica dos Fluidos: Estudo de escoamentos em diferentes regimes e suas aplicações em projetos industriais e sistemas hidráulicos.",
+        "Transferência de Calor: Pesquisa em métodos de otimização de trocadores de calor e análise de processos de dissipação térmica em sistemas complexos.",
+        "Aproveitamento de Energia: Desenvolvimento de tecnologias para maximizar a eficiência no uso de recursos energéticos, especialmente em processos industriais.",
+        "Energia Hidráulica: Estudos sobre aproveitamento energético de sistemas hidráulicos, incluindo projetos para geração de energia renovável."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Termofluidos",
+        "Infraestrutura e Capacidades Técnicas"
+      ],
+      "paragrafos": [
+        "O LabTermo conta com uma infraestrutura avançada para experimentação e modelagem em termofluidos, incluindo:",
+        "Bancadas de teste para escoamentos e transferência de calor.",
+        "Ferramentas para análise computacional de fluidos (CFD) e simulação térmica.",
+        "Equipamentos de medição para validação experimental de modelos teóricos."
+      ]
+    },
+    {
+      "caminho": [
+        "Laboratório de Termofluidos",
+        "Contribuição para Sustentabilidade e Inovação"
+      ],
+      "paragrafos": [
+        "O LabTermo desempenha um papel crucial no desenvolvimento de soluções energéticas eficientes, apoiando a transição para uma matriz energética sustentável. Suas pesquisas em energia hidráulica e aproveitamento térmico contribuem para reduzir o impacto ambiental, promovendo a inovação em engenharia térmica e hidráulica."
+      ]
+    }
+  ]
+}

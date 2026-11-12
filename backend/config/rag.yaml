@@ -1,0 +1,168 @@
+caminhos:
+  catalogo: data/catalogo/fontes.csv
+  entidades: config/entidades.yaml
+  originais: data/originais
+  fichas: data/fichas/records.json
+  extraido: data/extraido
+  chunks: data/chunks/chunks.jsonl
+  chunks_rascunho: data/chunks/chunks_rascunho.jsonl
+  chroma: data/index/chroma
+  manifesto: data/index/manifesto.json
+  execucoes: data/execucoes
+catalogo:
+  status_validos:
+  - aprovado
+  - pendente
+  - rejeitado
+  abrangencias_validas:
+  - Gama
+  - UnB geral
+  - DF
+  tipos_validos:
+  - pagina_web
+  - pdf
+  - ficha
+  validade_desconhecida: desconhecida
+  meta_aprovados: 20
+aquisicao:
+  user_agent: unb-gama-rag/0.1 (projeto academico, Residencia em IA, UnB Gama)
+  timeout_s: 30
+  pausa_s: 2
+  status_ignorados:
+  - rejeitado
+  fuso_horario: America/Sao_Paulo
+extracao:
+  conteudo_padrao: main
+  remover_padrao:
+  - script
+  - style
+  - noscript
+  - svg
+  - iframe
+  - form
+  - nav
+  - header
+  - footer
+  - aside
+  - button
+  titulos_extras:
+  - .elementor-tab-title
+  min_palavras: 50
+  por_site:
+    dfnoponto.semob.df.gov.br:
+      conteudo: '#ajax-content-wrap'
+      remover:
+      - '#header-outer'
+      - '#search-outer'
+      - '#footer1'
+      - '#footer2'
+      - '#slide-out-widget-area'
+  por_fonte:
+    DOC-003:
+      excluir_paragrafos_regex:
+      - Programa Auxílio Alimentação
+    DOC-009:
+      excluir_paragrafos_regex:
+      - Restaurante Universitário
+    DOC-025:
+      excluir_secoes:
+      - Baixe o aplicativo agora mesmo!
+    DOC-026:
+      excluir_secoes:
+      - Baixe o aplicativo agora mesmo!
+    DOC-027:
+      excluir_secoes:
+      - Baixe o aplicativo agora mesmo!
+    DOC-028:
+      paginas:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      excluir_paragrafos_regex:
+      - Alimentação
+      - Restaurante Universitário
+    DOC-038:
+      paginas:
+      - 69
+      - 96
+      - 97
+      excluir_paragrafos_regex:
+      - transporte no campus
+      - DIRETORIA DE ESPORTE
+      - A DEAC
+      - Por meio da Coordenação
+    DOC-032:
+      excluir_secoes:
+      - EMPRÉSTIMOS > Multa > Cadastro de Usuário
+      - Guia para empréstimo dos notebooks da BCE.
+      excluir_paragrafos_regex:
+      - Espaço LER
+      - Espaço Ler
+      - máquinas
+      - Ilha de
+      - ilha de
+      - térreo da BCE
+      - notebooks
+    DOC-039:
+      excluir_secoes:
+      - Serviços de Acessibilidade > Realocação de Sala e Adequação de Mobiliário
+      - Serviços de Acessibilidade > Transporte no Campus
+      - Serviços de Acessibilidade > Laboratório de Informática DACES
+      - Serviços de Acessibilidade > Laboratório de Informática DACES > Regras de
+        Convivência e Uso
+embeddings:
+  modelo: intfloat/multilingual-e5-small
+  revisao: 614241f622f53c4eeff9890bdc4f31cfecc418b3
+  dimensao: 384
+  max_tokens: 512
+  prefixo_documento: 'passage: '
+  prefixo_pergunta: 'query: '
+  normalizar: true
+  dispositivo: cpu
+  lote: 16
+  threads_cpu: 4
+  cache: .cache/huggingface
+chunking:
+  estrategia: agrupar_irmaos
+  alvo_tokens: 300
+  sobreposicao_tokens: 40
+  max_tokens: 512
+indice:
+  colecao: fcte
+  distancia: cosine
+  lote: 128
+busca:
+  metodo: hibrida_rrf
+  bm25_k1: 1.2
+  bm25_b: 0.75
+  rrf_k: 60
+  top_k: 5
+  max_por_fonte: 2
+  candidatos: 30
+  reranker:
+    ativo: true
+    modelo: cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
+    revisao: 1427fd652930e4ba29e8149678df786c240d8825
+    candidatos: 30
+    lote: 8
+    max_tokens: 512
+    limiar: -4.0
+    rrf_k: 60
+geracao:
+  provedor: gemini
+  modelo: gemini-3.5-flash-lite
+  temperatura: 0.1
+  timeout_s: 90
+  max_output_tokens: 3072

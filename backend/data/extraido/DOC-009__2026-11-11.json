@@ -1,0 +1,46 @@
+{
+  "source_id": "DOC-009",
+  "versao": "2026-11-11",
+  "sha256_original": "ced65b9e5688f2cb67c5aa5b9ed296fd2b3c0027c4ce7a870efd26bb17af711d",
+  "url": "https://software.unb.br/espacos-de-convivencia/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [
+      "Restaurante Universitário"
+    ],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Espaços de Convivência – Engenharia de Software – UnB",
+  "palavras": 5,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 1,
+  "avisos": [
+    "pouco texto: 5 palavras"
+  ],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "Quadra de esportes",
+        "Parque Solar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "source_id": "DOC-031",
+  "versao": "2026-11-11",
+  "sha256_original": "a3931b56f53df7fd6755040473302d6f2f5b86d415f20cf4c6271d81eae192ec",
+  "url": "https://sti.unb.br/estudante/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "ESTUDANTE – STI/UnB",
+  "palavras": 1712,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como acessar o e-mail da UnB"
+      ],
+      "paragrafos": [
+        "O acesso ao e-mail institucional acadêmico da UnB se dará pela plataforma do Office 365 (https://www.office.com/) e dentro da plataforma acessando o Outlook ou diretamente pelo site do Outlook em https://outlook.com.\nO login do aluno no Office/Outlook será a sua matrícula de aluno regular da UnB acrescida da terminação @aluno.unb.br e a senha será a mesma senha que lhe permite acesso ao sistema SIGAA. Como exemplo, se o aluno possui a matrícula 2019123456 o seu login será 2019123456@aluno.unb.br mais a senha da UnB."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Apelido de e-mail de aluno da UnB, como é gerado?"
+      ],
+      "paragrafos": [
+        "Todo aluno receberá um apelido (alias) de e-mail que será gerado eletronicamente pelo sistema quando da inserção do aluno no sistema acadêmico da UnB. Este apelido de e-mail é gerado baseado no nome documental do aluno e não pode ser modificado para não gerar duplicidades de e-mail e manter o padrão. Modificações serão permitidas somente se o aluno alterou em seu documento de identificação o seu próprio nome ou o seu nome social e deverá solicitar essa mudança primeiramente a SAA através do e-mail saaatendimento@unb.br .",
+        "Como exemplo prático, se o nome do aluno que possui a matrícula da UnB 2019123456 for Antônio Jorge da Silva, o seu e-mail poderá ser antonio.silva@aluno.unb.br , porém o seu login de acesso na Suíte do Office 365 e para acesso ao Outlook continuará sendo 2019123456@aluno.unb.br mais a mesma senha do sistema SIGAA."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como troco a senha do meu e-mail da UnB"
+      ],
+      "paragrafos": [
+        "– A senha para acesso ao E-mail de aluno é a mesma senha para acessar o sistema SIGAA.\n– A troca de senha do E-mail de aluno é realizada através do Portal SIG UnB.\n– Alteração da senha dentro do Portal SIGAA:\nAcesse https://sig.unb.br/sigaa informe suas credencias (O nome de usuário do SIGAA é a sua matrícula sem o @aluno.unb.br) e clique em “Alterar senha” no menu superior direito.",
+        "Clique em “Clique Aqui para Alterar a sua Senha”",
+        "Informe a senha atual, a nova senha, confirme e clique em “Alterar Dados”",
+        "Aguarde até 5 minutos após a troca da senha para que a mesma seja sincronizada com os demais serviços da STI. Ou seja, esta mesma senha deverá ser usada para acesso ao SIGAA, Office365 ou Outlook, Teams, One Drive, UnB Wireless, Eduroam e Rede CAFe."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Esqueci a senha do meu e-mail de aluno e do SIG UnB, o que fazer?"
+      ],
+      "paragrafos": [
+        "Caso tenha esquecido a senha de acesso ao SIGAA, você pode recadastrá-la clicando no link: https://sig.unb.br/admin/public/recuperar_senha.jsf, no campo Login informe sua matrícula e no campo E-mail Cadastrado seu e-mail alternativo cadastrado no SIGAA.",
+        "Feito isso, será enviado um link para seu e-mail alternativo com as instruções de alteração da sua senha.\nAguarde até 5 minutos após a troca da senha para que a mesma seja sincronizada com os demais serviços da STI. Ou seja, esta mesma senha deverá ser usada para acesso ao SIGAA, Office365 ou Outlook, Teams, One Drive, UnB Wireless, Eduroam e Rede CAFe."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Não sei usar o Outlook, o que eu faço?"
+      ],
+      "paragrafos": [
+        "Não se preocupe. O Outlook é bem fácil de se utilizar. Você pode assistir esse rápido treinamento, em vídeo, que estará apto a utilizar o Outlook Web."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como crio um redirecionamento do meu e-mail da UnB para outro e-mail qualquer?"
+      ],
+      "paragrafos": [
+        "Para criar um redirecionamento ou encaminhamento de e-mail para outro domínio de e-mail, basta seguir estes passos."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como crio filtro de e-mail?"
+      ],
+      "paragrafos": [
+        "Para criar filtros de e-mail, basta seguir estes passos."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como crio uma assinatura para o meu e-mail da UnB?"
+      ],
+      "paragrafos": [
+        "Para criar uma assinatura de e-mail, siga estes passos."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Existe um limite de envio de e-mails?"
+      ],
+      "paragrafos": [
+        "Sim, porém os limites são bem altos. Você pode consultar os limites do Office 365 aqui. Caso deseje enviar uma mesma mensagem para vários destinatários, você deve realizar a criação de uma lista de e-mail."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como recupero mensagens apagadas?"
+      ],
+      "paragrafos": [
+        "A Microsoft não fornece serviço de backup de e-mail, portanto, a STI não tem como recuperar mensagens apagadas ou deletadas do sistema.\nToda mensagem de e-mail excluída de uma determinada pasta é depositada na pasta “Itens Excluídos” e fica lá armazenada por 30 dias. Portanto, se você removeu uma mensagem ou pasta e quer recuperá-la, verifique se a mesma ainda se encontra nesta pasta, lembrando que, se a mensagem a ser recuperada foi apagada a mais de trinta dias, não será mais possível a sua recuperação."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "O e-mail de aluno tem prazo de validade?"
+      ],
+      "paragrafos": [
+        "Sim. Quando ocorrer o término do seu vínculo com a instituição por algum motivo qualquer (diplomação, júbilo, trancamento, mudança de curso, etc), este e-mail será removido do sistema após 30 (trinta) dias corridos ao término do vínculo e o aluno perderá o acesso ao seu e-mail acadêmico e também ao Office 365 da UnB.",
+        "Cabe exclusivamente ao aluno efetuar suas cópias de segurança e de backup das suas mensagens de correio e arquivos armazenados no Office da UnB antes de ter seu vínculo suspenso pela Instituição.",
+        "A STI/UnB não efetua recuperação de conta de e-mail de aluno já expirada e nem faz backup dos arquivos e pastas do Office 365 da UnB."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Resolvi mudar de curso ou obtive dupla diplomação, o que acontecerá com o e-mail de aluno?"
+      ],
+      "paragrafos": [
+        "Caso o(a) aluno(a) concluir um curso e ser contemplado em Edital de dupla diplomação, este será registrado em um segundo curso e receberá um novo número de matrícula. Consequentemente, o(a) aluno(a) terá um novo e-mail institucional (vinculado à nova matrícula) e permanecerá também com o e-mail relacionado a primeira matrícula até a finalização do primeiro curso ou sua desvinculação do sistema. Ou seja, se o aluno (a) estiver cursando dois cursos com matrículas distintas ao mesmo tempo, ele obterá dos e-mails de aluno respectivamente.",
+        "Cabe ressaltar que o acesso ao e-mail vinculado à matrícula do curso anterior é encerrado 30 (trinta) dias após a conclusão do curso (primeiro curso). Neste mesmo sentido, quando o(a) aluno(a) realiza novo processo seletivo para o mesmo curso ou curso distinto do que está matriculado, receberá um novo número de matrícula, consequentemente novo e-mail institucional e, o acesso ao e-mail vinculado à matrícula do curso anterior é encerrado 30 (trinta) dias, após o cancelamento da matrícula anterior.",
+        "Cabe exclusivamente ao aluno efetuar suas cópias de segurança e de backup das suas mensagens de correio e arquivos armazenados no Office da UnB antes de ter seu vínculo suspenso pela Instituição.",
+        "A STI/UnB não efetua recuperação de conta de e-mail de aluno já expirada e nem faz backup dos arquivos e pastas do Office 365 da UnB."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como configuro um programa cliente de e-mail no meu computador?"
+      ],
+      "paragrafos": [
+        "Caso o usuário preferir usar o e-mail institucional dentro de outro programa cliente de e-mail distinto do outlook, deverá buscar as informações necessárias diretamente no site do programa escolhido para a correta configuração e compatibilidade com os serviços e mecanismos de autenticação do Outlook (Microsoft)."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como configurar o e-mail da UnB em outros provedores de correio eletrônico, como por exemplo no Gmail, ICloud Mail, Yahoo! Mail, e outros?"
+      ],
+      "paragrafos": [
+        "Caso o usuário preferir usar o e-mail institucional dentro de outro serviço de e-mail, deverá buscar as informações necessárias para correta configuração e compatibilidade com os serviços e mecanismos de autenticação do Outlook (Microsoft) no portal do provedor do serviço.",
+        "NOTA IMPORTANTE:\nInformamos que a STI não homologa, não configura e não dá suporte ao funcionamento de ferramentas de correio eletrônico de terceiros."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como configurar o Outlook com outras contas de e-mail, como Gmail, por exemplo?"
+      ],
+      "paragrafos": [
+        "A Microsoft disponibiliza em seu sítio informações de como adicionar outras contas de e-mail a sua conta do outlook. Para maiores informações, consulte o sítio da Microsfot (https://support.microsoft.com/en-us/office/add-a-gmail-account-to-outlook-70191667-9c52-4581-990e-e30318c2c081).",
+        "NOTA IMPORTANTE:",
+        "Informamos que a STI não homologa, não configura e não dá suporte ao funcionamento de ferramentas de correio eletrônico de terceiros."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Qual o mecanismo de autenticação do Outlook?"
+      ],
+      "paragrafos": [
+        "No dia 03/10/2022 a Microsoft descontinuou o método de autenticação básica no Exchange Online. Por muitos anos, os aplicativos usaram a autenticação básica para se conectar a servidores, serviços e terminais de API. A autenticação básica significa simplesmente que o aplicativo envia um nome de usuário e uma senha a cada solicitação, e essas credenciais também costumam ser armazenadas ou salvas no dispositivo. Tradicionalmente, a autenticação básica é habilitada por padrão na maioria dos servidores ou serviços e é simples de configurar.",
+        "A simplicidade não é nada ruim, mas a autenticação básica torna mais fácil para os invasores capturarem as credenciais do usuário (especialmente se as credenciais não forem protegidas por TLS), o que aumenta o risco de essas credenciais roubadas serem reutilizadas em outros pontos de extremidade ou serviços.",
+        "Essa decisão exige que os clientes mudem de aplicativos que usam autenticação básica para aplicativos que usam autenticação moderna. A autenticação moderna (autorização baseada em token OAuth 2.0) tem muitos benefícios e melhorias que ajudam a atenuar os problemas na autenticação básica. Por exemplo, os tokens de acesso OAuth têm um tempo de vida útil limitado e são específicos para os aplicativos e recursos para os quais são emitidos, portanto, não podem ser reutilizados.",
+        "Informamos que a STI não homologa e não garante o funcionamento de ferramenta de terceiros."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Como faço para redefinir a configuração do código MFA (Multi-Factor Authentication)?"
+      ],
+      "paragrafos": [
+        "Caso não esteja recebendo o código do MFA no seu dispositivo móvel ou tenha trocado de aparelho, você pode redefinir as configurações.",
+        "Basta acessar o Portal https://aurem.unb.br/ marcar a sua categoria e preencher o formulário com as informações necessárias, aguardar a resposta do sistema e proceder com a nova configuração do MFA em seu dispositivo móvel. Dúvidas de como proceder com esta redefinição de configuração, consulte o Manual de RESET do MFA."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Não estou recebendo o código do MFA no meu dispositivo móvel. - Como faço para RESETAR a configuração do código do MFA para refazer esta configuração?"
+      ],
+      "paragrafos": [
+        "Basta acessar o Portal https://aurem.unb.br/ marcar a sua categoria e preencher o formulário com as informações necessárias, aguardar a resposta do sistema e proceder com a nova configuração do MFA em seu dispositivo móvel. Dúvidas de como proceder com este RESET, consulte o Manual de RESET do MFA."
+      ]
+    },
+    {
+      "caminho": [
+        "Perguntas Frequentes (FAQ): ESTUDANTES",
+        "Em caso de problemas não abarcados nesta FAQ, como devo proceder?"
+      ],
+      "paragrafos": [
+        "A Secretaria de Tecnologia da Informação da UnB NÃO é responsável pelo suporte técnico aos produtos e aplicativos disponibilizados pela Suíte do Office 365 da Microsoft. Em casos de problemas técnicos com o serviço de e-mail, a Secretaria de Tecnologia da Informação servirá como um canal de comunicação entre o suporte técnico da Microsoft e os usuários da UnB.",
+        "Para dúvidas em relação ao uso do e-mail da UnB dentro do Office 365, acesse o Suporte ao Office 365.",
+        "Os aplicativos da Suíte Office 365 (versão Acadêmica A1) disponibilizada pelo acordo entre a UnB e a Microsoft é para uso restrito e somente através de qualquer navegador internet, seja este navegador nativo de um PC, notebook, Tablet ou Smart Phone pessoal ou corporativo que possua navegação liberada pelas portas 80 e 443. Ao uso de aplicativos do Office 365 instalados pelo próprio usuário diretamente em seus dispositivos, a STI não fornecerá nenhum tipo de suporte.",
+        "Para acessar o Termo de uso, política de privacidade e competências referente ao Sistema de Correio Eletrônico da UnB, clique no link: “Norma E-mail da UnB”.",
+        "Para dúvidas em relação ao uso do pacote de ferramentas do Office 365, acesse: https://support.office.com/.",
+        "Para dúvidas quanto aos dados acadêmicos de aluno, entre em contato com a SAA pelo e-mail saaatendimento@unb.br ou acesse o Portal da SAA em https://www.saa.unb.br/ .",
+        "Para dúvidas sobre o acesso ao Office 365 ou serviço de correio eletrônico acadêmico prestado pela UnB, entre em contato pelo e-mail suportealuno@aluno.unb.br."
+      ]
+    }
+  ]
+}

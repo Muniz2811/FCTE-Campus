@@ -1,0 +1,102 @@
+{
+  "source_id": "DOC-039",
+  "versao": "2026-11-11",
+  "sha256_original": "6a773655db9b92f0a0cd11568a192e601b058990711df44f538b7d672b5c7b44",
+  "url": "https://acessibilidade.unb.br/servicos-de-acessibilidade/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": [
+      "Serviços de Acessibilidade > Realocação de Sala e Adequação de Mobiliário",
+      "Serviços de Acessibilidade > Transporte no Campus",
+      "Serviços de Acessibilidade > Laboratório de Informática DACES",
+      "Serviços de Acessibilidade > Laboratório de Informática DACES > Regras de Convivência e Uso"
+    ]
+  },
+  "titulo_pagina": "Serviços de Acessibilidade v2 – acessibilidade",
+  "palavras": 370,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 27,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Serviços de Acessibilidade"
+      ],
+      "paragrafos": [
+        "A Diretoria de Acessibilidade centraliza e coordena as ações de apoio para estudantes com deficiência cadastrados. Aqui você encontra as ferramentas e suportes necessários para sua jornada acadêmica plena na Universidade de Brasília."
+      ]
+    },
+    {
+      "caminho": [
+        "Serviços de Acessibilidade",
+        "Intérpretes e Guia-Intérpretes"
+      ],
+      "paragrafos": [
+        "(function () { if (window.innerWidth <= 1024) return; function initScrollSpy() { const navLinks = document.querySelectorAll('.daces-sidebar-nav .daces-nav-btn'); if (!navLinks.length) return; // Função que calcula o topo ABSOLUTO na página (Universal para Safari, Chrome, Firefox e iOS) function getPageTop(element) { if (!element) return 0; return element.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop); } function updateActiveState() { const scrollPosition = window.pageYOffset || document.documentElement.scrollTop; const offsetHeader = window.innerWidth { const targetId = link.getAttribute('href'); if (!targetId || !targetId.startsWith('#')) return; const target = document.querySelector(targetId); if (target) { const top = getPageTop(target); const height = target.offsetHeight; if (currentScroll >= top && currentScroll = document.documentElement.scrollHeight - 50) { activeIndex = navLinks.length - 1; } // Se estiver no topo da página, marca o primeiro if (activeIndex === -1 && scrollPosition { if (index === activeIndex) { if (!link.classList.contains('active')) { link.classList.add('active'); // Auto-scroll horizontal no mobile para manter o botão visível if (window.innerWidth { link.addEventListener('click', function (e) { const targetId = this.getAttribute('href'); if (!targetId || !targetId.startsWith('#')) return; const targetEl = document.querySelector(targetId); if (targetEl) { e.preventDefault(); const offsetHeader = window.innerWidth <= 1024 ? 90 : 120; const targetTop = getPageTop(targetEl) - offsetHeader; window.scrollTo({ top: targetTop, behavior: 'smooth' }); } }); }); window.addEventListener('scroll', updateActiveState, { passive: true }); window.addEventListener('resize', updateActiveState); updateActiveState(); } if (document.readyState === 'complete' || document.readyState === 'interactive') { setTimeout(initScrollSpy, 200); } else { document.addEventListener('DOMContentLoaded', initScrollSpy); } })();"
+      ]
+    },
+    {
+      "caminho": [
+        "Serviços de Acessibilidade",
+        "Tecnologia Assistiva"
+      ],
+      "paragrafos": [
+        "Público: Deficiência, TGD ou AH/SD",
+        "Editais recorrentes para auxílio financeiro destinado à aquisição de equipamentos e softwares assistivos individuais, promovendo a autonomia do estudante em seu cotidiano universitário.",
+        "Ver editais"
+      ]
+    },
+    {
+      "caminho": [
+        "Serviços de Acessibilidade",
+        "Produção de Material Acessível"
+      ],
+      "paragrafos": [
+        "Público: Deficiência Visual",
+        "Surdocegos",
+        "Conversão de textos, livros e slides para formatos acessíveis (DAISY, Braille, áudio ou PDF pesquisável) realizada por nossa equipe técnica especializada e bolsistas de acessibilidade.",
+        "Solicitar por e-mail"
+      ]
+    },
+    {
+      "caminho": [
+        "Serviços de Acessibilidade",
+        "Ledores e Transcritores"
+      ],
+      "paragrafos": [
+        "Público: Def. Visual, Intelectual, Autismo, TDAH/Dislexia",
+        "Acompanhamento especializado para leitura de provas e materiais, bem como transcrição de respostas para estudantes que possuem impedimentos funcionais para escrita ou leitura autônoma.",
+        "Formulário"
+      ]
+    },
+    {
+      "caminho": [
+        "Serviços de Acessibilidade",
+        "Intérpretes e Guia-Intérpretes"
+      ],
+      "paragrafos": [
+        "Público: Estudantes, Docentes ou Coordenadores",
+        "Serviço de tradução e interpretação Libras/Português para salas de aula, eventos acadêmicos oficiais e reuniões administrativas, garantindo a acessibilidade comunicacional.",
+        "Solicitar intérprete"
+      ]
+    }
+  ]
+}

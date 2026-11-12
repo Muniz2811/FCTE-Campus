@@ -1,0 +1,211 @@
+{
+  "executado_em": "2026-11-11T17:18:07.761441+00:00",
+  "sem_ingestao": true,
+  "sem_gemini": true,
+  "modelos_em_modo_offline": true,
+  "manifesto_sha_antes": "17989fd5e809e40202f1fd879e6e601116ee4dea310daa56074e98b75fb350ed",
+  "manifesto_sha_depois": "17989fd5e809e40202f1fd879e6e601116ee4dea310daa56074e98b75fb350ed",
+  "processos_novos": [
+    {
+      "comando": [
+        "scripts/06_conferir.py"
+      ],
+      "exit_code": 0,
+      "resultado": {
+        "reaberto_sem_ingestao": true,
+        "fontes": 25,
+        "chunks": 94,
+        "dimensao": 384,
+        "vetores_finitos_normalizados": true,
+        "autoconsulta_confirmada": true,
+        "chunk_conferido": "c_45e04c73c85bdc29",
+        "colecao": "fcte-796894d0d378f4f8d429"
+      },
+      "stderr": ""
+    },
+    {
+      "comando": [
+        "scripts/perguntar.py",
+        "Em qual prédio, andar e sala fica o laboratório COSMOS?",
+        "--json"
+      ],
+      "exit_code": 0,
+      "resultado": {
+        "pergunta": "Em qual prédio, andar e sala fica o laboratório COSMOS?",
+        "executado_em": "2026-11-11T14:18:06-03:00",
+        "etapa": "recuperacao_sem_geracao",
+        "assinatura_indice": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+        "embeddings": {
+          "modelo": "intfloat/multilingual-e5-small",
+          "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimensao": 384,
+          "max_tokens": 512,
+          "prefixo_documento": "passage: ",
+          "prefixo_pergunta": "query: ",
+          "normalizar": true
+        },
+        "colecao": "fcte-796894d0d378f4f8d429",
+        "config_busca": {
+          "top_k": 5,
+          "max_por_fonte": 2,
+          "candidatos": 30
+        },
+        "corpus_fontes": 25,
+        "trechos": [
+          {
+            "data_revisao": "2026-11-11",
+            "validade": "desconhecida",
+            "config_chunking": "370e5efbe5c3",
+            "campus": "Gama",
+            "titulo": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "versao": "2026-11-11",
+            "validade_ord": 99991231,
+            "source_id": "DOC-018",
+            "status": "aprovado",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "sha256_original": "f946e23b99969eea8a1306cd577097af4019180c90ae72504b5734c4c21be282",
+            "revisor": "Pedro (aprovacao expressa no chat)",
+            "limitacoes": "Descrição não comprova acesso livre",
+            "rascunho": false,
+            "abrangencia": "Gama",
+            "tokens": 159,
+            "chunk_id": "c_df45b0823ed5a0bc",
+            "texto": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nO Computational Aerospace Simulations & Modeling Laboratory (COSMOS), coordenado pela Prof.ª Polliana Candida Oliveira Martins, é um laboratório de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), especializado em simulações numéricas de sistemas aeroespaciais e análise de estruturas aeroespaciais. O COSMOS se dedica ao avanço de técnicas de modelagem computacional e à solução de problemas complexos em engenharia aeroespacial, promovendo inovação e formação de profissionais capacitados.",
+            "distancia": 0.13252830505371094,
+            "secoes": [
+              "Computational Aerospace Simulations & Modeling Laboratory​"
+            ],
+            "entidades": [
+              "lab-cosmos",
+              "unidade-fcte"
+            ],
+            "posicao": 1
+          },
+          {
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "rascunho": false,
+            "revisor": "Pedro (aprovacao expressa no chat)",
+            "status": "aprovado",
+            "data_revisao": "2026-11-11",
+            "source_id": "DOC-005",
+            "sha256_original": "dc417807f148d3dbb2d21e1242b64a19727079bab599d9b61c629ebcfd1f3e09",
+            "tokens": 244,
+            "validade_ord": 99991231,
+            "config_chunking": "370e5efbe5c3",
+            "campus": "Gama",
+            "versao": "2026-11-11",
+            "titulo": "Diretório de laboratórios da FCTE",
+            "validade": "desconhecida",
+            "limitacoes": "URL contém \"homologa\": confirmar se é a página definitiva",
+            "abrangencia": "Gama",
+            "chunk_id": "c_f2c6f00293fae365",
+            "texto": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "distancia": 0.13906073570251465,
+            "secoes": [
+              "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial"
+            ],
+            "entidades": [
+              "lab-cosmos",
+              "lab-cpl",
+              "lab-lema",
+              "predio-ldtea",
+              "unidade-fcte"
+            ],
+            "posicao": 2
+          },
+          {
+            "sha256_original": "f946e23b99969eea8a1306cd577097af4019180c90ae72504b5734c4c21be282",
+            "campus": "Gama",
+            "limitacoes": "Descrição não comprova acesso livre",
+            "rascunho": false,
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "titulo": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "abrangencia": "Gama",
+            "validade_ord": 99991231,
+            "source_id": "DOC-018",
+            "data_revisao": "2026-11-11",
+            "revisor": "Pedro (aprovacao expressa no chat)",
+            "status": "aprovado",
+            "tokens": 292,
+            "validade": "desconhecida",
+            "config_chunking": "370e5efbe5c3",
+            "versao": "2026-11-11",
+            "chunk_id": "c_cd613d115a6c619e",
+            "texto": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nMissão e Objetivos\nA missão do COSMOS é integrar pesquisa acadêmica e aplicações práticas para o desenvolvimento de tecnologias aeroespaciais avançadas. O laboratório busca formar engenheiros capazes de realizar análises sofisticadas de sistemas e estruturas aeroespaciais, contribuindo para o progresso científico e a competitividade da indústria aeronáutica e espacial.\nÁreas de Especialização\nO COSMOS é especializado em áreas críticas da engenharia aeroespacial:\nSimulações Numéricas de Sistemas Aeroespaciais: Utiliza ferramentas de modelagem computacional para prever o desempenho e comportamento de sistemas aeroespaciais, permitindo otimizações antes da implementação física.\nAnálise de Estruturas Aeroespaciais: Realiza estudos detalhados sobre o comportamento estrutural de componentes aeronáuticos e espaciais, com foco na resistência, estabilidade e eficiência.\nInfraestrutura e Capacidades Técnicas\nO COSMOS possui uma infraestrutura avançada para simulações computacionais e análise de estruturas, incluindo softwares especializados para modelagem numérica, análise estrutural e simulações em ambiente virtual. Essa infraestrutura permite o desenvolvimento de soluções inovadoras e a validação de projetos complexos.",
+            "distancia": 0.144400954246521,
+            "secoes": [
+              "Computational Aerospace Simulations & Modeling Laboratory​ > Missão e Objetivos",
+              "Computational Aerospace Simulations & Modeling Laboratory​ > Áreas de Especialização",
+              "Computational Aerospace Simulations & Modeling Laboratory​ > Infraestrutura e Capacidades Técnicas"
+            ],
+            "entidades": [
+              "lab-cosmos"
+            ],
+            "posicao": 3
+          },
+          {
+            "config_chunking": "370e5efbe5c3",
+            "titulo": "Laboratórios de ensino",
+            "versao": "2026-11-11",
+            "rascunho": false,
+            "validade_ord": 99991231,
+            "abrangencia": "Gama",
+            "data_revisao": "2026-11-11",
+            "source_id": "DOC-006",
+            "sha256_original": "21c07ecffebe38c188d8ab70e428785883faa5311fa94e3253d46219f02933d6",
+            "url": "https://software.unb.br/laboratorios-de-ensino/",
+            "revisor": "Pedro (aprovacao expressa no chat)",
+            "limitacoes": "",
+            "tokens": 237,
+            "status": "aprovado",
+            "validade": "desconhecida",
+            "campus": "Gama",
+            "chunk_id": "c_5faca10e6e792b67",
+            "texto": "Laboratórios de ensino\nO espaço físico da Faculdade do Gama é de aproximadamente 5.200 m2 e incluem salas de aulas, laboratórios, espaços administrativos, gabinetes de professores/pesquisadores, biblioteca, sala de reunião, sanitários, espaços de circulação, etc. Neste ambiente de pesquisa educacional o curso de Engenharia de Software utiliza regularmente para suas aulas práticas da faculdade, os seguintes laboratórios de ensino:\nLaboratórios de Ensino de Informática: são duas salas de aula, sendo uma com 25 notebooks e a outra com 50 postos de trabalho (40 desktops e 10 nichos para notebooks ou netbooks dos alunos). Podem ser utilizadas para aulas que envolvam laboratórios, bem como para execução de testes de software em escala. Espaço também adequado para elaboração de tarefas e atividades necessárias as disciplinas de cursos, bem como às pesquisas em assuntos pertinentes aos temas condizentes com as linhas de pesquisa de Engenharia de Software;\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;",
+            "distancia": 0.15164780616760254,
+            "secoes": [
+              ""
+            ],
+            "entidades": [
+              "unidade-fga"
+            ],
+            "posicao": 4
+          },
+          {
+            "abrangencia": "Gama",
+            "titulo": "Laboratórios de ensino",
+            "tokens": 267,
+            "config_chunking": "370e5efbe5c3",
+            "validade": "desconhecida",
+            "status": "aprovado",
+            "rascunho": false,
+            "url": "https://software.unb.br/laboratorios-de-ensino/",
+            "versao": "2026-11-11",
+            "source_id": "DOC-006",
+            "campus": "Gama",
+            "sha256_original": "21c07ecffebe38c188d8ab70e428785883faa5311fa94e3253d46219f02933d6",
+            "limitacoes": "",
+            "revisor": "Pedro (aprovacao expressa no chat)",
+            "validade_ord": 99991231,
+            "data_revisao": "2026-11-11",
+            "chunk_id": "c_0cf9944816258a3e",
+            "texto": "Laboratórios de ensino\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;\nLaboratório de Motion Capture Virtual e Projetos Virtuais (MOCAP): esse laboratório tem 100 m2, equipado com 60 notebooks e tela de projeção 3D. Ele é utilizado para o desenvolvimento de maquetes virtuais para ensino e pesquisa. Os estudantes, pesquisadores e professores envolvidos com suas pesquisas em ambientes 3D, por exemplo, poderão usá-lo para testes, ensaios, construção de ambientes virtuais, entre outros softwares que demandem de seus recursos tecnológicos;\nLaboratório de Computação Aplicada (LCA): laboratório com capacidade de 20 alunos com rede e computadores configuráveis usados para disciplinas como: computação em nuvem, fundamentos de redes de computadores, fundamentos de sistemas operacionais.\nO prédio da Unidade Acadêmica (UAC) conta com 5 laboratórios de informática, sendo: 2 laboratórios de informática com 80 postos de trabalho, 2 laboratórios com 40 postos cada (um com desktops e outro com notebooks) e 1 sala de consulta virtual na biblioteca com 13 postos.\nPrédio da UAC",
+            "distancia": 0.15339744091033936,
+            "secoes": [
+              ""
+            ],
+            "entidades": [
+              "lab-lca",
+              "lab-mocap",
+              "predio-uac"
+            ],
+            "posicao": 5
+          }
+        ],
+        "limite": "Distância cosseno não é probabilidade de verdade. Não há corte de relevância calibrado; os trechos precisam ser avaliados."
+      },
+      "stderr": ""
+    }
+  ],
+  "sucesso": true
+}

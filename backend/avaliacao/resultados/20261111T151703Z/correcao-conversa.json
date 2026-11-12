@@ -1,0 +1,1258 @@
+{
+  "etapa": "regressão dirigida depois da baseline; não é avaliação final independente",
+  "endpoint": "http://127.0.0.1:8001/api/v1/chat",
+  "inicio": "2026-11-11T17:30:30.617890+00:00",
+  "execucoes": [
+    {
+      "pergunta": {
+        "text": "e cabines de estudo individual ?",
+        "campus": "gama",
+        "previousRequestId": "fbe2df88-dced-4170-bfc7-da7b05e3cf96"
+      },
+      "http_status": 200,
+      "resposta": {
+        "status": "answered",
+        "answer": "A Biblioteca do Campus Gama dispoe de espaco para estudo com cabines individuais. [1]",
+        "sources": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.09942042827606201
+          }
+        ],
+        "claims": [
+          {
+            "text": "A Biblioteca do Campus Gama dispoe de espaco para estudo com cabines individuais.",
+            "sourceIds": [
+              "c_c8a0b710c3c50b09"
+            ]
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 3546,
+          "candidatesTokenCount": 89,
+          "totalTokenCount": 3635
+        },
+        "requestId": "071e88ec-7cbb-49ec-8229-b054b1b68c15",
+        "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.09942042827606201
+          },
+          {
+            "id": "c_1cfe0848c545f27c",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "Serviços > Comunidade Externa",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11464953422546387
+          },
+          {
+            "id": "c_17241a7563801760",
+            "sourceId": "DOC-008",
+            "title": "Biblioteca – Engenharia de Software",
+            "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+            "url": "https://software.unb.br/biblioteca/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12856727838516235
+          },
+          {
+            "id": "c_5faca10e6e792b67",
+            "sourceId": "DOC-006",
+            "title": "Laboratórios de ensino",
+            "excerpt": "Laboratórios de ensino\nO espaço físico da Faculdade do Gama é de aproximadamente 5.200 m2 e incluem salas de aulas, laboratórios, espaços administrativos, gabinetes de professores/pesquisadores, biblioteca, sala de reunião, sanitários, espaços de circulação, etc. Neste ambiente de pesquisa educacional o curso de Engenharia de Software utiliza regularmente para suas aulas práticas da faculdade, os seguintes laboratórios de ensino:\nLaboratórios de Ensino de Informática: são duas salas de aula, sendo uma com 25 notebooks e a outra com 50 postos de trabalho (40 desktops e 10 nichos para notebooks ou netbooks dos alunos). Podem ser utilizadas para aulas que envolvam laboratórios, bem como para execução de testes de software em escala. Espaço também adequado para elaboração de tarefas e atividades necessárias as disciplinas de cursos, bem como às pesquisas em assuntos pertinentes aos temas condizentes com as linhas de pesquisa de Engenharia de Software;\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;",
+            "url": "https://software.unb.br/laboratorios-de-ensino/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.14664334058761597
+          },
+          {
+            "id": "c_45e04c73c85bdc29",
+            "sourceId": "DOC-001",
+            "title": "Infraestrutura da FCTE",
+            "excerpt": "Infraestrutura da FCTE\nInfraestrutura\nA atual sede do campus da FCTE conta com uma Unidade Acadêmica (UAC), uma Unidade de Ensino e Docência (UED) e um centro de convivência. Os edifícios são de dois pavimentos, sendo o centro de convivência no andar térreo. A área construída prevista para cada uma das unidades é de aproximadamente 5.200 m². Na UED estão locadas as salas de professores, os serviços de secretaria, laboratórios, diretoria e coordenação acadêmica. Na UAC, estão locadas salas de aula, laboratórios de informática, biblioteca e auditório.",
+            "url": "https://fcte.unb.br/infraestrutura/",
+            "section": "Infraestrutura",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.17099833488464355
+          }
+        ]
+      },
+      "log_backend": {
+        "requestId": "071e88ec-7cbb-49ec-8229-b054b1b68c15",
+        "executado_em": "2026-11-11T17:30:30.862779+00:00",
+        "pergunta": "e cabines de estudo individual ?",
+        "placeId": null,
+        "geracao": {
+          "provedor": "gemini",
+          "modelo": "gemini-3.5-flash-lite",
+          "temperatura": 0.1,
+          "timeout_s": 90,
+          "max_output_tokens": 3072
+        },
+        "previousRequestId": "fbe2df88-dced-4170-bfc7-da7b05e3cf96",
+        "prompt": {
+          "versao": "campus-rag-v2",
+          "sha256": "382dc66ede512a4212d925172540a861181c0009350b53be618f9713a7d8c811"
+        },
+        "contexto_conversa": {
+          "requestId": "fbe2df88-dced-4170-bfc7-da7b05e3cf96",
+          "pergunta": "Na biblioteca do Gama há lugar para estudar sozinho e em grupo?",
+          "assunto": "Biblioteca Campus Gama – BCE"
+        },
+        "consulta_busca": "Biblioteca Campus Gama – BCE. e cabines de estudo individual ?",
+        "recuperacao": {
+          "pergunta": "Biblioteca Campus Gama – BCE. e cabines de estudo individual ?",
+          "executado_em": "2026-11-11T14:30:30-03:00",
+          "etapa": "recuperacao_sem_geracao",
+          "assinatura_indice": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "embeddings": {
+            "modelo": "intfloat/multilingual-e5-small",
+            "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+            "dimensao": 384,
+            "max_tokens": 512,
+            "prefixo_documento": "passage: ",
+            "prefixo_pergunta": "query: ",
+            "normalizar": true
+          },
+          "colecao": "fcte-796894d0d378f4f8d429",
+          "config_busca": {
+            "metodo": "hibrida_rrf",
+            "bm25_k1": 1.2,
+            "bm25_b": 0.75,
+            "rrf_k": 60,
+            "top_k": 5,
+            "max_por_fonte": 2,
+            "candidatos": 30
+          },
+          "corpus_fontes": 25,
+          "trechos": [
+            {
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "validade_ord": 99991231,
+              "limitacoes": "",
+              "abrangencia": "Gama",
+              "config_chunking": "370e5efbe5c3",
+              "data_revisao": "2026-11-11",
+              "versao": "2026-11-11",
+              "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+              "status": "aprovado",
+              "campus": "Gama",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "validade": "desconhecida",
+              "rascunho": false,
+              "tokens": 231,
+              "source_id": "DOC-012",
+              "titulo": "Biblioteca Campus Gama – BCE",
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "texto": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "distancia": 0.09942042827606201,
+              "secoes": [
+                "BIBLIOTECA SETORIAL CAMPUS GAMA"
+              ],
+              "entidades": [
+                "servico-biblioteca-gama",
+                "unidade-fcte",
+                "unidade-fga"
+              ],
+              "rank_denso": 1,
+              "score_bm25": 20.32029205713896,
+              "rank_lexical": 1,
+              "score_rrf": 0.03278688524590164,
+              "posicao": 1
+            },
+            {
+              "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "validade": "desconhecida",
+              "campus": "Gama",
+              "titulo": "Biblioteca Campus Gama – BCE",
+              "versao": "2026-11-11",
+              "config_chunking": "370e5efbe5c3",
+              "source_id": "DOC-012",
+              "data_revisao": "2026-11-11",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "abrangencia": "Gama",
+              "limitacoes": "",
+              "tokens": 202,
+              "rascunho": false,
+              "status": "aprovado",
+              "validade_ord": 99991231,
+              "chunk_id": "c_1cfe0848c545f27c",
+              "texto": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+              "distancia": 0.11464953422546387,
+              "secoes": [
+                "Serviços",
+                "Comunidade Externa"
+              ],
+              "entidades": [
+                "unidade-fcte"
+              ],
+              "rank_denso": 3,
+              "score_bm25": 12.516465834894955,
+              "rank_lexical": 3,
+              "score_rrf": 0.031746031746031744,
+              "posicao": 2
+            },
+            {
+              "status": "aprovado",
+              "rascunho": false,
+              "versao": "2026-11-11",
+              "campus": "Gama",
+              "titulo": "Biblioteca – Engenharia de Software",
+              "limitacoes": "",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "data_revisao": "2026-11-11",
+              "source_id": "DOC-008",
+              "validade": "desconhecida",
+              "tokens": 204,
+              "validade_ord": 99991231,
+              "sha256_original": "e5b479c6b491b5bf4998f7106d8a424df8da1c3843faf9d02bae41a76e240b4a",
+              "abrangencia": "Gama",
+              "url": "https://software.unb.br/biblioteca/",
+              "config_chunking": "370e5efbe5c3",
+              "chunk_id": "c_17241a7563801760",
+              "texto": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+              "distancia": 0.12856727838516235,
+              "secoes": [
+                ""
+              ],
+              "entidades": [
+                "servico-biblioteca-gama"
+              ],
+              "rank_denso": 6,
+              "score_bm25": 8.36205805557232,
+              "rank_lexical": 6,
+              "score_rrf": 0.030303030303030304,
+              "posicao": 3
+            },
+            {
+              "versao": "2026-11-11",
+              "titulo": "Laboratórios de ensino",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "data_revisao": "2026-11-11",
+              "url": "https://software.unb.br/laboratorios-de-ensino/",
+              "validade_ord": 99991231,
+              "tokens": 237,
+              "sha256_original": "21c07ecffebe38c188d8ab70e428785883faa5311fa94e3253d46219f02933d6",
+              "abrangencia": "Gama",
+              "limitacoes": "",
+              "rascunho": false,
+              "validade": "desconhecida",
+              "source_id": "DOC-006",
+              "config_chunking": "370e5efbe5c3",
+              "status": "aprovado",
+              "campus": "Gama",
+              "chunk_id": "c_5faca10e6e792b67",
+              "texto": "Laboratórios de ensino\nO espaço físico da Faculdade do Gama é de aproximadamente 5.200 m2 e incluem salas de aulas, laboratórios, espaços administrativos, gabinetes de professores/pesquisadores, biblioteca, sala de reunião, sanitários, espaços de circulação, etc. Neste ambiente de pesquisa educacional o curso de Engenharia de Software utiliza regularmente para suas aulas práticas da faculdade, os seguintes laboratórios de ensino:\nLaboratórios de Ensino de Informática: são duas salas de aula, sendo uma com 25 notebooks e a outra com 50 postos de trabalho (40 desktops e 10 nichos para notebooks ou netbooks dos alunos). Podem ser utilizadas para aulas que envolvam laboratórios, bem como para execução de testes de software em escala. Espaço também adequado para elaboração de tarefas e atividades necessárias as disciplinas de cursos, bem como às pesquisas em assuntos pertinentes aos temas condizentes com as linhas de pesquisa de Engenharia de Software;\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;",
+              "distancia": 0.14664334058761597,
+              "secoes": [
+                ""
+              ],
+              "entidades": [
+                "unidade-fga"
+              ],
+              "rank_denso": 7,
+              "score_bm25": 3.8489723889745697,
+              "rank_lexical": 8,
+              "score_rrf": 0.029631255487269532,
+              "posicao": 4
+            },
+            {
+              "status": "aprovado",
+              "validade_ord": 99991231,
+              "abrangencia": "Gama",
+              "limitacoes": "",
+              "source_id": "DOC-001",
+              "sha256_original": "ceadfb0cc3356250926466b5f5490f14b208273953e0be1d4a1f054f9b3781f9",
+              "data_revisao": "2026-11-11",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "campus": "Gama",
+              "validade": "desconhecida",
+              "tokens": 138,
+              "url": "https://fcte.unb.br/infraestrutura/",
+              "rascunho": false,
+              "config_chunking": "370e5efbe5c3",
+              "versao": "2026-11-11",
+              "titulo": "Infraestrutura da FCTE",
+              "chunk_id": "c_45e04c73c85bdc29",
+              "texto": "Infraestrutura da FCTE\nInfraestrutura\nA atual sede do campus da FCTE conta com uma Unidade Acadêmica (UAC), uma Unidade de Ensino e Docência (UED) e um centro de convivência. Os edifícios são de dois pavimentos, sendo o centro de convivência no andar térreo. A área construída prevista para cada uma das unidades é de aproximadamente 5.200 m². Na UED estão locadas as salas de professores, os serviços de secretaria, laboratórios, diretoria e coordenação acadêmica. Na UAC, estão locadas salas de aula, laboratórios de informática, biblioteca e auditório.",
+              "distancia": 0.17099833488464355,
+              "secoes": [
+                "Infraestrutura"
+              ],
+              "entidades": [
+                "predio-uac",
+                "predio-ued",
+                "unidade-fcte"
+              ],
+              "rank_denso": 25,
+              "score_bm25": 5.013465934263408,
+              "rank_lexical": 7,
+              "score_rrf": 0.0266900790166813,
+              "posicao": 5
+            }
+          ],
+          "limite": "Distância cosseno não é probabilidade de verdade. Não há corte de relevância calibrado; os trechos precisam ser avaliados."
+        },
+        "resposta": {
+          "status": "answered",
+          "answer": "A Biblioteca do Campus Gama dispoe de espaco para estudo com cabines individuais. [1]",
+          "sources": [
+            {
+              "id": "c_c8a0b710c3c50b09",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.09942042827606201
+            }
+          ],
+          "claims": [
+            {
+              "text": "A Biblioteca do Campus Gama dispoe de espaco para estudo com cabines individuais.",
+              "sourceIds": [
+                "c_c8a0b710c3c50b09"
+              ]
+            }
+          ],
+          "usage": {
+            "promptTokenCount": 3546,
+            "candidatesTokenCount": 89,
+            "totalTokenCount": 3635
+          },
+          "requestId": "071e88ec-7cbb-49ec-8229-b054b1b68c15",
+          "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "model": "gemini-3.5-flash-lite",
+          "retrieved": [
+            {
+              "id": "c_c8a0b710c3c50b09",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.09942042827606201
+            },
+            {
+              "id": "c_1cfe0848c545f27c",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "Serviços > Comunidade Externa",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.11464953422546387
+            },
+            {
+              "id": "c_17241a7563801760",
+              "sourceId": "DOC-008",
+              "title": "Biblioteca – Engenharia de Software",
+              "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+              "url": "https://software.unb.br/biblioteca/",
+              "section": "",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.12856727838516235
+            },
+            {
+              "id": "c_5faca10e6e792b67",
+              "sourceId": "DOC-006",
+              "title": "Laboratórios de ensino",
+              "excerpt": "Laboratórios de ensino\nO espaço físico da Faculdade do Gama é de aproximadamente 5.200 m2 e incluem salas de aulas, laboratórios, espaços administrativos, gabinetes de professores/pesquisadores, biblioteca, sala de reunião, sanitários, espaços de circulação, etc. Neste ambiente de pesquisa educacional o curso de Engenharia de Software utiliza regularmente para suas aulas práticas da faculdade, os seguintes laboratórios de ensino:\nLaboratórios de Ensino de Informática: são duas salas de aula, sendo uma com 25 notebooks e a outra com 50 postos de trabalho (40 desktops e 10 nichos para notebooks ou netbooks dos alunos). Podem ser utilizadas para aulas que envolvam laboratórios, bem como para execução de testes de software em escala. Espaço também adequado para elaboração de tarefas e atividades necessárias as disciplinas de cursos, bem como às pesquisas em assuntos pertinentes aos temas condizentes com as linhas de pesquisa de Engenharia de Software;\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;",
+              "url": "https://software.unb.br/laboratorios-de-ensino/",
+              "section": "",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.14664334058761597
+            },
+            {
+              "id": "c_45e04c73c85bdc29",
+              "sourceId": "DOC-001",
+              "title": "Infraestrutura da FCTE",
+              "excerpt": "Infraestrutura da FCTE\nInfraestrutura\nA atual sede do campus da FCTE conta com uma Unidade Acadêmica (UAC), uma Unidade de Ensino e Docência (UED) e um centro de convivência. Os edifícios são de dois pavimentos, sendo o centro de convivência no andar térreo. A área construída prevista para cada uma das unidades é de aproximadamente 5.200 m². Na UED estão locadas as salas de professores, os serviços de secretaria, laboratórios, diretoria e coordenação acadêmica. Na UAC, estão locadas salas de aula, laboratórios de informática, biblioteca e auditório.",
+              "url": "https://fcte.unb.br/infraestrutura/",
+              "section": "Infraestrutura",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.17099833488464355
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pergunta": {
+        "text": "e cabines de estudo individual ?",
+        "campus": "gama"
+      },
+      "http_status": 200,
+      "resposta": {
+        "status": "answered",
+        "answer": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais. [1]",
+        "sources": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.16776376962661743
+          }
+        ],
+        "claims": [
+          {
+            "text": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais.",
+            "sourceIds": [
+              "c_c8a0b710c3c50b09"
+            ]
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 2996,
+          "candidatesTokenCount": 87,
+          "totalTokenCount": 3083
+        },
+        "requestId": "2a448161-9d4c-4dec-9f0c-9b0b3c95cd56",
+        "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_70249652accec0da",
+            "sourceId": "DOC-015",
+            "title": "Serviços LITE",
+            "excerpt": "Serviços LITE\nServiços > Sistemas\nARC\nEquipamentos: Bancadas para modelagem e controle de sistemas automotivos, além de eletrônica embarcada e instrumentação específica.\nLaSE\nEquipamentos: Câmaras de vácuo e sistemas para testes de propulsão elétrica e simulações espaciais, incluindo estudo de tecnologia de plasmas.\nLMPIE\nEquipamentos: Ferramentas para integração de sistemas eólicos e fotovoltaicos, além de infraestrutura para mobilidade elétrica.",
+            "url": "https://lite.unb.br/servicos/",
+            "section": "Serviços > Sistemas > ARC > Serviços > Sistemas > LaSE > Serviços > Sistemas > LMPIE",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.15436410903930664
+          },
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.16776376962661743
+          },
+          {
+            "id": "c_60620abc461279dd",
+            "sourceId": "DOC-003",
+            "title": "Assistência estudantil",
+            "excerpt": "Assistência estudantil\nAssistência Estudantil\nNa FCTE, A DDS está presente da seguinte forma:\nPara maiores informações sobre a a SPS, veja em contatos\nPara maiores informações sobre os programas, editais, legislações e notícias acesse: https://dds.dac.unb.br/",
+            "url": "https://fcte.unb.br/assistencia-estudantil/",
+            "section": "Assistência Estudantil > Na FCTE, A DDS está presente da seguinte forma:",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.14485472440719604
+          },
+          {
+            "id": "c_dd4b3a6b44449326",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nProduções FCTE\nArtigos de Periódicos\nMestrado em Engenharia Biomédica – dissertações\nMestrado em Integridade de Materiais da Engenharia – dissertações\nEngenharia Aeroespacial – monografias\nEngenharia Automotiva – monografias\nEngenharia de Energia – monografias\nEngenharia de Software – monografias\nEngenharia Eletrônica – monografias",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "Produções FCTE",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.14829838275909424
+          },
+          {
+            "id": "c_1562ebf434d368af",
+            "sourceId": "DOC-013",
+            "title": "Vigilancia em saude DASU",
+            "excerpt": "Vigilancia em saude DASU\nDisponibilização de suporte às unidades acadêmicas/administrativas e grupos da comunidade universitária no planejamento, execução e avaliação de intervenções em saúde mental.\nMaiores informações pelo e-mail naps@unb.br.",
+            "url": "https://dasu.unb.br/vigilancia-em-saude/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.14896798133850098
+          }
+        ]
+      },
+      "log_backend": {
+        "requestId": "2a448161-9d4c-4dec-9f0c-9b0b3c95cd56",
+        "executado_em": "2026-11-11T17:30:36.977095+00:00",
+        "pergunta": "e cabines de estudo individual ?",
+        "placeId": null,
+        "geracao": {
+          "provedor": "gemini",
+          "modelo": "gemini-3.5-flash-lite",
+          "temperatura": 0.1,
+          "timeout_s": 90,
+          "max_output_tokens": 3072
+        },
+        "previousRequestId": null,
+        "prompt": {
+          "versao": "campus-rag-v2",
+          "sha256": "382dc66ede512a4212d925172540a861181c0009350b53be618f9713a7d8c811"
+        },
+        "contexto_conversa": null,
+        "consulta_busca": "e cabines de estudo individual ?",
+        "recuperacao": {
+          "pergunta": "e cabines de estudo individual ?",
+          "executado_em": "2026-11-11T14:30:37-03:00",
+          "etapa": "recuperacao_sem_geracao",
+          "assinatura_indice": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "embeddings": {
+            "modelo": "intfloat/multilingual-e5-small",
+            "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+            "dimensao": 384,
+            "max_tokens": 512,
+            "prefixo_documento": "passage: ",
+            "prefixo_pergunta": "query: ",
+            "normalizar": true
+          },
+          "colecao": "fcte-796894d0d378f4f8d429",
+          "config_busca": {
+            "metodo": "hibrida_rrf",
+            "bm25_k1": 1.2,
+            "bm25_b": 0.75,
+            "rrf_k": 60,
+            "top_k": 5,
+            "max_por_fonte": 2,
+            "candidatos": 30
+          },
+          "corpus_fontes": 25,
+          "trechos": [
+            {
+              "url": "https://lite.unb.br/servicos/",
+              "abrangencia": "Gama",
+              "titulo": "Serviços LITE",
+              "sha256_original": "77f93ed5b25204f31aff03acbd8385a8fbf509de4487c4fe504916c415322b0d",
+              "validade_ord": 99991231,
+              "config_chunking": "370e5efbe5c3",
+              "tokens": 106,
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "limitacoes": "",
+              "status": "aprovado",
+              "campus": "Gama",
+              "validade": "desconhecida",
+              "data_revisao": "2026-11-11",
+              "versao": "2026-11-11",
+              "rascunho": false,
+              "source_id": "DOC-015",
+              "chunk_id": "c_70249652accec0da",
+              "texto": "Serviços LITE\nServiços > Sistemas\nARC\nEquipamentos: Bancadas para modelagem e controle de sistemas automotivos, além de eletrônica embarcada e instrumentação específica.\nLaSE\nEquipamentos: Câmaras de vácuo e sistemas para testes de propulsão elétrica e simulações espaciais, incluindo estudo de tecnologia de plasmas.\nLMPIE\nEquipamentos: Ferramentas para integração de sistemas eólicos e fotovoltaicos, além de infraestrutura para mobilidade elétrica.",
+              "distancia": 0.15436410903930664,
+              "secoes": [
+                "Serviços > Sistemas > ARC",
+                "Serviços > Sistemas > LaSE",
+                "Serviços > Sistemas > LMPIE"
+              ],
+              "entidades": [
+                "lab-arc",
+                "lab-lase",
+                "lab-lmpie",
+                "servico-lite"
+              ],
+              "rank_denso": 6,
+              "score_bm25": 3.1157070180148065,
+              "rank_lexical": 2,
+              "score_rrf": 0.03128054740957967,
+              "posicao": 1
+            },
+            {
+              "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+              "status": "aprovado",
+              "source_id": "DOC-012",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "campus": "Gama",
+              "titulo": "Biblioteca Campus Gama – BCE",
+              "limitacoes": "",
+              "validade_ord": 99991231,
+              "rascunho": false,
+              "versao": "2026-11-11",
+              "validade": "desconhecida",
+              "abrangencia": "Gama",
+              "config_chunking": "370e5efbe5c3",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "tokens": 231,
+              "data_revisao": "2026-11-11",
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "texto": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "distancia": 0.16776376962661743,
+              "secoes": [
+                "BIBLIOTECA SETORIAL CAMPUS GAMA"
+              ],
+              "entidades": [
+                "servico-biblioteca-gama",
+                "unidade-fcte",
+                "unidade-fga"
+              ],
+              "rank_denso": 27,
+              "score_bm25": 6.924538654309695,
+              "rank_lexical": 1,
+              "score_rrf": 0.02788769549651404,
+              "posicao": 2
+            },
+            {
+              "data_revisao": "2026-11-11",
+              "rascunho": false,
+              "abrangencia": "Gama",
+              "url": "https://fcte.unb.br/assistencia-estudantil/",
+              "source_id": "DOC-003",
+              "limitacoes": "Restaurante Universitário fora do escopo",
+              "validade_ord": 99991231,
+              "validade": "desconhecida",
+              "tokens": 73,
+              "config_chunking": "370e5efbe5c3",
+              "versao": "2026-11-11",
+              "sha256_original": "747f7b304ddcd4f7e25ce7ea4865bbfa72893d044bd3a8da66a3e7c356df8b40",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "status": "aprovado",
+              "titulo": "Assistência estudantil",
+              "campus": "Gama",
+              "chunk_id": "c_60620abc461279dd",
+              "texto": "Assistência estudantil\nAssistência Estudantil\nNa FCTE, A DDS está presente da seguinte forma:\nPara maiores informações sobre a a SPS, veja em contatos\nPara maiores informações sobre os programas, editais, legislações e notícias acesse: https://dds.dac.unb.br/",
+              "distancia": 0.14485472440719604,
+              "secoes": [
+                "Assistência Estudantil > Na FCTE, A DDS está presente da seguinte forma:"
+              ],
+              "entidades": [
+                "unidade-fcte"
+              ],
+              "rank_denso": 1,
+              "score_rrf": 0.01639344262295082,
+              "posicao": 3
+            },
+            {
+              "validade_ord": 99991231,
+              "abrangencia": "Gama",
+              "versao": "2026-11-11",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "status": "aprovado",
+              "tokens": 78,
+              "sha256_original": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+              "rascunho": false,
+              "data_revisao": "2026-11-11",
+              "campus": "Gama",
+              "config_chunking": "370e5efbe5c3",
+              "validade": "desconhecida",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "source_id": "DOC-012",
+              "limitacoes": "",
+              "titulo": "Biblioteca Campus Gama – BCE",
+              "chunk_id": "c_dd4b3a6b44449326",
+              "texto": "Biblioteca Campus Gama – BCE\nProduções FCTE\nArtigos de Periódicos\nMestrado em Engenharia Biomédica – dissertações\nMestrado em Integridade de Materiais da Engenharia – dissertações\nEngenharia Aeroespacial – monografias\nEngenharia Automotiva – monografias\nEngenharia de Energia – monografias\nEngenharia de Software – monografias\nEngenharia Eletrônica – monografias",
+              "distancia": 0.14829838275909424,
+              "secoes": [
+                "Produções FCTE"
+              ],
+              "entidades": [
+                "unidade-fcte"
+              ],
+              "rank_denso": 2,
+              "score_rrf": 0.016129032258064516,
+              "posicao": 4
+            },
+            {
+              "titulo": "Vigilancia em saude DASU",
+              "sha256_original": "022efb400bdd16bf7a867d6a248304b4e8d0cdae63c0bd91c923bdee01af618e",
+              "validade_ord": 99991231,
+              "versao": "2026-11-11",
+              "validade": "desconhecida",
+              "limitacoes": "Indexar somente orientacoes aplicaveis ao campus; sem aconselhamento clinico",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "rascunho": false,
+              "status": "aprovado",
+              "abrangencia": "UnB geral",
+              "source_id": "DOC-013",
+              "data_revisao": "2026-11-11",
+              "campus": "",
+              "url": "https://dasu.unb.br/vigilancia-em-saude/",
+              "tokens": 62,
+              "config_chunking": "370e5efbe5c3",
+              "chunk_id": "c_1562ebf434d368af",
+              "texto": "Vigilancia em saude DASU\nDisponibilização de suporte às unidades acadêmicas/administrativas e grupos da comunidade universitária no planejamento, execução e avaliação de intervenções em saúde mental.\nMaiores informações pelo e-mail naps@unb.br.",
+              "distancia": 0.14896798133850098,
+              "secoes": [
+                ""
+              ],
+              "entidades": [
+                "servico-dasu"
+              ],
+              "rank_denso": 3,
+              "score_rrf": 0.015873015873015872,
+              "posicao": 5
+            }
+          ],
+          "limite": "Distância cosseno não é probabilidade de verdade. Não há corte de relevância calibrado; os trechos precisam ser avaliados."
+        },
+        "resposta": {
+          "status": "answered",
+          "answer": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais. [1]",
+          "sources": [
+            {
+              "id": "c_c8a0b710c3c50b09",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.16776376962661743
+            }
+          ],
+          "claims": [
+            {
+              "text": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais.",
+              "sourceIds": [
+                "c_c8a0b710c3c50b09"
+              ]
+            }
+          ],
+          "usage": {
+            "promptTokenCount": 2996,
+            "candidatesTokenCount": 87,
+            "totalTokenCount": 3083
+          },
+          "requestId": "2a448161-9d4c-4dec-9f0c-9b0b3c95cd56",
+          "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "model": "gemini-3.5-flash-lite",
+          "retrieved": [
+            {
+              "id": "c_70249652accec0da",
+              "sourceId": "DOC-015",
+              "title": "Serviços LITE",
+              "excerpt": "Serviços LITE\nServiços > Sistemas\nARC\nEquipamentos: Bancadas para modelagem e controle de sistemas automotivos, além de eletrônica embarcada e instrumentação específica.\nLaSE\nEquipamentos: Câmaras de vácuo e sistemas para testes de propulsão elétrica e simulações espaciais, incluindo estudo de tecnologia de plasmas.\nLMPIE\nEquipamentos: Ferramentas para integração de sistemas eólicos e fotovoltaicos, além de infraestrutura para mobilidade elétrica.",
+              "url": "https://lite.unb.br/servicos/",
+              "section": "Serviços > Sistemas > ARC > Serviços > Sistemas > LaSE > Serviços > Sistemas > LMPIE",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.15436410903930664
+            },
+            {
+              "id": "c_c8a0b710c3c50b09",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.16776376962661743
+            },
+            {
+              "id": "c_60620abc461279dd",
+              "sourceId": "DOC-003",
+              "title": "Assistência estudantil",
+              "excerpt": "Assistência estudantil\nAssistência Estudantil\nNa FCTE, A DDS está presente da seguinte forma:\nPara maiores informações sobre a a SPS, veja em contatos\nPara maiores informações sobre os programas, editais, legislações e notícias acesse: https://dds.dac.unb.br/",
+              "url": "https://fcte.unb.br/assistencia-estudantil/",
+              "section": "Assistência Estudantil > Na FCTE, A DDS está presente da seguinte forma:",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.14485472440719604
+            },
+            {
+              "id": "c_dd4b3a6b44449326",
+              "sourceId": "DOC-012",
+              "title": "Biblioteca Campus Gama – BCE",
+              "excerpt": "Biblioteca Campus Gama – BCE\nProduções FCTE\nArtigos de Periódicos\nMestrado em Engenharia Biomédica – dissertações\nMestrado em Integridade de Materiais da Engenharia – dissertações\nEngenharia Aeroespacial – monografias\nEngenharia Automotiva – monografias\nEngenharia de Energia – monografias\nEngenharia de Software – monografias\nEngenharia Eletrônica – monografias",
+              "url": "https://bce.unb.br/biblioteca-campus-gama/",
+              "section": "Produções FCTE",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.14829838275909424
+            },
+            {
+              "id": "c_1562ebf434d368af",
+              "sourceId": "DOC-013",
+              "title": "Vigilancia em saude DASU",
+              "excerpt": "Vigilancia em saude DASU\nDisponibilização de suporte às unidades acadêmicas/administrativas e grupos da comunidade universitária no planejamento, execução e avaliação de intervenções em saúde mental.\nMaiores informações pelo e-mail naps@unb.br.",
+              "url": "https://dasu.unb.br/vigilancia-em-saude/",
+              "section": "",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.14896798133850098
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pergunta": {
+        "text": "Qual é a localização do LEMA?",
+        "campus": "gama"
+      },
+      "http_status": 200,
+      "resposta": {
+        "status": "answered",
+        "answer": "O Laboratório de Estruturas e Materiais Aeroespaciais (LEMA) está localizado no Prédio LDTEA, no térreo, na sala 103. [1]",
+        "sources": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.16081291437149048
+          }
+        ],
+        "claims": [
+          {
+            "text": "O Laboratório de Estruturas e Materiais Aeroespaciais (LEMA) está localizado no Prédio LDTEA, no térreo, na sala 103.",
+            "sourceIds": [
+              "c_f2c6f00293fae365"
+            ]
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 3716,
+          "candidatesTokenCount": 108,
+          "totalTokenCount": 3824
+        },
+        "requestId": "3b0b6497-b098-4ec3-a922-eb0d2b8af0bf",
+        "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_84847b7559c2bfb8",
+            "sourceId": "DOC-015",
+            "title": "Serviços LITE",
+            "excerpt": "Serviços LITE\nServiços > Materiais e Estruturas\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia\nEquipamentos: Sistemas de análise química e caracterização de catalisadores sólidos, essenciais para o desenvolvimento de processos sustentáveis.\nBioGama\nEquipamentos: Ferramentas de caracterização térmica e química para óleos residuais e materiais catalíticos, com foco em aplicações industriais e ambientais.\nLEMA\nEquipamentos: Máquinas de fabricação de estruturas compósitas, sistemas de manufatura aditiva e equipamentos para ensaios estruturais e não destrutivos.\nLabTermo\nEquipamentos: Bancadas experimentais para estudos de transferência de calor, energia hidráulica e mecânica dos fluidos.\nLTB\nEquipamentos: Sistemas de análise térmica e espectroscópica, fundamentais para caracterização de combustíveis e materiais avançados.\nNANOTEC\nEquipamentos: Tecnologias para produção de nanomateriais, sensores e catalisadores, incluindo sistemas para análise de biocombustíveis.",
+            "url": "https://lite.unb.br/servicos/",
+            "section": "Serviços > Materiais e Estruturas > LATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia > Serviços > Materiais e Estruturas > BioGama > Serviços > Materiais e Estruturas > LEMA > Serviços > Materiais e Estruturas > LabTermo > Serviços > Materiais e Estruturas > LTB > Serviços > Materiais e Estruturas > NANOTEC",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1467711329460144
+          },
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.16081291437149048
+          },
+          {
+            "id": "c_436a2249e7a6d0fb",
+            "sourceId": "DOC-027",
+            "title": "DF no Ponto – pesquisa por linhas",
+            "excerpt": "DF no Ponto – pesquisa por linhas\nPesquisa por Linhas\nFazer uma pesquisa por linhas no DF NO PONTO é prático e eficiente. Basta informar a linha de ônibus (ex. 517.2) para acessar um relatório simplificado, com tabelas de horárias e localização dos ônibus da linha no mapa.",
+            "url": "https://dfnoponto.semob.df.gov.br/pesquisa-por-linhas/",
+            "section": "Pesquisa por Linhas",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.21418333053588867
+          },
+          {
+            "id": "c_4e7588ca515d195f",
+            "sourceId": "DOC-016",
+            "title": "Quem somos LITE",
+            "excerpt": "Quem somos LITE\nLaboratórios Integrados:\nLabTermo – Laboratório de Termofluidos: Especializado em pesquisas envolvendo fluidos térmicos, fundamentais para o desenvolvimento de sistemas de resfriamento e aquecimento em indústrias variadas.\nLMPIE – Laboratório Multidisciplinar de Pesquisa e Inovação em Energia: Dedicado à pesquisa de novas tecnologias energéticas, com foco em fontes sustentáveis e melhoria da eficiência energética.\nNANOTEC – Laboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia: Focado em soluções em nanociência e nanotecnologia, aplicáveis a diversas áreas, desde a eletrônica até a medicina.\nLabTelecom – Laboratório Compartilhado de Ensino e Pesquisa em Telecomunicações: Dedica-se à pesquisa em telecomunicações, desenvolvendo soluções inovadoras em redes e sistemas de comunicação.\nLEA – Laboratório de Estruturas Aeroespaciais: Focado na análise e desenvolvimento de estruturas aeroespaciais, com aplicação em aviões, satélites e outros veículos espaciais.\nLTB – Laboratório de Testes e Bancos de Provas: Especializado em testes de materiais e sistemas mecânicos, permitindo simulações de desempenho sob diversas condições extremas.",
+            "url": "https://lite.unb.br/quem-somos/",
+            "section": "Laboratórios Integrados:",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.15203797817230225
+          },
+          {
+            "id": "c_f1e118670e2e6123",
+            "sourceId": "DOC-016",
+            "title": "Quem somos LITE",
+            "excerpt": "Quem somos LITE\nLaboratórios Integrados:\nLabMicro – Laboratório de Microeletrônica e Sistemas Embarcados: Desenvolve soluções em microeletrônica e sistemas embarcados, com aplicação em setores automotivos, aeronáuticos e industriais.\nLaPRREn – Laboratório de Pesquisa e Desenvolvimento em Recursos Renováveis e Energéticos: Dedicado à pesquisa de tecnologias sustentáveis e fontes de energia renovável.\nLARSIS – Laboratório de Robótica e Sistemas de Controle: Dedica-se à automação industrial e desenvolvimento de robôs, colaborando com indústrias que buscam eficiência e inovação por meio de sistemas de controle avançados.\nLaSE – Laboratório de Sistemas Espaciais: Focado em pesquisa e desenvolvimento de tecnologias espaciais, contribuindo para avanços em satélites, foguetes e veículos espaciais.\nLASEE – Laboratório de Sistemas de Energia Elétrica: Um centro de excelência para o desenvolvimento de soluções em energias renováveis e eficiência energética, atuando em projetos de grande porte, como microgrids.\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia: Atua em pesquisa de tecnologias sustentáveis, materiais avançados e soluções inovadoras para o setor energético.",
+            "url": "https://lite.unb.br/quem-somos/",
+            "section": "Laboratórios Integrados:",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.15405648946762085
+          }
+        ]
+      },
+      "log_backend": {
+        "requestId": "3b0b6497-b098-4ec3-a922-eb0d2b8af0bf",
+        "executado_em": "2026-11-11T17:30:41.378681+00:00",
+        "pergunta": "Qual é a localização do LEMA?",
+        "placeId": null,
+        "geracao": {
+          "provedor": "gemini",
+          "modelo": "gemini-3.5-flash-lite",
+          "temperatura": 0.1,
+          "timeout_s": 90,
+          "max_output_tokens": 3072
+        },
+        "previousRequestId": null,
+        "prompt": {
+          "versao": "campus-rag-v2",
+          "sha256": "382dc66ede512a4212d925172540a861181c0009350b53be618f9713a7d8c811"
+        },
+        "contexto_conversa": null,
+        "consulta_busca": "Qual é a localização do LEMA?",
+        "recuperacao": {
+          "pergunta": "Qual é a localização do LEMA?",
+          "executado_em": "2026-11-11T14:30:41-03:00",
+          "etapa": "recuperacao_sem_geracao",
+          "assinatura_indice": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "embeddings": {
+            "modelo": "intfloat/multilingual-e5-small",
+            "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+            "dimensao": 384,
+            "max_tokens": 512,
+            "prefixo_documento": "passage: ",
+            "prefixo_pergunta": "query: ",
+            "normalizar": true
+          },
+          "colecao": "fcte-796894d0d378f4f8d429",
+          "config_busca": {
+            "metodo": "hibrida_rrf",
+            "bm25_k1": 1.2,
+            "bm25_b": 0.75,
+            "rrf_k": 60,
+            "top_k": 5,
+            "max_por_fonte": 2,
+            "candidatos": 30
+          },
+          "corpus_fontes": 25,
+          "trechos": [
+            {
+              "tokens": 229,
+              "rascunho": false,
+              "url": "https://lite.unb.br/servicos/",
+              "campus": "Gama",
+              "abrangencia": "Gama",
+              "validade_ord": 99991231,
+              "limitacoes": "",
+              "validade": "desconhecida",
+              "status": "aprovado",
+              "titulo": "Serviços LITE",
+              "config_chunking": "370e5efbe5c3",
+              "sha256_original": "77f93ed5b25204f31aff03acbd8385a8fbf509de4487c4fe504916c415322b0d",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "versao": "2026-11-11",
+              "source_id": "DOC-015",
+              "data_revisao": "2026-11-11",
+              "chunk_id": "c_84847b7559c2bfb8",
+              "texto": "Serviços LITE\nServiços > Materiais e Estruturas\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia\nEquipamentos: Sistemas de análise química e caracterização de catalisadores sólidos, essenciais para o desenvolvimento de processos sustentáveis.\nBioGama\nEquipamentos: Ferramentas de caracterização térmica e química para óleos residuais e materiais catalíticos, com foco em aplicações industriais e ambientais.\nLEMA\nEquipamentos: Máquinas de fabricação de estruturas compósitas, sistemas de manufatura aditiva e equipamentos para ensaios estruturais e não destrutivos.\nLabTermo\nEquipamentos: Bancadas experimentais para estudos de transferência de calor, energia hidráulica e mecânica dos fluidos.\nLTB\nEquipamentos: Sistemas de análise térmica e espectroscópica, fundamentais para caracterização de combustíveis e materiais avançados.\nNANOTEC\nEquipamentos: Tecnologias para produção de nanomateriais, sensores e catalisadores, incluindo sistemas para análise de biocombustíveis.",
+              "distancia": 0.1467711329460144,
+              "secoes": [
+                "Serviços > Materiais e Estruturas > LATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia",
+                "Serviços > Materiais e Estruturas > BioGama",
+                "Serviços > Materiais e Estruturas > LEMA",
+                "Serviços > Materiais e Estruturas > LabTermo",
+                "Serviços > Materiais e Estruturas > LTB",
+                "Serviços > Materiais e Estruturas > NANOTEC"
+              ],
+              "entidades": [
+                "lab-biogama",
+                "lab-labtermo",
+                "lab-latame",
+                "lab-lema",
+                "servico-lite"
+              ],
+              "rank_denso": 1,
+              "score_bm25": 3.4831307313211233,
+              "rank_lexical": 3,
+              "score_rrf": 0.032266458495966696,
+              "posicao": 1
+            },
+            {
+              "config_chunking": "370e5efbe5c3",
+              "validade_ord": 99991231,
+              "validade": "desconhecida",
+              "titulo": "Diretório de laboratórios da FCTE",
+              "limitacoes": "URL contém \"homologa\": confirmar se é a página definitiva",
+              "abrangencia": "Gama",
+              "rascunho": false,
+              "data_revisao": "2026-11-11",
+              "url": "https://fcte.unb.br/homologa_laboratorios/",
+              "status": "aprovado",
+              "source_id": "DOC-005",
+              "campus": "Gama",
+              "versao": "2026-11-11",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "tokens": 244,
+              "sha256_original": "dc417807f148d3dbb2d21e1242b64a19727079bab599d9b61c629ebcfd1f3e09",
+              "chunk_id": "c_f2c6f00293fae365",
+              "texto": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+              "distancia": 0.16081291437149048,
+              "secoes": [
+                "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial"
+              ],
+              "entidades": [
+                "lab-cosmos",
+                "lab-cpl",
+                "lab-lema",
+                "predio-ldtea",
+                "unidade-fcte"
+              ],
+              "rank_denso": 6,
+              "score_bm25": 4.732955948217366,
+              "rank_lexical": 2,
+              "score_rrf": 0.03128054740957967,
+              "posicao": 2
+            },
+            {
+              "status": "aprovado",
+              "titulo": "DF no Ponto – pesquisa por linhas",
+              "url": "https://dfnoponto.semob.df.gov.br/pesquisa-por-linhas/",
+              "source_id": "DOC-027",
+              "tokens": 68,
+              "limitacoes": "Página de consulta interativa: pode ter pouco texto estático",
+              "sha256_original": "8de3bca65216f39091a2a31f898ef4e3e1e4e1c9031bd4bb26bbe698b15a2932",
+              "data_revisao": "2026-11-11",
+              "validade": "desconhecida",
+              "validade_ord": 99991231,
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "versao": "2026-11-11",
+              "abrangencia": "DF",
+              "config_chunking": "370e5efbe5c3",
+              "rascunho": false,
+              "campus": "",
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "texto": "DF no Ponto – pesquisa por linhas\nPesquisa por Linhas\nFazer uma pesquisa por linhas no DF NO PONTO é prático e eficiente. Basta informar a linha de ônibus (ex. 517.2) para acessar um relatório simplificado, com tabelas de horárias e localização dos ônibus da linha no mapa.",
+              "distancia": 0.21418333053588867,
+              "secoes": [
+                "Pesquisa por Linhas"
+              ],
+              "entidades": [],
+              "score_bm25": 5.576758990998415,
+              "rank_lexical": 1,
+              "score_rrf": 0.01639344262295082,
+              "posicao": 3
+            },
+            {
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "validade_ord": 99991231,
+              "status": "aprovado",
+              "tokens": 274,
+              "sha256_original": "60d5f95a50b89100bfee852af7fae385440d7eed0ea1f7eb6a6e8bff92d4f700",
+              "campus": "Gama",
+              "titulo": "Quem somos LITE",
+              "config_chunking": "370e5efbe5c3",
+              "rascunho": false,
+              "url": "https://lite.unb.br/quem-somos/",
+              "abrangencia": "Gama",
+              "limitacoes": "Extrair informacoes institucionais sem repetir menus de laboratorios",
+              "data_revisao": "2026-11-11",
+              "validade": "desconhecida",
+              "versao": "2026-11-11",
+              "source_id": "DOC-016",
+              "chunk_id": "c_4e7588ca515d195f",
+              "texto": "Quem somos LITE\nLaboratórios Integrados:\nLabTermo – Laboratório de Termofluidos: Especializado em pesquisas envolvendo fluidos térmicos, fundamentais para o desenvolvimento de sistemas de resfriamento e aquecimento em indústrias variadas.\nLMPIE – Laboratório Multidisciplinar de Pesquisa e Inovação em Energia: Dedicado à pesquisa de novas tecnologias energéticas, com foco em fontes sustentáveis e melhoria da eficiência energética.\nNANOTEC – Laboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia: Focado em soluções em nanociência e nanotecnologia, aplicáveis a diversas áreas, desde a eletrônica até a medicina.\nLabTelecom – Laboratório Compartilhado de Ensino e Pesquisa em Telecomunicações: Dedica-se à pesquisa em telecomunicações, desenvolvendo soluções inovadoras em redes e sistemas de comunicação.\nLEA – Laboratório de Estruturas Aeroespaciais: Focado na análise e desenvolvimento de estruturas aeroespaciais, com aplicação em aviões, satélites e outros veículos espaciais.\nLTB – Laboratório de Testes e Bancos de Provas: Especializado em testes de materiais e sistemas mecânicos, permitindo simulações de desempenho sob diversas condições extremas.",
+              "distancia": 0.15203797817230225,
+              "secoes": [
+                "Laboratórios Integrados:"
+              ],
+              "entidades": [
+                "lab-labnanotec",
+                "lab-labtermo",
+                "lab-lea",
+                "lab-lmpie",
+                "servico-lite"
+              ],
+              "rank_denso": 2,
+              "score_rrf": 0.016129032258064516,
+              "posicao": 4
+            },
+            {
+              "sha256_original": "60d5f95a50b89100bfee852af7fae385440d7eed0ea1f7eb6a6e8bff92d4f700",
+              "limitacoes": "Extrair informacoes institucionais sem repetir menus de laboratorios",
+              "revisor": "Pedro (aprovacao expressa no chat)",
+              "url": "https://lite.unb.br/quem-somos/",
+              "versao": "2026-11-11",
+              "source_id": "DOC-016",
+              "tokens": 290,
+              "validade_ord": 99991231,
+              "rascunho": false,
+              "config_chunking": "370e5efbe5c3",
+              "validade": "desconhecida",
+              "titulo": "Quem somos LITE",
+              "status": "aprovado",
+              "abrangencia": "Gama",
+              "campus": "Gama",
+              "data_revisao": "2026-11-11",
+              "chunk_id": "c_f1e118670e2e6123",
+              "texto": "Quem somos LITE\nLaboratórios Integrados:\nLabMicro – Laboratório de Microeletrônica e Sistemas Embarcados: Desenvolve soluções em microeletrônica e sistemas embarcados, com aplicação em setores automotivos, aeronáuticos e industriais.\nLaPRREn – Laboratório de Pesquisa e Desenvolvimento em Recursos Renováveis e Energéticos: Dedicado à pesquisa de tecnologias sustentáveis e fontes de energia renovável.\nLARSIS – Laboratório de Robótica e Sistemas de Controle: Dedica-se à automação industrial e desenvolvimento de robôs, colaborando com indústrias que buscam eficiência e inovação por meio de sistemas de controle avançados.\nLaSE – Laboratório de Sistemas Espaciais: Focado em pesquisa e desenvolvimento de tecnologias espaciais, contribuindo para avanços em satélites, foguetes e veículos espaciais.\nLASEE – Laboratório de Sistemas de Energia Elétrica: Um centro de excelência para o desenvolvimento de soluções em energias renováveis e eficiência energética, atuando em projetos de grande porte, como microgrids.\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia: Atua em pesquisa de tecnologias sustentáveis, materiais avançados e soluções inovadoras para o setor energético.",
+              "distancia": 0.15405648946762085,
+              "secoes": [
+                "Laboratórios Integrados:"
+              ],
+              "entidades": [
+                "lab-labmicro",
+                "lab-larsis",
+                "lab-lase",
+                "lab-lasee",
+                "lab-latame",
+                "servico-lite"
+              ],
+              "rank_denso": 3,
+              "score_rrf": 0.015873015873015872,
+              "posicao": 5
+            }
+          ],
+          "limite": "Distância cosseno não é probabilidade de verdade. Não há corte de relevância calibrado; os trechos precisam ser avaliados."
+        },
+        "resposta": {
+          "status": "answered",
+          "answer": "O Laboratório de Estruturas e Materiais Aeroespaciais (LEMA) está localizado no Prédio LDTEA, no térreo, na sala 103. [1]",
+          "sources": [
+            {
+              "id": "c_f2c6f00293fae365",
+              "sourceId": "DOC-005",
+              "title": "Diretório de laboratórios da FCTE",
+              "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+              "url": "https://fcte.unb.br/homologa_laboratorios/",
+              "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.16081291437149048
+            }
+          ],
+          "claims": [
+            {
+              "text": "O Laboratório de Estruturas e Materiais Aeroespaciais (LEMA) está localizado no Prédio LDTEA, no térreo, na sala 103.",
+              "sourceIds": [
+                "c_f2c6f00293fae365"
+              ]
+            }
+          ],
+          "usage": {
+            "promptTokenCount": 3716,
+            "candidatesTokenCount": 108,
+            "totalTokenCount": 3824
+          },
+          "requestId": "3b0b6497-b098-4ec3-a922-eb0d2b8af0bf",
+          "baseVersion": "796894d0d378f4f8d42929dc5a5eef75e22c70d2eeafd62d880171be67051267",
+          "model": "gemini-3.5-flash-lite",
+          "retrieved": [
+            {
+              "id": "c_84847b7559c2bfb8",
+              "sourceId": "DOC-015",
+              "title": "Serviços LITE",
+              "excerpt": "Serviços LITE\nServiços > Materiais e Estruturas\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia\nEquipamentos: Sistemas de análise química e caracterização de catalisadores sólidos, essenciais para o desenvolvimento de processos sustentáveis.\nBioGama\nEquipamentos: Ferramentas de caracterização térmica e química para óleos residuais e materiais catalíticos, com foco em aplicações industriais e ambientais.\nLEMA\nEquipamentos: Máquinas de fabricação de estruturas compósitas, sistemas de manufatura aditiva e equipamentos para ensaios estruturais e não destrutivos.\nLabTermo\nEquipamentos: Bancadas experimentais para estudos de transferência de calor, energia hidráulica e mecânica dos fluidos.\nLTB\nEquipamentos: Sistemas de análise térmica e espectroscópica, fundamentais para caracterização de combustíveis e materiais avançados.\nNANOTEC\nEquipamentos: Tecnologias para produção de nanomateriais, sensores e catalisadores, incluindo sistemas para análise de biocombustíveis.",
+              "url": "https://lite.unb.br/servicos/",
+              "section": "Serviços > Materiais e Estruturas > LATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia > Serviços > Materiais e Estruturas > BioGama > Serviços > Materiais e Estruturas > LEMA > Serviços > Materiais e Estruturas > LabTermo > Serviços > Materiais e Estruturas > LTB > Serviços > Materiais e Estruturas > NANOTEC",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.1467711329460144
+            },
+            {
+              "id": "c_f2c6f00293fae365",
+              "sourceId": "DOC-005",
+              "title": "Diretório de laboratórios da FCTE",
+              "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+              "url": "https://fcte.unb.br/homologa_laboratorios/",
+              "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.16081291437149048
+            },
+            {
+              "id": "c_436a2249e7a6d0fb",
+              "sourceId": "DOC-027",
+              "title": "DF no Ponto – pesquisa por linhas",
+              "excerpt": "DF no Ponto – pesquisa por linhas\nPesquisa por Linhas\nFazer uma pesquisa por linhas no DF NO PONTO é prático e eficiente. Basta informar a linha de ônibus (ex. 517.2) para acessar um relatório simplificado, com tabelas de horárias e localização dos ônibus da linha no mapa.",
+              "url": "https://dfnoponto.semob.df.gov.br/pesquisa-por-linhas/",
+              "section": "Pesquisa por Linhas",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.21418333053588867
+            },
+            {
+              "id": "c_4e7588ca515d195f",
+              "sourceId": "DOC-016",
+              "title": "Quem somos LITE",
+              "excerpt": "Quem somos LITE\nLaboratórios Integrados:\nLabTermo – Laboratório de Termofluidos: Especializado em pesquisas envolvendo fluidos térmicos, fundamentais para o desenvolvimento de sistemas de resfriamento e aquecimento em indústrias variadas.\nLMPIE – Laboratório Multidisciplinar de Pesquisa e Inovação em Energia: Dedicado à pesquisa de novas tecnologias energéticas, com foco em fontes sustentáveis e melhoria da eficiência energética.\nNANOTEC – Laboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia: Focado em soluções em nanociência e nanotecnologia, aplicáveis a diversas áreas, desde a eletrônica até a medicina.\nLabTelecom – Laboratório Compartilhado de Ensino e Pesquisa em Telecomunicações: Dedica-se à pesquisa em telecomunicações, desenvolvendo soluções inovadoras em redes e sistemas de comunicação.\nLEA – Laboratório de Estruturas Aeroespaciais: Focado na análise e desenvolvimento de estruturas aeroespaciais, com aplicação em aviões, satélites e outros veículos espaciais.\nLTB – Laboratório de Testes e Bancos de Provas: Especializado em testes de materiais e sistemas mecânicos, permitindo simulações de desempenho sob diversas condições extremas.",
+              "url": "https://lite.unb.br/quem-somos/",
+              "section": "Laboratórios Integrados:",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.15203797817230225
+            },
+            {
+              "id": "c_f1e118670e2e6123",
+              "sourceId": "DOC-016",
+              "title": "Quem somos LITE",
+              "excerpt": "Quem somos LITE\nLaboratórios Integrados:\nLabMicro – Laboratório de Microeletrônica e Sistemas Embarcados: Desenvolve soluções em microeletrônica e sistemas embarcados, com aplicação em setores automotivos, aeronáuticos e industriais.\nLaPRREn – Laboratório de Pesquisa e Desenvolvimento em Recursos Renováveis e Energéticos: Dedicado à pesquisa de tecnologias sustentáveis e fontes de energia renovável.\nLARSIS – Laboratório de Robótica e Sistemas de Controle: Dedica-se à automação industrial e desenvolvimento de robôs, colaborando com indústrias que buscam eficiência e inovação por meio de sistemas de controle avançados.\nLaSE – Laboratório de Sistemas Espaciais: Focado em pesquisa e desenvolvimento de tecnologias espaciais, contribuindo para avanços em satélites, foguetes e veículos espaciais.\nLASEE – Laboratório de Sistemas de Energia Elétrica: Um centro de excelência para o desenvolvimento de soluções em energias renováveis e eficiência energética, atuando em projetos de grande porte, como microgrids.\nLATAME – Laboratório de Tecnologias Ambientais, Materiais e Energia: Atua em pesquisa de tecnologias sustentáveis, materiais avançados e soluções inovadoras para o setor energético.",
+              "url": "https://lite.unb.br/quem-somos/",
+              "section": "Laboratórios Integrados:",
+              "version": "2026-11-11",
+              "reviewedAt": "2026-11-11",
+              "validUntil": "desconhecida",
+              "distance": 0.15405648946762085
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "fim": "2026-11-11T17:30:46.083320+00:00"
+}

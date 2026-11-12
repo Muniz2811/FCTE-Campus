@@ -1,0 +1,385 @@
+{
+  "source_id": "DOC-028",
+  "versao": "2026-11-11",
+  "sha256_original": "3cc1fcd7753a9ed17dcda9ad383da031b2eadcafac0d848d9ec8ae77ea791435",
+  "url": "https://dds.dac.unb.br/wp-content/uploads/2026/08/Guia_do_Estudante___Avaliacao_Socioeconomica_UnB_2026_compressed.pdf",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [
+      "Alimentação",
+      "Restaurante Universitário"
+    ],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Guia do Estudante - Avaliacao Socioeconomica UnB 2026.pdf",
+  "secoes": [
+    {
+      "caminho": [
+        "Página 2"
+      ],
+      "pagina": 2,
+      "paragrafos": [
+        "Expediente",
+        "UnB - Universidade de Brasília",
+        "DAC - Decanato de Assuntos Comunitários",
+        "DDS - Diretoria de Desenvolvimento Social",
+        "Coordenação de Assistência Estudantil (CoAE)",
+        "Coordenadora",
+        "Nathália Gentil Almeida",
+        "Texto",
+        "Daniela Gomes de Farias Etiene de Sousa Lima de Oliveira Jéssica Fonseca Machado Larissa Araújo Matos Mayara Alves de Oliveira Nathália Gentil Almeida Sânzia Fernandes Barroso",
+        "Revisão textual",
+        "Bárbara M. de Velasco",
+        "Diagramação e Produção",
+        "Bárbara M. de Velasco Emilly Gabriely Gonzaga Inácio",
+        "Brasília, agosto de 2026.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 3"
+      ],
+      "pagina": 3,
+      "paragrafos": [
+        "Assistência Estudantil — UnB",
+        "2 Oi!",
+        "Este guia foi feito para conversar diretamente com você, estudante da UnB. A ideia é explicar de forma simples, clara e sem juridiquês como funciona a Avaliação Socioeconômica da Assistência Estudantil.",
+        "Pense neste guia como um mapa",
+        "Ele te ajuda a entender o caminho, saber o que será analisado e porque essas informações são importantes.",
+        "venha comigo!",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 4"
+      ],
+      "pagina": 4,
+      "paragrafos": [
+        "Para que serve a Avaliação Socioeconômica?",
+        "A Avaliação Socioeconômica existe para garantir maior equidade",
+        "na distribuição dos auxílios da Assistência Estudantil.",
+        "Como os recursos são limitados, a UnB precisa priorizar quem",
+        "3",
+        "enfrenta mais dificuldades para permanecer na universidade.",
+        "– Ela não avalia mérito acadêmico.",
+        "–",
+        "Ela não é competição.",
+        "–",
+        "Ela é um instrumento de garantia de direitos.",
+        "Quem precisa solicitar a Avaliação Socioeconômica?",
+        "Quem quiser participar dos programas, auxílios ou bolsas da",
+        "Assistência Estudantil. Eles exigem análise do perfil socioeconômico,",
+        "conforme previsto em edital.",
+        "Sempre confira o edital do semestre: ele é o guia oficial do processo.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 5"
+      ],
+      "pagina": 5,
+      "paragrafos": [
+        "Passo a Passo",
+        "Como funciona o processo de Avaliação Socioeconômica?",
+        "De forma geral, o caminho é este:",
+        "4",
+        "1 Publicação do edital",
+        "Publicação do edital da Avaliação Socioeconômica; https://dds.dac.unb.br/ (aba editais)",
+        "Cadastro Único no SIGAA",
+        "2",
+        "Preencha o Cadastro Único da Assistência Estudantil no SIGAA;",
+        "Concordar com os termos e preencher o cadastro. Basta ir em Bolsas Aderir",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 6"
+      ],
+      "pagina": 6,
+      "paragrafos": [
+        "Atenção",
+        "Nesta etapa você precisará anexar todos os documentos do estudante e",
+        "do grupo familiar. Então, organize todos os documentos antes de iniciar o preenchimento.",
+        "5",
+        "Lembre-se de enviar a documentação completa. Isso é fundamental para a equipe técnica realizar a análise social e para concluir a avaliação com mais celeridade.",
+        "3 Inscrição na bolsa Avaliação Socioeconômica pelo SIGAA;",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 7"
+      ],
+      "pagina": 7,
+      "paragrafos": [
+        "Análise das informações e dos documentos pela equipe da DDS;",
+        "4",
+        "Elaboração do parecer social;",
+        "5",
+        "6",
+        "6 Atualização no sistema com o resultado da sua avaliação.",
+        "Respire",
+        "Você não passa por isso sozinho(a). Há uma equipe técnica acompanhando",
+        "todo o processo. Em caso de dúvidas, procure atendimento via e-mail ou",
+        "presencial.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 8"
+      ],
+      "pagina": 8,
+      "paragrafos": [
+        "O que é o Cadastro Único do SIGAA?",
+        "É igual ao Cadúnico do Governo Federal?",
+        "Não.",
+        "É um questionário socioeconômico online disponível no sistema",
+        "SIGAA, no qual você conta um pouco sobre a sua realidade social",
+        "7",
+        "e econômica. Nele são informados dados sobre:",
+        "Moradia",
+        "Quem você é",
+        "Saúde",
+        "Renda e formas de manutenção de despesas",
+        "Quem faz parte do seu convívio social",
+        "Formação acadêmica Outras situações que impactam sua permanência na Universidade",
+        "Preencher com atenção e sinceridade é fundamental, especialmente quanto aos",
+        "valores de renda. Eles influenciam diretamente no cálculo da renda per capita e na",
+        "pontuação.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 9"
+      ],
+      "pagina": 9,
+      "paragrafos": [
+        "O que é analisado na Avaliação Socioeconômica?",
+        "A Avaliação Socioeconômica avalia sua situação social e econômica como um todo. Nada é analisado isoladamente.",
+        "8",
+        "Marcadores sociais como raça/etnia, gênero, identidade de gênero e orientação sexual.",
+        "Pessoa",
+        "São identificados os estudantes que possuem formação",
+        "superior. O espaço permite relatar dificuldades de",
+        "permanência na universidade que possam impactar",
+        "Formação Acadêmica",
+        "diretamente no desenvolvimento e na continuidade dos estudos.",
+        "Com quem se mora , relação de dependência financeira,",
+        "vínculos familiares e possíveis fragilizações ou rompimentos",
+        "de vínculo.",
+        "Relações Familiares",
+        "Local de moradia, condição de moradia,",
+        "deslocamento até a universidade e acesso aos serviços públicos.",
+        "Territorialidade e Moradia",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 10"
+      ],
+      "pagina": 10,
+      "paragrafos": [
+        "Doenças crônicas ou graves, transtornos mentais ou condições de saúde que impactem a vida acadêmica.",
+        "Saúde",
+        "identificação de estudantes e integrantes do grupo familiar com deficiência.",
+        "9",
+        "PCD",
+        "Rendas formais ou informais, benefícios sociais, bolsas,",
+        "auxílios e estratégias de manutenção das despesas.",
+        "IMPORTANTE: valores pontualmente recebidos, devem ser",
+        "Como funciona a pontuação?",
+        "declarados e justificados para melhor compreensão da equipe técnica ao realizar sua avaliação.",
+        "Renda e Meios de Subsistência",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 11"
+      ],
+      "pagina": 11,
+      "paragrafos": [
+        "Como funciona a pontuação?",
+        "São atribuídas pontuações aos diferentes aspectos analisados na",
+        "Avaliação Socioeconômica.",
+        "Funciona assim: quanto menor a pontuação, maior o índice de",
+        "vulnerabilidade socioeconômica.",
+        "10",
+        "Menor pontuação",
+        "Maior Índice de Vulnerabilidade Socioeconômica",
+        "Maior pontuação",
+        "Menor Índice de Vulnerabilidade Socioeconômica",
+        "O que é a Ordem Prioritária de Assistência Estudantil?",
+        "A Ordem Prioritária de Assistência Estudantil organiza os estudantes de acordo com a pontuação final, considerando a disponibilidade de recursos.",
+        "Importante:",
+        "–",
+        "Não mede desempenho acadêmico;",
+        "–",
+        "Não gera vantagem acadêmica;",
+        "Apenas organiza a prioridade social.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 12"
+      ],
+      "pagina": 12,
+      "paragrafos": [
+        "A pontuação decide tudo sozinha?",
+        "A pontuação não define o resultado da Avaliação",
+        "Socioeconômica.",
+        "A Avaliação Socioeconômica é realizada por assistentes sociais",
+        "que analisam o conjunto de informações e documentos",
+        "11",
+        "apresentados, considerando:",
+        "O Cadastro Único do SIGAA; Documentação comprobatórias; Entrevistas e visitas domiciliares, quando necessárias; Contexto social, econômico e familiar do(a) estudante.",
+        "A pontuação obtida no formulário constitui um dos instrumentos utilizados na análise, mas não substitui a avaliação técnica realizada pelo(a) assistente social. Após a análise de todos os elementos do processo, a pontuação poderá ser confirmada ou ajustada, quando houver justificativa técnica.",
+        "O resultado da Avaliação Socioeconômica será formalizado por meio de um parecer social, no qual constará a conclusão fundamentada sobre o enquadramento, ou não, do(a) estudante no perfil previsto para acesso à Política de Assistência Estudantil.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 13"
+      ],
+      "pagina": 13,
+      "paragrafos": [
+        "A pontuação do cadastro único define o resultado da Avaliação Socioeconômica?",
+        "Não.",
+        "A pontuação é apenas um dos instrumentos utilizados na",
+        "Avaliação Socioeconômica.",
+        "12",
+        "Além da pontuação, o(a) assistente social analisa:",
+        "O Cadastro Único do SIGAA; Documentação comprobatórias; Entrevistas e visitas domiciliares, quando necessárias; Contexto social, econômico e familiar do(a) estudante.",
+        "A partir dessa análise, a pontuação poderá ser confirmada ou ajustada, quando houver justificativa técnica.",
+        "O resultado final é registrado em um parecer social, que informa se o(a) estudante atende, ou não, ao perfil previsto para acesso à Política de Assistência Estudantil.",
+        "Posso recorrer do resultado?",
+        "Sim.",
+        "Se você identificar equívocos no processo avaliativo, pode interpor",
+        "recurso, dentro do prazo previsto em edital. Para isso, deve prestar",
+        "esclarecimentos e apresentar documentos comprobatórios.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 14"
+      ],
+      "pagina": 14,
+      "paragrafos": [
+        "E agora? Como participar dos Programas/Auxílios?",
+        "A Avaliação Socioeconômica",
+        "1",
+        "Após a publicação dos editais, você deverá acessar ao SIGAA e se inscrever em cada um dos programas de seu interesse, conforme critérios e orientações previstas no edital.",
+        "13",
+        "Solicitação de Bolsa Solicitação de Bolsa Auxílio",
+        "2 Selecionar o Tipo da Bolsa Auxílio",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 15"
+      ],
+      "pagina": 15,
+      "paragrafos": [
+        "3 Preencher solicitação de Bolsa Auxílio",
+        "14",
+        "Transparência e sigilo",
+        "A DDS garante:",
+        "Critérios claros e públicos; Metodologia transparente; Sigilo absoluto das informações individuais, conforme a legislação de proteção de dados.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 16"
+      ],
+      "pagina": 16,
+      "paragrafos": [
+        "Ficou com dúvida?",
+        "Se algo não ficou claro, procure os canais oficiais da DDS:",
+        "Darcy Ribeiro: Prédio BAES (próximo ao Centro Comunitário Athos Bulcão)",
+        "coae.dds@unb.br",
+        "15",
+        "(61) 3107-2310 / 3107-2311 (Darcy Ribeiro)",
+        "7h30 as 19h30",
+        "Faculdade de Ceilândia: UAC sala A1 7/9",
+        "(61) 3107-8407",
+        "Faculdade do Gama: FCTE/UnB - Campus Gama - Prédio UAC, 1° andar",
+        "Salas A1-66/19 e A1-63/19 (Próximo à sala Multiuso)",
+        "coae.fcte@unb.br",
+        "Faculdade de Planaltina",
+        "(61) 3107-8280",
+        "Nas próximas páginas você encontrará a tabela dos documentos necessários para",
+        "ter sua Avaliação Socioeconômica realizada.",
+        "GUIA DO ESTUDANTE · UnB"
+      ]
+    }
+  ],
+  "paginas_total": 49,
+  "paginas_selecionadas": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "palavras": 1263,
+  "avisos": [
+    "Conferir leitura de tabelas e diagramas no original"
+  ],
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0
+}

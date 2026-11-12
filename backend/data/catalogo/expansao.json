@@ -1,0 +1,76 @@
+{
+  "autorizacao": "Pedro solicitou incorporar todas as 15 fontes propostas em 11/11/2026.",
+  "fontes": [
+    "DOC-028",
+    "DOC-029",
+    "DOC-030",
+    "DOC-031",
+    "DOC-032",
+    "DOC-033",
+    "DOC-034",
+    "DOC-035",
+    "DOC-036",
+    "DOC-037",
+    "DOC-038",
+    "DOC-039",
+    "DOC-040",
+    "DOC-041",
+    "DOC-042"
+  ],
+  "avaliacao_anterior": "20261111T183730Z; percentuais anteriores não representam a base ampliada.",
+  "tentativas_brb": [
+    {
+      "source_id": "DOC-037",
+      "tentativa": 1,
+      "situacao": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "source_id": "DOC-037",
+      "tentativa": 2,
+      "situacao": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "source_id": "DOC-037",
+      "tentativa": 3,
+      "situacao": "erro",
+      "detalhe": "falha de conexão (ReadError)"
+    },
+    {
+      "source_id": "DOC-041",
+      "tentativa": 1,
+      "situacao": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "source_id": "DOC-041",
+      "tentativa": 2,
+      "situacao": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "source_id": "DOC-041",
+      "tentativa": 3,
+      "situacao": "erro",
+      "detalhe": "HTTP 503"
+    }
+  ],
+  "resultado": {
+    "catalogadas": 42,
+    "indexadas": 37,
+    "chunks": 174,
+    "dimensao": 384,
+    "novas_indexadas": 12,
+    "novos_chunks": 80,
+    "originais_novos_preservados": 13
+  },
+  "verificacao": {
+    "testes_existentes": "74 passed",
+    "reabertura_banco": true,
+    "rodada": "20261111T235422Z",
+    "consultas_avaliacao_http_200": "15/15",
+    "consultas_expansao_http_200": "3/3",
+    "limitacoes": "Precis?o 17/75 abaixo da meta; Q07 parcial. Sem dupla revis?o humana."
+  }
+}

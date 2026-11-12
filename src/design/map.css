@@ -1,0 +1,49 @@
+.map-stage { grid-column: 3; grid-row: 1 / -1; position: relative; min-width: 0; min-height: 0; background: #e5ece1; overflow: hidden; }
+.map-loading { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--green-deep); }
+.campus-map { position: absolute; inset: 0; background: #e6eddf; }
+.campus-map .leaflet-tile-pane { filter: saturate(.6); }
+.campus-map .leaflet-container { font-family: inherit; }
+.map-campus-label { position: absolute; z-index: 500; display: flex; align-items: center; gap: 10px; top: 27px; left: 28px; background: white; padding: 11px 18px; border-radius: 15px; box-shadow: var(--shadow); pointer-events: none; }
+.map-campus-label strong { color: var(--blue); font-weight: 700; font-size: .98rem; }
+.map-campus-label > span:last-child { padding-left: 10px; border-left: 1px solid var(--line); color: var(--muted); font-size: .83rem; }
+.map-controls { position: absolute; z-index: 600; right: 23px; top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.map-controls > button, .zoom-controls { background: white; border-radius: 15px; box-shadow: var(--shadow); color: var(--blue); }
+.map-controls button { display: grid; place-items: center; width: 47px; height: 47px; border-radius: 15px; }
+.map-controls button:hover { background: #f1f6f2; }
+.map-controls svg { width: 21px; height: 21px; stroke-width: 1.8; }
+.zoom-controls > button:first-child { border-radius: 15px 15px 0 0; border-bottom: 1px solid var(--line); }
+.zoom-controls > button:last-child { border-radius: 0 0 15px 15px; }
+.map-controls .is-located { background: var(--blue); color: white; }
+.map-controls .is-located:hover { background: var(--blue-deep); }
+.map-messages { position: absolute; z-index: 600; top: 88px; left: 28px; max-width: min(390px, calc(100% - 115px)); display: grid; gap: 9px; }
+.map-notice { display: flex; align-items: center; gap: 8px; background: #fffffff2; padding: 11px 13px; border-radius: 13px; box-shadow: var(--shadow); color: #395a4a; font-size: .84rem; line-height: 1.4; }
+.map-notice button { width: 32px; height: 32px; }
+.map-attribution { position: absolute; z-index: 700; bottom: 0; right: 0; background: #fffffff2; padding: 2px 8px; font-size: 11px; color: #354e49; }
+.map-attribution a { color: #254f74; }
+.campus-marker { background: none; border: 0; }
+.marker-glyph { width: 100%; height: 100%; display: grid; place-items: center; border-radius: 50% 50% 50% 10%; transform: rotate(-45deg); background: white; color: var(--blue); box-shadow: 0 3px 12px #003c2940, 0 0 0 1px #003f7a15; border: 2px solid white; transition: background .18s, color .18s; }
+.marker-glyph svg { width: 20px; height: 20px; transform: rotate(45deg); }
+.campus-marker--outdoor .marker-glyph, .campus-marker--entrance .marker-glyph { color: var(--green-deep); }
+.campus-marker--laboratory .marker-glyph { color: #8a5a16; }
+.campus-marker:hover .marker-glyph { background: #f0f8ed; }
+.campus-marker--active .marker-glyph { background: var(--blue) !important; color: var(--yellow) !important; border: 3px solid white; box-shadow: 0 0 0 5px #ffcc0050, 0 5px 20px #003f7a50; }
+.campus-marker--active svg { width: 26px; height: 26px; }
+.leaflet-tooltip.place-tooltip { font-family: 'Source Sans 3 Variable', sans-serif; font-size: 13px; color: var(--ink); background: white; border: 0; border-radius: 9px; box-shadow: var(--shadow); padding: 7px 11px; font-weight: 650; }
+.leaflet-tooltip.place-tooltip::before { border-top-color: white; }
+.campus-map:focus-visible { outline-offset: -4px; }
+.is-loading { animation: locating 1.2s ease-in-out infinite; }
+@keyframes locating { 50% { opacity: .35; transform: scale(.85); } }
+@media (max-width: 760px) {
+  .map-stage { position: absolute; inset: 0; }
+  .map-campus-label { display: none; }
+  .map-controls { top: 206px; right: 15px; gap: 10px; }
+  .map-controls button { width: 43px; height: 43px; border-radius: 14px; }
+  .zoom-controls { display: none; }
+  .map-attribution { top: calc(max(14px, env(safe-area-inset-top)) + 168px); bottom: auto; left: 16px; right: auto; border-radius: 5px; padding: 1px 5px; font-size: 10px; }
+  .sheet--full .map-controls { display: none; }
+  .map-messages { top: 207px; left: 15px; max-width: calc(100% - 87px); }
+  .map-notice { font-size: .77rem; padding: 8px 10px; }
+  .campus-marker .marker-glyph { box-shadow: 0 2px 7px #003c2940, 0 0 0 1px #003f7a15; }
+  .leaflet-tooltip.place-tooltip { max-width: 230px; white-space: normal; }
+}
+@media (max-height: 650px) and (max-width: 760px) { .map-attribution { top: 130px; } .map-controls, .map-messages { top: 150px; } }

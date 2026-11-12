@@ -1,0 +1,114 @@
+{
+  "source_id": "DOC-040",
+  "versao": "2026-11-11",
+  "sha256_original": "6fb0041c2a38f69c49ec7613f0c101508cc1a9001c130b7108a66f0c0b304140",
+  "url": "https://bce.unb.br/bibliotecas-digitais/bds/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Biblioteca Digital Sonora (BDS) – BCE",
+  "palavras": 1050,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "Biblioteca Digital e Sonora"
+      ],
+      "paragrafos": [
+        "http://bds.unb.br",
+        "A Biblioteca Digital e Sonora (BDS) foi criada com o objetivo de atender a demanda de pessoas com deficiência visual, tanto da UnB quanto da comunidade em geral, coletando, reunindo, organizando e armazenado materiais em formato digital a fim de satisfazer as necessidades de informação de seus usuários.",
+        "Com a implementação da BDS, a BCE procura democratizar o acesso à educação e à cultura por meio da oferta de materiais devidamente adaptados para os programas ledores de tela, além de livros gravados com uso da voz humana.",
+        "São disponibilizados materiais em formato sonoro (MP3), gravados com uso da voz humana, e digital (DOC, HTML e PDF), devidamente adaptados para os programas ledores de tela.",
+        "A BDS é de uso restrito às pessoas com deficiência visual e/ou com limitações a leitura de materiais impressos. Portanto somente pessoas com esse perfil podem ter acesso ao conteúdo do site.",
+        "Se você ainda não é usuário acesse o seguinte link, nele estão todas as informações sobre como fazer o cadastro.",
+        "Informações Gerais",
+        "O documento médico comprobatório da deficiência visual deve fundamentar-se no Decreto-lei número 5.296 de 2004.",
+        "A documentação poderá ser entregue pessoalmente ou pelos correios no endereço:",
+        "Biblioteca Digital Sonora (BDS) | Coordenadoria da Informação Digital (GID)\nCampus Universitário Darcy Ribeiro, Gleba A, Biblioteca Central (BCE), Universidade de Brasília (UnB)\n70.910-900 Brasília – DF, Brasil",
+        "O termo de compromisso e a ficha de cadastro estão disponíveis logo abaixo.",
+        "Ao cadastrar-se o novo usuário se compromete, nos termos da lei, não modificar, adaptar ou traduzir ou emprestar cópias das obras a terceiros. Além disso, o usuário concorda em não colocar nenhum título da BDS em um servidor ou outro ambiente de rede pública, como a internet.",
+        "Somente após o cumprimento das exigências acima, o cadastro poderá ser efetivado para acessar a Biblioteca Digital e Sonora.",
+        "Ficha cadastral\nTermo de compromisso",
+        "Estudante da UnB",
+        "Possuir cadastro na Diretoria de Acessibilidade (DACES) da Universidade de Brasília;",
+        "Apresentar um documento oficial de identificação (não necessita cópia);",
+        "Assinar o termo de compromisso;",
+        "Preencher a ficha de cadastro.",
+        "Usuários de outras instituições de ensino superior (cadastro coletivo)",
+        "Ofício expedido por órgão competente, dentro da Universidade, por acolher alunos com deficiência, contendo a relação de nomes dos alunos e a especificação da deficiência",
+        "Termo de compromisso assinado",
+        "Ficha de cadastro preenchida",
+        "Usuário Externo",
+        "Laudo médico original ou cópia autenticada",
+        "Cópia da Identidade e CPF autenticados em cartório (se apresentados pessoalmente, não é necessário autenticar)",
+        "Termo de compromisso assinado",
+        "Ficha de cadastro preenchida",
+        "A BDS realiza suas atividades baseada nas legislações a seguir:",
+        "Decreto n. 5.296, de 02/12/2004. É utilizado para definir deficiência visual.",
+        "Art. 5º Os órgãos da administração pública direta, indireta e fundacional, as empresas prestadoras de serviços públicos e as instituições financeiras deverão dispensar atendimento prioritário às pessoas portadoras de deficiência ou com mobilidade reduzida.",
+        "c) deficiência visual: cegueira, na qual a acuidade visual é igual ou menor que 0,05 no melhor olho, com a melhor correção óptica; a baixa visão, que significa acuidade visual entre 0,3 e 0,05 no melhor olho, com a melhor correção óptica; os casos nos quais a somatória da medida do campo visual em ambos os olhos for igual ou menor que 60o; ou a ocorrência simultânea de quaisquer das condições anteriores;",
+        "http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/decreto/d5296.htm",
+        "Lei nº 9.610, de 19/02/1998: altera, atualiza e consolida a legislação sobre direitos autorais e dá outras providências.",
+        "Art. 46. Não constitui ofensa aos direitos autorais:",
+        "I – a reprodução:",
+        "d) de obras literárias, artísticas ou científicas, para uso exclusivo de deficientes visuais, sempre que a reprodução, sem fins comerciais, seja feita mediante o sistema Braille ou outro procedimento em qualquer suporte para esses destinatários.",
+        "http://www.planalto.gov.br/ccivil_03/leis/L9610.htm",
+        "Lei n. 13.146, de 06/07/ Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência).",
+        "Art. 42. A pessoa com deficiência tem direito à cultura, ao esporte, ao turismo e ao lazer em igualdade de oportunidades com as demais pessoas, sendo-lhe garantido o acesso:",
+        "1º É vedada a recusa de oferta de obra intelectual em formato acessível à pessoa com deficiência, sob qualquer argumento, inclusive sob a alegação de proteção dos direitos de propriedade intelectual.",
+        "http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm",
+        "Por que não consigo visualizar o conteúdo?",
+        "Os títulos constantes na BDS podem ser visualizados por qualquer pessoa. Porém, os materiais adaptados são de acesso restrito para deficientes visuais cadastrados. A restrição adotada atende à legislação de direitos autorais, que permite a reprodução de obras literárias, artísticas ou científicas para uso exclusivo de deficientes visuais.",
+        "Por que preciso apresentar tantos documentos para o cadastramento?",
+        "A BDS segue algumas regras de funcionamento. A Lei nº 9.610/1998, que permite, sem ofensa aos direitos autorais, reprodução de obras literárias, artísticas ou científicas, especifica que o material deve ser de uso exclusivo de deficientes visuais. O laudo e o termo de compromisso são exigidos para garantir que o usuário faz parte do público-alvo e o termo, para garantir que esse material não será distribuído.",
+        "Os materiais são disponibilizados em quais formatos?",
+        "Os materiais constantes na BDS são disponibilizados em formato texto e em formato áudio.",
+        "Formato texto: materiais que passam por um processo de adaptação. Essa adaptação é feita para que os programas ledores de tela possam transmitir ao usuário todo o conteúdo do material com seus minuciosos detalhes. Esses documentos são disponibilizados na Biblioteca Digital nos formatos HTML e PDF.",
+        "Formato áudio: em formato MP3.",
+        "Como posso me candidatar a ledor voluntário?",
+        "Atualmente, não estamos realizando seleções para ledor voluntário.",
+        "Manual de Padronização para adaptação de documentos em formato digital acessível",
+        "O Manual de Padronização para adaptação de documentos em formato digital acessível da Rede Brasileira de Estudos e Conteúdos Adaptados (REBECA) objetiva padronizar o processo de adaptação de materiais informacionais no âmbito das instituições formadoras da Rede, facilitando o intercâmbio de materiais informacionais e auxiliando nos processos de busca e resgate das informações nos bancos de dados/coleções institucionais.",
+        "Acesse aqui o Manual",
+        "Manual da Biblioteca Digital e Sonora da UnB (BDS): cadastro de usuários/as, submissões e revisões de depósitos",
+        "Este Manual da Biblioteca Digital e Sonora da UnB (BDS) foi disponibilizado com o intuito de uniformizar as atividades e padronizar a descrição dos itens constantes na biblioteca digital indicada.",
+        "Acesse aqui o manual",
+        "Equipe"
+      ]
+    },
+    {
+      "caminho": [
+        "Biblioteca Digital e Sonora",
+        "Patrícia Nunes da Silva Arantes"
+      ],
+      "paragrafos": [
+        "Bibliotecária | Vespertino (BCE/GID/SBD)",
+        "(61) 3107-2683",
+        "bds.bce@unb.br",
+        "De 2ª a 6ª, das 14h às 20h",
+        "Youtube Instagram Whatsapp Tiktok Spotify"
+      ]
+    }
+  ]
+}

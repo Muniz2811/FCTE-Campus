@@ -1,0 +1,172 @@
+{
+  "source_id": "DOC-032",
+  "versao": "2026-11-11",
+  "sha256_original": "ee92d441ffb6e81b3a9935bc9558d7bd69c1c2ae58847fa12720b0ff930ae686",
+  "url": "https://bce.unb.br/emprestimos/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [
+      "Espaço LER",
+      "Espaço Ler",
+      "máquinas",
+      "Ilha de",
+      "ilha de",
+      "térreo da BCE",
+      "notebooks"
+    ],
+    "excluir_secoes": [
+      "EMPRÉSTIMOS > Multa > Cadastro de Usuário",
+      "Guia para empréstimo dos notebooks da BCE."
+    ]
+  },
+  "titulo_pagina": "Empréstimos – BCE",
+  "palavras": 735,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 80,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [
+        "EMPRÉSTIMOS",
+        "Cadastro"
+      ],
+      "paragrafos": [
+        "Criar, atualizar e renovar cadastro na BCE.​"
+      ]
+    },
+    {
+      "caminho": [
+        "EMPRÉSTIMOS",
+        "Empréstimo"
+      ],
+      "paragrafos": [
+        "Guia para uso dos principais serviços de empréstimo da biblioteca."
+      ]
+    },
+    {
+      "caminho": [
+        "EMPRÉSTIMOS",
+        "Nada Consta"
+      ],
+      "paragrafos": [
+        "Como é emitida a declaração de Nada Consta da BCE.​"
+      ]
+    },
+    {
+      "caminho": [
+        "EMPRÉSTIMOS",
+        "Multa"
+      ],
+      "paragrafos": [
+        "Saiba como realizar o pagamento de multa ou realizar negociação com doação de obras.​"
+      ]
+    },
+    {
+      "caminho": [
+        "EMPRÉSTIMOS",
+        "Multa",
+        "Empréstimo de materiais"
+      ],
+      "paragrafos": [
+        "Senha",
+        "Empréstimo",
+        "Empréstimo especial docente",
+        "Reserva",
+        "Renovação",
+        "Reposição",
+        "Trocar senha",
+        "Acesse a página Minha Conta no site da BCE;",
+        "Informe seu CPF e a senha atual;",
+        "No menu lateral esquerdo, clique em Alteração de Senha;",
+        "Informe a senha atual e crie uma senha de acordo com os requisitos informados.",
+        "Esqueceu a senha",
+        "Acesse a página Minha Conta no site da BCE;",
+        "Clique em Esqueci minha senha/Primeiro acesso;",
+        "Informe seu CPF;",
+        "Um código de acesso será enviado para o e-mail informado no seu registro de matrícula junto à Universidade de Brasília (UnB);",
+        "Informe o código de acesso e crie uma senha de acordo com os requisitos informados;",
+        "Caso não tenha e-mail cadastrado ou o tenha alterado, envie uma mensagem para emprestimos.bce@unb.br com:",
+        "nome completo,",
+        "CPF,",
+        "e-mail para cadastro,",
+        "Foto do seu documento de identificação oficial com CPF em anexo.",
+        "Condições para empréstimo",
+        "Ter cadastro ativo na Biblioteca Central ou Setoriais.",
+        "Não ter nenhuma pendência com a biblioteca.",
+        "Passo-a-passo para empréstimo",
+        "Confira os prazos e quantidades de itens disponíveis para a sua categoria de vínculo com a UnB;",
+        "Busque a obra no catálogo da BCE;",
+        "Verifique em Exemplares se existem algum disponível para empréstimo;",
+        "Verifique também a localização do item;",
+        "Alguns acervos da BCE são apenas para consulta ou possuem acesso restrito. Em caso de dúvidas, peça ajuda no Balcão de Referência ou envie e-mail para informacoes.bce@unb.br;",
+        "Anote o Número de Chamada ou leia o QRcode;",
+        "Condições para empréstimo especial",
+        "Ser docente ativo na UnB;",
+        "Exemplares não podem possuir reserva;",
+        "Não possuir pendências com a biblioteca.",
+        "Passo-a-passo:",
+        "Buscar obras no acervo da BCE;",
+        "Inserir CPF e senha da BCE;",
+        "O empréstimo de 6 meses não admite renovação.",
+        "Quantidade máxima de exemplares: 5.",
+        "Condições para reserva",
+        "Todos os exemplares da obra devem estar emprestados;",
+        "O usuário não pode possuir pendências com a biblioteca.",
+        "Não é possível fazer reserva on-line para público externo.",
+        "Passo-a-passo para fazer a reserva",
+        "Buscar obra no catálogo da BCE;",
+        "Clique em Exemplares e verifique se está disponível;",
+        "Se todos os exemplares estiverem emprestados, clicar em Reserva;",
+        "Inserir seu CPF e sua senha da BCE;",
+        "Aguarde a liberação do material (será enviado um e-mail automático);",
+        "O exemplar reservado ficará disponível por 48 horas no Armário de Reservas (saguão de entrada da BCE) para empréstimo.",
+        "Após as 48 horas, se o usuário não comparecer para a retirada do exemplar, a reserva será automaticamente liberada para o próximo interessado.",
+        "Tutorial Armário Reserva",
+        "Clique em Retirar livro(s) reservado(s);",
+        "Digite seu CPF e senha cadastrada no sistema da BCE;",
+        "Selecione o item a ser retirado;",
+        "Clique em Check-Out Selected para abrir a gaveta;",
+        "Retire o livro e feche a porta;",
+        "Clique em Concluído e retire o recibo de empréstimo no compartimento abaixo da tela.",
+        "Tutorial de reserva em PDF (Pergamum)",
+        "Condições para renovação",
+        "O material não pode estar em atraso;",
+        "O material não pode estar reservado para outro usuário;",
+        "O usuário não pode possuir pendência com a biblioteca;",
+        "O usuário só poderá renovar até 5 (cinco) vezes o material – após esse limite, é necessário devolver na biblioteca e emprestar novamente.",
+        "Período adicional da renovação",
+        "O prazo da renovação é idêntico ao prazo de empréstimo para aquele material.",
+        "Passo-a-passo para a renovação",
+        "Acessar o site da BCE;",
+        "Clicar na aba Minha Conta;",
+        "Digitar somente os números do CPF e a senha utilizada da biblioteca;",
+        "Clicar no menu Empréstimos (lado direito da página);",
+        "Marcar todos os títulos emprestados e clicar em “Renovar”;",
+        "Conferir a nova data de devolução.",
+        "Extravio de material",
+        "O usuário que danificar ou extraviaRs sob seus cuidados deverá repor por outro exemplar conforme determinação na Instrução Normativa da BCE n. 7/2016.",
+        "Passo-a-passo",
+        "Ao perceber ou suspeitar de extravio, entre em contato imediatamente com a biblioteca através do e-mail emprestimos.bce@unb.br e aguarde as instruções;",
+        "O usuário terá 30 (trinta) dias após o contato, sem cobrança de multa, para repor a obra extraviada conforme instruções encaminhadas.",
+        "Observação: O Setor de Seleção poderá acordar com o usuário a reposição por outra obra, mesmo no caso do item a ser reposto estar disponível no mercado. Porém, a outra obra sugerida deverá ter valor equivalente ao material extraviado ou com dano, e o usuário envolvido na negociação deverá estar de acordo."
+      ]
+    }
+  ]
+}

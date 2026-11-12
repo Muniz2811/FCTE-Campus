@@ -1,0 +1,113 @@
+{
+  "source_id": "DOC-038",
+  "versao": "2026-11-11",
+  "sha256_original": "80c4e0d930f873184eed07d9f11595c1b67157d087f820965070a53ef70ccd3f",
+  "url": "https://vempraunb.unb.br/wp-content/uploads/manual_do_calouro_2026_2.pdf",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [
+      69,
+      96,
+      97
+    ],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [
+      "transporte no campus",
+      "DIRETORIA DE ESPORTE",
+      "A DEAC",
+      "Por meio da Coordenação"
+    ],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "",
+  "secoes": [
+    {
+      "caminho": [
+        "Página 69"
+      ],
+      "pagina": 69,
+      "paragrafos": [
+        "NECESSIDADES ESPECÍFICAS",
+        "ACESSIBILIDADE E APOIO ACADÊMICO",
+        "Estudantes com limitações visuais, auditivas, cognitivas, de mobilidade ou outras necessidades específicas podem contar com apoio acadêmico especializado.",
+        "Entre as possibilidades estão:",
+        "• Disponibilização de intérpretes;",
+        "• Acompanhamento por tutores(as);",
+        "• Material adaptado;",
+        "• Prioridade na ocupação de vagas em disciplinas no momento da matrícula.",
+        "Para acessar mais",
+        "Universidade de Brasília",
+        "informações, você deve",
+        "Para garantir esses direitos, é necessário realizar cadastro na Diretoria de Acessibilidade (DACES), vinculada ao Deca nato de Assuntos Comunitários (DAC) da Universidade de Brasília.",
+        "consultar: www.dac.",
+        "unb.br › Diretorias e",
+        "Unidades › Acessibili",
+        "A Universidade busca promover um ambiente mais inclusivo e acessível e o primeiro passo é formalizar seu cadastro para que o apoio adequado possa ser oferecido.",
+        "dade (DACES).",
+        "69"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 96"
+      ],
+      "pagina": 96,
+      "paragrafos": [
+        "DECANATO DE ASSUNTOS COMUNITÁRIOS",
+        "DACES Diretoria de Acessibilidade - DACES/DAC",
+        "A Diretoria de Acessibilidade do Decanato de Assuntos Comunitários (DACES/DAC) tem como objetivo promover a acessibilidade como política transversal na UnB, conforme estabelecido pela Resolução CAD nº 50/2019, ampliando as condições de acesso, permanência, participação e apren dizagem de estudantes com deficiência e/ou necessidades educacionais específicas.",
+        "Público Atendido Estudantes com deficiência visual, auditi va, física, intelectual, múltipla, surdocegueira, Transtorno do Espectro Autista (TEA), Altas habilidades/superdotação e Transtornos Funcionais Específicos (TFE).",
+        "Garantia de Direitos e Promoção da Acessibilidade:",
+        "• Acolhimento e acompanhamento acadêmico;",
+        "Manual do calouro",
+        "• Prioridade de matrícula e suporte contínuo aos estu dantes, incluindo o Programa de Tutoria para Acessibili dade (PTA);",
+        "• Acessibilidade pedagógica: Materiais didáticos e pedagógicos em formato acessível, avaliações acessíveis e critérios de correção que respeitem singularidades lin guísticas, oferta de serviços de leidor e transcritor, além da orientação aos docentes para práticas educacionais inclusivas;",
+        "• • Acessibilidade comunicacional e tecnológica: Ser viços de intérpretes e guias intérprete de Libras, dispo nibilização de recursos e equipamentos de tecnologia assistiva e laboratório de informática;",
+        "96"
+      ]
+    },
+    {
+      "caminho": [
+        "Página 97"
+      ],
+      "pagina": 97,
+      "paragrafos": [
+        "• Acessibilidade pedagógica: Materiais didáticos e pedagógicos em formato acessível, avaliações acessíveis e critérios de correção que respeitem singularidades lin guísticas, oferta de serviços de ledor e transcritor, além da orientação aos docentes para práticas educacionais inclusivas;",
+        "Cadastro na DACES/DAC A solicitação deve ser registrada no SIGAA (Acadêmico), em: Outros › Necessidades Educacio nais Específicas › Solicitar Apoio à DACES.",
+        "Contatos",
+        "(61) 3107-6323",
+        "acessibilidade.unb.br",
+        "daces@unb.br",
+        "Universidade de Brasília",
+        "97"
+      ]
+    }
+  ],
+  "paginas_total": 134,
+  "paginas_selecionadas": [
+    69,
+    96,
+    97
+  ],
+  "palavras": 372,
+  "avisos": [
+    "Conferir leitura de tabelas e diagramas no original"
+  ],
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0
+}

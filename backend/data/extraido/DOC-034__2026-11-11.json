@@ -1,0 +1,43 @@
+{
+  "source_id": "DOC-034",
+  "versao": "2026-11-11",
+  "sha256_original": "14a59fdf6baaa0a500619f7c1506c518f6a6f4889368749c5629c36cf46780d8",
+  "url": "https://acessibilidade.unb.br/acessibilidade-urbanistica-e-arquitetonica/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Realocação de sala e adequação de mobiliário – acessibilidade",
+  "palavras": 104,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "A DACES/DAC oferece apoio à estudantes cadastrados para solicitações de remanejamento de sala de aula e mobiliário acessível, em conjunto com as Unidades Acadêmicas e Prefeitura do Campus.",
+        "O remanejamento de salas de aula de disciplinas cursadas por pessoas com deficiência física ou mobilidade reduzida visa dar acessibilidade em locais onde não houver rampas ou dispositivos mecânicos (elevadores, plataformas, etc.) interligando pavimentos. Alternativas de mobiliário acessível nas salas de aula incluem alocação de cadeiras para pessoas obesas, mesas para cadeira de rodas, cadeiras para obesos e acolchoadas.",
+        "PARA SOLICITAR APOIO PARA REMANEJAMENTO DE SALA DE AULA E/OU MOBILIÁRIO ACESSÍVEL PREENCHA O FORMULÁRIO NO LINK."
+      ]
+    }
+  ]
+}

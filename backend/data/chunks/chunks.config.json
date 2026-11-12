@@ -1,0 +1,246 @@
+{
+  "gerado_em": "2026-11-11T23:52:49+00:00",
+  "rascunho": false,
+  "chunking": {
+    "estrategia": "agrupar_irmaos",
+    "alvo_tokens": 300,
+    "sobreposicao_tokens": 40,
+    "max_tokens": 512
+  },
+  "config_chunking": "370e5efbe5c3",
+  "tokenizer": {
+    "modelo": "intfloat/multilingual-e5-small",
+    "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "tokenizers": "0.21.1"
+  },
+  "total_chunks": 174,
+  "tokens": {
+    "min": 17,
+    "mediana": 222.0,
+    "max": 300
+  },
+  "fontes": [
+    {
+      "source_id": "DOC-001",
+      "versao": "2026-11-11",
+      "sha256": "ceadfb0cc3356250926466b5f5490f14b208273953e0be1d4a1f054f9b3781f9",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-002",
+      "versao": "2026-11-11",
+      "sha256": "984d9c12fb8e5c32e284225c900c32b3cc412d05ee0e541945d42890503f4640",
+      "chunks": 7
+    },
+    {
+      "source_id": "DOC-003",
+      "versao": "2026-11-11",
+      "sha256": "747f7b304ddcd4f7e25ce7ea4865bbfa72893d044bd3a8da66a3e7c356df8b40",
+      "chunks": 4
+    },
+    {
+      "source_id": "DOC-004",
+      "versao": "2026-11-11",
+      "sha256": "6bfa6a715572a2aedb6092b6e860a642ab90ea37979079c3a677a3722a6a8a45",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-005",
+      "versao": "2026-11-11",
+      "sha256": "dc417807f148d3dbb2d21e1242b64a19727079bab599d9b61c629ebcfd1f3e09",
+      "chunks": 16
+    },
+    {
+      "source_id": "DOC-006",
+      "versao": "2026-11-11",
+      "sha256": "21c07ecffebe38c188d8ab70e428785883faa5311fa94e3253d46219f02933d6",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-007",
+      "versao": "2026-11-11",
+      "sha256": "c018b874083829783dd7024bf5ac20d0f60ab9bbfdd55873cb359a67545f0a92",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-008",
+      "versao": "2026-11-11",
+      "sha256": "e5b479c6b491b5bf4998f7106d8a424df8da1c3843faf9d02bae41a76e240b4a",
+      "chunks": 2
+    },
+    {
+      "source_id": "DOC-009",
+      "versao": "2026-11-11",
+      "sha256": "ced65b9e5688f2cb67c5aa5b9ed296fd2b3c0027c4ce7a870efd26bb17af711d",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-010",
+      "versao": "2026-11-11",
+      "sha256": "b6f8724b3c551a2f855ea56cca06a9624892f0dbef1513f7e1702a0e6b30fb7f",
+      "chunks": 2
+    },
+    {
+      "source_id": "DOC-011",
+      "versao": "2026-11-11",
+      "sha256": "7b23ea8e7e726fe93bd967ff810cb1f8bb4c5f586cef46d52319d8d1738737fe",
+      "chunks": 2
+    },
+    {
+      "source_id": "DOC-012",
+      "versao": "2026-11-11",
+      "sha256": "5dccfb997d528f349e05ff457ef3aa6d37e315caaf86a604de87b3995388da01",
+      "chunks": 5
+    },
+    {
+      "source_id": "DOC-013",
+      "versao": "2026-11-11",
+      "sha256": "022efb400bdd16bf7a867d6a248304b4e8d0cdae63c0bd91c923bdee01af618e",
+      "chunks": 4
+    },
+    {
+      "source_id": "DOC-015",
+      "versao": "2026-11-11",
+      "sha256": "77f93ed5b25204f31aff03acbd8385a8fbf509de4487c4fe504916c415322b0d",
+      "chunks": 6
+    },
+    {
+      "source_id": "DOC-016",
+      "versao": "2026-11-11",
+      "sha256": "60d5f95a50b89100bfee852af7fae385440d7eed0ea1f7eb6a6e8bff92d4f700",
+      "chunks": 9
+    },
+    {
+      "source_id": "DOC-017",
+      "versao": "2026-11-11",
+      "sha256": "e1550f29ba92e3cdb72f83411e90ee48c51122bd02e8f44d250a39adf1946555",
+      "chunks": 5
+    },
+    {
+      "source_id": "DOC-018",
+      "versao": "2026-11-11",
+      "sha256": "f946e23b99969eea8a1306cd577097af4019180c90ae72504b5734c4c21be282",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-019",
+      "versao": "2026-11-11",
+      "sha256": "acac95f00ac06be333eacc4ebb17ed8e957214492539d8274cb231a1415b4f4c",
+      "chunks": 5
+    },
+    {
+      "source_id": "DOC-020",
+      "versao": "2026-11-11",
+      "sha256": "62389e64562d7cbad9d15d991fd44fec702822b973066665cd53457a87c57413",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-021",
+      "versao": "2026-11-11",
+      "sha256": "e93f635c3afc4d3e6ab027d11221b8319d0e4a95913693b51d43a411c46f5525",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-022",
+      "versao": "2026-11-11",
+      "sha256": "7dc107c9f29a94f17551dc0c38f9c4b98a72286f69ffc35a1b2409cd28bb86c9",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-023",
+      "versao": "2026-11-11",
+      "sha256": "3dd85856a76de5f8aba2f85ac1be54ee5f783e38563f2822eebc52908d56beda",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-025",
+      "versao": "2026-11-11",
+      "sha256": "91c8d6bd05007420ad73fc48123e48756032b01417bb58f800912fe1e754fa3b",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-026",
+      "versao": "2026-11-11",
+      "sha256": "9a760a58c4e8f61261975bcbf3675ef1aa68d73a01f741320e5f21f2551e4120",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-027",
+      "versao": "2026-11-11",
+      "sha256": "8de3bca65216f39091a2a31f898ef4e3e1e4e1c9031bd4bb26bbe698b15a2932",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-028",
+      "versao": "2026-11-11",
+      "sha256": "3cc1fcd7753a9ed17dcda9ad383da031b2eadcafac0d848d9ec8ae77ea791435",
+      "chunks": 11
+    },
+    {
+      "source_id": "DOC-030",
+      "versao": "2026-11-11",
+      "sha256": "89b116a741d2c7c0fa28f39bf36cb8b02fbdaacd0e4f292b626152cd8cad93d6",
+      "chunks": 2
+    },
+    {
+      "source_id": "DOC-031",
+      "versao": "2026-11-11",
+      "sha256": "a3931b56f53df7fd6755040473302d6f2f5b86d415f20cf4c6271d81eae192ec",
+      "chunks": 16
+    },
+    {
+      "source_id": "DOC-032",
+      "versao": "2026-11-11",
+      "sha256": "ee92d441ffb6e81b3a9935bc9558d7bd69c1c2ae58847fa12720b0ff930ae686",
+      "chunks": 6
+    },
+    {
+      "source_id": "DOC-033",
+      "versao": "2026-11-11",
+      "sha256": "1a8cdcd5e63ca05cc4713df015495d1a4fe3dc552995be2be0ef49a73056984d",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-034",
+      "versao": "2026-11-11",
+      "sha256": "14a59fdf6baaa0a500619f7c1506c518f6a6f4889368749c5629c36cf46780d8",
+      "chunks": 1
+    },
+    {
+      "source_id": "DOC-035",
+      "versao": "2026-11-11",
+      "sha256": "328ee2c537644d468840c91083ca40b4f5aab1d9bc688f53ba8853f704523209",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-036",
+      "versao": "2026-11-11",
+      "sha256": "d8a61082e7e3f1dd3dbbfb04af620a70b24f73a2250aae6a29c0da08ffca1bbd",
+      "chunks": 3
+    },
+    {
+      "source_id": "DOC-038",
+      "versao": "2026-11-11",
+      "sha256": "80c4e0d930f873184eed07d9f11595c1b67157d087f820965070a53ef70ccd3f",
+      "chunks": 4
+    },
+    {
+      "source_id": "DOC-039",
+      "versao": "2026-11-11",
+      "sha256": "6a773655db9b92f0a0cd11568a192e601b058990711df44f538b7d672b5c7b44",
+      "chunks": 5
+    },
+    {
+      "source_id": "DOC-040",
+      "versao": "2026-11-11",
+      "sha256": "6fb0041c2a38f69c49ec7613f0c101508cc1a9001c130b7108a66f0c0b304140",
+      "chunks": 8
+    },
+    {
+      "source_id": "DOC-042",
+      "versao": "2026-11-11",
+      "sha256": "a6e4f68d0157ef44d0697933fb72e9a340fcfab031289645c4ab55c1325451a8",
+      "chunks": 18
+    }
+  ]
+}

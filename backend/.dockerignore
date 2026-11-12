@@ -1,0 +1,13 @@
+.git
+.env
+data/originais/
+data/fichas/
+data/index/
+data/execucoes/
+data/extraido/
+data/chunks/
+execucoes/
+__pycache__/
+.pytest_cache/
+.venv/
+.cache/

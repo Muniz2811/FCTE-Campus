@@ -1,0 +1,100 @@
+{
+  "health_http": 200,
+  "chat_http": 200,
+  "resposta": {
+    "status": "answered",
+    "answer": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo. [1]",
+    "sources": [
+      {
+        "id": "c_c8a0b710c3c50b09",
+        "sourceId": "DOC-012",
+        "title": "Biblioteca Campus Gama – BCE",
+        "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+        "url": "https://bce.unb.br/biblioteca-campus-gama/",
+        "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.11798131465911865
+      }
+    ],
+    "claims": [
+      {
+        "text": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo.",
+        "sourceIds": [
+          "c_c8a0b710c3c50b09"
+        ]
+      }
+    ],
+    "usage": {
+      "promptTokenCount": 3936,
+      "candidatesTokenCount": 93,
+      "totalTokenCount": 4029
+    },
+    "requestId": "9f916876-bb21-4c7b-8547-45b23da07ae9",
+    "baseVersion": "a0d5e722cd0cf092bea51f0cd09a8c38f3a702773e49b4c52b1c004d2cff7f99",
+    "model": "gemini-3.5-flash-lite",
+    "retrieved": [
+      {
+        "id": "c_c8a0b710c3c50b09",
+        "sourceId": "DOC-012",
+        "title": "Biblioteca Campus Gama – BCE",
+        "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+        "url": "https://bce.unb.br/biblioteca-campus-gama/",
+        "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.11798131465911865
+      },
+      {
+        "id": "c_dd4b3a6b44449326",
+        "sourceId": "DOC-012",
+        "title": "Biblioteca Campus Gama – BCE",
+        "excerpt": "Biblioteca Campus Gama – BCE\nProduções FCTE\nArtigos de Periódicos\nMestrado em Engenharia Biomédica – dissertações\nMestrado em Integridade de Materiais da Engenharia – dissertações\nEngenharia Aeroespacial – monografias\nEngenharia Automotiva – monografias\nEngenharia de Energia – monografias\nEngenharia de Software – monografias\nEngenharia Eletrônica – monografias",
+        "url": "https://bce.unb.br/biblioteca-campus-gama/",
+        "section": "Produções FCTE",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.13296055793762207
+      },
+      {
+        "id": "c_5faca10e6e792b67",
+        "sourceId": "DOC-006",
+        "title": "Laboratórios de ensino",
+        "excerpt": "Laboratórios de ensino\nO espaço físico da Faculdade do Gama é de aproximadamente 5.200 m2 e incluem salas de aulas, laboratórios, espaços administrativos, gabinetes de professores/pesquisadores, biblioteca, sala de reunião, sanitários, espaços de circulação, etc. Neste ambiente de pesquisa educacional o curso de Engenharia de Software utiliza regularmente para suas aulas práticas da faculdade, os seguintes laboratórios de ensino:\nLaboratórios de Ensino de Informática: são duas salas de aula, sendo uma com 25 notebooks e a outra com 50 postos de trabalho (40 desktops e 10 nichos para notebooks ou netbooks dos alunos). Podem ser utilizadas para aulas que envolvam laboratórios, bem como para execução de testes de software em escala. Espaço também adequado para elaboração de tarefas e atividades necessárias as disciplinas de cursos, bem como às pesquisas em assuntos pertinentes aos temas condizentes com as linhas de pesquisa de Engenharia de Software;\nLaboratório de Software: laboratório com 40 computadores individuais para disciplinas intermediárias de computação/programação;",
+        "url": "https://software.unb.br/laboratorios-de-ensino/",
+        "section": "",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.1388031244277954
+      },
+      {
+        "id": "c_17241a7563801760",
+        "sourceId": "DOC-008",
+        "title": "Biblioteca – Engenharia de Software",
+        "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+        "url": "https://software.unb.br/biblioteca/",
+        "section": "",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.13273781538009644
+      },
+      {
+        "id": "c_731826bb1c0cfdfc",
+        "sourceId": "DOC-040",
+        "title": "Biblioteca Digital e Sonora — BCE",
+        "excerpt": "Biblioteca Digital e Sonora — BCE\nBiblioteca Digital e Sonora\nInformações Gerais\nO documento médico comprobatório da deficiência visual deve fundamentar-se no Decreto-lei número 5.296 de 2004.\nA documentação poderá ser entregue pessoalmente ou pelos correios no endereço:\nBiblioteca Digital Sonora (BDS) | Coordenadoria da Informação Digital (GID)\nCampus Universitário Darcy Ribeiro, Gleba A, Biblioteca Central (BCE), Universidade de Brasília (UnB)\n70.910-900 Brasília – DF, Brasil\nO termo de compromisso e a ficha de cadastro estão disponíveis logo abaixo.\nAo cadastrar-se o novo usuário se compromete, nos termos da lei, não modificar, adaptar ou traduzir ou emprestar cópias das obras a terceiros. Além disso, o usuário concorda em não colocar nenhum título da BDS em um servidor ou outro ambiente de rede pública, como a internet.\nSomente após o cumprimento das exigências acima, o cadastro poderá ser efetivado para acessar a Biblioteca Digital e Sonora.\nFicha cadastral\nTermo de compromisso\nEstudante da UnB\nPossuir cadastro na Diretoria de Acessibilidade (DACES) da Universidade de Brasília;\nApresentar um documento oficial de identificação (não necessita cópia);\nAssinar o termo de compromisso;\nPreencher a ficha de cadastro.\nUsuários de outras instituições de ensino superior (cadastro coletivo)",
+        "url": "https://bce.unb.br/bibliotecas-digitais/bds/",
+        "section": "Biblioteca Digital e Sonora",
+        "version": "2026-11-11",
+        "reviewedAt": "2026-11-11",
+        "validUntil": "desconhecida",
+        "distance": 0.16021037101745605
+      }
+    ]
+  }
+}

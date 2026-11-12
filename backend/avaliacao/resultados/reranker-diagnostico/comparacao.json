@@ -1,0 +1,3399 @@
+{
+  "natureza": "Diagnóstico e calibração assistida nas mesmas perguntas conhecidas; não é validação independente. Seleção preserva Hit@5 neste conjunto. Reranker puro rebaixou evidência corretiva da Q12; fusão por posições foi adotada.",
+  "modelo": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "revisao": "1427fd652930e4ba29e8149678df786c240d8825",
+  "avaliador": "Codex, julgamento assistido único",
+  "baseline": {
+    "rodada": "20261111T235422Z",
+    "hit": [
+      12,
+      12
+    ],
+    "precisao": [
+      17,
+      75
+    ]
+  },
+  "selecionado": -4,
+  "variantes": [
+    {
+      "limiar": null,
+      "hit": [
+        12,
+        12
+      ],
+      "precisao": [
+        17,
+        75
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -4.039712429046631,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_553a868a5910bf1c",
+              "source_id": "DOC-016",
+              "score_reranker": -2.660820484161377,
+              "score_final": 0.02804284323271665,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_86466a41ada2febd",
+              "source_id": "DOC-005",
+              "score_reranker": -2.6984004974365234,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -6.002729415893555,
+              "score_final": 0.028474711270410194,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_71c41fbd6b258f1b",
+              "source_id": "DOC-020",
+              "score_reranker": -4.936899662017822,
+              "score_final": 0.028438886647841874,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d9b12bba2ecf376c",
+              "source_id": "DOC-020",
+              "score_reranker": -5.983902454376221,
+              "score_final": 0.028125,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_84847b7559c2bfb8",
+              "source_id": "DOC-015",
+              "score_reranker": -2.657870292663574,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f1e118670e2e6123",
+              "source_id": "DOC-016",
+              "score_reranker": -4.214591026306152,
+              "score_final": 0.02946912242686891,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_0cf9944816258a3e",
+              "source_id": "DOC-006",
+              "score_reranker": -3.558995008468628,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_629af094586c5112",
+              "source_id": "DOC-007",
+              "score_reranker": -3.3658292293548584,
+              "score_final": 0.030330882352941176,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -3.823704481124878,
+              "score_final": 0.030303030303030304,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": -2.9520249366760254,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -3.356294870376587,
+              "score_final": 0.030798389007344232,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -3.5567688941955566,
+              "score_final": 0.030090497737556562,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -1.2379660606384277,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.389932632446289,
+              "score_final": 0.03149801587301587,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -1.5501844882965088,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -4.394110202789307,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f8ededb7adec2e05",
+              "source_id": "DOC-032",
+              "score_reranker": -2.721526622772217,
+              "score_final": 0.029857397504456328,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0785280466079712,
+              "score_final": 0.029631255487269532,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5d991e58cb719826",
+              "source_id": "DOC-036",
+              "score_reranker": -4.906009197235107,
+              "score_final": 0.029850746268656716,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.7833759784698486,
+              "score_final": 0.03076923076923077,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -4.562406063079834,
+              "score_final": 0.029631255487269532,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -2.7324376106262207,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -2.743048906326294,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -3.882889986038208,
+              "score_final": 0.029857397504456328,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": -5.164344310760498,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.913777232170105,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -3.1903059482574463,
+              "score_final": 0.02967032967032967,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [
+            {
+              "chunk_id": "c_8b347ac6195f3758",
+              "source_id": "DOC-034",
+              "score_reranker": -4.979649066925049,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2ca840134bd85814",
+              "source_id": "DOC-039",
+              "score_reranker": -6.528138160705566,
+              "score_final": 0.029910714285714284,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_cd638caa1b0d517e",
+              "source_id": "DOC-005",
+              "score_reranker": -8.328473091125488,
+              "score_final": 0.02921395544346364,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_78aefd971e83ca2c",
+              "source_id": "DOC-016",
+              "score_reranker": -5.660732269287109,
+              "score_final": 0.02878726010616578,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_be2a6adafda33729",
+              "source_id": "DOC-040",
+              "score_reranker": -7.4324212074279785,
+              "score_final": 0.02877846790890269,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": -2.2615129947662354,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -2.3360235691070557,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -5.660294055938721,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [
+            {
+              "chunk_id": "c_cc682c7a6e300856",
+              "source_id": "DOC-002",
+              "score_reranker": -6.3791279792785645,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -7.083546161651611,
+              "score_final": 0.030679156908665108,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8cd031f569e4f843",
+              "source_id": "DOC-004",
+              "score_reranker": -5.451207637786865,
+              "score_final": 0.030017921146953404,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": -5.317801475524902,
+              "score_final": 0.02889344262295082,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": -7.183297157287598,
+              "score_final": 0.028790389395194696,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": -8,
+      "hit": [
+        12,
+        12
+      ],
+      "precisao": [
+        17,
+        75
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -4.039712429046631,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_553a868a5910bf1c",
+              "source_id": "DOC-016",
+              "score_reranker": -2.660820484161377,
+              "score_final": 0.02804284323271665,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_86466a41ada2febd",
+              "source_id": "DOC-005",
+              "score_reranker": -2.6984004974365234,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -6.002729415893555,
+              "score_final": 0.028474711270410194,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_71c41fbd6b258f1b",
+              "source_id": "DOC-020",
+              "score_reranker": -4.936899662017822,
+              "score_final": 0.028438886647841874,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d9b12bba2ecf376c",
+              "source_id": "DOC-020",
+              "score_reranker": -5.983902454376221,
+              "score_final": 0.028125,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_84847b7559c2bfb8",
+              "source_id": "DOC-015",
+              "score_reranker": -2.657870292663574,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f1e118670e2e6123",
+              "source_id": "DOC-016",
+              "score_reranker": -4.214591026306152,
+              "score_final": 0.02946912242686891,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_0cf9944816258a3e",
+              "source_id": "DOC-006",
+              "score_reranker": -3.558995008468628,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_629af094586c5112",
+              "source_id": "DOC-007",
+              "score_reranker": -3.3658292293548584,
+              "score_final": 0.030330882352941176,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -3.823704481124878,
+              "score_final": 0.030303030303030304,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": -2.9520249366760254,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -3.356294870376587,
+              "score_final": 0.030798389007344232,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -3.5567688941955566,
+              "score_final": 0.030090497737556562,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -1.2379660606384277,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.389932632446289,
+              "score_final": 0.03149801587301587,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -1.5501844882965088,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -4.394110202789307,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f8ededb7adec2e05",
+              "source_id": "DOC-032",
+              "score_reranker": -2.721526622772217,
+              "score_final": 0.029857397504456328,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0785280466079712,
+              "score_final": 0.029631255487269532,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5d991e58cb719826",
+              "source_id": "DOC-036",
+              "score_reranker": -4.906009197235107,
+              "score_final": 0.029850746268656716,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.7833759784698486,
+              "score_final": 0.03076923076923077,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -4.562406063079834,
+              "score_final": 0.029631255487269532,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -2.7324376106262207,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -2.743048906326294,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -3.882889986038208,
+              "score_final": 0.029857397504456328,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": -5.164344310760498,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.913777232170105,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -3.1903059482574463,
+              "score_final": 0.02967032967032967,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [
+            {
+              "chunk_id": "c_8b347ac6195f3758",
+              "source_id": "DOC-034",
+              "score_reranker": -4.979649066925049,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2ca840134bd85814",
+              "source_id": "DOC-039",
+              "score_reranker": -6.528138160705566,
+              "score_final": 0.029910714285714284,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_78aefd971e83ca2c",
+              "source_id": "DOC-016",
+              "score_reranker": -5.660732269287109,
+              "score_final": 0.02878726010616578,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_be2a6adafda33729",
+              "source_id": "DOC-040",
+              "score_reranker": -7.4324212074279785,
+              "score_final": 0.02877846790890269,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_86466a41ada2febd",
+              "source_id": "DOC-005",
+              "score_reranker": -7.799605846405029,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": -2.2615129947662354,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -2.3360235691070557,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -5.660294055938721,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [
+            {
+              "chunk_id": "c_cc682c7a6e300856",
+              "source_id": "DOC-002",
+              "score_reranker": -6.3791279792785645,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -7.083546161651611,
+              "score_final": 0.030679156908665108,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8cd031f569e4f843",
+              "source_id": "DOC-004",
+              "score_reranker": -5.451207637786865,
+              "score_final": 0.030017921146953404,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": -5.317801475524902,
+              "score_final": 0.02889344262295082,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": -7.183297157287598,
+              "score_final": 0.028790389395194696,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": -6,
+      "hit": [
+        12,
+        12
+      ],
+      "precisao": [
+        17,
+        70
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -4.039712429046631,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_553a868a5910bf1c",
+              "source_id": "DOC-016",
+              "score_reranker": -2.660820484161377,
+              "score_final": 0.02804284323271665,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_86466a41ada2febd",
+              "source_id": "DOC-005",
+              "score_reranker": -2.6984004974365234,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_71c41fbd6b258f1b",
+              "source_id": "DOC-020",
+              "score_reranker": -4.936899662017822,
+              "score_final": 0.028438886647841874,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d9b12bba2ecf376c",
+              "source_id": "DOC-020",
+              "score_reranker": -5.983902454376221,
+              "score_final": 0.028125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_cd613d115a6c619e",
+              "source_id": "DOC-018",
+              "score_reranker": -5.764784336090088,
+              "score_final": 0.027364110201042444,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_84847b7559c2bfb8",
+              "source_id": "DOC-015",
+              "score_reranker": -2.657870292663574,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f1e118670e2e6123",
+              "source_id": "DOC-016",
+              "score_reranker": -4.214591026306152,
+              "score_final": 0.02946912242686891,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_0cf9944816258a3e",
+              "source_id": "DOC-006",
+              "score_reranker": -3.558995008468628,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_629af094586c5112",
+              "source_id": "DOC-007",
+              "score_reranker": -3.3658292293548584,
+              "score_final": 0.030330882352941176,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -3.823704481124878,
+              "score_final": 0.030303030303030304,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": -2.9520249366760254,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -3.356294870376587,
+              "score_final": 0.030798389007344232,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -3.5567688941955566,
+              "score_final": 0.030090497737556562,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -1.2379660606384277,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.389932632446289,
+              "score_final": 0.03149801587301587,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -1.5501844882965088,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -4.394110202789307,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f8ededb7adec2e05",
+              "source_id": "DOC-032",
+              "score_reranker": -2.721526622772217,
+              "score_final": 0.029857397504456328,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0785280466079712,
+              "score_final": 0.029631255487269532,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5d991e58cb719826",
+              "source_id": "DOC-036",
+              "score_reranker": -4.906009197235107,
+              "score_final": 0.029850746268656716,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.7833759784698486,
+              "score_final": 0.03076923076923077,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -4.562406063079834,
+              "score_final": 0.029631255487269532,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -2.7324376106262207,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -2.743048906326294,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -3.882889986038208,
+              "score_final": 0.029857397504456328,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": -5.164344310760498,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.913777232170105,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -3.1903059482574463,
+              "score_final": 0.02967032967032967,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [
+            {
+              "chunk_id": "c_8b347ac6195f3758",
+              "source_id": "DOC-034",
+              "score_reranker": -4.979649066925049,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_78aefd971e83ca2c",
+              "source_id": "DOC-016",
+              "score_reranker": -5.660732269287109,
+              "score_final": 0.02878726010616578,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": -2.2615129947662354,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -2.3360235691070557,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -5.660294055938721,
+              "score_final": 0.028991596638655463,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [
+            {
+              "chunk_id": "c_8cd031f569e4f843",
+              "source_id": "DOC-004",
+              "score_reranker": -5.451207637786865,
+              "score_final": 0.030017921146953404,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": -5.317801475524902,
+              "score_final": 0.02889344262295082,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_3ec499d6018e067b",
+              "source_id": "DOC-025",
+              "score_reranker": -5.565083026885986,
+              "score_final": 0.02821869488536155,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": -4,
+      "hit": [
+        12,
+        12
+      ],
+      "precisao": [
+        16,
+        58
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_553a868a5910bf1c",
+              "source_id": "DOC-016",
+              "score_reranker": -2.660820484161377,
+              "score_final": 0.02804284323271665,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_87b53807e864553c",
+              "source_id": "DOC-005",
+              "score_reranker": -3.742610216140747,
+              "score_final": 0.027651515151515153,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_86466a41ada2febd",
+              "source_id": "DOC-005",
+              "score_reranker": -2.6984004974365234,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_84847b7559c2bfb8",
+              "source_id": "DOC-015",
+              "score_reranker": -2.657870292663574,
+              "score_final": 0.03177805800756621,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2822bad93b05661e",
+              "source_id": "DOC-016",
+              "score_reranker": -3.469787359237671,
+              "score_final": 0.028594771241830064,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_0cf9944816258a3e",
+              "source_id": "DOC-006",
+              "score_reranker": -3.558995008468628,
+              "score_final": 0.03125763125763126,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_629af094586c5112",
+              "source_id": "DOC-007",
+              "score_reranker": -3.3658292293548584,
+              "score_final": 0.030330882352941176,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_bdf6877d01ab763b",
+              "source_id": "DOC-002",
+              "score_reranker": -3.823704481124878,
+              "score_final": 0.030303030303030304,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": -2.9520249366760254,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -3.356294870376587,
+              "score_final": 0.030798389007344232,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -3.5567688941955566,
+              "score_final": 0.030090497737556562,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -1.2379660606384277,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.389932632446289,
+              "score_final": 0.03149801587301587,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -1.5501844882965088,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_f8ededb7adec2e05",
+              "source_id": "DOC-032",
+              "score_reranker": -2.721526622772217,
+              "score_final": 0.029857397504456328,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0785280466079712,
+              "score_final": 0.029631255487269532,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2822bad93b05661e",
+              "source_id": "DOC-016",
+              "score_reranker": -3.21671724319458,
+              "score_final": 0.029083245521601686,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.7833759784698486,
+              "score_final": 0.03076923076923077,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -2.7324376106262207,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": -2.743048906326294,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -3.882889986038208,
+              "score_final": 0.029857397504456328,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.913777232170105,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_ff640f1875faa059",
+              "source_id": "DOC-002",
+              "score_reranker": -3.1903059482574463,
+              "score_final": 0.02967032967032967,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": -2.2615129947662354,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -2.3360235691070557,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": -2,
+      "hit": [
+        11,
+        12
+      ],
+      "precisao": [
+        13,
+        40
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -1.2379660606384277,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.389932632446289,
+              "score_final": 0.03149801587301587,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_5faca10e6e792b67",
+              "source_id": "DOC-006",
+              "score_reranker": -1.5501844882965088,
+              "score_final": 0.03055037313432836,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0012614727020264,
+              "score_final": 0.028665028665028666,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.0785280466079712,
+              "score_final": 0.029631255487269532,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -1.7833759784698486,
+              "score_final": 0.03076923076923077,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_731826bb1c0cfdfc",
+              "source_id": "DOC-040",
+              "score_reranker": -1.913777232170105,
+              "score_final": 0.03007688828584351,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": -1,
+      "hit": [
+        11,
+        12
+      ],
+      "precisao": [
+        13,
+        34
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_2d85dbef5af80376",
+              "source_id": "DOC-018",
+              "score_reranker": -0.8920213580131531,
+              "score_final": 0.03057889822595705,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": -0.777859628200531,
+              "score_final": 0.03200204813108039,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_44eeb8e1d7649f24",
+              "source_id": "DOC-021",
+              "score_reranker": -0.41415131092071533,
+              "score_final": 0.030834914611005692,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4994514584541321,
+              "score_final": 0.030309988518943745,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b835d61f603ffe67",
+              "source_id": "DOC-032",
+              "score_reranker": -0.4457811415195465,
+              "score_final": 0.029211087420042643,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": 0.5224292278289795,
+              "score_final": 0.026916221033868093,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_8574eccbc342feec",
+              "source_id": "DOC-005",
+              "score_reranker": -0.9841092228889465,
+              "score_final": 0.0315136476426799,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": -0.6243118643760681,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": -0.3927694857120514,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [],
+          "respondiveis": false
+        }
+      ]
+    },
+    {
+      "limiar": 0,
+      "hit": [
+        10,
+        12
+      ],
+      "precisao": [
+        12,
+        26
+      ],
+      "perguntas": [
+        {
+          "id": "Q01",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.7133238315582275,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_df45b0823ed5a0bc",
+              "source_id": "DOC-018",
+              "score_reranker": 1.418102502822876,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q02",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 3.9924981594085693,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q03",
+          "trechos": [
+            {
+              "chunk_id": "c_c6231193313d7044",
+              "source_id": "DOC-021",
+              "score_reranker": 0.04105926305055618,
+              "score_final": 0.031544957774465976,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q04",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 2.131544351577759,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_cce3adec306aa20f",
+              "source_id": "DOC-006",
+              "score_reranker": 3.3812530040740967,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q05",
+          "trechos": [
+            {
+              "chunk_id": "c_45e04c73c85bdc29",
+              "source_id": "DOC-001",
+              "score_reranker": 1.1963694095611572,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 0.0488373339176178,
+              "score_final": 0.0304147465437788,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q06",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 6.423680782318115,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q07",
+          "trechos": [
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.683832883834839,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 2.049095869064331,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_d18e321ba2d41ac7",
+              "source_id": "DOC-012",
+              "score_reranker": 2.5572402477264404,
+              "score_final": 0.031754032258064516,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q08",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 10.150635719299316,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 3.9430651664733887,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 6.3353352546691895,
+              "score_final": 0.03200204813108039,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_b83014a572f0a800",
+              "source_id": "DOC-032",
+              "score_reranker": 0.5224292278289795,
+              "score_final": 0.026916221033868093,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q09",
+          "trechos": [
+            {
+              "chunk_id": "c_a329b12b7f9edc9c",
+              "source_id": "DOC-026",
+              "score_reranker": 8.269013404846191,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_436a2249e7a6d0fb",
+              "source_id": "DOC-027",
+              "score_reranker": 5.855520725250244,
+              "score_final": 0.03225806451612903,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_a98948e2bed7c50a",
+              "source_id": "DOC-025",
+              "score_reranker": 2.151731252670288,
+              "score_final": 0.031746031746031744,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_651a8b71267b928b",
+              "source_id": "DOC-025",
+              "score_reranker": 1.4119713306427002,
+              "score_final": 0.03125,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q10",
+          "trechos": [
+            {
+              "chunk_id": "c_7487f9e90557b28d",
+              "source_id": "DOC-012",
+              "score_reranker": 6.2374467849731445,
+              "score_final": 0.03252247488101534,
+              "relevante": true
+            },
+            {
+              "chunk_id": "c_1cfe0848c545f27c",
+              "source_id": "DOC-012",
+              "score_reranker": 2.076261281967163,
+              "score_final": 0.032266458495966696,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q11",
+          "trechos": [
+            {
+              "chunk_id": "c_f2c6f00293fae365",
+              "source_id": "DOC-005",
+              "score_reranker": 0.5908520817756653,
+              "score_final": 0.03278688524590164,
+              "relevante": true
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q12",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 1.7586679458618164,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            }
+          ],
+          "respondiveis": true
+        },
+        {
+          "id": "Q13",
+          "trechos": [],
+          "respondiveis": false
+        },
+        {
+          "id": "Q14",
+          "trechos": [
+            {
+              "chunk_id": "c_c8a0b710c3c50b09",
+              "source_id": "DOC-012",
+              "score_reranker": 3.939547061920166,
+              "score_final": 0.03278688524590164,
+              "relevante": false
+            },
+            {
+              "chunk_id": "c_17241a7563801760",
+              "source_id": "DOC-008",
+              "score_reranker": 3.085683822631836,
+              "score_final": 0.031754032258064516,
+              "relevante": false
+            }
+          ],
+          "respondiveis": false
+        },
+        {
+          "id": "Q15",
+          "trechos": [],
+          "respondiveis": false
+        }
+      ]
+    }
+  ],
+  "configuracao_ativa": {
+    "metodo": "hibrida_rrf",
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "rrf_k": 60,
+    "top_k": 5,
+    "max_por_fonte": 2,
+    "candidatos": 30,
+    "reranker": {
+      "ativo": true,
+      "modelo": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "revisao": "1427fd652930e4ba29e8149678df786c240d8825",
+      "candidatos": 30,
+      "lote": 8,
+      "max_tokens": 512,
+      "limiar": -4.0,
+      "rrf_k": 60
+    }
+  },
+  "limites": "Relevância revisada por Codex para os trechos selecionados; nenhuma dupla revisão humana. Uso das quinze perguntas conhecidas na calibração, inclusive Q12; sem alegar conjunto reservado. Avaliação de recuperação, não reavaliação factual completa de quinze respostas Gemini."
+}

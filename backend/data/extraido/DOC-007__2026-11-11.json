@@ -1,0 +1,47 @@
+{
+  "source_id": "DOC-007",
+  "versao": "2026-11-11",
+  "sha256_original": "c018b874083829783dd7024bf5ac20d0f60ab9bbfdd55873cb359a67545f0a92",
+  "url": "https://software.unb.br/salas-de-aula/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Salas de Aula – Engenharia de Software – UnB",
+  "palavras": 140,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "O prédio da UAC (Unidade Acadêmica) possui a maioria das salas de aulas que atendem a todos os alunos matriculados, de todos os cursos da FCTE.",
+        "São 18 salas de aula de diferentes tamanhos, todas com quadro branco e quadro negro e projetores. Todas as salas têm portas duplas, para maior fluxo e melhor acessibilidade. As dimensões das salas de aula da UAC comportam turmas de tamanhos diferentes:",
+        "6 salas com capacidade para 130 estudantes",
+        "6 salas com capacidade para 60 estudantes",
+        "6 salas com capacidade 45 estudantes",
+        "Todas as salas, grandes ou pequenas, oferecem pontos fixos para rede.",
+        "Além do recurso de projetores, os professores que assim desejarem podem requisitar e retirar caixas de som e microfones junto à Secretaria Acadêmica. Material essencial para aulas expositivas usando o quadro, tais como pincéis, giz e apagadores correspondentes também são disponibilizados."
+      ]
+    }
+  ]
+}

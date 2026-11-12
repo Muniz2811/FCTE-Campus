@@ -1,0 +1,49 @@
+{
+  "source_id": "DOC-013",
+  "versao": "2026-11-11",
+  "sha256_original": "022efb400bdd16bf7a867d6a248304b4e8d0cdae63c0bd91c923bdee01af618e",
+  "url": "https://dasu.unb.br/vigilancia-em-saude/",
+  "regras": {
+    "conteudo": "main",
+    "paginas": [],
+    "remover": [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "iframe",
+      "form",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "button"
+    ],
+    "titulos_extras": [
+      ".elementor-tab-title"
+    ],
+    "excluir_paragrafos_regex": [],
+    "excluir_secoes": []
+  },
+  "titulo_pagina": "Coordenação de Atenção e Vigilância em Saúde (Coavs) – DASU UnB",
+  "palavras": 481,
+  "repeticoes_removidas": 0,
+  "paragrafos_excluidos_por_escopo": 0,
+  "avisos": [],
+  "secoes": [
+    {
+      "caminho": [],
+      "paragrafos": [
+        "1. Núcleo de Vigilância em Saúde (NVS)\nContribui, de maneira imediata, com as ações de vigilância, coordenação e inteligência para riscos à saúde, além de elo com atores externos como a Vigilância Epidemiológica, Sanitária e Ambiental da Secretaria de Saúde do DF.\nEntrar em contato por e-mail: nvsaude@unb.br ou coavs@unb.br.",
+        "2. Núcleo de Atenção e Vigilância em Saúde (Navs)\nDesenvolvem práticas voltadas para a prevenção de agravos e promoção da saúde, atuando de forma integrada com outros serviços oferecidos pela Coavs, voltados à comunidade universitária. Estão contempladas ações como:",
+        "Acolhimento",
+        "Aferição de Sinais Vitais (Pressão Arterial, Pulso, Glicemia, Temperatura)",
+        "Consulta de Enfermagem",
+        "Realização de Curativos",
+        "Os Núcleos de Atenção e Vigilância à Saúde (Navs), localizados no Darcy Ribeiro (ICC Sul), na Faculdade de Planaltina (FUP) e na Faculdade do Gama (FCTE). A Faculdade de Ceilândia (FCTS) ou outros locais onde não há Navs, poderá entrar em contato através de e-mail: nvsaude@unb.br ou coavs@unb.br.",
+        "3. Formulário de Informação de Casos Suspeitos e/ou Confirmados de COVID-19\nO formulário NOTIFICA-COAVS tem o objetivo de agilizar, dar ciência e a solução aos casos de doenças e agravos em saúde ocorridos na comunidade acadêmica, facilitando o processo decisório e ações para melhoria da situação de saúde e promoção e prevenção da saúde.\nÉ importante que estes eventos sejam informados, sempre que possível em tempo oportuno, para que sejam realizadas as devidas providências. Visando a maior adesão junto a comunidade acadêmica, as informações relatadas são anônimas e podem ser realizadas através de um formulário específico ou através de e-mail.",
+        "4. Guardiões da Saúde\nÉ uma ferramenta de vigilância participativa que a UnB utiliza para identificar e monitorar a situação de saúde dos usuários do aplicativo. Seu objetivo é ter a capacidade de detecção de surtos e emergências em saúde pública. Além disso, disponibiliza a visualização do histórico de saúde do usuário e dicas de saúde.\nO aplicativo é acessível para toda a comunidade e para os estudantes da Universidade de Brasília. Basta fazer o download do aplicativo Guardiões da Saúde na loja de aplicativos do seu dispositivo Apple Store ou Google Play.\n5. Núcleo de Formação, Monitoramento e Avaliação de Ações e Projetos em Saúde (Naps)\nÉ uma estrutura de apoio operacional à Dasu que desenvolve atividades, em articulação com as coordenações desta diretoria, a partir dos eixos de formação, monitoramento e avaliação, com os seguintes objetivos:\nMonitoramento de fatores de risco e proteção para a saúde mental da comunidade universitária, com o intuito de subsidiar o planejamento das atividades da Dasu;\nPrestação de suporte a projetos que estejam em andamento na comunidade universitária de forma a estabelecer uma integração entre propostas já existentes e as demandas mapeadas pelo Núcleo de Formação, Monitoramento e Avaliação de Ações e Projetos em Saúde;\nDisponibilização de suporte às unidades acadêmicas/administrativas e grupos da comunidade universitária no planejamento, execução e avaliação de intervenções em saúde mental. Maiores informações pelo e-mail naps@unb.br."
+      ]
+    }
+  ]
+}
