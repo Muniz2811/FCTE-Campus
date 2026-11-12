@@ -5,6 +5,9 @@
 .agents/
 tooling/
 scripts/verify_skills.py
+/AGENTS.md
+/PLAN.md
+/DESIGN.md
 .venv/
 node_modules/
 dist/

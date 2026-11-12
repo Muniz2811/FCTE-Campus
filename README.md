@@ -149,4 +149,4 @@ Os testes existentes do backend não chamam Gemini. A avaliação comparativa re
 
 Os testes focam comportamentos que podem perder dados ou retornar locais incorretos; não há testes de aparência. O build gera e permite inspecionar manifest, ícones e precache. Instalação, recarga offline e aparência em um celular real ainda precisam de conferência manual.
 
-Ícones PNG já estão incluídos; para regenerá-los, execute `scripts/generate-icons.py` em Python com Pillow instalado. Decisões e plano desta versão estão em [DESIGN.md](DESIGN.md) e [PLAN.md](PLAN.md).
+Ícones PNG já estão incluídos; para regenerá-los, execute `scripts/generate-icons.py` em Python com Pillow instalado.
