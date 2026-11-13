@@ -6,6 +6,28 @@ Este repositório contém **somente o chat e o RAG**. Mapa, GPS, favoritos, inst
 
 ## Executar localmente
 
+### Caminho rápido para o grupo — Mac com chip Apple
+
+Depois de baixar o repositório, **abra `iniciar.command` com dois cliques**. Ou, no Terminal, dentro da pasta do projeto:
+
+```bash
+bash iniciar.command
+```
+
+Na primeira vez, o iniciador instala as dependências do projeto, prepara os modelos e o Chroma, compila a interface e abre **http://127.0.0.1:8001**. Se faltar a chave Gemini, ele abre `backend/.env` no editor e aguarda você preencher, salvar e confirmar no terminal. Não é preciso abrir dois terminais nem executar os comandos de preparação separadamente.
+
+**Pré-requisito, uma vez por Mac:** Node e Python 3.12. Se ainda não estiverem instalados, instale [Homebrew](https://brew.sh/), siga seu **Next steps** e execute:
+
+```bash
+brew install node@22 python@3.12
+```
+
+Nas próximas vezes, abra o mesmo `iniciar.command`: ele reutiliza a preparação existente e refaz etapas quando os arquivos correspondentes mudam. A primeira execução exige downloads e pode demorar. O iniciador não instala programas do sistema automaticamente e não compartilha chaves entre integrantes.
+
+Deixe o terminal aberto enquanto usa a aplicação e pressione **Control + C** para encerrar. Se o Finder não permitir executar o arquivo, use `bash iniciar.command` no Terminal. O fluxo de inicialização foi preparado para macOS, mas ainda precisa ser validado em um Mac da equipe.
+
+O tutorial abaixo é a alternativa manual para desenvolvimento e diagnóstico.
+
 ### macOS com chip Apple — instalação completa
 
 Este caminho executa **interface, API, embeddings, reranker e Chroma no próprio Mac**. Somente a geração das respostas usa a API Gemini pela internet. Não é necessário instalar Docker, servidor Chroma ou banco externo.

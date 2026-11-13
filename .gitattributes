@@ -2,3 +2,4 @@
 backend/data/** -text
 backend/avaliacao/** -text
 data/imports/** -text
+*.command text eol=lf
