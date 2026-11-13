@@ -73,6 +73,16 @@ O índice inicial está dentro da imagem e reaparece ao recriar o contêiner. Al
 
 ## Fluxo do RAG
 
+A navegação possui **Conversa**, **Métricas do RAG** e **Comparar ao vivo**. O painel histórico lê os artefatos preservados de `backend/avaliacao/resultados/semana3-llm-rag-20261112-v1`, com fórmulas, exemplos interativos, quatro cenários e limitações. Não recalcula os resultados antigos com respostas novas.
+
+Na comparação ao vivo, a mesma pergunta é enviada em paralelo ao **RAG atual completo** e ao **mesmo Gemini sem documentos**, sem histórico nos dois braços. Cada envio pode consumir duas chamadas da API. Tempo, tokens disponíveis, disponibilidade e rastreabilidade documental são medidos; qualidade factual, relevância, completude, ausência e premissas exigem a revisão guiada. O gabarito é mostrado ao revisor e não é enviado como contexto ao modelo. Métricas sem julgamento ou denominador ficam pendentes ou N/A.
+
+A primeira saída válida de cada execução é preservada. A interface permite repetir somente falhas técnicas; todas as tentativas continuam no histórico. A sessão agrega os contadores julgados, mostra a cobertura da revisão e permite exportar JSON com respostas, configurações, hashes dos prompts, tentativas e julgamentos. Sessões do navegador ficam em memória; os registros do servidor são privados em `backend/data/execucoes/comparacao-*.json`. Repetir uma pergunta como nova execução não torna a amostra independente.
+
+Endpoints adicionais: `GET /api/v1/evaluation`, `POST /api/v1/comparison/rag` e `POST /api/v1/comparison/llm` (corpo `{ "text": "sua pergunta", "campus": "gama" }`). A comparação usa a mesma chave secreta do backend. O prompt e o contrato do braço isolado são compartilhados com o script histórico em `rag/consulta/llm_isolada.py`.
+
+O Docker inclui apenas os três artefatos necessários ao painel. Como originais e extrações não entram nessa imagem, a rastreabilidade **completa** ao vivo fica N/A nesse deploy; os IDs e fontes continuam disponíveis para inspeção. Localmente, com esses arquivos presentes, a cadeia é conferida até o hash do original. Persistência continua sendo o ensaio histórico em processos novos; uma consulta HTTP não o substitui.
+
 ```text
 Pergunta → E5 → Chroma + BM25 → RRF → reranker → seleção dos trechos
                                                      ↓
@@ -86,6 +96,7 @@ Complementos de perguntas usam `previousRequestId` para recuperar o assunto da c
 ## Organização e verificação
 
 - `src/knowledge/`: contrato HTTP, estado da conversa, respostas e fontes.
+- `src/evaluation/`: painel histórico, glossário, comparação real e revisão das métricas.
 - `src/app/` e `src/design/`: interface responsiva e identidade UnB/FCTE.
 - `backend/rag/`: ingestão, embeddings, Chroma, recuperação, geração e API.
 - `backend/config/` e `backend/data/`: configuração, catálogo e corpus curado. Índice, pesos e execuções locais não são versionados.

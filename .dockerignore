@@ -19,5 +19,14 @@ backend/data/originais
 backend/data/fichas
 backend/data/extraido
 backend/avaliacao
+!backend/avaliacao
+backend/avaliacao/*
+!backend/avaliacao/resultados
+backend/avaliacao/resultados/*
+!backend/avaliacao/resultados/semana3-llm-rag-20261112-v1
+backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/*
+!backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/metricas.json
+!backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/gabarito.json
+!backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/configuracao.json
 backend/tests
 backend/.git

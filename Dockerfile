@@ -23,6 +23,7 @@ COPY backend/config ./config
 COPY backend/scripts ./scripts
 COPY backend/data/catalogo ./data/catalogo
 COPY backend/data/chunks ./data/chunks
+COPY backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/metricas.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/gabarito.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/configuracao.json ./avaliacao/resultados/semana3-llm-rag-20261112-v1/
 # Pesos e índice são preparados sem chave Gemini, a partir do corpus aprovado.
 RUN python scripts/preparar_modelos.py \
     && python scripts/05_indexar.py \

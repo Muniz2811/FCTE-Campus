@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { MotionConfig } from 'motion/react';
 import './design/tokens.css';
 import './design/chat.css';
+import './design/evaluation.css';
 import { App } from './app/App';
 import { AppErrorBoundary } from './app/AppErrorBoundary';
 

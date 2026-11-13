@@ -17,6 +17,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from rag.config import carregar_config, caminho_projeto, configurar_cache
 from rag.consulta.geracao import FalhaGeracao
 from rag.consulta.servico import ServicoRAG
+from rag.consulta.comparacao import Comparador, painel_historico
 
 
 class Pergunta(BaseModel):
@@ -46,6 +47,7 @@ def create_app(factory=criar_servico):
         except Exception as erro:
             logging.getLogger(__name__).error('Inicialização do RAG falhou: %s', type(erro).__name__)
             app.state.rag = None
+        app.state.comparador = Comparador(app.state.rag) if app.state.rag is not None else None
         yield
         if app.state.rag is not None:
             app.state.rag.close()
@@ -94,6 +96,20 @@ def create_app(factory=criar_servico):
             raise FalhaGeracao('A base está desatualizada ou a pergunta excede o limite de tokens. Confira o índice e reformule.', 503) from None
         except OSError:
             raise FalhaGeracao('Não foi possível acessar o índice ou salvar a execução local.', 503) from None
+
+    @app.get('/api/v1/evaluation')
+    def evaluation():
+        try:
+            return painel_historico(app.state.rag.info if app.state.rag else None)
+        except (OSError, ValueError, KeyError):
+            raise FalhaGeracao('Os arquivos da avaliação histórica não estão disponíveis.', 503) from None
+
+    @app.post('/api/v1/comparison/{arm}')
+    def comparison(arm: Literal['rag', 'llm'], pergunta: Pergunta):
+        if app.state.comparador is None:
+            raise FalhaGeracao('O backend RAG não está disponível.', 503)
+        resultado = app.state.comparador.executar(arm, pergunta.text)
+        return JSONResponse(resultado, status_code=resultado['technicalStatus'])
 
     web_dir = Path(os.environ.get('RAG_WEB_DIR', caminho_projeto('../dist'))).resolve()
     if (web_dir / 'index.html').is_file():
