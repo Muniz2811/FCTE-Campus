@@ -13,7 +13,7 @@ npm run dev:rag
 
 O primeiro comando prepara o reranker uma vez e exige internet. E5 e reranker executam na CPU; apenas a geração Gemini usa API. Em ambiente novo, siga o preparo de `backend/.venv`, `backend/.env` e do índice no README da raiz. Os comandos Python abaixo são executados dentro de `backend/`.
 
-Em outro terminal, na raiz do repositório: `npm.cmd run dev`. Abra http://127.0.0.1:5173. A API permanece na porta 8001 e mantém `POST /api/v1/chat` e `GET /api/v1/health`. O proxy do Vite permanece `/api/rag`. Nenhuma chave vai ao navegador.
+Em outro terminal, na raiz do repositório: `npm.cmd run dev`. Abra http://127.0.0.1:5173. A API permanece na porta 8001 e mantém `POST /api/v1/chat` e `GET /api/v1/health`. O proxy do Vite usa `/api/v1`. Nenhuma chave vai ao navegador. O projeto agora contém somente o chat, sem mapa/PWA. O Dockerfile da raiz reúne frontend, modelos e índice num único serviço; veja as instruções de deploy no README da raiz.
 
 ## Organização das pastas
 
@@ -23,7 +23,7 @@ Em outro terminal, na raiz do repositório: `npm.cmd run dev`. Abra http://127.0
 | `rag/ingestao/` | Aquisição HTML/PDF, extração, catálogo, normalização de entidades, contagem de tokens e chunking. |
 | `rag/consulta/` | Busca E5 + BM25/RRF, reranker, contexto de conversa, geração Gemini e serviço que coordena o chat. |
 | `rag/armazenamento/` | Embeddings E5, cliente Chroma, indexação e manifesto de integridade. |
-| `rag/api.py` | Contrato HTTP usado pelo PWA, validação de entrada e tratamento de erros. |
+| `rag/api.py` | Contrato HTTP do chat, validação, tratamento de erros e frontend compilado em produção. |
 | `rag/config.py` | Leitura da configuração e resolução de caminhos pela raiz do projeto. |
 | `config/` | Parâmetros de ingestão, busca, modelos e entidades do campus. |
 | `data/catalogo/` | Fontes, aprovação editorial e registro da expansão. |

@@ -1,6 +1,6 @@
 import type { AssistantHealth, CampusAssistant, KnowledgeMeta, KnowledgeResult, KnowledgeSource } from '../application/assistant';
-const api = `${import.meta.env.BASE_URL}api/rag/`;
-const offline = 'Não foi possível conectar ao RAG. Inicie o backend local na porta 8001 e tente novamente.';
+const api = `${import.meta.env.BASE_URL}api/v1/`;
+const offline = 'Não foi possível conectar ao assistente. Verifique a conexão e tente novamente.';
 const record = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object';
 
 function source(value: unknown): KnowledgeSource {

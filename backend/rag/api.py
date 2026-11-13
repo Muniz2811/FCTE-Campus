@@ -1,4 +1,4 @@
-"""API local v1 usada pelo PWA. O navegador nunca recebe a chave Gemini."""
+"""Chat e API v1. Em produção, a mesma aplicação serve o build do frontend."""
 import asyncio
 import logging
 import os
@@ -10,6 +10,7 @@ from uuid import UUID
 from dotenv import dotenv_values
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
@@ -49,14 +50,15 @@ def create_app(factory=criar_servico):
         if app.state.rag is not None:
             app.state.rag.close()
 
-    app = FastAPI(title='FCTE Campus · RAG local', version='1.0.0', lifespan=lifespan)
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=['127.0.0.1', 'localhost', '[::1]'])
+    app = FastAPI(title='FCTE Campus · Assistente RAG', version='1.0.0', lifespan=lifespan)
+    hosts = [host.strip() for host in os.environ.get('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if host.strip()]
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=hosts)
     origens = set(os.environ.get('RAG_ALLOWED_ORIGINS', 'http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://localhost:4173').split(','))
 
     @app.middleware('http')
     async def proteger(request, call_next):
         origem = request.headers.get('origin')
-        if origem and origem not in origens:
+        if origem and origem not in origens and origem != str(request.base_url).rstrip('/'):
             return JSONResponse({'detail': 'Origem não autorizada.'}, status_code=403)
         if request.method == 'POST':
             try:
@@ -65,7 +67,7 @@ def create_app(factory=criar_servico):
             except ValueError:
                 return JSONResponse({'detail': 'Requisição inválida.'}, status_code=400)
         resposta = await call_next(request)
-        resposta.headers['Cache-Control'] = 'no-store'
+        resposta.headers['Cache-Control'] = 'no-store' if request.url.path.startswith('/api/') else 'no-cache'
         resposta.headers['X-Content-Type-Options'] = 'nosniff'
         return resposta
 
@@ -93,6 +95,9 @@ def create_app(factory=criar_servico):
         except OSError:
             raise FalhaGeracao('Não foi possível acessar o índice ou salvar a execução local.', 503) from None
 
+    web_dir = Path(os.environ.get('RAG_WEB_DIR', caminho_projeto('../dist'))).resolve()
+    if (web_dir / 'index.html').is_file():
+        app.mount('/', StaticFiles(directory=web_dir, html=True), name='chat')
     return app
 
 

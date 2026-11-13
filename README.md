@@ -1,55 +1,23 @@
-# FCTE Campus
+# FCTE Campus · Assistente com fontes
 
-PWA do módulo espacial do Grupo 09, com mapa como tela principal e identidade UnB/FCTE. Projeto acadêmico, sem vínculo de serviço oficial com a Universidade.
+Chat da base de conhecimento da FCTE/UnB Gama. A interface apresenta respostas, fontes utilizadas, trechos recuperados e o registro de cada consulta. Projeto acadêmico do Grupo 09, sem vínculo de serviço oficial com a UnB.
 
-Repositório unificado: **frontend React em `src/` e backend RAG em `backend/`**. O backend foi incorporado do projeto `unb-gama-rag`; o código de ingestão, os dados curados e as avaliações foram preservados. A ferramenta de coleta/visualização 3D continua no repositório separado [FcteMapping](https://github.com/Muniz2811/FcteMapping).
+Este repositório contém **somente o chat e o RAG**. Mapa, GPS, favoritos, instalação e funcionamento offline foram retirados. A coleta e a visualização 3D permanecem no projeto separado [FcteMapping](https://github.com/Muniz2811/FcteMapping).
 
-## Rodar localmente
+## Executar localmente
 
-Node **22.12 ou superior**. Na pasta deste projeto:
-
-```powershell
-npm ci
-npm run dev
-```
-
-Abra a URL impressa pelo Vite, normalmente **http://127.0.0.1:5173/**. Não é necessário configurar chave de API.
+Requisitos: Node 22.12+ e Python 3.12 ou 3.13. No PowerShell, na raiz do projeto:
 
 ```powershell
-npm test          # catálogo, busca, favoritos e contrato HTTP do assistente
-npm run build    # TypeScript + produção + service worker
-npm run preview  # prévia do build em http://127.0.0.1:4173/
-```
-
-O service worker só é habilitado no build de produção. Instalação e GPS exigem HTTPS ou localhost. Para acessar o dev server pelo celular na mesma rede, use `npm run dev -- --host 0.0.0.0`; o IP HTTP do computador permite ver a interface, mas não oferece todas as capacidades de PWA/GPS. Para essas capacidades no celular, use uma hospedagem HTTPS.
-
-## O que funciona
-
-- Mapa OpenStreetMap/Leaflet com os **14 pontos** do mapeamento da equipe, detalhes e vínculo com a origem.
-- Busca sem distinção de acentos/caixa, filtros por categoria e estados vazios.
-- Favoritos locais, separados por dispositivo/navegador. Armazenamento bloqueado gera aviso; não derruba o app.
-- Link compartilhável por local (`#place=MAP-001-P014`) e abertura do destino no Google Maps.
-- Consulta pontual ao GPS, com permissão solicitada pelo navegador e indicação de precisão. Não há rastreamento nem persistência da posição.
-- Painel lateral no desktop, painel expansível no celular, navegação por teclado, movimentos reduzidos e animações de seleção/transição.
-- Manifest, ícones, instruções de instalação e atualização mediante escolha. Shell, catálogo e favoritos acessíveis offline depois da primeira visita concluída.
-
-O mapa-base depende de internet; não é baixado para uso offline. Tiles seguem a [política do OpenStreetMap](https://operations.osmfoundation.org/policies/tiles/), com atribuição visível e sem precache. Ao mover o mapa ou usar GPS, o provedor de tiles recebe as requisições correspondentes à área exibida; a aplicação não envia a posição para um backend próprio. Links externos abrem somente o destino público selecionado.
-
-O **assistente está conectado ao RAG local** por uma API HTTP. E5 e Chroma executam no computador; o Gemini precisa de internet e de uma chave no backend. Há respostas com fontes, trechos recuperados, indicação de informação insuficiente, cancelamento da espera e erros reais de rede/cota. Não há resposta simulada, rota calculada, previsão de ônibus ou ocupação atual de salas.
-
-### Preparar o backend pela primeira vez
-
-Python **3.12 ou 3.13**. Execute na raiz deste repositório, no PowerShell:
-
-```powershell
+npm.cmd ci
 python -m venv backend/.venv
 .\backend\.venv\Scripts\python.exe -m pip install -r backend/requirements.txt
 Copy-Item backend/.env.example backend/.env
 ```
 
-Preencha **`GEMINI_API_KEY` somente em `backend/.env`**. Não sobrescreva um `.env` já configurado. Em Linux/macOS, use `backend/.venv/bin/python` no lugar do executável Windows e `cp` para a cópia.
+Preencha `GEMINI_API_KEY` em `backend/.env`. Não sobrescreva um ambiente já configurado. Em Linux/macOS, use `backend/.venv/bin/python`.
 
-Depois prepare os modelos e o banco:
+Na primeira execução, prepare os modelos e o índice:
 
 ```powershell
 npm.cmd run rag:prepare
@@ -57,96 +25,78 @@ npm.cmd run rag:index
 npm.cmd run rag:check
 ```
 
-Essas etapas baixam os pesos do reranker/E5 e constroem o Chroma a partir dos chunks curados incluídos no repositório. Exigem internet no primeiro preparo, mas não chamam Gemini. O banco em `backend/data/index/` e os pesos em `backend/.cache/` são locais e ficam fora do Git. Não é preciso baixar novamente as páginas institucionais para reconstruir o índice com os chunks já preparados.
+Esses comandos baixam os pesos fixados de E5/reranker e constroem o Chroma com os chunks curados já presentes no repositório. Não fazem chamadas ao Gemini. Se os modelos e o índice já existem, não é necessário repetir essa etapa.
 
-Se o índice e os modelos já existem, passe direto para iniciar os dois processos. O ambiente e o índice do computador original foram preservados durante a integração.
-
-### Iniciar o frontend e o chat
-
-Dois terminais, ambos na raiz `fcte-campus`:
+Inicie os dois processos em terminais separados:
 
 ```powershell
-# Terminal 1: backend em http://127.0.0.1:8001
+# API: http://127.0.0.1:8001
 npm.cmd run dev:rag
 ```
 
 ```powershell
-# Terminal 2: frontend em http://127.0.0.1:5173
+# Interface: http://127.0.0.1:5173
 npm.cmd run dev
 ```
 
-Abra a aba **Assistente**. O proxy do Vite encaminha `/api/rag/chat` e `/api/rag/health` para `/api/v1/chat` e `/api/v1/health`, sem expor a chave.
-
-Neste workspace, também é possível reutilizar a chave da coleta explicitamente, sem copiá-la:
+O Vite encaminha `/api/v1` à API local. Também é possível fornecer explicitamente um arquivo de configuração existente, sem copiar a chave:
 
 ```powershell
 npm.cmd run dev:rag -- --env-file ../coleta-fcte/.env
 ```
 
-Os caminhos de `--env-file` nos comandos npm são relativos ao terminal. Os comandos entram em `backend/` automaticamente. Para usar outro ambiente Python, defina `RAG_PYTHON` com seu executável.
+## Deploy em um único serviço
 
-O chat utiliza **37 fontes e 174 chunks armazenados**, busca E5 + BM25/RRF, reranker multilíngue local e Gemini. O filtro temporal exclui 18 chunks de um edital histórico das consultas atuais. Os marcadores do mapa não fornecem automaticamente salas ou rotas. Complementos podem enviar `previousRequestId`, permitindo consultar o assunto de um registro anterior da mesma base. Isso é contexto curto, não memória ilimitada nem evidência factual. Iniciar uma nova conversa limpa a referência. Cancelar interrompe a espera, mas uma chamada Gemini já iniciada pode terminar e consumir cota.
+O `Dockerfile` da raiz reúne interface e API. A aplicação Python serve o chat em `/` e o backend em `/api/v1`, no mesmo domínio. Não é necessário outro servidor para o frontend ou para o Chroma.
 
-As execuções privadas ficam em `backend/data/execucoes/`, fora do Git. O [relatório da Semana 3](backend/RELATORIO_SEMANA_3_LLM_X_RAG.md) explica o fluxo, as métricas e a comparação real com a LLM isolada. A [documentação do backend](backend/README.md) detalha a ingestão e a organização interna.
+O build instala PyTorch **CPU**, baixa os modelos, gera e confere o índice, e incorpora o frontend compilado. Não recebe a chave Gemini. Essa primeira construção exige internet e pode demorar devido aos pesos dos modelos.
 
-Para outra porta de backend, configure `RAG_API_TARGET` no ambiente do Vite. O proxy existe no dev e no preview; um futuro deploy precisa de API hospedada/reverse proxy. Não há deploy nesta integração local.
+```sh
+docker build -t fcte-chat .
+docker run --rm -p 8000:8000 --env-file backend/.env fcte-chat
+```
 
-## Dados e arquitetura
+Abra `http://localhost:8000`. Para hospedar online, selecione deploy por Docker usando o **Dockerfile da raiz**, configure a porta interna `8000` ou a variável `PORT` do provedor, e adicione estas variáveis no painel:
+
+| Variável | Valor |
+|---|---|
+| `GEMINI_API_KEY` | Chave secreta da API Gemini |
+| `GEMINI_MODEL` | Opcional; o padrão está em `backend/config/rag.yaml` |
+| `RAG_ALLOWED_HOSTS` | `localhost,127.0.0.1,SEU-DOMINIO` — sem protocolo |
+| `RAG_ALLOWED_ORIGINS` | `https://SEU-DOMINIO` — sem barra final |
+
+Use `/api/v1/health` para verificar a disponibilidade. Nenhuma chave é enviada ao navegador. O contêiner usa um único worker, com uma consulta por vez para conter o consumo de memória; novas consultas simultâneas recebem uma mensagem para aguardar.
+
+**A simplificação facilita o deploy, mas não reduz a memória exigida pelo E5 e pelo reranker.** O serviço precisa comportar ambos, PyTorch e Chroma. O build Docker deve ser validado no provedor/arquitetura escolhidos; não há garantia de execução em planos de 512 MB.
+
+O índice inicial está dentro da imagem e reaparece ao recriar o contêiner. Alterações feitas em execução, logs e contexto entre perguntas não persistem sem armazenamento externo/volume. Os originais, chunks e avaliações continuam sendo a base para reconstruir o índice; o histórico das conversas não é usado como fonte factual.
+
+## Fluxo do RAG
 
 ```text
-src/
-  app/              composição e estado de navegação
-  campus/           domínio, busca, snapshot público e apresentação do mapa
-  favorites/        persistência versionada de IDs e estado da interface
-  knowledge/        contrato, chat e adaptador HTTP do RAG local
-  installation/     instalação, conectividade e atualização
-  design/           tokens, marca, ícones e estilos
-public/             ícones próprios para navegador e instalação
-scripts/            importação e ferramentas de manutenção
-backend/
-  rag/              ingestão, armazenamento, consulta e API Python
-  config/           modelos, parâmetros e entidades
-  data/             catálogo, texto extraído, chunks e dados locais ignorados
-  avaliacao/        gabarito e resultados medidos
-  scripts/          comandos de ingestão, índice, API e avaliação
-data/imports/       exportação pública dos pontos do campus
+Pergunta → E5 → Chroma + BM25 → RRF → reranker → seleção dos trechos
+                                                     ↓
+Chat com fontes ← validação dos vínculos de citação ← Gemini
 ```
 
-Domínio e busca não dependem de React, Leaflet ou navegador. O contrato `CampusAssistant` separa pergunta, resposta e evidências do transporte. O adaptador `knowledge/infrastructure/http-assistant.ts` chama a API local; segredos permanecem no servidor. O contrato do orquestrador comum ainda precisará ser acordado e versionado entre os grupos.
+O corpus atual contém 37 fontes indexadas e 174 chunks armazenados. O filtro temporal exclui os trechos de documentos históricos das consultas atuais. A busca e o reranker preservam a configuração existente; a interface não altera resultados, notas ou fontes.
 
-O build usa um snapshot versionado em `src/campus/infrastructure/campus.json`; não depende das pastas vizinhas. A exportação pública original da equipe está incluída em `data/imports/campus/evidencias.json`. Para atualizar:
+Complementos de perguntas usam `previousRequestId` para recuperar o assunto da consulta anterior. Nova conversa limpa essa referência. Cancelar encerra a espera no navegador; uma chamada Gemini iniciada pode terminar e consumir cota. Não há informação de ocupação ao vivo nem cálculo de rotas.
 
-```powershell
-npm run import:campus
-# Ou informe outro arquivo no mesmo formato:
-npm run import:campus -- C:\caminho\evidencias.json
-```
+## Organização e verificação
 
-O importador preserva os 14 IDs, descrições e associações, registra hash SHA-256 e data da exportação, rejeita IDs duplicados e coordenadas fora da região do campus Gama. `eligibleForPilot` é elegibilidade para o piloto RAG, não comprovação de revisão humana. Nomes originais, inclusive ambíguos, são preservados. Associações candidatas ao UED não são apresentadas como definitivas. A Praça Solar não foi fundida com a ficha independente da Praça da FCTE.
-
-## Hospedar depois
-
-Frontend estático: comando de build `npm ci && npm run build`, pasta de saída `dist`. Publique em um serviço HTTPS. Em um subdiretório, configure a base **antes** do build:
+- `src/knowledge/`: contrato HTTP, estado da conversa, respostas e fontes.
+- `src/app/` e `src/design/`: interface responsiva e identidade UnB/FCTE.
+- `backend/rag/`: ingestão, embeddings, Chroma, recuperação, geração e API.
+- `backend/config/` e `backend/data/`: configuração, catálogo e corpus curado. Índice, pesos e execuções locais não são versionados.
+- `backend/avaliacao/`: perguntas e resultados das avaliações realizadas; preservados.
+- `Dockerfile`: build da interface e preparação do RAG para um serviço único.
 
 ```powershell
-$env:BASE_PATH = '/fcte-campus/'
-npm run build
-Remove-Item Env:\BASE_PATH
-```
-
-Base do Vite, início/escopo do manifest e fallback do service worker usam o mesmo prefixo. Sirva `index.html` nas navegações internas dessa base. Não sirva `sw.js` com cache imutável. Não há deploy nem push automático neste projeto.
-
-## Validação e ferramentas
-
-```powershell
-npm.cmd test
 npm.cmd run build
+npm.cmd test
 npm.cmd run test:rag
 npm.cmd run rag:check
 ```
 
-Os testes existentes do backend não chamam Gemini. A avaliação comparativa real é um comando separado e consome cota, como documentado no relatório. O remoto original do módulo RAG é [joaocarvv/unb-gama-rag](https://github.com/joaocarvv/unb-gama-rag); sua integração neste repositório preserva os registros históricos, incluindo caminhos referentes à execução anterior à migração.
-
-Os testes focam comportamentos que podem perder dados ou retornar locais incorretos; não há testes de aparência. O build gera e permite inspecionar manifest, ícones e precache. Instalação, recarga offline e aparência em um celular real ainda precisam de conferência manual.
-
-Ícones PNG já estão incluídos; para regenerá-los, execute `scripts/generate-icons.py` em Python com Pillow instalado.
+Os testes existentes não chamam Gemini. A documentação técnica está em [backend/README.md](backend/README.md), e a metodologia e os resultados históricos em [Relatório da Semana 3](backend/RELATORIO_SEMANA_3_LLM_X_RAG.md).

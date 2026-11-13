@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MotionConfig } from 'motion/react';
-import 'leaflet/dist/leaflet.css';
 import './design/tokens.css';
-import './design/layout.css';
-import './design/panels.css';
-import './design/map.css';
 import './design/chat.css';
 import { App } from './app/App';
 import { AppErrorBoundary } from './app/AppErrorBoundary';
+
+// Retira registros da versão anterior, sem instalar service worker ou cache offline.
+if ('serviceWorker' in navigator) {
+  const scope = new URL(import.meta.env.BASE_URL, location.origin).href;
+  void navigator.serviceWorker.getRegistrations().then(registrations => Promise.all(
+    registrations.filter(registration => registration.scope === scope).map(registration => registration.unregister()),
+  )).catch(() => {});
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><AppErrorBoundary><MotionConfig reducedMotion="user"><App /></MotionConfig></AppErrorBoundary></React.StrictMode>,
