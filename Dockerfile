@@ -9,7 +9,7 @@ RUN npm run build
 
 FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 \
-    TOKENIZERS_PARALLELISM=false RAG_WEB_DIR=/app/web PORT=8000
+    TOKENIZERS_PARALLELISM=false RAG_WEB_DIR=/app/web PORT=8000 RAG_REQUIRE_AUTH=true
 WORKDIR /app/backend
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
     && rm -rf /var/lib/apt/lists/* \

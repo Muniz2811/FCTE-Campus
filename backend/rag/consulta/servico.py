@@ -1,5 +1,6 @@
 """Caso de uso do chat. Reutiliza o E5 e registra pergunta, evidências e resposta."""
 import threading
+from copy import deepcopy
 from datetime import datetime, timezone
 from uuid import uuid4
 
@@ -28,7 +29,7 @@ class ServicoRAG:
     def close(self):
         self.gerador.close()
 
-    def perguntar(self, texto, place_id=None, previous_request_id=None):
+    def perguntar(self, texto, place_id=None, previous_request_id=None, *, max_trechos=None):
         if not self.info['generationConfigured']:
             raise FalhaGeracao('Configure GEMINI_API_KEY no ambiente do backend RAG.', 503)
         if not self.vaga.acquire(blocking=False):
@@ -44,7 +45,11 @@ class ServicoRAG:
             consulta = consulta_contextualizada(texto, contexto)
             registro['contexto_conversa'] = contexto
             registro['consulta_busca'] = consulta
-            recuperacao = buscar(consulta, self.config, modelo=self.modelo)
+            config_busca = self.config
+            if max_trechos is not None:
+                config_busca = deepcopy(self.config)
+                config_busca['busca']['top_k'] = min(max_trechos, self.config['busca']['top_k'])
+            recuperacao = buscar(consulta, config_busca, modelo=self.modelo)
             registro['recuperacao'] = recuperacao
             resultado = self.gerador.gerar(texto, recuperacao['trechos'], contexto=contexto)
             resposta = {**resultado, 'requestId': request_id, 'baseVersion': recuperacao['assinatura_indice'],

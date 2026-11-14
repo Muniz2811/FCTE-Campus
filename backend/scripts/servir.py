@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 def main():
     parser = argparse.ArgumentParser(description='Servidor local do RAG para o FCTE Campus.')
-    parser.add_argument('--env-file', help='arquivo .env do backend; apenas a chave Gemini e GEMINI_MODEL são usados')
+    parser.add_argument('--env-file', help='arquivo .env com configuração de geração e acesso do backend')
     parser.add_argument('--port', type=int, default=8001)
     args = parser.parse_args()
     if args.env_file:

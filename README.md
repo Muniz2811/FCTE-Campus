@@ -100,7 +100,7 @@ GEMINI_API_KEY=SUA_CHAVE_AQUI
 
 Mantenha as outras configurações do exemplo para uso local. `GEMINI_MODEL` é opcional e permite substituir o modelo configurado em `backend/config/rag.yaml`. No `nano`, salve com **Control + O**, confirme com **Enter** e saia com **Control + X**.
 
-A chave fica somente no backend. Não crie variáveis `VITE_*` com ela. Depois de mudar `backend/.env`, reinicie a API. O servidor lê desse arquivo a chave e o modelo; configurações de hospedagem, como hosts e origens, devem ser exportadas no ambiente quando necessárias.
+A chave fica somente no backend. Não crie variáveis `VITE_*` com ela. Depois de mudar `backend/.env`, reinicie a API. O servidor lê desse arquivo a chave, o modelo e as credenciais de acesso; configurações de hospedagem, como hosts e origens, devem ser exportadas no ambiente quando necessárias.
 
 #### 5. Preparar os modelos e criar o banco vetorial
 
@@ -258,16 +258,75 @@ npm.cmd run dev:rag -- --env-file ../coleta-fcte/.env
 
 ## Deploy em um único serviço
 
+### Integração com o orquestrador e acesso online
+
+O contrato comum **v1.0** está implementado em `POST /perguntar` e documentado pelo OpenAPI em `/docs`. O chat independente mantém `POST /api/v1/chat`. Os dois endpoints usam o mesmo pipeline existente: E5, BM25/RRF, reranker, Chroma e Gemini.
+
+| Responsabilidade | Serviço |
+|---|---|
+| Biblioteca, serviços estudantis gerais, saúde, acessibilidade e infraestrutura | FCTE-Campus · Grupo 09 |
+| Cardápio, funcionamento e gratuidade do RU; disciplinas, pré-requisitos, matrícula e calendário acadêmico | RUmo · Grupo 04 |
+| Localização de ambientes e ações para abrir o mapa | Ferramenta de mapa no `coleta-fcte` |
+
+Requisição do contrato comum:
+
+```json
+{
+  "pergunta": "A biblioteca oferece cabines individuais?",
+  "contexto": { "campus": "gama", "data": "2026-11-13" },
+  "max_trechos": 5
+}
+```
+
+`contexto` também aceita `curso` e `previous_request_id` (UUID da consulta anterior deste RAG). Campus aceito: `gama`. A pergunta aceita até 1.000 caracteres. Aceitamos pedidos de 1 a 20 trechos por compatibilidade; o limite aplicado é o menor entre o pedido e os cinco configurados no nosso pipeline, informado em `max_trechos_aplicado`. O filtro de validade documental continua sendo o da busca existente; a data de contexto não substitui essa política.
+
+A resposta preserva `grupo`, `resposta`, `encontrou_base`, `fontes` e `tempo_ms`, acrescentando `contrato_versao`, `dominio`, `status`, `request_id`, `base_version`, `afirmacoes`, `trechos` e metadados das fontes. Cada fonte citada possui `n`, `doc_id`, `chunk_id`, título, URL, seção, versão e trecho. Os índices `[n]` da resposta correspondem à lista de fontes daquele grupo.
+
+| Status | Significado |
+|---|---|
+| `answered` | Resposta produzida com fontes. |
+| `insufficient` | A consulta foi executada, mas faltou evidência suficiente. |
+| `unavailable` | Falha de serviço, geração, cota ou conexão; o HTTP preserva o código da falha. |
+
+Para hospedar a **API protegida e o chat independente online**, configure no ambiente do serviço:
+
+```dotenv
+RAG_REQUIRE_AUTH=true
+RAG_API_TOKEN=TOKEN_ALEATORIO_COM_PELO_MENOS_32_CARACTERES
+RAG_WEB_USER=equipe
+RAG_WEB_PASSWORD=SENHA_FORTE_COM_PELO_MENOS_16_CARACTERES
+```
+
+Use caracteres ASCII nessas credenciais e valores diferentes para token e senha. Para gerar um segredo, execute `python3 -c 'import secrets; print(secrets.token_urlsafe(32))'` no seu computador. Nunca use a chave Gemini como token interno.
+
+- O orquestrador envia `Authorization: Bearer <RAG_API_TOKEN>` a `/perguntar`.
+- O chat online usa **HTTP Basic**: o próprio navegador solicita o usuário e a senha. A conta é compartilhada pela equipe; não há cadastro individual ou sessão própria. Utilize HTTPS. O token interno nunca entra no JavaScript ou no armazenamento do navegador.
+- `/api/v1/chat` e as duas rotas de comparação exigem login Basic ou token Bearer. Proteger apenas `/perguntar` deixaria outros caminhos de consumo da API abertos.
+- Health e resultados históricos permanecem públicos, sem credenciais. Dez falhas de autenticação com credenciais por IP em um minuto acionam bloqueio temporário.
+- Localmente, sem `RAG_REQUIRE_AUTH=true`, o chat continua funcionando como antes. Hosts públicos ou o ambiente Render exigem autenticação; configuração pública sem credenciais impede a inicialização.
+
+No backend do **coleta-fcte**, configure:
+
+```dotenv
+G09_API_URL=https://ENDERECO-DO-FCTE-CAMPUS
+G09_API_TOKEN=MESMO_VALOR_DE_RAG_API_TOKEN
+G09_TIMEOUT_SECONDS=120
+```
+
+`G09_API_URL` é o endereço base do **outro serviço**, sem `/perguntar`. Não aponte para o próprio orquestrador. Para desenvolvimento local, use `http://127.0.0.1:8001` e mantenha o `coleta-fcte` na porta 8000. O RUmo pode usar outra porta, por exemplo 8002, com `RUMO_API_URL` correspondente.
+
+O orquestrador preserva os blocos e fontes de cada grupo e distingue ausência de evidência de indisponibilidade. Uma falha de um RAG não remove a resposta válida do outro. A implantação do nosso RAG continua sendo um serviço separado: adicionar esses campos no Render da coleta não hospeda os modelos lá.
+
 O `Dockerfile` da raiz reúne interface e API. A aplicação Python serve o chat em `/` e o backend em `/api/v1`, no mesmo domínio. Não é necessário outro servidor para o frontend ou para o Chroma.
 
 O build instala PyTorch **CPU**, baixa os modelos, gera e confere o índice, e incorpora o frontend compilado. Não recebe a chave Gemini. Essa primeira construção exige internet e pode demorar devido aos pesos dos modelos.
 
 ```sh
 docker build -t fcte-chat .
-docker run --rm -p 8000:8000 --env-file backend/.env fcte-chat
+docker run --rm -p 127.0.0.1:8000:8000 --env-file backend/.env -e RAG_REQUIRE_AUTH=false fcte-chat
 ```
 
-Abra `http://localhost:8000`. Para hospedar online, selecione deploy por Docker usando o **Dockerfile da raiz**, configure a porta interna `8000` ou a variável `PORT` do provedor, e adicione estas variáveis no painel:
+Abra `http://localhost:8000`. O comando acima desativa autenticação somente para o teste na porta publicada em loopback. A imagem tem autenticação habilitada por padrão. Para hospedar online, selecione deploy por Docker usando o **Dockerfile da raiz**, mantenha `RAG_REQUIRE_AUTH=true` e as credenciais descritas acima, configure a porta interna `8000` ou a variável `PORT` do provedor, e adicione estas variáveis no painel:
 
 | Variável | Valor |
 |---|---|

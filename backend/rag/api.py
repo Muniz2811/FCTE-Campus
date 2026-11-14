@@ -2,6 +2,7 @@
 import asyncio
 import logging
 import os
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
@@ -18,6 +19,8 @@ from rag.config import carregar_config, caminho_projeto, configurar_cache
 from rag.consulta.geracao import FalhaGeracao
 from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
+from rag.acesso import Acesso
+from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
 
 
 class Pergunta(BaseModel):
@@ -39,7 +42,8 @@ def criar_servico():
     return ServicoRAG(config, chave)
 
 
-def create_app(factory=criar_servico):
+def create_app(factory=criar_servico, *, acesso=None):
+    acesso = acesso if acesso is not None else Acesso.do_ambiente()
     @asynccontextmanager
     async def lifespan(app):
         try:
@@ -68,8 +72,11 @@ def create_app(factory=criar_servico):
                     return JSONResponse({'detail': 'Pergunta muito grande.'}, status_code=413)
             except ValueError:
                 return JSONResponse({'detail': 'Requisição inválida.'}, status_code=400)
+        bloqueio = await acesso.proteger(request)
+        if bloqueio is not None:
+            return bloqueio
         resposta = await call_next(request)
-        resposta.headers['Cache-Control'] = 'no-store' if request.url.path.startswith('/api/') else 'no-cache'
+        resposta.headers['Cache-Control'] = 'no-store' if request.url.path.startswith('/api/') or request.url.path == '/perguntar' else 'no-cache'
         resposta.headers['X-Content-Type-Options'] = 'nosniff'
         return resposta
 
@@ -96,6 +103,26 @@ def create_app(factory=criar_servico):
             raise FalhaGeracao('A base está desatualizada ou a pergunta excede o limite de tokens. Confira o índice e reformule.', 503) from None
         except OSError:
             raise FalhaGeracao('Não foi possível acessar o índice ou salvar a execução local.', 503) from None
+
+    @app.post('/perguntar', response_model=RespostaIntegracao,
+              responses={401: {'description': 'Token Bearer ausente ou inválido'},
+                         429: {'description': 'Serviço ocupado ou cota atingida'},
+                         503: {'description': 'Serviço indisponível'}, 504: {'description': 'Timeout da geração'}})
+    def perguntar_integracao(entrada: PerguntaIntegracao):
+        inicio = time.monotonic()
+        try:
+            servico = app.state.rag
+            if servico is None:
+                raise FalhaGeracao('O RAG do Grupo 09 está indisponível.', 503)
+            limite = min(entrada.max_trechos, servico.config['busca']['top_k'])
+            anterior = entrada.contexto.previous_request_id
+            resposta = servico.perguntar(entrada.pergunta, previous_request_id=str(anterior) if anterior else None,
+                                        max_trechos=limite)
+            return resposta_integracao(resposta, int((time.monotonic() - inicio) * 1000), limite)
+        except (FalhaGeracao, ValueError, OSError) as erro:
+            status = erro.status if isinstance(erro, FalhaGeracao) else 503
+            mensagem = str(erro) if isinstance(erro, FalhaGeracao) else 'Não foi possível consultar a base do Grupo 09.'
+            return JSONResponse(indisponivel(mensagem, status, int((time.monotonic() - inicio) * 1000)), status_code=status)
 
     @app.get('/api/v1/evaluation')
     def evaluation():
