@@ -1,0 +1,809 @@
+{
+  "source_id": "MAP-UED-1",
+  "predio_id": "ued",
+  "predio": "UED",
+  "titulo_predio": "Unidade de Ensino e Docência",
+  "andar": {
+    "nivel": 1,
+    "nome": "Superior",
+    "codigo": "S"
+  },
+  "origem": {
+    "caminho": "frontend/public/assets/data/ued.geojson",
+    "sha256": "66b65a830c7f4858e6fbf8c610cbb024b010bfd23e0c2e26fdb19d01365faffc",
+    "commit_coleta": "20f5aeb861fd4b36fba31c62490e7b2d79e1123f"
+  },
+  "limitacoes": "Inventário do mapa da equipe, derivado de plantas e correções locais; não é confirmação de uso atual em campo. Posições e proximidades são aproximadas. Não confirma acesso liberado, ocupação, funcionamento ou acessibilidade de uma rota.",
+  "ambientes": [
+    {
+      "id": "S-035",
+      "nome": "Sanitário 4 - Masculino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454695,
+        -15.9895352
+      ]
+    },
+    {
+      "id": "S-038",
+      "nome": "Sanitário 3 - Feminino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454456,
+        -15.9895603
+      ]
+    },
+    {
+      "id": "S-037",
+      "nome": "Elevador",
+      "categoria": "elevador",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456681,
+        -15.9897327
+      ]
+    },
+    {
+      "id": "S-029",
+      "nome": "Escada Leste Norte",
+      "categoria": "escada",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454259,
+        -15.9893991
+      ]
+    },
+    {
+      "id": "S-036",
+      "nome": "Escada Central",
+      "categoria": "escada",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456467,
+        -15.9897404
+      ]
+    },
+    {
+      "id": "S-042",
+      "nome": "Escada Leste Sul",
+      "categoria": "escada",
+      "andar": 1,
+      "coordenadas": [
+        -48.045301,
+        -15.9895323
+      ]
+    },
+    {
+      "id": "S-082",
+      "nome": "Lab. de Termociência e Energia - Módulo 2",
+      "categoria": "laboratorio",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455839,
+        -15.9896181
+      ]
+    },
+    {
+      "id": "S-028",
+      "nome": "Rampa",
+      "categoria": "rampa",
+      "andar": 1,
+      "coordenadas": [
+        -48.0459229,
+        -15.9898617
+      ]
+    },
+    {
+      "id": "S-001",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0459303,
+        -15.9897763
+      ]
+    },
+    {
+      "id": "S-002",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0459043,
+        -15.9897525
+      ]
+    },
+    {
+      "id": "S-003",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458783,
+        -15.9897297
+      ]
+    },
+    {
+      "id": "S-004",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458524,
+        -15.9897069
+      ]
+    },
+    {
+      "id": "S-005",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458265,
+        -15.9896841
+      ]
+    },
+    {
+      "id": "S-006",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458005,
+        -15.9896613
+      ]
+    },
+    {
+      "id": "S-007",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457746,
+        -15.9896385
+      ]
+    },
+    {
+      "id": "S-008",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457487,
+        -15.9896157
+      ]
+    },
+    {
+      "id": "S-009",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457227,
+        -15.9895929
+      ]
+    },
+    {
+      "id": "S-010",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456968,
+        -15.9895701
+      ]
+    },
+    {
+      "id": "S-011",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456708,
+        -15.9895473
+      ]
+    },
+    {
+      "id": "S-012",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456439,
+        -15.9895245
+      ]
+    },
+    {
+      "id": "S-013",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455671,
+        -15.989457
+      ]
+    },
+    {
+      "id": "S-014",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455411,
+        -15.9894333
+      ]
+    },
+    {
+      "id": "S-015",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455152,
+        -15.9894105
+      ]
+    },
+    {
+      "id": "S-016",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454893,
+        -15.9893877
+      ]
+    },
+    {
+      "id": "S-017",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454635,
+        -15.989365
+      ]
+    },
+    {
+      "id": "S-018",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454367,
+        -15.9893421
+      ]
+    },
+    {
+      "id": "S-019",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0459137,
+        -15.9898054
+      ]
+    },
+    {
+      "id": "S-020",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458867,
+        -15.9897816
+      ]
+    },
+    {
+      "id": "S-021",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458348,
+        -15.989736
+      ]
+    },
+    {
+      "id": "S-022",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456792,
+        -15.9895992
+      ]
+    },
+    {
+      "id": "S-023",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456533,
+        -15.9895764
+      ]
+    },
+    {
+      "id": "S-025",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455236,
+        -15.9894624
+      ]
+    },
+    {
+      "id": "S-026",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454717,
+        -15.9894168
+      ]
+    },
+    {
+      "id": "S-027",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454458,
+        -15.989394
+      ]
+    },
+    {
+      "id": "S-033",
+      "nome": "Sala de Reuniões",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453763,
+        -15.9894139
+      ]
+    },
+    {
+      "id": "S-039",
+      "nome": "Recepção",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453536,
+        -15.9894559
+      ]
+    },
+    {
+      "id": "S-041",
+      "nome": "Direção",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453126,
+        -15.9894978
+      ]
+    },
+    {
+      "id": "S-043",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457662,
+        -15.9899625
+      ]
+    },
+    {
+      "id": "S-044",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457387,
+        -15.9899383
+      ]
+    },
+    {
+      "id": "S-045",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457133,
+        -15.989916
+      ]
+    },
+    {
+      "id": "S-046",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456868,
+        -15.9898927
+      ]
+    },
+    {
+      "id": "S-047",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456614,
+        -15.9898704
+      ]
+    },
+    {
+      "id": "S-048",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456095,
+        -15.9898248
+      ]
+    },
+    {
+      "id": "S-049",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455576,
+        -15.9897792
+      ]
+    },
+    {
+      "id": "S-050",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455312,
+        -15.9897559
+      ]
+    },
+    {
+      "id": "S-051",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455058,
+        -15.9897336
+      ]
+    },
+    {
+      "id": "S-052",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454031,
+        -15.9896433
+      ]
+    },
+    {
+      "id": "S-053",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453756,
+        -15.9896191
+      ]
+    },
+    {
+      "id": "S-054",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453501,
+        -15.9895967
+      ]
+    },
+    {
+      "id": "S-055",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453237,
+        -15.9895735
+      ]
+    },
+    {
+      "id": "S-056",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0452979,
+        -15.9895508
+      ]
+    },
+    {
+      "id": "S-057",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.045741,
+        -15.9899779
+      ]
+    },
+    {
+      "id": "S-058",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.045715,
+        -15.9899542
+      ]
+    },
+    {
+      "id": "S-059",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456891,
+        -15.9899314
+      ]
+    },
+    {
+      "id": "S-060",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456631,
+        -15.9899086
+      ]
+    },
+    {
+      "id": "S-061",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456374,
+        -15.9898859
+      ]
+    },
+    {
+      "id": "S-062",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0456114,
+        -15.9898631
+      ]
+    },
+    {
+      "id": "S-063",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455855,
+        -15.9898403
+      ]
+    },
+    {
+      "id": "S-064",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455594,
+        -15.9898173
+      ]
+    },
+    {
+      "id": "S-065",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455336,
+        -15.9897947
+      ]
+    },
+    {
+      "id": "S-066",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455077,
+        -15.9897719
+      ]
+    },
+    {
+      "id": "S-067",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454817,
+        -15.9897491
+      ]
+    },
+    {
+      "id": "S-068",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454546,
+        -15.9897262
+      ]
+    },
+    {
+      "id": "S-069",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.045378,
+        -15.9896588
+      ]
+    },
+    {
+      "id": "S-070",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453519,
+        -15.9896349
+      ]
+    },
+    {
+      "id": "S-071",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453261,
+        -15.9896123
+      ]
+    },
+    {
+      "id": "S-072",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0453,
+        -15.9895893
+      ]
+    },
+    {
+      "id": "S-073",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0452744,
+        -15.9895665
+      ]
+    },
+    {
+      "id": "S-074",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458608,
+        -15.9897588
+      ]
+    },
+    {
+      "id": "S-075",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0458089,
+        -15.9897132
+      ]
+    },
+    {
+      "id": "S-076",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457724,
+        -15.9896808
+      ]
+    },
+    {
+      "id": "S-077",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.045757,
+        -15.9896676
+      ]
+    },
+    {
+      "id": "S-078",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457311,
+        -15.9896448
+      ]
+    },
+    {
+      "id": "S-079",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0457051,
+        -15.989622
+      ]
+    },
+    {
+      "id": "S-080",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455505,
+        -15.9894861
+      ]
+    },
+    {
+      "id": "S-081",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0454976,
+        -15.9894396
+      ]
+    },
+    {
+      "id": "S-086",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.045635,
+        -15.9898481
+      ]
+    },
+    {
+      "id": "S-087",
+      "nome": "Reunião",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0455831,
+        -15.9898015
+      ]
+    },
+    {
+      "id": "S-088",
+      "nome": "Sala de Profs",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0452474,
+        -15.9895437
+      ]
+    }
+  ]
+}

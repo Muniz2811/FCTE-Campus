@@ -1,0 +1,93 @@
+{
+  "source_id": "MAP-UAC-1",
+  "versao": "2026-11-16-f3edd273",
+  "sha256_original": "f3edd2739c2ee84aba17a1abe68b55f1401b508f44509af9f8040e73b4bfee65",
+  "url": "https://github.com/Muniz2811/FCTE-Campus/blob/main/backend/data/imports/mapas/MAP-UAC-1.json",
+  "secoes": [
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Banheiros e sanitários"
+      ],
+      "paragrafos": [
+        "Sanitário Masculino (identificador no mapa: S-016), Superior da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala Multiuso 2 (S-022), Escada (S-014). Ponto aproximado: latitude -15.9889041, longitude -48.0449245.",
+        "Sanitário Masculino (identificador no mapa: S-017), Superior da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada (S-015), S10 (S-029). Ponto aproximado: latitude -15.9893182, longitude -48.0445284.",
+        "Sanitário Feminino (identificador no mapa: S-018), Superior da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala Multiuso 2 (S-022), Sala Multiuso 3 (S-028). Ponto aproximado: latitude -15.9889365, longitude -48.0449482.",
+        "Sanitário Feminino (identificador no mapa: S-020), Superior da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada (S-015), S10 (S-029). Ponto aproximado: latitude -15.9893391, longitude -48.0445626."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Elevador"
+      ],
+      "paragrafos": [
+        "Plataforma Elevatória (identificador no mapa: S-012), Superior da UAC. Ponto aproximado: latitude -15.9888546, longitude -48.0448434."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Escada"
+      ],
+      "paragrafos": [
+        "Escada (identificador no mapa: S-014), Superior da UAC. Ponto aproximado: latitude -15.9888728, longitude -48.0448534.",
+        "Escada (identificador no mapa: S-015), Superior da UAC. Ponto aproximado: latitude -15.9892753, longitude -48.0445260."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Laboratorio"
+      ],
+      "paragrafos": [
+        "S10 (identificador no mapa: S-029), Superior da UAC. Ponto aproximado: latitude -15.9893859, longitude -48.0446256."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Rampa"
+      ],
+      "paragrafos": [
+        "Rampa (identificador no mapa: S-031), Superior da UAC. Ponto aproximado: latitude -15.9890742, longitude -48.0449644."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Sala"
+      ],
+      "paragrafos": [
+        "S6 (identificador no mapa: S-001), Superior da UAC. Ponto aproximado: latitude -15.9890239, longitude -48.0445153.",
+        "S7 (identificador no mapa: S-002), Superior da UAC. Ponto aproximado: latitude -15.9890900, longitude -48.0444519.",
+        "S1 (identificador no mapa: S-003), Superior da UAC. Ponto aproximado: latitude -15.9887766, longitude -48.0447704.",
+        "S2 (identificador no mapa: S-004), Superior da UAC. Ponto aproximado: latitude -15.9888428, longitude -48.0447064.",
+        "S3 (identificador no mapa: S-005), Superior da UAC. Ponto aproximado: latitude -15.9889090, longitude -48.0446430.",
+        "S4 (identificador no mapa: S-006), Superior da UAC. Ponto aproximado: latitude -15.9889752, longitude -48.0445796.",
+        "S9 (identificador no mapa: S-007), Superior da UAC. Ponto aproximado: latitude -15.9891745, longitude -48.0443893.",
+        "S5 (identificador no mapa: S-008), Superior da UAC. Ponto aproximado: latitude -15.9890657, longitude -48.0445622.",
+        "S8 (identificador no mapa: S-009), Superior da UAC. Ponto aproximado: latitude -15.9891460, longitude -48.0444852.",
+        "Sala Multiuso 2 (identificador no mapa: S-022), Superior da UAC. Ponto aproximado: latitude -15.9889518, longitude -48.0449646.",
+        "Sala Multiuso 3 (identificador no mapa: S-028), Superior da UAC. Ponto aproximado: latitude -15.9889604, longitude -48.0450173.",
+        "Palco (identificador no mapa: S-033), Superior da UAC. Ponto aproximado: latitude -15.9892675, longitude -48.0447637.",
+        "Platéia (identificador no mapa: S-037), Superior da UAC. Ponto aproximado: latitude -15.9892106, longitude -48.0448621."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Superior",
+        "Servico"
+      ],
+      "paragrafos": [
+        "Rack (identificador no mapa: S-019), Superior da UAC. Ponto aproximado: latitude -15.9889307, longitude -48.0449221.",
+        "Rack (identificador no mapa: S-024), Superior da UAC. Ponto aproximado: latitude -15.9893104, longitude -48.0445589.",
+        "Apoio (identificador no mapa: S-025), Superior da UAC. Ponto aproximado: latitude -15.9893471, longitude -48.0445819.",
+        "Depósito (identificador no mapa: S-027), Superior da UAC. Ponto aproximado: latitude -15.9890931, longitude -48.0448652.",
+        "Cabine de Tradução (identificador no mapa: S-032), Superior da UAC. Ponto aproximado: latitude -15.9891290, longitude -48.0449059.",
+        "Apoio Palco (identificador no mapa: S-034), Superior da UAC. Ponto aproximado: latitude -15.9892832, longitude -48.0447406.",
+        "Cabine de Projeção (identificador no mapa: S-036), Superior da UAC. Ponto aproximado: latitude -15.9891525, longitude -48.0449321."
+      ]
+    }
+  ]
+}

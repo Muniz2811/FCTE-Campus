@@ -13,7 +13,9 @@ def abrir_indice(config: dict):
         raise ValueError('Manifesto ausente. Execute 05_indexar.py.')
     if remoto:
         indice = criar_indice(config, config['indice']['colecao'])
-        manifesto = indice.manifesto_ativo(config['indice']['colecao'])
+        manifesto = indice.manifesto_compativel(config['indice']['colecao'],
+            hash_bytes(caminho_projeto(config['caminhos']['chunks']).read_bytes()),
+            hash_bytes(caminho_projeto(config['caminhos']['catalogo']).read_bytes()))
     else:
         manifesto = json.loads(arquivo.read_text(encoding='utf-8'))
         indice = criar_indice(config, manifesto['indice']['colecao'])

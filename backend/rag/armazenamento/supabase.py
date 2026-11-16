@@ -58,6 +58,20 @@ class IndiceSupabase:
         self.colecao = manifesto['indice']['colecao']
         return manifesto
 
+    def manifesto_compativel(self, colecao_logica: str, sha_chunks: str, sha_catalogo: str) -> dict:
+        """Cada deploy abre seu snapshot, inclusive durante uma atualização gradual."""
+        linhas = self._requisitar('GET', 'fcte_rag_colecoes', params={
+            'colecao_logica': 'eq.' + colecao_logica,
+            'manifesto->corpus->>sha256_chunks': 'eq.' + sha_chunks,
+            'manifesto->corpus->>sha256_catalogo': 'eq.' + sha_catalogo,
+            'select': 'manifesto', 'order': 'ativa.desc,publicado_em.desc', 'limit': '1'}).json()
+        if not linhas:
+            raise ValueError('Esta versão do corpus ainda não está no Supabase. '
+                             'Prepare o índice e execute rag:migrate -- --preparar.')
+        manifesto = linhas[0]['manifesto']
+        self.colecao = manifesto['indice']['colecao']
+        return manifesto
+
     def contar(self) -> int:
         resposta = self._requisitar('HEAD', 'fcte_rag_chunks', params={
             'colecao': 'eq.' + self.colecao, 'select': 'chunk_id'}, headers={'Prefer': 'count=exact'})
@@ -112,6 +126,43 @@ class IndiceSupabase:
         # Uma transação publica o snapshot completo e seu manifesto; sem coleção parcial.
         self._requisitar('POST', 'rpc/fcte_rag_publicar',
                         json={'p_manifesto': manifesto, 'p_chunks': linhas})
+
+    def preparar_snapshot(self, chunks: list[dict], vetores, manifesto: dict) -> None:
+        """Disponibiliza uma versão sem trocar a coleção ativa dos deploys antigos."""
+        from rag.armazenamento.embeddings import validar_vetores
+        if manifesto['indice']['colecao'] != self.colecao:
+            raise ValueError('Manifesto pertence a outra coleção')
+        matriz = validar_vetores(vetores, len(chunks), 384)
+        ids = {c['chunk_id'] for c in chunks}
+        if not chunks or len(ids) != len(chunks) or len(chunks) != manifesto['indice']['total']:
+            raise ValueError('IDs duplicados ou contagem diferente do manifesto')
+        if any(c.get('status') != 'aprovado' or c.get('rascunho') is not False for c in chunks):
+            raise ValueError('Somente chunks aprovados, sem rascunho, podem ser preparados')
+        existentes = self._requisitar('GET', 'fcte_rag_colecoes', params={
+            'colecao': 'eq.' + self.colecao, 'select': 'ativa,manifesto', 'limit': '1'}).json()
+        if existentes and existentes[0]['manifesto'].get('assinatura') == manifesto['assinatura']:
+            if self.ids() != ids or self.contar() != len(chunks):
+                raise ValueError('Snapshot existente incompleto; publicação interrompida')
+            return
+        if existentes and (existentes[0]['ativa'] or existentes[0]['manifesto']):
+            raise ValueError('Não é permitido sobrescrever outra versão publicada')
+        linhas = [{'colecao': self.colecao, 'chunk_id': c['chunk_id'], 'texto': c['texto'],
+                   'metadados': metadados_chunk(c), 'embedding': vetor.tolist()}
+                  for c, vetor in zip(chunks, matriz)]
+        # Manifesto vazio não é selecionável por nenhum corpus. Só liberar após conferir IDs.
+        self._requisitar('POST', 'fcte_rag_colecoes', params={'on_conflict': 'colecao'},
+                        headers={'Prefer': 'resolution=ignore-duplicates'},
+                        json={'colecao': self.colecao, 'colecao_logica': manifesto['indice']['colecao_logica'],
+                              'manifesto': {}, 'ativa': False})
+        self._requisitar('POST', 'fcte_rag_chunks', params={'on_conflict': 'colecao,chunk_id'},
+                        headers={'Prefer': 'resolution=merge-duplicates'}, json=linhas)
+        if self.ids() != ids or self.contar() != len(chunks):
+            raise ValueError('Snapshot incompleto; manifesto não publicado')
+        resposta = self._requisitar('PATCH', 'fcte_rag_colecoes', params={
+            'colecao': 'eq.' + self.colecao, 'ativa': 'eq.false'},
+            headers={'Prefer': 'return=representation'}, json={'manifesto': manifesto})
+        if len(resposta.json()) != 1:
+            raise ValueError('Não foi possível concluir a preparação do snapshot')
 
     def consultar(self, vetor, limite: int, data: str) -> list[dict]:
         if limite <= 0:

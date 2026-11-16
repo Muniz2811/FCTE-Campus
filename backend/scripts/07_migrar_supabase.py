@@ -39,23 +39,30 @@ def preparar(config):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--enviar', action='store_true', help='publicar no Supabase após executar setup.sql')
+    modos = parser.add_mutually_exclusive_group()
+    modos.add_argument('--enviar', action='store_true', help='publicar e trocar a coleção ativa')
+    modos.add_argument('--preparar', action='store_true', help='enviar snapshot sem trocar a coleção ativa')
     args = parser.parse_args()
     try:
         chunks, vetores, manifesto = preparar(carregar_config())
-        if args.enviar:
+        if args.enviar or args.preparar:
             remoto = IndiceSupabase(manifesto['indice']['colecao'])
-            remoto.publicar(chunks, vetores, manifesto)
+            if args.preparar:
+                remoto.preparar_snapshot(chunks, vetores, manifesto)
+            else:
+                remoto.publicar(chunks, vetores, manifesto)
             if remoto.ids() != {c['chunk_id'] for c in chunks} or remoto.contar() != len(chunks):
                 raise ValueError('Contagem/IDs remotos diferentes do snapshot enviado')
             if remoto.manifesto()['assinatura'] != manifesto['assinatura']:
                 raise ValueError('Assinatura remota diferente do snapshot enviado')
-        print(json.dumps({'modo': 'enviado_e_conferido' if args.enviar else 'simulacao_sem_rede',
+        modo = 'snapshot_preparado_sem_trocar_ativo' if args.preparar else (
+            'enviado_e_conferido' if args.enviar else 'simulacao_sem_rede')
+        print(json.dumps({'modo': modo,
                           'fontes': manifesto['corpus']['total_fontes'], 'chunks': len(chunks),
                           'dimensao': int(vetores.shape[1]), 'colecao': manifesto['indice']['colecao'],
                           'assinatura': manifesto['assinatura'], 'chroma_local_preservado': True},
                          ensure_ascii=False, indent=2))
-        if not args.enviar:
+        if not args.enviar and not args.preparar:
             print('Nada enviado. Siga backend/supabase/README.md e repita com --enviar.')
         return 0
     except (ValueError, OSError, KeyError) as erro:

@@ -1,0 +1,329 @@
+{
+  "source_id": "MAP-UAC-0",
+  "predio_id": "uac",
+  "predio": "UAC",
+  "titulo_predio": "Unidade Acadêmica",
+  "andar": {
+    "nivel": 0,
+    "nome": "Térreo",
+    "codigo": "T"
+  },
+  "origem": {
+    "caminho": "frontend/public/assets/data/uac.geojson",
+    "sha256": "4b67d66620a43b6891d3d1fb19ef5bc54e8e4c2054c93baf2adbe8362501784f",
+    "commit_coleta": "20f5aeb861fd4b36fba31c62490e7b2d79e1123f"
+  },
+  "limitacoes": "Inventário do mapa da equipe, derivado de plantas e correções locais; não é confirmação de uso atual em campo. Posições e proximidades são aproximadas. Não confirma acesso liberado, ocupação, funcionamento ou acessibilidade de uma rota.",
+  "ambientes": [
+    {
+      "id": "T-023",
+      "nome": "Sanitário Masculino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0449256,
+        -15.9889047
+      ]
+    },
+    {
+      "id": "T-028",
+      "nome": "Sanitário Masculino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445283,
+        -15.9893184
+      ]
+    },
+    {
+      "id": "T-029",
+      "nome": "Sanitário Feminino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0449545,
+        -15.9889303
+      ]
+    },
+    {
+      "id": "T-034",
+      "nome": "Sanitário Feminino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445558,
+        -15.9893462
+      ]
+    },
+    {
+      "id": "T-051",
+      "nome": "Cantina",
+      "categoria": "convivencia",
+      "andar": 0,
+      "coordenadas": [
+        -48.0450907,
+        -15.9890299
+      ]
+    },
+    {
+      "id": "T-014",
+      "nome": "Plataforma Elevatória",
+      "categoria": "elevador",
+      "andar": 0,
+      "coordenadas": [
+        -48.0448438,
+        -15.9888551
+      ]
+    },
+    {
+      "id": "T-019",
+      "nome": "Escada",
+      "categoria": "escada",
+      "andar": 0,
+      "coordenadas": [
+        -48.0448823,
+        -15.988873
+      ]
+    },
+    {
+      "id": "T-022",
+      "nome": "Escada",
+      "categoria": "escada",
+      "andar": 0,
+      "coordenadas": [
+        -48.0444972,
+        -15.989275
+      ]
+    },
+    {
+      "id": "T-039",
+      "nome": "Sala de Informática - Apoio",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445819,
+        -15.9893471
+      ]
+    },
+    {
+      "id": "T-043",
+      "nome": "I10",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0446255,
+        -15.989386
+      ]
+    },
+    {
+      "id": "T-041",
+      "nome": "Rampa",
+      "categoria": "rampa",
+      "andar": 0,
+      "coordenadas": [
+        -48.0449349,
+        -15.9890172
+      ]
+    },
+    {
+      "id": "T-001",
+      "nome": "I2",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0446382,
+        -15.9888915
+      ]
+    },
+    {
+      "id": "T-002",
+      "nome": "I3",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445747,
+        -15.9889578
+      ]
+    },
+    {
+      "id": "T-003",
+      "nome": "I6",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445151,
+        -15.9890239
+      ]
+    },
+    {
+      "id": "T-004",
+      "nome": "I7",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0444518,
+        -15.9890902
+      ]
+    },
+    {
+      "id": "T-005",
+      "nome": "Biblioteca",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0447666,
+        -15.9887783
+      ]
+    },
+    {
+      "id": "T-006",
+      "nome": "I9",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0443891,
+        -15.9891746
+      ]
+    },
+    {
+      "id": "T-007",
+      "nome": "I1",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0446889,
+        -15.9889334
+      ]
+    },
+    {
+      "id": "T-008",
+      "nome": "I4",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.044612,
+        -15.9890138
+      ]
+    },
+    {
+      "id": "T-009",
+      "nome": "I5",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445621,
+        -15.9890658
+      ]
+    },
+    {
+      "id": "T-010",
+      "nome": "I8",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0444851,
+        -15.9891462
+      ]
+    },
+    {
+      "id": "T-040",
+      "nome": "Secretaria",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0449868,
+        -15.988955
+      ]
+    },
+    {
+      "id": "T-047",
+      "nome": "Platéia",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0447978,
+        -15.9892329
+      ]
+    },
+    {
+      "id": "T-048",
+      "nome": "Palco",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0447637,
+        -15.9892675
+      ]
+    },
+    {
+      "id": "T-050",
+      "nome": "Sala do Coordenador",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0450766,
+        -15.9890063
+      ]
+    },
+    {
+      "id": "T-024",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0449173,
+        -15.9889249
+      ]
+    },
+    {
+      "id": "T-033",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0445584,
+        -15.9893099
+      ]
+    },
+    {
+      "id": "T-037",
+      "nome": "Caixa d’água",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0446925,
+        -15.9892338
+      ]
+    },
+    {
+      "id": "T-049",
+      "nome": "Apoio Palco",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0447406,
+        -15.9892832
+      ]
+    },
+    {
+      "id": "T-054",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0451281,
+        -15.989053
+      ]
+    },
+    {
+      "id": "T-056",
+      "nome": "Subestação / Quadros",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0448429,
+        -15.9893351
+      ]
+    }
+  ]
+}

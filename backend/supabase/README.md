@@ -1,6 +1,6 @@
 # Migrar o banco vetorial do FCTE Campus para o Supabase
 
-Este tutorial envia os **37 documentos representados por 174 chunks e seus vetores E5 de 384 dimensões**, conforme a base local conferida em 16/11/2026. Não envia imagens, chaves Gemini, conversas ou arquivos privados. O número pode mudar quando o corpus for atualizado; a simulação mostra a quantidade real.
+Este tutorial envia os **41 documentos representados por 214 chunks e seus vetores E5 de 384 dimensões**, conforme a base local conferida em 16/11/2026. Não envia imagens, chaves Gemini, conversas ou arquivos privados. O número pode mudar quando o corpus for atualizado; a simulação mostra a quantidade real.
 
 **Estado da integração:** código preparado, migração simulada e SQL executado em PostgreSQL/pgvector local com os 174 chunks. Foram conferidos repetição do envio, autoconsultas, filtros, preservação de versões, rollback de publicações inválidas e bloqueio de acesso público. Nenhum projeto Supabase foi criado ou alterado nesta preparação. A validação da Data API no seu Supabase acontece nos passos 6 e 7.
 
@@ -106,8 +106,8 @@ Esse comando **não acessa o Supabase**, não chama o Gemini e não gera embeddi
 ```json
 {
   "modo": "simulacao_sem_rede",
-  "fontes": 37,
-  "chunks": 174,
+  "fontes": 41,
+  "chunks": 214,
   "dimensao": 384,
   "colecao": "fcte-a0d5e722cd0cf092bea5",
   "assinatura": "a0d5e722cd0cf092bea51f0cd09a8c38f3a702773e49b4c52b1c004d2cff7f99",
@@ -184,8 +184,8 @@ Abra [http://127.0.0.1:8001/api/v1/health](http://127.0.0.1:8001/api/v1/health).
 ```json
 {
   "status": "ready",
-  "sources": 37,
-  "chunks": 174,
+  "sources": 41,
+  "chunks": 214,
   "vectorStore": "supabase"
 }
 ```
@@ -211,6 +211,8 @@ O iniciador `iniciar.command` também respeita o armazenamento escolhido. No mod
 Não apague o índice local durante a primeira validação. Ele não precisa ir para o GitHub nem para a hospedagem que usar somente Supabase.
 
 ## 9. Diagnóstico
+
+**Atualizações sem interromper o deploy anterior:** após gerar chunks e indexar no Chroma local, execute `npm.cmd run rag:migrate -- --preparar` pela raiz. Esse modo envia um snapshot inativo e publica seu manifesto somente após conferir a coleção; não muda a versão ativa. A API atual seleciona o snapshot compatível com os hashes dos seus arquivos versionados, permitindo versões antiga e nova coexistirem durante o deploy. Envie também o catálogo e os chunks no commit. O `--enviar` continua ativando a nova coleção globalmente, como na migração inicial.
 
 | Sintoma | O que conferir |
 |---|---|

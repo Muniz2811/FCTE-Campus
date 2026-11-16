@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-11T23:52:49+00:00",
+  "gerado_em": "2026-11-16T17:46:28+00:00",
   "rascunho": false,
   "chunking": {
     "estrategia": "agrupar_irmaos",
@@ -13,10 +13,10 @@
     "revisao": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
     "tokenizers": "0.21.1"
   },
-  "total_chunks": 174,
+  "total_chunks": 214,
   "tokens": {
     "min": 17,
-    "mediana": 222.0,
+    "mediana": 231.0,
     "max": 300
   },
   "fontes": [
@@ -241,6 +241,30 @@
       "versao": "2026-11-11",
       "sha256": "a6e4f68d0157ef44d0697933fb72e9a340fcfab031289645c4ab55c1325451a8",
       "chunks": 18
+    },
+    {
+      "source_id": "MAP-UAC-0",
+      "versao": "2026-11-16-a454c6d2",
+      "sha256": "a454c6d256fef1796d61f3afdd111ed523559921d03fbfa9d57e43052b4c237e",
+      "chunks": 8
+    },
+    {
+      "source_id": "MAP-UAC-1",
+      "versao": "2026-11-16-f3edd273",
+      "sha256": "f3edd2739c2ee84aba17a1abe68b55f1401b508f44509af9f8040e73b4bfee65",
+      "chunks": 8
+    },
+    {
+      "source_id": "MAP-UED-0",
+      "versao": "2026-11-16-280e7010",
+      "sha256": "280e7010b0ece21898a7214dea6340dd0ef99568ec0ad9e7fc145d63ecf040b8",
+      "chunks": 10
+    },
+    {
+      "source_id": "MAP-UED-1",
+      "versao": "2026-11-16-f8fe4a73",
+      "sha256": "f8fe4a731e6d4187758f5732f12ac8f55dadd181d73e0623b9842b3a0cff8846",
+      "chunks": 14
     }
   ]
 }

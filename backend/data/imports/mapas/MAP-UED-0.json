@@ -1,0 +1,399 @@
+{
+  "source_id": "MAP-UED-0",
+  "predio_id": "ued",
+  "predio": "UED",
+  "titulo_predio": "Unidade de Ensino e Docência",
+  "andar": {
+    "nivel": 0,
+    "nome": "Térreo",
+    "codigo": "T"
+  },
+  "origem": {
+    "caminho": "frontend/public/assets/data/ued.geojson",
+    "sha256": "66b65a830c7f4858e6fbf8c610cbb024b010bfd23e0c2e26fdb19d01365faffc",
+    "commit_coleta": "20f5aeb861fd4b36fba31c62490e7b2d79e1123f"
+  },
+  "limitacoes": "Inventário do mapa da equipe, derivado de plantas e correções locais; não é confirmação de uso atual em campo. Posições e proximidades são aproximadas. Não confirma acesso liberado, ocupação, funcionamento ou acessibilidade de uma rota.",
+  "ambientes": [
+    {
+      "id": "T-002",
+      "nome": "Sanitário 5 - Feminino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.045449,
+        -15.9893492
+      ]
+    },
+    {
+      "id": "T-021",
+      "nome": "Sanitário 6 - Masculino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454278,
+        -15.9893718
+      ]
+    },
+    {
+      "id": "T-032",
+      "nome": "Sanitário 2 - Masculino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.04547,
+        -15.9895356
+      ]
+    },
+    {
+      "id": "T-038",
+      "nome": "Sanitário 1 - Feminino",
+      "categoria": "banheiro",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454459,
+        -15.9895609
+      ]
+    },
+    {
+      "id": "T-028",
+      "nome": "Cantina",
+      "categoria": "convivencia",
+      "andar": 0,
+      "coordenadas": [
+        -48.0458259,
+        -15.9898623
+      ]
+    },
+    {
+      "id": "T-051",
+      "nome": "Estar/Copa Funcionários",
+      "categoria": "convivencia",
+      "andar": 0,
+      "coordenadas": [
+        -48.0452692,
+        -15.9895531
+      ]
+    },
+    {
+      "id": "T-036",
+      "nome": "Elevador",
+      "categoria": "elevador",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456687,
+        -15.9897335
+      ]
+    },
+    {
+      "id": "T-023",
+      "nome": "Escada Leste Norte",
+      "categoria": "escada",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454106,
+        -15.9893945
+      ]
+    },
+    {
+      "id": "T-035",
+      "nome": "Escada Central",
+      "categoria": "escada",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456692,
+        -15.9897575
+      ]
+    },
+    {
+      "id": "T-044",
+      "nome": "Escada Leste Sul",
+      "categoria": "escada",
+      "andar": 0,
+      "coordenadas": [
+        -48.0452954,
+        -15.9895169
+      ]
+    },
+    {
+      "id": "T-004",
+      "nome": "Lab. de Hardware",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0459125,
+        -15.9897771
+      ]
+    },
+    {
+      "id": "T-006",
+      "nome": "Lab. de Hardware 2",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.045826,
+        -15.9897011
+      ]
+    },
+    {
+      "id": "T-007",
+      "nome": "Lab. de Software e Simulação",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0457736,
+        -15.989655
+      ]
+    },
+    {
+      "id": "T-031",
+      "nome": "Lab. de Termociência e Energia - Módulo 2",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455838,
+        -15.9896189
+      ]
+    },
+    {
+      "id": "T-039",
+      "nome": "Lab. de Mockup",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0453335,
+        -15.9894541
+      ]
+    },
+    {
+      "id": "T-040",
+      "nome": "Lab. de Termociência e Energia - Módulo 1",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.045538,
+        -15.9896656
+      ]
+    },
+    {
+      "id": "T-045",
+      "nome": "Lab. de Física e Caracterização Eletromagnética de Materiais",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0457372,
+        -15.9899645
+      ]
+    },
+    {
+      "id": "T-047",
+      "nome": "Lab. de Física e Caracterização Eletromagnética de Materiais 2",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456521,
+        -15.9898897
+      ]
+    },
+    {
+      "id": "T-048",
+      "nome": "Lab. de Eletricidade e Energia",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455978,
+        -15.989842
+      ]
+    },
+    {
+      "id": "T-049",
+      "nome": "Lab. de Materiais",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454878,
+        -15.9897453
+      ]
+    },
+    {
+      "id": "T-055",
+      "nome": "Lab. de Química Geral e Energia",
+      "categoria": "laboratorio",
+      "andar": 0,
+      "coordenadas": [
+        -48.0453512,
+        -15.9896252
+      ]
+    },
+    {
+      "id": "T-033",
+      "nome": "Rampa",
+      "categoria": "rampa",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454107,
+        -15.9894683
+      ]
+    },
+    {
+      "id": "T-064",
+      "nome": "Rampa",
+      "categoria": "rampa",
+      "andar": 0,
+      "coordenadas": [
+        -48.0458027,
+        -15.9899677
+      ]
+    },
+    {
+      "id": "T-005",
+      "nome": "Sala de Apoio",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0458788,
+        -15.9897225
+      ]
+    },
+    {
+      "id": "T-050",
+      "nome": "Sala de Apoio",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454032,
+        -15.9896437
+      ]
+    },
+    {
+      "id": "T-065",
+      "nome": "Apoio",
+      "categoria": "sala",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454645,
+        -15.9897043
+      ]
+    },
+    {
+      "id": "T-008",
+      "nome": "Sala Técnica 1",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456717,
+        -15.989548
+      ]
+    },
+    {
+      "id": "T-009",
+      "nome": "Sala Técnica 2",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456451,
+        -15.9895253
+      ]
+    },
+    {
+      "id": "T-010",
+      "nome": "Apoio Técnico",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455761,
+        -15.9894572
+      ]
+    },
+    {
+      "id": "T-011",
+      "nome": "Apoio Técnico 3",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455414,
+        -15.9894259
+      ]
+    },
+    {
+      "id": "T-012",
+      "nome": "Almoxarifado",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455241,
+        -15.9894107
+      ]
+    },
+    {
+      "id": "T-013",
+      "nome": "Depósito",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455002,
+        -15.9893945
+      ]
+    },
+    {
+      "id": "T-014",
+      "nome": "Limpeza",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454714,
+        -15.989365
+      ]
+    },
+    {
+      "id": "T-016",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0456327,
+        -15.9895546
+      ]
+    },
+    {
+      "id": "T-019",
+      "nome": "Reparos",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454793,
+        -15.9894168
+      ]
+    },
+    {
+      "id": "T-027",
+      "nome": "Área Técnica",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0454047,
+        -15.9894306
+      ]
+    },
+    {
+      "id": "T-058",
+      "nome": "Apoio Técnico 2",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0455587,
+        -15.9894411
+      ]
+    },
+    {
+      "id": "T-061",
+      "nome": "Área Técnica",
+      "categoria": "servico",
+      "andar": 0,
+      "coordenadas": [
+        -48.0453506,
+        -15.9893824
+      ]
+    }
+  ]
+}

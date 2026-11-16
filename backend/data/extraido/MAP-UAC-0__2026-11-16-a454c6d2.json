@@ -1,0 +1,103 @@
+{
+  "source_id": "MAP-UAC-0",
+  "versao": "2026-11-16-a454c6d2",
+  "sha256_original": "a454c6d256fef1796d61f3afdd111ed523559921d03fbfa9d57e43052b4c237e",
+  "url": "https://github.com/Muniz2811/FCTE-Campus/blob/main/backend/data/imports/mapas/MAP-UAC-0.json",
+  "secoes": [
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Banheiros e sanitários"
+      ],
+      "paragrafos": [
+        "Sanitário Masculino (identificador no mapa: T-023), Térreo da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada (T-019), Secretaria (T-040). Ponto aproximado: latitude -15.9889047, longitude -48.0449256.",
+        "Sanitário Masculino (identificador no mapa: T-028), Térreo da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada (T-022), Sala de Informática - Apoio (T-039). Ponto aproximado: latitude -15.9893184, longitude -48.0445283.",
+        "Sanitário Feminino (identificador no mapa: T-029), Térreo da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Secretaria (T-040), Escada (T-019). Ponto aproximado: latitude -15.9889303, longitude -48.0449545.",
+        "Sanitário Feminino (identificador no mapa: T-034), Térreo da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala de Informática - Apoio (T-039), I10 (T-043). Ponto aproximado: latitude -15.9893462, longitude -48.0445558."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Convivencia"
+      ],
+      "paragrafos": [
+        "Cantina (identificador no mapa: T-051), Térreo da UAC. Ponto aproximado: latitude -15.9890299, longitude -48.0450907."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Elevador"
+      ],
+      "paragrafos": [
+        "Plataforma Elevatória (identificador no mapa: T-014), Térreo da UAC. Ponto aproximado: latitude -15.9888551, longitude -48.0448438."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Escada"
+      ],
+      "paragrafos": [
+        "Escada (identificador no mapa: T-019), Térreo da UAC. Ponto aproximado: latitude -15.9888730, longitude -48.0448823.",
+        "Escada (identificador no mapa: T-022), Térreo da UAC. Ponto aproximado: latitude -15.9892750, longitude -48.0444972."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Laboratorio"
+      ],
+      "paragrafos": [
+        "Sala de Informática - Apoio (identificador no mapa: T-039), Térreo da UAC. Ponto aproximado: latitude -15.9893471, longitude -48.0445819.",
+        "I10 (identificador no mapa: T-043), Térreo da UAC. Ponto aproximado: latitude -15.9893860, longitude -48.0446255."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Rampa"
+      ],
+      "paragrafos": [
+        "Rampa (identificador no mapa: T-041), Térreo da UAC. Ponto aproximado: latitude -15.9890172, longitude -48.0449349."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Sala"
+      ],
+      "paragrafos": [
+        "I2 (identificador no mapa: T-001), Térreo da UAC. Ponto aproximado: latitude -15.9888915, longitude -48.0446382.",
+        "I3 (identificador no mapa: T-002), Térreo da UAC. Ponto aproximado: latitude -15.9889578, longitude -48.0445747.",
+        "I6 (identificador no mapa: T-003), Térreo da UAC. Ponto aproximado: latitude -15.9890239, longitude -48.0445151.",
+        "I7 (identificador no mapa: T-004), Térreo da UAC. Ponto aproximado: latitude -15.9890902, longitude -48.0444518.",
+        "Biblioteca (identificador no mapa: T-005), Térreo da UAC. Ponto aproximado: latitude -15.9887783, longitude -48.0447666.",
+        "I9 (identificador no mapa: T-006), Térreo da UAC. Ponto aproximado: latitude -15.9891746, longitude -48.0443891.",
+        "I1 (identificador no mapa: T-007), Térreo da UAC. Ponto aproximado: latitude -15.9889334, longitude -48.0446889.",
+        "I4 (identificador no mapa: T-008), Térreo da UAC. Ponto aproximado: latitude -15.9890138, longitude -48.0446120.",
+        "I5 (identificador no mapa: T-009), Térreo da UAC. Ponto aproximado: latitude -15.9890658, longitude -48.0445621.",
+        "I8 (identificador no mapa: T-010), Térreo da UAC. Ponto aproximado: latitude -15.9891462, longitude -48.0444851.",
+        "Secretaria (identificador no mapa: T-040), Térreo da UAC. Ponto aproximado: latitude -15.9889550, longitude -48.0449868.",
+        "Platéia (identificador no mapa: T-047), Térreo da UAC. Ponto aproximado: latitude -15.9892329, longitude -48.0447978.",
+        "Palco (identificador no mapa: T-048), Térreo da UAC. Ponto aproximado: latitude -15.9892675, longitude -48.0447637.",
+        "Sala do Coordenador (identificador no mapa: T-050), Térreo da UAC. Ponto aproximado: latitude -15.9890063, longitude -48.0450766."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UAC — Térreo",
+        "Servico"
+      ],
+      "paragrafos": [
+        "Rack (identificador no mapa: T-024), Térreo da UAC. Ponto aproximado: latitude -15.9889249, longitude -48.0449173.",
+        "Rack (identificador no mapa: T-033), Térreo da UAC. Ponto aproximado: latitude -15.9893099, longitude -48.0445584.",
+        "Caixa d’água (identificador no mapa: T-037), Térreo da UAC. Ponto aproximado: latitude -15.9892338, longitude -48.0446925.",
+        "Apoio Palco (identificador no mapa: T-049), Térreo da UAC. Ponto aproximado: latitude -15.9892832, longitude -48.0447406.",
+        "Rack (identificador no mapa: T-054), Térreo da UAC. Ponto aproximado: latitude -15.9890530, longitude -48.0451281.",
+        "Subestação / Quadros (identificador no mapa: T-056), Térreo da UAC. Ponto aproximado: latitude -15.9893351, longitude -48.0448429."
+      ]
+    }
+  ]
+}

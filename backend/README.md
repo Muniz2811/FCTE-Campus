@@ -74,7 +74,31 @@ Execute pela raiz do repositório, sem precisar configurar PYTHONPATH:
 
 `01_adquirir.py` baixa fontes; `02_extrair.py` prepara o texto. Não é necessário reexecutar ingestão ao iniciar a API. Chunks: alvo 300 tokens, sobreposição até 40 apenas em subdivisões longas. E5: 384 dimensões, prefixos passage/query e normalização L2.
 
-A base possui 42 propostas aprovadas, 37 fontes indexadas e 174 chunks. Cinco exclusões estão documentadas no catálogo: quatro downloads indisponíveis e o mapa CEPLAN histórico de 2015. O edital DOC-042 é histórico e não participa das consultas atuais. RU, disciplinas, ocupação ao vivo e cálculo de trajetos de ônibus estão fora do módulo.
+A base possui 46 fontes aprovadas, 41 fontes indexadas e 214 chunks. As quatro fichas de mapeamento acrescentam 40 chunks aos 174 anteriores. Cinco exclusões estão documentadas no catálogo: quatro downloads indisponíveis e o mapa CEPLAN histórico de 2015. O edital DOC-042 é histórico e não participa das consultas atuais. RU, disciplinas, ocupação ao vivo e cálculo de trajetos de ônibus estão fora do módulo.
+
+## Alimentar o RAG com os mapas da coleta
+
+`scripts/importar_mapas.py` importa os ambientes nomeados da UAC e da UED. Não modifica os mapas nem importa objetos puramente visuais (paredes, telhados, jardins, degraus e salas sem nome). A edição no SQLite local da coleta prevalece sobre o GeoJSON inicial. Edições feitas somente no servidor precisam ser exportadas antes; não há sincronização automática com o Render.
+
+O snapshot está em `data/imports/mapas/`: uma fonte por prédio/andar, com 177 ambientes e 14 banheiros. Cada ficha preserva IDs, nomes, andar, pontos aproximados, hash do mapa e commit da coleta. A aprovação refere-se ao uso do inventário existente autorizado por Pedro; não afirma uma nova vistoria em campo. Banheiro, sanitário e WC aparecem no texto para busca lexical. Referências próximas são calculadas entre pontos no mesmo piso, até 25 m no desenho; não são distâncias de caminhada nem rotas acessíveis confirmadas. Plantas com posições explicitamente inferidas, como a do LDTEA, não entram nessa importação.
+
+Para atualizar, na **raiz do FCTE-Campus**, com o repositório da coleta ao lado:
+
+```powershell
+.\backend\.venv\Scripts\python.exe backend/scripts/importar_mapas.py --coleta ../coleta-fcte
+.\backend\.venv\Scripts\python.exe backend/scripts/04_chunks.py
+$env:RAG_PROFILE='full'
+$env:RAG_INDEX_BACKEND='chroma'
+npm.cmd run rag:index
+npm.cmd run rag:migrate -- --preparar
+Remove-Item Env:RAG_PROFILE, Env:RAG_INDEX_BACKEND
+```
+
+No Mac, use `./backend/.venv/bin/python`, `npm` e `RAG_PROFILE=full RAG_INDEX_BACKEND=chroma npm run rag:index` em lugar das variáveis PowerShell. A importação gera fichas e texto extraído; o chunking e o E5 são os mesmos do pipeline existente. O deploy BM25 continua sem baixar esses modelos.
+
+`--preparar` envia uma nova coleção completa sem trocar a coleção ativa usada pelo deploy antigo. A API nova escolhe o snapshot pelos hashes do catálogo e dos chunks do seu próprio código. O manifesto só é disponibilizado após a conferência dos IDs/contagem. Depois de commit/push dos arquivos versionados, faça deploy no Render: o health deve mostrar 41 fontes e 214 chunks. Não é necessário alterar o contrato `/perguntar`, o cliente do Milton ou executar SQL novo. O modo antigo `--enviar` continua disponível, mas troca a coleção ativa e deve ser usado com cuidado durante atualizações de corpus.
+
+Exemplos: “Onde tem banheiro no térreo da UAC?”, “Onde ficam os sanitários do piso superior da UED?”, “Em qual andar fica a I10?” e “Onde fica a S10?”. A pergunta por um banheiro mais próximo de você continua exigindo uma posição de origem e cálculo geográfico separado. As métricas anteriores permanecem históricas; esta expansão não reavalia automaticamente aqueles resultados.
 
 ## Evidências e limites
 

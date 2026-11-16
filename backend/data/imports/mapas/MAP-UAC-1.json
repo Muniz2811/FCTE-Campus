@@ -1,0 +1,309 @@
+{
+  "source_id": "MAP-UAC-1",
+  "predio_id": "uac",
+  "predio": "UAC",
+  "titulo_predio": "Unidade Acadêmica",
+  "andar": {
+    "nivel": 1,
+    "nome": "Superior",
+    "codigo": "S"
+  },
+  "origem": {
+    "caminho": "frontend/public/assets/data/uac.geojson",
+    "sha256": "4b67d66620a43b6891d3d1fb19ef5bc54e8e4c2054c93baf2adbe8362501784f",
+    "commit_coleta": "20f5aeb861fd4b36fba31c62490e7b2d79e1123f"
+  },
+  "limitacoes": "Inventário do mapa da equipe, derivado de plantas e correções locais; não é confirmação de uso atual em campo. Posições e proximidades são aproximadas. Não confirma acesso liberado, ocupação, funcionamento ou acessibilidade de uma rota.",
+  "ambientes": [
+    {
+      "id": "S-016",
+      "nome": "Sanitário Masculino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449245,
+        -15.9889041
+      ]
+    },
+    {
+      "id": "S-017",
+      "nome": "Sanitário Masculino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445284,
+        -15.9893182
+      ]
+    },
+    {
+      "id": "S-018",
+      "nome": "Sanitário Feminino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449482,
+        -15.9889365
+      ]
+    },
+    {
+      "id": "S-020",
+      "nome": "Sanitário Feminino",
+      "categoria": "banheiro",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445626,
+        -15.9893391
+      ]
+    },
+    {
+      "id": "S-012",
+      "nome": "Plataforma Elevatória",
+      "categoria": "elevador",
+      "andar": 1,
+      "coordenadas": [
+        -48.0448434,
+        -15.9888546
+      ]
+    },
+    {
+      "id": "S-014",
+      "nome": "Escada",
+      "categoria": "escada",
+      "andar": 1,
+      "coordenadas": [
+        -48.0448534,
+        -15.9888728
+      ]
+    },
+    {
+      "id": "S-015",
+      "nome": "Escada",
+      "categoria": "escada",
+      "andar": 1,
+      "coordenadas": [
+        -48.044526,
+        -15.9892753
+      ]
+    },
+    {
+      "id": "S-029",
+      "nome": "S10",
+      "categoria": "laboratorio",
+      "andar": 1,
+      "coordenadas": [
+        -48.0446256,
+        -15.9893859
+      ]
+    },
+    {
+      "id": "S-031",
+      "nome": "Rampa",
+      "categoria": "rampa",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449644,
+        -15.9890742
+      ]
+    },
+    {
+      "id": "S-001",
+      "nome": "S6",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445153,
+        -15.9890239
+      ]
+    },
+    {
+      "id": "S-002",
+      "nome": "S7",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0444519,
+        -15.98909
+      ]
+    },
+    {
+      "id": "S-003",
+      "nome": "S1",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0447704,
+        -15.9887766
+      ]
+    },
+    {
+      "id": "S-004",
+      "nome": "S2",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0447064,
+        -15.9888428
+      ]
+    },
+    {
+      "id": "S-005",
+      "nome": "S3",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.044643,
+        -15.988909
+      ]
+    },
+    {
+      "id": "S-006",
+      "nome": "S4",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445796,
+        -15.9889752
+      ]
+    },
+    {
+      "id": "S-007",
+      "nome": "S9",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0443893,
+        -15.9891745
+      ]
+    },
+    {
+      "id": "S-008",
+      "nome": "S5",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445622,
+        -15.9890657
+      ]
+    },
+    {
+      "id": "S-009",
+      "nome": "S8",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0444852,
+        -15.989146
+      ]
+    },
+    {
+      "id": "S-022",
+      "nome": "Sala Multiuso 2",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449646,
+        -15.9889518
+      ]
+    },
+    {
+      "id": "S-028",
+      "nome": "Sala Multiuso 3",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0450173,
+        -15.9889604
+      ]
+    },
+    {
+      "id": "S-033",
+      "nome": "Palco",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0447637,
+        -15.9892675
+      ]
+    },
+    {
+      "id": "S-037",
+      "nome": "Platéia",
+      "categoria": "sala",
+      "andar": 1,
+      "coordenadas": [
+        -48.0448621,
+        -15.9892106
+      ]
+    },
+    {
+      "id": "S-019",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449221,
+        -15.9889307
+      ]
+    },
+    {
+      "id": "S-024",
+      "nome": "Rack",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445589,
+        -15.9893104
+      ]
+    },
+    {
+      "id": "S-025",
+      "nome": "Apoio",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0445819,
+        -15.9893471
+      ]
+    },
+    {
+      "id": "S-027",
+      "nome": "Depósito",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0448652,
+        -15.9890931
+      ]
+    },
+    {
+      "id": "S-032",
+      "nome": "Cabine de Tradução",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449059,
+        -15.989129
+      ]
+    },
+    {
+      "id": "S-034",
+      "nome": "Apoio Palco",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0447406,
+        -15.9892832
+      ]
+    },
+    {
+      "id": "S-036",
+      "nome": "Cabine de Projeção",
+      "categoria": "servico",
+      "andar": 1,
+      "coordenadas": [
+        -48.0449321,
+        -15.9891525
+      ]
+    }
+  ]
+}

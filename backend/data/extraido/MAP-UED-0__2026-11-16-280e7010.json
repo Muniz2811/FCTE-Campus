@@ -1,0 +1,110 @@
+{
+  "source_id": "MAP-UED-0",
+  "versao": "2026-11-16-280e7010",
+  "sha256_original": "280e7010b0ece21898a7214dea6340dd0ef99568ec0ad9e7fc145d63ecf040b8",
+  "url": "https://github.com/Muniz2811/FCTE-Campus/blob/main/backend/data/imports/mapas/MAP-UED-0.json",
+  "secoes": [
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Banheiros e sanitários"
+      ],
+      "paragrafos": [
+        "Sanitário 5 - Feminino (identificador no mapa: T-002), Térreo da UED. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada Leste Norte (T-023), Lab. de Mockup (T-039). Ponto aproximado: latitude -15.9893492, longitude -48.0454490.",
+        "Sanitário 6 - Masculino (identificador no mapa: T-021), Térreo da UED. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Escada Leste Norte (T-023), Lab. de Mockup (T-039). Ponto aproximado: latitude -15.9893718, longitude -48.0454278.",
+        "Sanitário 2 - Masculino (identificador no mapa: T-032), Térreo da UED. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala de Apoio (T-050), Lab. de Termociência e Energia - Módulo 2 (T-031). Ponto aproximado: latitude -15.9895356, longitude -48.0454700.",
+        "Sanitário 1 - Feminino (identificador no mapa: T-038), Térreo da UED. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala de Apoio (T-050), Lab. de Química Geral e Energia (T-055). Ponto aproximado: latitude -15.9895609, longitude -48.0454459."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Convivencia"
+      ],
+      "paragrafos": [
+        "Cantina (identificador no mapa: T-028), Térreo da UED. Ponto aproximado: latitude -15.9898623, longitude -48.0458259.",
+        "Estar/Copa Funcionários (identificador no mapa: T-051), Térreo da UED. Ponto aproximado: latitude -15.9895531, longitude -48.0452692."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Elevador"
+      ],
+      "paragrafos": [
+        "Elevador (identificador no mapa: T-036), Térreo da UED. Ponto aproximado: latitude -15.9897335, longitude -48.0456687."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Escada"
+      ],
+      "paragrafos": [
+        "Escada Leste Norte (identificador no mapa: T-023), Térreo da UED. Ponto aproximado: latitude -15.9893945, longitude -48.0454106.",
+        "Escada Central (identificador no mapa: T-035), Térreo da UED. Ponto aproximado: latitude -15.9897575, longitude -48.0456692.",
+        "Escada Leste Sul (identificador no mapa: T-044), Térreo da UED. Ponto aproximado: latitude -15.9895169, longitude -48.0452954."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Laboratorio"
+      ],
+      "paragrafos": [
+        "Lab. de Hardware (identificador no mapa: T-004), Térreo da UED. Ponto aproximado: latitude -15.9897771, longitude -48.0459125.",
+        "Lab. de Hardware 2 (identificador no mapa: T-006), Térreo da UED. Ponto aproximado: latitude -15.9897011, longitude -48.0458260.",
+        "Lab. de Software e Simulação (identificador no mapa: T-007), Térreo da UED. Ponto aproximado: latitude -15.9896550, longitude -48.0457736.",
+        "Lab. de Termociência e Energia - Módulo 2 (identificador no mapa: T-031), Térreo da UED. Ponto aproximado: latitude -15.9896189, longitude -48.0455838.",
+        "Lab. de Mockup (identificador no mapa: T-039), Térreo da UED. Ponto aproximado: latitude -15.9894541, longitude -48.0453335.",
+        "Lab. de Termociência e Energia - Módulo 1 (identificador no mapa: T-040), Térreo da UED. Ponto aproximado: latitude -15.9896656, longitude -48.0455380.",
+        "Lab. de Física e Caracterização Eletromagnética de Materiais (identificador no mapa: T-045), Térreo da UED. Ponto aproximado: latitude -15.9899645, longitude -48.0457372.",
+        "Lab. de Física e Caracterização Eletromagnética de Materiais 2 (identificador no mapa: T-047), Térreo da UED. Ponto aproximado: latitude -15.9898897, longitude -48.0456521.",
+        "Lab. de Eletricidade e Energia (identificador no mapa: T-048), Térreo da UED. Ponto aproximado: latitude -15.9898420, longitude -48.0455978.",
+        "Lab. de Materiais (identificador no mapa: T-049), Térreo da UED. Ponto aproximado: latitude -15.9897453, longitude -48.0454878.",
+        "Lab. de Química Geral e Energia (identificador no mapa: T-055), Térreo da UED. Ponto aproximado: latitude -15.9896252, longitude -48.0453512."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Rampa"
+      ],
+      "paragrafos": [
+        "Rampa (identificador no mapa: T-033), Térreo da UED. Ponto aproximado: latitude -15.9894683, longitude -48.0454107.",
+        "Rampa (identificador no mapa: T-064), Térreo da UED. Ponto aproximado: latitude -15.9899677, longitude -48.0458027."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Sala"
+      ],
+      "paragrafos": [
+        "Sala de Apoio (identificador no mapa: T-005), Térreo da UED. Ponto aproximado: latitude -15.9897225, longitude -48.0458788.",
+        "Sala de Apoio (identificador no mapa: T-050), Térreo da UED. Ponto aproximado: latitude -15.9896437, longitude -48.0454032.",
+        "Apoio (identificador no mapa: T-065), Térreo da UED. Ponto aproximado: latitude -15.9897043, longitude -48.0454645."
+      ]
+    },
+    {
+      "caminho": [
+        "Mapeamento interno da UED — Térreo",
+        "Servico"
+      ],
+      "paragrafos": [
+        "Sala Técnica 1 (identificador no mapa: T-008), Térreo da UED. Ponto aproximado: latitude -15.9895480, longitude -48.0456717.",
+        "Sala Técnica 2 (identificador no mapa: T-009), Térreo da UED. Ponto aproximado: latitude -15.9895253, longitude -48.0456451.",
+        "Apoio Técnico (identificador no mapa: T-010), Térreo da UED. Ponto aproximado: latitude -15.9894572, longitude -48.0455761.",
+        "Apoio Técnico 3 (identificador no mapa: T-011), Térreo da UED. Ponto aproximado: latitude -15.9894259, longitude -48.0455414.",
+        "Almoxarifado (identificador no mapa: T-012), Térreo da UED. Ponto aproximado: latitude -15.9894107, longitude -48.0455241.",
+        "Depósito (identificador no mapa: T-013), Térreo da UED. Ponto aproximado: latitude -15.9893945, longitude -48.0455002.",
+        "Limpeza (identificador no mapa: T-014), Térreo da UED. Ponto aproximado: latitude -15.9893650, longitude -48.0454714.",
+        "Rack (identificador no mapa: T-016), Térreo da UED. Ponto aproximado: latitude -15.9895546, longitude -48.0456327.",
+        "Reparos (identificador no mapa: T-019), Térreo da UED. Ponto aproximado: latitude -15.9894168, longitude -48.0454793.",
+        "Área Técnica (identificador no mapa: T-027), Térreo da UED. Ponto aproximado: latitude -15.9894306, longitude -48.0454047.",
+        "Apoio Técnico 2 (identificador no mapa: T-058), Térreo da UED. Ponto aproximado: latitude -15.9894411, longitude -48.0455587.",
+        "Área Técnica (identificador no mapa: T-061), Térreo da UED. Ponto aproximado: latitude -15.9893824, longitude -48.0453506."
+      ]
+    }
+  ]
+}

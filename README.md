@@ -12,6 +12,8 @@ O padrão continua sendo Chroma local até configurar `RAG_INDEX_BACKEND=supabas
 O Docker usa `RAG_PROFILE=light` e Supabase por padrão: lê os textos, recupera por BM25 e gera com Gemini,
 sem instalar PyTorch ou baixar modelos. A API do coleta-fcte permanece `POST /perguntar`.
 
+**Mapeamento no RAG:** a base foi ampliada com quatro fichas da UAC/UED, contendo ambientes por andar e referências dos banheiros. Agora são **41 fontes e 214 chunks**. Os 174 trechos anteriores foram preservados. Consulte [importação dos mapas e atualização segura do Supabase](backend/README.md#alimentar-o-rag-com-os-mapas-da-coleta). O deploy antigo permanece com a base anterior até receber este código; a API nova abre o snapshot correspondente ao seu próprio catálogo/chunks, sem substituir a coleção usada pela versão anterior.
+
 ## Executar localmente
 
 ### Caminho rápido para o grupo — Mac com chip Apple
@@ -128,7 +130,7 @@ npm run rag:check
 
 Esses passos não usam a API Gemini. A primeira preparação exige internet para baixar modelos; consultas com geração e a comparação com Gemini também precisam de conexão. O projeto utiliza **CPU**, inclusive no chip Apple, conforme a configuração atual; não é preciso configurar Metal/MPS.
 
-Ao final, confira a saída de `rag:check`: na base atual, são **37 fontes**, **174 chunks**, dimensão **384** e `reaberto_sem_ingestao: true`. O banco fica em `backend/data/index/chroma/`, com manifesto em `backend/data/index/manifesto.json`. Não apague essa pasta entre as execuções.
+Ao final, confira a saída de `rag:check`: na base atual, são **41 fontes**, **214 chunks**, dimensão **384** e `reaberto_sem_ingestao: true`. O banco fica em `backend/data/index/chroma/`, com manifesto em `backend/data/index/manifesto.json`. Não apague essa pasta entre as execuções.
 
 Os documentos já estão preparados no repositório. Não é necessário exportar páginas, refazer curadoria ou chunking para rodar a aplicação. O índice e os modelos são locais e não vêm pelo Git: cada integrante faz essa preparação uma vez no próprio computador.
 
@@ -168,7 +170,7 @@ Com os dois terminais abertos, em um terceiro terminal:
 curl --fail http://127.0.0.1:8001/api/v1/health
 ```
 
-A resposta deve conter `status: "ready"`, `generationConfigured: true`, `sources: 37` e `chunks: 174` para a base atual. `generationConfigured: true` confirma que uma chave foi carregada; a validade e a cota só são verificadas ao chamar o Gemini.
+A resposta deve conter `status: "ready"`, `generationConfigured: true`, `sources: 41` e `chunks: 214` para a base atual. `generationConfigured: true` confirma que uma chave foi carregada; a validade e a cota só são verificadas ao chamar o Gemini.
 
 Na aplicação:
 
@@ -384,7 +386,7 @@ RAG_ALLOWED_ORIGINS=https://fcte-campus-rag.onrender.com
 
 Gere token e senha separadamente no seu computador, por exemplo com `.\backend\.venv\Scripts\python.exe -c "import secrets; print(secrets.token_urlsafe(32))"` no PowerShell. No Mac: `./backend/.venv/bin/python -c 'import secrets; print(secrets.token_urlsafe(32))'`. O token da integração é diferente da chave Gemini, da chave Supabase e da senha do chat. As senhas/tokens de acesso devem usar caracteres ASCII. Preserve o modelo Gemini que você já validou se ele for diferente do exemplo.
 
-4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health**. Após enviar as alterações para o GitHub, use **Environment → Save, rebuild, and deploy** ou **Manual Deploy → Clear build cache & deploy**, garantindo que a imagem seja reconstruída sem os modelos. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `retrievalProfile: light`, `retrievalMethod: bm25`, `vectorSearchEnabled: false`, `rerankerEnabled: false`, `sources: 37` e `chunks: 174` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini. O health é público; a raiz do site e as consultas pedem autenticação.
+4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health**. Após enviar as alterações para o GitHub, use **Environment → Save, rebuild, and deploy** ou **Manual Deploy → Clear build cache & deploy**, garantindo que a imagem seja reconstruída sem os modelos. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `retrievalProfile: light`, `retrievalMethod: bm25`, `vectorSearchEnabled: false`, `rerankerEnabled: false`, `sources: 41` e `chunks: 214` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini. O health é público; a raiz do site e as consultas pedem autenticação.
 Se o log mostrar `RAG pronto` e o health check retornar **400**, confira `RAG_ALLOWED_HOSTS`: deve conter o domínio real, sem `https://` ou caminhos. A API acrescenta automaticamente `RENDER_EXTERNAL_HOSTNAME`, informado pelo Render, à lista de hosts permitidos. Domínios personalizados devem ser incluídos manualmente. O `HEAD /` com **401** é esperado porque o chat exige login; mantenha o health check em `/api/v1/health`. Não é necessário liberar todos os hosts com `*`. Referências: [health checks](https://render.com/docs/health-checks) e [variáveis do Render](https://render.com/docs/environment-variables).
 
 5. **Ligar o serviço existente coleta-fcte.** No Render, abra o serviço **coleta-fcte → Environment → Add Environment Variable** e configure:
