@@ -16,6 +16,7 @@
     "rag:prepare": "node scripts/run-rag.mjs preparar",
     "rag:index": "node scripts/run-rag.mjs indexar",
     "rag:check": "node scripts/run-rag.mjs conferir",
+    "rag:migrate": "node scripts/run-rag.mjs migrar",
     "rag:ask": "node scripts/run-rag.mjs perguntar",
     "test:rag": "node scripts/run-rag.mjs testar"
   },

@@ -2,6 +2,9 @@
 
 Backend local de consulta a documentos do campus Gama. O FCTE Campus envia perguntas por HTTP; o RAG recupera evidências, reordena com um cross-encoder multilíngue e pede ao Gemini uma resposta com citações.
 
+O armazenamento pode ser Chroma local (padrão) ou Supabase/pgvector. Consulte o
+[tutorial de migração](supabase/README.md) para enviar os vetores existentes sem refazer embeddings.
+
 ## Iniciar com o aplicativo
 
 Este backend faz parte do repositório [FCTE Campus](../README.md). Na raiz do repositório:

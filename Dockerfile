@@ -8,8 +8,10 @@ COPY public ./public
 RUN npm run build
 
 FROM python:3.12-slim
+ARG RAG_INDEX_BACKEND=supabase
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 \
-    TOKENIZERS_PARALLELISM=false RAG_WEB_DIR=/app/web PORT=8000 RAG_REQUIRE_AUTH=true
+    TOKENIZERS_PARALLELISM=false RAG_WEB_DIR=/app/web PORT=8000 RAG_REQUIRE_AUTH=true \
+    RAG_INDEX_BACKEND=${RAG_INDEX_BACKEND}
 WORKDIR /app/backend
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
     && rm -rf /var/lib/apt/lists/* \
@@ -24,10 +26,12 @@ COPY backend/scripts ./scripts
 COPY backend/data/catalogo ./data/catalogo
 COPY backend/data/chunks ./data/chunks
 COPY backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/metricas.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/gabarito.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/configuracao.json ./avaliacao/resultados/semana3-llm-rag-20261112-v1/
-# Pesos e índice são preparados sem chave Gemini, a partir do corpus aprovado.
-RUN python scripts/preparar_modelos.py \
-    && python scripts/05_indexar.py \
-    && python scripts/06_conferir.py
+# Só os pesos entram no build Supabase: nenhuma credencial ou escrita no banco.
+# O E5 precisa estar em /app antes de habilitar o modo offline e mudar de usuário.
+RUN python scripts/preparar_modelos.py --incluir-e5 \
+    && if [ "$RAG_INDEX_BACKEND" = "chroma" ]; then \
+         python scripts/05_indexar.py && python scripts/06_conferir.py; \
+       fi
 COPY --from=frontend /web/dist /app/web
 RUN mkdir -p data/execucoes && chown -R app:app /app
 USER app

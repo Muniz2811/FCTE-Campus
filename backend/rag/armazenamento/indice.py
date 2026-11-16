@@ -3,9 +3,6 @@ import json
 from datetime import date
 from pathlib import Path
 
-import chromadb
-from chromadb.config import Settings
-
 
 def metadados_chunk(chunk: dict) -> dict:
     validade = chunk['validade']
@@ -21,6 +18,8 @@ def metadados_chunk(chunk: dict) -> dict:
 
 class IndiceChroma:
     def __init__(self, pasta: Path | str, colecao: str, criar=False):
+        import chromadb
+        from chromadb.config import Settings
         if not criar and not (Path(pasta) / 'chroma.sqlite3').exists():
             raise ValueError('Índice não encontrado. Execute 05_indexar.py primeiro.')
         self.cliente = chromadb.PersistentClient(path=str(pasta), settings=Settings(anonymized_telemetry=False))
@@ -36,6 +35,9 @@ class IndiceChroma:
 
     def contar(self) -> int:
         return self.colecao.count()
+
+    def ids(self) -> set[str]:
+        return set(self.colecao.get(include=[])['ids'])
 
     def atualizar(self, chunks: list[dict], vetores, lote: int) -> None:
         if lote <= 0 or len(chunks) != len(vetores):
@@ -76,3 +78,12 @@ class IndiceChroma:
             trechos.append({**meta, 'chunk_id': cid, 'texto': texto, 'distancia': float(distancia),
                            'secoes': secoes, 'entidades': entidades})
         return trechos
+
+
+def criar_indice(config: dict, colecao: str, criar=False):
+    """Seleciona o armazenamento sem mudar o contrato de recuperação."""
+    if config['indice'].get('backend', 'chroma') == 'supabase':
+        from rag.armazenamento.supabase import IndiceSupabase
+        return IndiceSupabase(colecao)
+    from rag.config import caminho_projeto
+    return IndiceChroma(caminho_projeto(config['caminhos']['chroma']), colecao, criar=criar)

@@ -9,7 +9,7 @@ from filelock import FileLock
 from rag.config import caminho_projeto
 from rag.ingestao.corpus import carregar_corpus
 from rag.armazenamento.embeddings import VetorizadorE5, validar_vetores
-from rag.armazenamento.indice import IndiceChroma
+from rag.armazenamento.indice import criar_indice
 from rag.armazenamento.manifesto import contrato_embeddings, gravar_json, hash_bytes, hash_json, versoes_bibliotecas
 
 
@@ -46,34 +46,47 @@ def indexar(config: dict) -> dict:
         colecao = f"{config['indice']['colecao']}-{assinatura[:20]}"
         vetor_path = manifesto_path.parent / 'vetores' / f'{assinatura[:20]}.npz'
         matriz, origem = _obter_vetores(vetor_path, chunks, config['embeddings'], assinatura)
-        indice = IndiceChroma(caminho_projeto(config['caminhos']['chroma']), colecao, criar=True)
-        indice.atualizar(chunks, matriz, config['indice']['lote'])
-        esperados = {c['chunk_id'] for c in chunks}
-        if set(indice.colecao.get(include=[])['ids']) != esperados:
-            raise ValueError('A coleção não corresponde aos chunks; manifesto anterior preservado')
+        remoto = config['indice'].get('backend') == 'supabase'
+        indice = criar_indice(config, colecao, criar=True)
         manifesto = {
             'schema': 1, 'gerado_em': datetime.now(timezone.utc).isoformat(timespec='seconds'),
             'assinatura': assinatura, 'embeddings': contrato, 'bibliotecas': bibliotecas,
             'execucao_embeddings': {k: config['embeddings'][k] for k in ('dispositivo', 'lote', 'threads_cpu')},
             'corpus': corpus, 'chunking': config['chunking'],
             'indice': {'colecao': colecao, 'colecao_logica': config['indice']['colecao'],
-                       'distancia': 'cosine', 'total': indice.contar(), 'caminho': config['caminhos']['chroma']},
+                       'distancia': 'cosine', 'total': len(chunks),
+                       'backend': 'supabase' if remoto else 'chroma',
+                       'caminho': 'Supabase/pgvector' if remoto else config['caminhos']['chroma']},
             'vetores': {'arquivo': str(vetor_path.relative_to(caminho_projeto('.'))).replace('\\', '/'),
                         'sha256': hash_bytes(vetor_path.read_bytes()), 'origem_nesta_execucao': origem,
                         'forma': list(matriz.shape), 'dtype': str(matriz.dtype)},
         }
+        if remoto:
+            indice.publicar(chunks, matriz, manifesto)
+        else:
+            indice.atualizar(chunks, matriz, config['indice']['lote'])
+        if indice.ids() != {c['chunk_id'] for c in chunks}:
+            raise ValueError('A coleção não corresponde aos chunks')
         # Coleções de outras versões ficam preservadas; somente este manifesto aponta a versão ativa.
         gravar_json(manifesto_path.parent / 'manifestos' / f'{assinatura[:20]}.json', manifesto)
-        gravar_json(manifesto_path, manifesto)
+        # O manifesto local do Chroma permanece disponível para voltar ao modo local.
+        if not remoto:
+            gravar_json(manifesto_path, manifesto)
         return manifesto
 
 
 def abrir_indice(config: dict):
+    remoto = config['indice'].get('backend') == 'supabase'
     arquivo = caminho_projeto(config['caminhos']['manifesto'])
-    if not arquivo.exists():
+    if not remoto and not arquivo.exists():
         raise ValueError('Manifesto ausente. Execute 05_indexar.py.')
     from rag.armazenamento.manifesto import validar_contrato
-    manifesto = json.loads(arquivo.read_text(encoding='utf-8'))
+    if remoto:
+        indice = criar_indice(config, config['indice']['colecao'])
+        manifesto = indice.manifesto_ativo(config['indice']['colecao'])
+    else:
+        manifesto = json.loads(arquivo.read_text(encoding='utf-8'))
+        indice = criar_indice(config, manifesto['indice']['colecao'])
     validar_contrato(manifesto, config['embeddings'])
     catalogo_path = caminho_projeto(config['caminhos']['catalogo'])
     if hash_bytes(catalogo_path.read_bytes()) != manifesto['corpus'].get('sha256_catalogo'):
@@ -87,7 +100,6 @@ def abrir_indice(config: dict):
         raise ValueError('Distância configurada incompatível com o índice')
     if manifesto['indice']['colecao_logica'] != config['indice']['colecao']:
         raise ValueError('Coleção configurada incompatível com o índice')
-    indice = IndiceChroma(caminho_projeto(config['caminhos']['chroma']), manifesto['indice']['colecao'])
     if indice.contar() != manifesto['indice']['total']:
         raise ValueError('Contagem do índice difere do manifesto; reconstrua com 05_indexar.py.')
     return indice, manifesto

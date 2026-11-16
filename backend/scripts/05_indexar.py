@@ -1,4 +1,4 @@
-"""Gera embeddings E5 e publica uma coleção Chroma persistente versionada."""
+"""Gera embeddings E5 e publica no armazenamento configurado."""
 import sys
 import sys
 from pathlib import Path
@@ -21,7 +21,9 @@ def main():
     print(f"Chunks/vetores: {manifesto['indice']['total']} × {manifesto['embeddings']['dimensao']}")
     print(f"Coleção ativa: {manifesto['indice']['colecao']} (cosine)")
     print(f"Vetores: {manifesto['vetores']['origem_nesta_execucao']}")
-    print(f"Manifesto: {config['caminhos']['manifesto']}")
+    print(f"Armazenamento: {config['indice'].get('backend', 'chroma')}")
+    print('Manifesto: Supabase' if config['indice'].get('backend') == 'supabase'
+          else f"Manifesto: {config['caminhos']['manifesto']}")
     for fonte in manifesto['corpus']['fora_do_indice']:
         print(f"Fora do índice: {fonte['source_id']} — {fonte['motivo']}")
     return 0

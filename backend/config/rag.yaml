@@ -140,6 +140,7 @@ chunking:
   sobreposicao_tokens: 40
   max_tokens: 512
 indice:
+  backend: chroma
   colecao: fcte
   distancia: cosine
   lote: 128

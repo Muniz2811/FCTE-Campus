@@ -20,7 +20,8 @@ class ServicoRAG:
         indice, manifesto = abrir_indice(config)
         self.info = {'status': 'ready', 'generationConfigured': bool(chave),
                      'sources': manifesto['corpus']['total_fontes'], 'chunks': indice.contar(),
-                     'baseVersion': manifesto['assinatura'], 'model': config['geracao']['modelo']}
+                     'baseVersion': manifesto['assinatura'], 'model': config['geracao']['modelo'],
+                     'vectorStore': config['indice'].get('backend', 'chroma')}
         self.modelo = modelo if modelo is not None else VetorizadorE5(config['embeddings'])
         self.entidades = compilar(carregar_entidades(caminho_projeto(config['caminhos']['entidades'])))
         self.gerador = gerador if gerador is not None else GeradorGemini(config['geracao'], chave)

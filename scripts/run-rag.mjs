@@ -12,6 +12,7 @@ const commands = {
   preparar: ['scripts/preparar_modelos.py'],
   indexar: ['scripts/05_indexar.py'],
   conferir: ['scripts/06_conferir.py'],
+  migrar: ['scripts/07_migrar_supabase.py'],
   perguntar: ['scripts/perguntar.py'],
   testar: ['-m', 'pytest', '-q'],
 };

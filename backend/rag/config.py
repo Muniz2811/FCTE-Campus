@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 
 import yaml
+from dotenv import dotenv_values
 
 RAIZ = Path(__file__).resolve().parents[1]
 CONFIG_PADRAO = RAIZ / "config" / "rag.yaml"
@@ -12,7 +13,19 @@ CONFIG_PADRAO = RAIZ / "config" / "rag.yaml"
 def carregar_config(caminho: Path | str | None = None) -> dict:
     caminho = Path(caminho) if caminho else CONFIG_PADRAO
     with open(caminho, encoding="utf-8") as arquivo:
-        return yaml.safe_load(arquivo)
+        config = yaml.safe_load(arquivo)
+    ambiente = ambiente_backend()
+    config['indice']['backend'] = ambiente.get('RAG_INDEX_BACKEND') or config['indice'].get('backend', 'chroma')
+    if config['indice']['backend'] not in ('chroma', 'supabase'):
+        raise ValueError('RAG_INDEX_BACKEND deve ser chroma ou supabase')
+    return config
+
+
+def ambiente_backend() -> dict:
+    """Ambiente do processo prevalece sobre backend/.env. Nunca serializar este retorno."""
+    arquivo = Path(os.environ.get('RAG_ENV_FILE') or RAIZ / '.env')
+    valores = dotenv_values(arquivo) if arquivo.is_file() else {}
+    return {**valores, **os.environ}
 
 
 def caminho_projeto(relativo: str) -> Path:

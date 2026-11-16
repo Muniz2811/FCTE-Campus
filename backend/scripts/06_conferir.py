@@ -19,13 +19,17 @@ def main():
     config = carregar_config()
     try:
         indice, manifesto = abrir_indice(config)
-        arquivo = caminho_projeto(manifesto['vetores']['arquivo'])
-        if hash_bytes(arquivo.read_bytes()) != manifesto['vetores']['sha256']:
-            raise ValueError('SHA-256 dos vetores difere do manifesto')
-        with np.load(arquivo, allow_pickle=False) as cache:
-            vetores = validar_vetores(cache['vetores'], manifesto['indice']['total'], config['embeddings']['dimensao'])
-            ids = cache['ids'].tolist()
-        if set(indice.colecao.get(include=[])['ids']) != set(ids):
+        if config['indice'].get('backend') == 'supabase':
+            ids, vetores = indice.exportar_vetores()
+            validar_vetores(vetores, manifesto['indice']['total'], config['embeddings']['dimensao'])
+        else:
+            arquivo = caminho_projeto(manifesto['vetores']['arquivo'])
+            if hash_bytes(arquivo.read_bytes()) != manifesto['vetores']['sha256']:
+                raise ValueError('SHA-256 dos vetores difere do manifesto')
+            with np.load(arquivo, allow_pickle=False) as cache:
+                vetores = validar_vetores(cache['vetores'], manifesto['indice']['total'], config['embeddings']['dimensao'])
+                ids = cache['ids'].tolist()
+        if indice.ids() != set(ids):
             raise ValueError('IDs do banco diferem dos vetores persistidos')
         hoje = datetime.now(ZoneInfo(config['aquisicao']['fuso_horario'])).date().isoformat()
         resultados = indice.consultar(vetores[0], 5, hoje)
@@ -35,7 +39,8 @@ def main():
         print(json.dumps({'reaberto_sem_ingestao': True, 'fontes': manifesto['corpus']['total_fontes'],
                           'chunks': indice.contar(), 'dimensao': config['embeddings']['dimensao'],
                           'vetores_finitos_normalizados': True, 'autoconsulta_confirmada': confirmado,
-                          'chunk_conferido': ids[0], 'colecao': manifesto['indice']['colecao']},
+                          'chunk_conferido': ids[0], 'colecao': manifesto['indice']['colecao'],
+                          'armazenamento': config['indice'].get('backend', 'chroma')},
                          ensure_ascii=False, indent=2))
         return 0
     except (ValueError, OSError) as erro:
