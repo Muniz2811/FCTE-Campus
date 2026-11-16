@@ -303,17 +303,15 @@ Para hospedar a **API protegida e o chat independente online**, configure no amb
 ```dotenv
 RAG_REQUIRE_AUTH=true
 RAG_API_TOKEN=TOKEN_ALEATORIO_COM_PELO_MENOS_32_CARACTERES
-RAG_WEB_USER=equipe
-RAG_WEB_PASSWORD=SENHA_FORTE_COM_PELO_MENOS_16_CARACTERES
 ```
 
-Use caracteres ASCII nessas credenciais e valores diferentes para token e senha. Para gerar um segredo, execute `python3 -c 'import secrets; print(secrets.token_urlsafe(32))'` no seu computador. Nunca use a chave Gemini como token interno.
+Use caracteres ASCII no token. Para gerar um segredo, execute `python3 -c 'import secrets; print(secrets.token_urlsafe(32))'` no seu computador. Nunca use a chave Gemini como token interno.
 
 - O orquestrador envia `Authorization: Bearer <RAG_API_TOKEN>` a `/perguntar`.
-- O chat online usa **HTTP Basic**: o próprio navegador solicita o usuário e a senha. A conta é compartilhada pela equipe; não há cadastro individual ou sessão própria. Utilize HTTPS. O token interno nunca entra no JavaScript ou no armazenamento do navegador.
-- `/api/v1/chat` e as duas rotas de comparação exigem login Basic ou token Bearer. Proteger apenas `/perguntar` deixaria outros caminhos de consumo da API abertos.
-- Health e resultados históricos permanecem públicos, sem credenciais. Dez falhas de autenticação com credenciais por IP em um minuto acionam bloqueio temporário.
-- Localmente, sem `RAG_REQUIRE_AUTH=true`, o chat continua funcionando como antes. Hosts públicos ou o ambiente Render exigem autenticação; configuração pública sem credenciais impede a inicialização.
+- O chat online, as métricas e a comparação são públicos, sem usuário, senha ou popup HTTP Basic. O token interno nunca entra no JavaScript ou no armazenamento do navegador. Variáveis antigas `RAG_WEB_USER` e `RAG_WEB_PASSWORD` são ignoradas e podem ser removidas do Render.
+- `/api/v1/chat` e as duas rotas de comparação permitem uso direto pelo navegador. O health e os resultados históricos também são públicos.
+- Dez tentativas com credenciais inválidas por IP em um minuto bloqueiam temporariamente a integração `/perguntar`; não bloqueiam o chat público.
+- Localmente, sem `RAG_REQUIRE_AUTH=true`, a integração pode funcionar sem token. Hosts públicos ou o ambiente Render exigem token para `/perguntar`; configuração pública sem esse token impede a inicialização.
 
 No backend do **coleta-fcte**, configure:
 
@@ -378,16 +376,14 @@ GEMINI_API_KEY=SUA_CHAVE_GEMINI
 GEMINI_MODEL=gemini-3.5-flash-lite
 RAG_REQUIRE_AUTH=true
 RAG_API_TOKEN=TOKEN_ALEATORIO_COM_32_OU_MAIS_CARACTERES
-RAG_WEB_USER=equipe
-RAG_WEB_PASSWORD=SENHA_ALEATORIA_DIFERENTE_COM_16_OU_MAIS_CARACTERES
 RAG_ALLOWED_HOSTS=fcte-campus-rag.onrender.com,localhost,127.0.0.1
 RAG_ALLOWED_ORIGINS=https://fcte-campus-rag.onrender.com
 ```
 
-Gere token e senha separadamente no seu computador, por exemplo com `.\backend\.venv\Scripts\python.exe -c "import secrets; print(secrets.token_urlsafe(32))"` no PowerShell. No Mac: `./backend/.venv/bin/python -c 'import secrets; print(secrets.token_urlsafe(32))'`. O token da integração é diferente da chave Gemini, da chave Supabase e da senha do chat. As senhas/tokens de acesso devem usar caracteres ASCII. Preserve o modelo Gemini que você já validou se ele for diferente do exemplo.
+Gere o token no seu computador, por exemplo com `.\backend\.venv\Scripts\python.exe -c "import secrets; print(secrets.token_urlsafe(32))"` no PowerShell. No Mac: `./backend/.venv/bin/python -c 'import secrets; print(secrets.token_urlsafe(32))'`. O token da integração é diferente da chave Gemini e da chave Supabase. Use caracteres ASCII no token. Preserve o modelo Gemini que você já validou se ele for diferente do exemplo.
 
-4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health**. Após enviar as alterações para o GitHub, use **Environment → Save, rebuild, and deploy** ou **Manual Deploy → Clear build cache & deploy**, garantindo que a imagem seja reconstruída sem os modelos. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `retrievalProfile: light`, `retrievalMethod: bm25`, `vectorSearchEnabled: false`, `rerankerEnabled: false`, `sources: 41` e `chunks: 214` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini. O health é público; a raiz do site e as consultas pedem autenticação.
-Se o log mostrar `RAG pronto` e o health check retornar **400**, confira `RAG_ALLOWED_HOSTS`: deve conter o domínio real, sem `https://` ou caminhos. A API acrescenta automaticamente `RENDER_EXTERNAL_HOSTNAME`, informado pelo Render, à lista de hosts permitidos. Domínios personalizados devem ser incluídos manualmente. O `HEAD /` com **401** é esperado porque o chat exige login; mantenha o health check em `/api/v1/health`. Não é necessário liberar todos os hosts com `*`. Referências: [health checks](https://render.com/docs/health-checks) e [variáveis do Render](https://render.com/docs/environment-variables).
+4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health**. Após enviar as alterações para o GitHub, use **Environment → Save, rebuild, and deploy** ou **Manual Deploy → Clear build cache & deploy**, garantindo que a imagem seja reconstruída sem os modelos. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `retrievalProfile: light`, `retrievalMethod: bm25`, `vectorSearchEnabled: false`, `rerankerEnabled: false`, `sources: 41` e `chunks: 214` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini. O chat, a comparação e o health são públicos; somente a integração `/perguntar` pede token.
+Se o log mostrar `RAG pronto` e o health check retornar **400**, confira `RAG_ALLOWED_HOSTS`: deve conter o domínio real, sem `https://` ou caminhos. A API acrescenta automaticamente `RENDER_EXTERNAL_HOSTNAME`, informado pelo Render, à lista de hosts permitidos. Domínios personalizados devem ser incluídos manualmente. A raiz do chat deve abrir sem login; mantenha o health check em `/api/v1/health`. Não é necessário liberar todos os hosts com `*`. Referências: [health checks](https://render.com/docs/health-checks) e [variáveis do Render](https://render.com/docs/environment-variables).
 
 5. **Ligar o serviço existente coleta-fcte.** No Render, abra o serviço **coleta-fcte → Environment → Add Environment Variable** e configure:
 
@@ -399,7 +395,7 @@ G09_TIMEOUT_SECONDS=120
 
 Use a URL real do **FCTE-Campus**, sem `/perguntar`, sem `/api/v1` e sem apontar para o próprio coleta-fcte. O cliente já acrescenta `/perguntar` e envia `Authorization: Bearer ...`. Salve com **Save and deploy** para reiniciar a coleta com as variáveis. Não altere `RUMO_API_URL`, `RUMO_API_TOKEN` ou as configurações de coleta para fazer esta conexão. As variáveis `G09_*` já estão previstas no `render.yaml` daquele projeto.
 
-6. **Validar a integração.** Em `https://ENDERECO-DA-COLETA/api/chat/estado`, `grupo09: true` confirma somente que a URL foi configurada. No chat da coleta, pergunte **“Na biblioteca do Gama há cabines individuais e mesas para estudar em grupo?”**. Essa pergunta exige conteúdo documental; “Onde fica a I10?” pode ser respondida pela ferramenta do mapa e não comprova a chamada ao RAG. A resposta documental deve vir do Grupo 09 com citações e fontes. Nos logs do FCTE-Campus, confira o `POST /perguntar` com HTTP 200. A raiz do FCTE-Campus também oferece o chat independente e a comparação, protegidos por `RAG_WEB_USER`/`RAG_WEB_PASSWORD`.
+6. **Validar a integração.** Em `https://ENDERECO-DA-COLETA/api/chat/estado`, `grupo09: true` confirma somente que a URL foi configurada. No chat da coleta, pergunte **“Na biblioteca do Gama há cabines individuais e mesas para estudar em grupo?”**. Essa pergunta exige conteúdo documental; “Onde fica a I10?” pode ser respondida pela ferramenta do mapa e não comprova a chamada ao RAG. A resposta documental deve vir do Grupo 09 com citações e fontes. Nos logs do FCTE-Campus, confira o `POST /perguntar` com HTTP 200. A raiz do FCTE-Campus também oferece o chat independente e a comparação, públicos e sem senha.
 
 O navegador da coleta fala com o próprio backend; é esse backend que chama o RAG. Por isso não é necessário colocar o token no frontend, apontar o Vite para o serviço remoto ou liberar CORS da coleta para essa comunicação.
 
@@ -422,9 +418,9 @@ Espere `grupo: grupo09`, `status: answered` e fontes compatíveis. `insufficient
 | Sintoma | Diagnóstico |
 |---|---|
 | `Invalid host header` / HTTP 400 | Incluir o domínio real em `RAG_ALLOWED_HOSTS`, sem `https://`. |
-| Não inicia / erro de autenticação | `RAG_REQUIRE_AUTH=true`, token com 32+ caracteres, usuário e senha com 16+ caracteres ASCII. |
+| Não inicia / erro de autenticação | `RAG_REQUIRE_AUTH=true`, token com 32+ caracteres ASCII. O chat não exige senha. |
 | Health HTTP 503 | Conferir Supabase, versão do corpus e cache offline E5 nos logs. |
-| Integração HTTP 401/403 | `G09_API_TOKEN` precisa ser idêntico a `RAG_API_TOKEN`; não usar senha Basic ou chave Gemini. |
+| Integração HTTP 401/403 | `G09_API_TOKEN` precisa ser idêntico a `RAG_API_TOKEN`; não usar chave Gemini. |
 | Integração HTTP 404 | URL base errada ou `/perguntar` foi acrescentado duas vezes. |
 | Exit 137 / memória excedida | A instância não comportou os modelos; trocar o banco não resolve RAM. |
 | Health funciona, mas a pergunta falha | A primeira consulta ainda carrega o reranker; conferir memória, tempo e erro Gemini. |

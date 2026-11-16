@@ -49,16 +49,20 @@ def test_quota_e_preservada_no_http_para_interface():
         assert client.post('/api/v1/chat', json={'text': 'Pergunta'}).status_code == 429
 
 
-def test_acesso_online_separa_token_interno_do_login_do_chat():
-    acesso = Acesso(True, 't' * 40, 'equipe', 'senha-segura-para-o-chat')
+def test_chat_online_publico_e_integracao_protegida_por_token(monkeypatch, tmp_path):
+    (tmp_path / 'index.html').write_text('<html>Chat FCTE</html>', encoding='utf-8')
+    monkeypatch.setenv('RAG_WEB_DIR', str(tmp_path))
+    acesso = Acesso(True, 't' * 40)
     with TestClient(create_app(ServicoExemplo, acesso=acesso), base_url='https://localhost') as client:
-        assert client.get('/').status_code == 401
+        pagina = client.get('/')
+        assert pagina.status_code == 200 and 'www-authenticate' not in pagina.headers
+        assert client.get('/index.html').status_code == 200
         assert client.get('/api/v1/health').status_code == 200
-        for path in ('/api/v1/chat', '/api/v1/comparison/llm', '/api/v1/comparison/rag', '/perguntar'):
-            assert client.post(path, json={'text': 'Onde fica?'}).status_code == 401
-        assert client.post('/api/v1/chat', json={'text': 'Onde fica?'}, auth=('equipe', 'errada')).status_code == 401
-        assert client.post('/api/v1/chat', json={'text': 'Onde fica?'}, auth=('equipe', acesso.senha)).status_code == 200
-        assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}, auth=('equipe', acesso.senha)).status_code == 401
+        assert client.post('/api/v1/chat', json={'text': 'Onde fica?'}).status_code == 200
+        for path in ('/api/v1/comparison/llm', '/api/v1/comparison/rag'):
+            assert client.post(path, json={}).status_code == 422  # sem bloqueio de login
+        assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}).status_code == 401
+        assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}, auth=('equipe', 'legado')).status_code == 401
         assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}, headers={'Authorization': 'Bearer errado'}).status_code == 401
 
 
@@ -73,7 +77,7 @@ def test_contrato_comum_preserva_fontes_versao_e_limite_sem_mudar_chat():
                     'claims': [{'text': 'Há cabines individuais.', 'sourceIds': ['chunk-1']}],
                     'requestId': '87d58dee-d3d0-4e6a-8b69-acbc3a223585', 'baseVersion': 'assinatura', 'model': 'exemplo'}
     servico = Federado()
-    acesso = Acesso(True, 't' * 40, 'equipe', 'senha-segura-para-o-chat')
+    acesso = Acesso(True, 't' * 40)
     with TestClient(create_app(lambda: servico, acesso=acesso), base_url='https://localhost') as client:
         headers = {'Authorization': f'Bearer {acesso.token}'}
         r = client.post('/perguntar', json={'pergunta': 'Há cabines?', 'contexto': {'campus': 'gama', 'data': '2026-11-13'}, 'max_trechos': 2}, headers=headers)
@@ -95,16 +99,17 @@ def test_falha_remota_tem_status_diferente_de_ausencia_e_sem_vazar_erro():
         assert not r.json()['encontrou_base'] and 'privado' not in r.text
 
 
-def test_deploy_sem_autenticacao_falha_fechado_e_senha_errada_tem_limite(monkeypatch):
+def test_deploy_exige_token_e_tentativas_invalidas_tem_limite(monkeypatch):
     monkeypatch.setenv('RAG_ALLOWED_HOSTS', 'fcte.example.org')
     monkeypatch.setenv('RAG_REQUIRE_AUTH', 'false')
     with pytest.raises(ValueError, match='exige RAG_REQUIRE_AUTH'):
         Acesso.do_ambiente()
     monkeypatch.setenv('RAG_ALLOWED_HOSTS', 'localhost')
-    acesso = Acesso(True, 't' * 40, 'equipe', 'senha-segura-para-o-chat')
+    acesso = Acesso(True, 't' * 40)
     with TestClient(create_app(ServicoExemplo, acesso=acesso), base_url='https://localhost') as client:
         for _ in range(10):
-            assert client.post('/api/v1/chat', json={'text': 'Onde?'}, auth=('equipe', 'errada')).status_code == 401
-        r = client.post('/api/v1/chat', json={'text': 'Onde?'}, auth=('equipe', 'errada'))
+            assert client.post('/perguntar', json={'pergunta': 'Onde?'}, headers={'Authorization': 'Bearer errado'}).status_code == 401
+        r = client.post('/perguntar', json={'pergunta': 'Onde?'}, headers={'Authorization': 'Bearer errado'})
         assert r.status_code == 429 and r.headers['retry-after'] == '60'
         assert client.get('/api/v1/health').status_code == 200
+        assert client.post('/api/v1/chat', json={'text': 'Onde?'}).status_code == 200
