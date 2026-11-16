@@ -59,6 +59,9 @@ class RespostaIntegracao(BaseModel):
     tempo_ms: int
     indisponivel: bool = False
     status_http: int | None = None
+    retrieval_profile: str | None = None
+    retrieval_method: str | None = None
+    reranker_enabled: bool | None = None
 
 
 def fonte_integracao(fonte, n):
@@ -79,6 +82,9 @@ def resposta_integracao(resposta, tempo_ms, limite):
             'trechos': [fonte_integracao(t, i) for i, t in enumerate(resposta.get('retrieved', []), 1)],
             'request_id': resposta.get('requestId', str(uuid4())), 'base_version': resposta.get('baseVersion'),
             'modelo': resposta.get('model'), 'usage': resposta.get('usage', {}),
+            'retrieval_profile': resposta.get('retrievalProfile'),
+            'retrieval_method': resposta.get('retrievalMethod'),
+            'reranker_enabled': resposta.get('rerankerEnabled'),
             'max_trechos_aplicado': limite, 'tempo_ms': tempo_ms}
 
 

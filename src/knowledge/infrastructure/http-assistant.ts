@@ -15,7 +15,8 @@ function source(value: unknown): KnowledgeSource {
     sourceId: typeof value.sourceId === 'string' ? value.sourceId : undefined,
     reviewedAt: typeof value.reviewedAt === 'string' ? value.reviewedAt : undefined,
     validUntil: typeof value.validUntil === 'string' ? value.validUntil : undefined,
-    distance: typeof value.distance === 'number' && Number.isFinite(value.distance) ? value.distance : undefined };
+    distance: typeof value.distance === 'number' && Number.isFinite(value.distance) ? value.distance : undefined,
+    lexicalScore: typeof value.lexicalScore === 'number' && Number.isFinite(value.lexicalScore) ? value.lexicalScore : undefined };
 }
 
 function result(value: unknown): KnowledgeResult {
@@ -23,6 +24,8 @@ function result(value: unknown): KnowledgeResult {
   const meta: KnowledgeMeta = { requestId: typeof value.requestId === 'string' ? value.requestId : undefined,
     model: typeof value.model === 'string' ? value.model : undefined,
     baseVersion: typeof value.baseVersion === 'string' ? value.baseVersion : undefined,
+    retrievalProfile: typeof value.retrievalProfile === 'string' ? value.retrievalProfile : undefined,
+    retrievalMethod: typeof value.retrievalMethod === 'string' ? value.retrievalMethod : undefined,
     retrieved: Array.isArray(value.retrieved) ? value.retrieved.map(source) : undefined };
   if (value.status === 'answered' && typeof value.answer === 'string' && value.answer.trim() && Array.isArray(value.sources) && value.sources.length) {
     return { ...meta, status: 'answered', answer: value.answer, sources: value.sources.map(source) };

@@ -108,9 +108,10 @@ fi
 
 INDEX_HASH="$(fingerprint index)"
 INDEX_BACKEND="$("$PYTHON" -c 'import sys; sys.path.insert(0, "backend"); from rag.config import carregar_config; print(carregar_config()["indice"]["backend"])')"
+INDEX_PROFILE="$("$PYTHON" -c 'import sys; sys.path.insert(0, "backend"); from rag.config import carregar_config; print(carregar_config()["perfil"])')"
 if [ "$INDEX_BACKEND" = 'supabase' ]; then
   printf '\nConferindo o banco Supabase (sem publicar dados)…\n'
-  if [ ! -f backend/.cache/reranker/revision.txt ]; then npm run rag:prepare; fi
+  if [ "$INDEX_PROFILE" = 'full' ] && [ ! -f backend/.cache/reranker/revision.txt ]; then npm run rag:prepare; fi
   npm run rag:check
 elif [ ! -f backend/data/index/manifesto.json ] || [ ! -d backend/data/index/chroma ] ||
    [ ! -f backend/.cache/reranker/revision.txt ] || changed .cache/launcher/index "$INDEX_HASH"; then

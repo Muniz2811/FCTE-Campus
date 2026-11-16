@@ -16,6 +16,7 @@ export interface GoldQuestion { id: string; pergunta: string; referencia: string
   tipo: string; teste: string; evidencias: { source_id: string; trecho: string }[] }
 export interface Evaluation {
   round: string; date: string; reviewer: string; model: string; baseVersion: string | null; currentBaseMatches: boolean | null;
+  currentRetrievalMatches?: boolean | null; currentProfile?: string | null; currentMethod?: string | null;
   arms: Record<Arm, Scores>; scenarios: Record<string, Record<Arm, Scores>>; questions: GoldQuestion[];
   goals: Record<string, number | string>; rubric: Record<string, string>;
   judgments: { qid: string; braco: Arm; completa: boolean; ausencia_correta?: boolean | null; observacao: string }[];
@@ -25,12 +26,14 @@ export interface LiveResponse {
   status: 'answered' | 'insufficient'; answer?: string; message?: string;
   claims: { text: string; sourceIds?: string[]; fontes?: string[] }[];
   sources?: KnowledgeSource[]; retrieved?: KnowledgeSource[]; requestId?: string; model?: string; baseVersion?: string;
+  retrievalProfile?: string; retrievalMethod?: string;
   usage?: Record<string, number>; providerModelVersion?: string;
 }
 export interface Attempt {
   id: string; arm: Arm; question: string; executedAt: string; model: string; baseVersion?: string;
   technicalStatus: number; elapsedSeconds: number | null; response?: LiveResponse; error?: string;
   generation?: Record<string, unknown>; promptSha256?: string;
+  retrievalProfile?: string; retrievalMethod?: string; retrievalSignature?: string;
   traceability?: { resolved?: number | null; total?: number; value: number | null; reason: string };
 }
 export const percent = (value: number | null | undefined) => value == null ? 'N/A' :

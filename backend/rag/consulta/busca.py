@@ -3,8 +3,7 @@ from collections import Counter
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from rag.armazenamento.embeddings import VetorizadorE5
-from rag.armazenamento.indexacao import abrir_indice
+from rag.armazenamento.leitura import abrir_indice, carregar_base_lexical
 from rag.consulta.busca_lexical import ordenar_bm25, fundir_rrf
 
 
@@ -21,17 +20,37 @@ def selecionar_diversos(candidatos: list[dict], top_k: int, max_por_fonte: int) 
     return [dict(t, posicao=i) for i, t in enumerate(escolhidos, 1)]
 
 
-def buscar(pergunta: str, config: dict, modelo=None) -> dict:
+def elegiveis_em(trechos, data: str):
+    hoje = int(data.replace('-', ''))
+    return [t for t in trechos if t.get('status') == 'aprovado' and t.get('rascunho') is False
+            and t.get('abrangencia') in ('Gama', 'UnB geral', 'DF')
+            and int(t['validade_ord']) >= hoje]
+
+
+def buscar(pergunta: str, config: dict, modelo=None, base_lexical=None) -> dict:
     if not pergunta.strip():
         raise ValueError('Pergunta vazia')
     cfg = config['busca']
     if cfg['top_k'] <= 0 or cfg['max_por_fonte'] <= 0 or cfg['candidatos'] < cfg['top_k']:
         raise ValueError('Parâmetros de busca inválidos')
-    indice, manifesto = abrir_indice(config)
-    modelo = modelo if modelo is not None else VetorizadorE5(config['embeddings'])
-    vetor = modelo.pergunta(pergunta)
     agora = datetime.now(ZoneInfo(config['aquisicao']['fuso_horario']))
     metodo = cfg.get('metodo', 'densa')
+    if metodo == 'bm25':
+        if cfg.get('reranker', {}).get('ativo'):
+            raise ValueError('O perfil BM25 leve não permite carregar reranker neural')
+        if base_lexical is None:
+            indice, manifesto = abrir_indice(config)
+            base_lexical = carregar_base_lexical(indice, manifesto, config)
+        textos, manifesto = base_lexical
+        elegiveis = elegiveis_em(textos, agora.date().isoformat())
+        candidatos = ordenar_bm25(pergunta, elegiveis, cfg['bm25_k1'], cfg['bm25_b'])[:cfg['candidatos']]
+    elif metodo in ('hibrida_rrf', 'densa'):
+        from rag.armazenamento.embeddings import VetorizadorE5
+        indice, manifesto = abrir_indice(config)
+        modelo = modelo if modelo is not None else VetorizadorE5(config['embeddings'])
+        vetor = modelo.pergunta(pergunta)
+    else:
+        raise ValueError('Método de busca desconhecido')
     if metodo == 'hibrida_rrf':
         # Corpus local pequeno. Ambos os rankings usam o MESMO conjunto elegível.
         # Em corpus grande, substituir esta leitura por índice lexical persistente.
@@ -40,8 +59,6 @@ def buscar(pergunta: str, config: dict, modelo=None) -> dict:
         candidatos = fundir_rrf(elegiveis[:cfg['candidatos']], lexicais[:cfg['candidatos']], cfg['rrf_k'])
     elif metodo == 'densa':
         candidatos = indice.consultar(vetor, cfg['candidatos'], agora.date().isoformat())
-    else:
-        raise ValueError('Método de busca desconhecido')
     reranker = cfg.get('reranker', {})
     if reranker.get('ativo'):
         from rag.consulta.reranking import reordenar
@@ -55,4 +72,6 @@ def buscar(pergunta: str, config: dict, modelo=None) -> dict:
             'embeddings': manifesto['embeddings'], 'colecao': manifesto['indice']['colecao'],
             'config_busca': cfg, 'candidatos_avaliados': candidatos, 'corpus_fontes': manifesto['corpus']['total_fontes'],
             'trechos': escolhidos,
-            'limite': 'Distância cosseno não é probabilidade de verdade. Logit neural e corte experimental não garantem relevância ou verdade; calibração diagnóstica em perguntas conhecidas.'}
+            'perfil': config.get('perfil', 'full'), 'metodo': metodo,
+            'limite': ('Score BM25 mede correspondência lexical, não probabilidade de relevância ou verdade.'
+                       if metodo == 'bm25' else 'Distância cosseno não é probabilidade de verdade. Logit neural e corte experimental não garantem relevância ou verdade; calibração diagnóstica em perguntas conhecidas.')}

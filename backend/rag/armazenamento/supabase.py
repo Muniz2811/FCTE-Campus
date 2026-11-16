@@ -5,7 +5,6 @@ from urllib.parse import urlsplit
 import httpx
 
 from rag.config import ambiente_backend
-from rag.armazenamento.embeddings import validar_vetores
 from rag.armazenamento.indice import metadados_chunk
 
 
@@ -78,12 +77,26 @@ class IndiceSupabase:
         return {r['chunk_id'] for r in self._linhas('chunk_id')}
 
     def exportar_vetores(self):
+        from rag.armazenamento.embeddings import validar_vetores
         linhas = self._linhas('chunk_id,embedding')
         vetores = [json.loads(r['embedding']) if isinstance(r['embedding'], str)
                    else r['embedding'] for r in linhas]
         return [r['chunk_id'] for r in linhas], validar_vetores(vetores, len(linhas), 384)
 
+    @staticmethod
+    def _trecho(linha):
+        meta = dict(linha['metadados'])
+        secoes = json.loads(meta.pop('secoes_json'))
+        entidades = json.loads(meta.pop('entidades_json'))
+        return {**meta, 'chunk_id': linha['chunk_id'], 'texto': linha['texto'],
+                'secoes': secoes, 'entidades': entidades}
+
+    def textos(self) -> list[dict]:
+        """O perfil BM25 não transfere vetores nem chama a RPC vetorial."""
+        return [self._trecho(linha) for linha in self._linhas('chunk_id,texto,metadados')]
+
     def publicar(self, chunks: list[dict], vetores, manifesto: dict) -> None:
+        from rag.armazenamento.embeddings import validar_vetores
         if manifesto['indice']['colecao'] != self.colecao:
             raise ValueError('Manifesto pertence a outra coleção')
         if manifesto['embeddings']['dimensao'] != 384:
@@ -103,15 +116,9 @@ class IndiceSupabase:
     def consultar(self, vetor, limite: int, data: str) -> list[dict]:
         if limite <= 0:
             return []
+        from rag.armazenamento.embeddings import validar_vetores
         matriz = validar_vetores([vetor], 1, 384)
         linhas = self._requisitar('POST', 'rpc/fcte_rag_buscar', json={
             'p_colecao': self.colecao, 'p_vetor': matriz[0].tolist(),
             'p_limite': limite, 'p_data': data}).json()
-        trechos = []
-        for linha in linhas:
-            meta = dict(linha['metadados'])
-            secoes = json.loads(meta.pop('secoes_json'))
-            entidades = json.loads(meta.pop('entidades_json'))
-            trechos.append({**meta, 'chunk_id': linha['chunk_id'], 'texto': linha['texto'],
-                           'distancia': float(linha['distancia']), 'secoes': secoes, 'entidades': entidades})
-        return trechos
+        return [dict(self._trecho(linha), distancia=float(linha['distancia'])) for linha in linhas]

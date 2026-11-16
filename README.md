@@ -8,6 +8,10 @@ Este repositório contém **somente o chat e o RAG**. Mapa, GPS, favoritos, inst
 Há simulação antes do envio, reaproveitamento dos embeddings existentes e conferência do banco remoto.
 O padrão continua sendo Chroma local até configurar `RAG_INDEX_BACKEND=supabase` no backend.
 
+**Perfis de execução:** `RAG_PROFILE=full` mantém E5 + BM25/RRF + reranker para uso local.
+O Docker usa `RAG_PROFILE=light` e Supabase por padrão: lê os textos, recupera por BM25 e gera com Gemini,
+sem instalar PyTorch ou baixar modelos. A API do coleta-fcte permanece `POST /perguntar`.
+
 ## Executar localmente
 
 ### Caminho rápido para o grupo — Mac com chip Apple
@@ -323,14 +327,16 @@ O orquestrador preserva os blocos e fontes de cada grupo e distingue ausência d
 
 O `Dockerfile` da raiz reúne interface e API. A aplicação Python serve o chat em `/` e o backend em `/api/v1`, no mesmo domínio. Não é necessário outro servidor para o frontend ou para o Chroma.
 
-O build instala PyTorch **CPU**, baixa E5 e reranker e incorpora o frontend compilado. O padrão Docker agora é **Supabase**: não gera Chroma, não migra dados e não acessa o Supabase durante o build. As credenciais são fornecidas somente na execução. Essa primeira construção exige internet e pode demorar devido aos pesos dos modelos.
+O build padrão é **light + Supabase**: instala apenas `backend/requirements-api.txt`, compila a interface e não instala NumPy, PyTorch, Transformers, Sentence Transformers ou Chroma. Não baixa pesos, não gera vetores e não acessa o banco ou o Gemini durante o build. As credenciais são fornecidas somente na execução.
+
+No início do serviço, o perfil leve lê do Supabase somente texto e metadados dos chunks. Confere manifesto, hashes, IDs e conteúdo contra o corpus versionado, mantém esse snapshot em memória e refaz os filtros de aprovação, abrangência e validade a cada pergunta. Mudanças na base exigem atualizar os arquivos correspondentes e reiniciar/republicar a API. Vetores já existentes continuam preservados no Supabase.
 
 ```sh
 docker build -t fcte-chat .
-docker run --rm -p 127.0.0.1:8000:8000 --env-file backend/.env -e RAG_REQUIRE_AUTH=false fcte-chat
+docker run --rm -p 127.0.0.1:8000:8000 --env-file backend/.env -e RAG_PROFILE=light -e RAG_INDEX_BACKEND=supabase -e RAG_REQUIRE_AUTH=false fcte-chat
 ```
 
-Esse exemplo exige `RAG_INDEX_BACKEND=supabase` e a conexão configurada em `backend/.env`. Para uma imagem com Chroma local, use `docker build --build-arg RAG_INDEX_BACKEND=chroma -t fcte-chat-local .` e execute essa imagem com `-e RAG_INDEX_BACKEND=chroma`.
+Esse exemplo exige a conexão Supabase configurada em `backend/.env`. Para uma imagem completa com Chroma local, use `docker build --build-arg RAG_PROFILE=full --build-arg RAG_INDEX_BACKEND=chroma -t fcte-chat-local .` e execute essa imagem com `-e RAG_PROFILE=full -e RAG_INDEX_BACKEND=chroma`. Para full com Supabase, use somente `--build-arg RAG_PROFILE=full`. Ativar full em uma imagem construída como light não instala suas dependências; é necessário reconstruir a imagem.
 
 Abra `http://localhost:8000`. O comando acima desativa autenticação somente para o teste na porta publicada em loopback. A imagem tem autenticação habilitada por padrão. Para hospedar online, selecione deploy por Docker usando o **Dockerfile da raiz**, mantenha `RAG_REQUIRE_AUTH=true` e as credenciais descritas acima, configure a porta interna `8000` ou a variável `PORT` do provedor, e adicione estas variáveis no painel:
 
@@ -338,6 +344,7 @@ Abra `http://localhost:8000`. O comando acima desativa autenticação somente pa
 |---|---|
 | `GEMINI_API_KEY` | Chave secreta da API Gemini |
 | `GEMINI_MODEL` | Opcional; o padrão está em `backend/config/rag.yaml` |
+| `RAG_PROFILE` | `light` no Render Free; `full` para o pipeline completo local |
 | `RAG_INDEX_BACKEND` | `supabase` |
 | `SUPABASE_URL` | URL HTTPS do projeto, sem caminho |
 | `SUPABASE_SECRET_KEY` | Chave secreta, somente no backend |
@@ -346,21 +353,22 @@ Abra `http://localhost:8000`. O comando acima desativa autenticação somente pa
 
 Use `/api/v1/health` para verificar a disponibilidade. Nenhuma chave é enviada ao navegador. O contêiner usa um único worker, com uma consulta por vez para conter o consumo de memória; novas consultas simultâneas recebem uma mensagem para aguardar.
 
-**A simplificação facilita o deploy, mas não reduz a memória exigida pelo E5 e pelo reranker.** O serviço precisa comportar ambos e o PyTorch, mesmo com pgvector remoto. O build Docker deve ser validado no provedor/arquitetura escolhidos; não há garantia de execução em planos de 512 MB.
+O perfil light recupera por **BM25**, com os parâmetros lexicais existentes e no máximo dois chunks por fonte, até cinco no total. Não executa E5, RRF ou reranker. Isso mantém o RAG documental com citações, mas muda a recuperação: paráfrases e sinônimos precisam de uma nova avaliação. O painel avisa quando os resultados históricos pertencem a outra configuração. Não atribua as métricas do perfil full ao light.
 
 ### Render com Supabase e integração ao coleta-fcte
 
 O fluxo de produção é `navegador → coleta-fcte (/api/chat) → FCTE-Campus (/perguntar) → Supabase + modelos + Gemini`. A coleta já possui o cliente desse contrato em `backend/consultas_rag.py` e o roteamento em `backend/assistente.py`; não é necessário copiar os documentos ou os modelos para aquele serviço. As fontes de RU/disciplinas continuam no RUmo.
 
-**Capacidade:** o Render Free tem 512 MB de RAM e 0,1 CPU. Supabase resolve o armazenamento do índice, mas E5 e reranker continuam neste serviço. Para manter exatamente este pipeline, não considere o Free uma implantação garantida. Uma instância com mais memória, por exemplo 2 GB, é candidata a validação, não um dimensionamento já comprovado em Linux. Se o objetivo for custo zero, será preciso resolver também onde executar esses modelos. Consulte os [planos de computação](https://render.com/docs/compute-plans).
+**Capacidade:** o Render Free tem 512 MB de RAM e 0,1 CPU. Use `RAG_PROFILE=light` para esse deploy. O perfil full continua disponível para ambientes com memória suficiente. Consulte os [planos de computação](https://render.com/docs/compute-plans).
 
-Em uma conferência local em Windows em 16/11/2026, E5 e reranker carregados no mesmo processo atingiram aproximadamente **1.243 MiB de working set**, com uma pergunta vetorizada e um candidato reordenado. Essa medição não inclui um benchmark do contêiner Linux, concorrência ou uma carga representativa; serve para evidenciar o risco de 512 MB. O novo preparo dos modelos foi executado offline com caches locais. O build Docker completo e o deploy no Render ainda precisam ser executados no ambiente de destino.
+Em 16/11/2026, o perfil light foi executado localmente em Windows num ambiente isolado com apenas as dependências da API. Leu o Supabase real, executou três chamadas Gemini (contrato `/perguntar`, complemento do chat e comparação com a LLM), validou a resposta com o cliente do coleta-fcte e atingiu aproximadamente **59 MiB de pico de working set**. Não importou NumPy, PyTorch, Transformers, Sentence Transformers ou Chroma. Isso é uma conferência funcional e de memória local, não uma reavaliação das quinze perguntas nem medição do contêiner Linux. O build Docker e o deploy precisam ser validados no Render.
 
 1. **Enviar o código ao GitHub.** O Render precisa receber o adaptador Supabase e este Dockerfile atualizado. Na raiz deste repositório, confira `git status`/`git diff` e faça commit/push para `Muniz2811/FCTE-Campus`. `.env`, pesos e índice local permanecem ignorados. Não execute `rag:index` ou `rag:migrate` como comando de inicialização no Render: a base já foi enviada ao Supabase.
-2. **Criar o serviço.** No [Render Dashboard](https://dashboard.render.com), clique em **New → Web Service → conectar GitHub → Muniz2811/FCTE-Campus**. Use a branch `main`, nome como `fcte-campus-rag`, **Language/Runtime: Docker**, **Root Directory vazio**, **Dockerfile Path: ./Dockerfile**, **Docker Build Context: .**. Deixe **Docker Command** vazio: o `CMD` já usa `uvicorn rag.api:app`, `0.0.0.0`, `$PORT` e um worker. Não configure comandos npm de desenvolvimento como start. Escolha conscientemente a capacidade, conforme a observação acima. Veja a [documentação Docker](https://render.com/docs/docker).
+2. **Criar ou atualizar o serviço.** No [Render Dashboard](https://dashboard.render.com), clique em **New → Web Service → conectar GitHub → Muniz2811/FCTE-Campus**. Use a branch `main`, nome como `fcte-campus-rag`, **Language/Runtime: Docker**, **Root Directory vazio**, **Dockerfile Path: ./Dockerfile**, **Docker Build Context: .** e plano **Free**. Deixe **Docker Command** vazio: o `CMD` já usa `uvicorn rag.api:app`, `0.0.0.0`, `$PORT` e um worker. Se o serviço já existe, basta atualizar o código, configurar light e reconstruir. Veja a [documentação Docker](https://render.com/docs/docker).
 3. **Configurar Environment.** Use o domínio real que o Render atribuir ao serviço. O exemplo abaixo pressupõe `fcte-campus-rag.onrender.com`; substitua-o se o endereço for diferente. Não escreva esses segredos no GitHub.
 
 ```dotenv
+RAG_PROFILE=light
 RAG_INDEX_BACKEND=supabase
 SUPABASE_URL=https://SEU-PROJETO.supabase.co
 SUPABASE_SECRET_KEY=SUA_CHAVE_SECRET_DO_SUPABASE
@@ -376,7 +384,7 @@ RAG_ALLOWED_ORIGINS=https://fcte-campus-rag.onrender.com
 
 Gere token e senha separadamente no seu computador, por exemplo com `.\backend\.venv\Scripts\python.exe -c "import secrets; print(secrets.token_urlsafe(32))"` no PowerShell. No Mac: `./backend/.venv/bin/python -c 'import secrets; print(secrets.token_urlsafe(32))'`. O token da integração é diferente da chave Gemini, da chave Supabase e da senha do chat. As senhas/tokens de acesso devem usar caracteres ASCII. Preserve o modelo Gemini que você já validou se ele for diferente do exemplo.
 
-4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health** nas configurações avançadas e publique o serviço. Aguarde o build dos pesos e a inicialização. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `sources: 37`, `chunks: 174` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini e reranker. O health é público; a raiz do site e as consultas pedem autenticação.
+4. **Health check e deploy.** Configure **Health Check Path: /api/v1/health**. Após enviar as alterações para o GitHub, use **Environment → Save, rebuild, and deploy** ou **Manual Deploy → Clear build cache & deploy**, garantindo que a imagem seja reconstruída sem os modelos. Abra `https://SEU-DOMINIO/api/v1/health`: o esperado é HTTP 200, `status: ready`, `vectorStore: supabase`, `retrievalProfile: light`, `retrievalMethod: bm25`, `vectorSearchEnabled: false`, `rerankerEnabled: false`, `sources: 37` e `chunks: 174` na versão atual. `generationConfigured: true` informa presença da chave; uma pergunta real é necessária para conferir Gemini. O health é público; a raiz do site e as consultas pedem autenticação.
 5. **Ligar o serviço existente coleta-fcte.** No Render, abra o serviço **coleta-fcte → Environment → Add Environment Variable** e configure:
 
 ```dotenv

@@ -14,7 +14,7 @@ from rag.armazenamento.manifesto import gravar_json
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Consulta semântica das fontes aprovadas, sem LLM.')
+    parser = argparse.ArgumentParser(description='Consulta as fontes aprovadas no perfil ativo, sem LLM.')
     parser.add_argument('pergunta')
     parser.add_argument('--json', action='store_true', help='imprimir a execução completa em JSON')
     args = parser.parse_args()
@@ -33,8 +33,11 @@ def main():
     else:
         print('Pergunta:', resultado['pergunta'])
         print(f"Base: {resultado['corpus_fontes']} fontes | {resultado['colecao']}")
+        print(f"Recuperação: {resultado['perfil']} | {resultado['metodo']}")
         for trecho in resultado['trechos']:
-            print(f"\n{trecho['posicao']}. {trecho['chunk_id']} | {trecho['source_id']} | distância {trecho['distancia']:.6f}")
+            medida = (f"distância {trecho['distancia']:.6f}" if 'distancia' in trecho
+                      else f"BM25 {trecho['score_bm25']:.6f}")
+            print(f"\n{trecho['posicao']}. {trecho['chunk_id']} | {trecho['source_id']} | {medida}")
             print(trecho['titulo'], '|', ' > '.join(trecho['secoes']))
             print(trecho['texto'])
             print(f"Fonte: {trecho['url']} | versão {trecho['versao']} | revisão {trecho['data_revisao']} | validade {trecho['validade']}")

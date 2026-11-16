@@ -10,6 +10,7 @@ function References({ sources, label }: { sources: KnowledgeSource[]; label: str
       <span className="source-version">{source.sourceId ?? source.id} · versão {source.version}{source.reviewedAt ? ` · revisão ${source.reviewedAt}` : ''}</span>
       <span className="source-version">{source.validUntil === 'desconhecida' ? 'Vigência não informada pela fonte.' : source.validUntil ? `Validade: ${source.validUntil}` : ''}</span>
       {source.distance !== undefined && <span className="source-version">Distância cosseno: {source.distance.toFixed(4)} · não é uma probabilidade de verdade.</span>}
+      {source.lexicalScore !== undefined && <span className="source-version">Score BM25: {source.lexicalScore.toFixed(4)} · correspondência de termos, não é probabilidade de verdade.</span>}
       {source.url && <a href={source.url} target="_blank" rel="noreferrer">Abrir documento original <ExternalLink size={13} /><span className="sr-only"> (nova aba)</span></a>}
     </li>)}</ol>
   </details>;
@@ -22,7 +23,7 @@ export function ChatAnswer({ result, onRetry }: { result: KnowledgeResult; onRet
     {result.status === 'answered' && <References sources={result.sources} label="Fontes utilizadas" />}
     {!!result.retrieved?.length && <div className="retrieved-sources"><References sources={result.retrieved} label="Trechos recuperados" /></div>}
     {result.requestId && <details className="chat-execution"><summary><Layers size={13} />Registro da consulta</summary>
-      <p>Modelo: {result.model}<br />Execução: {result.requestId}<br />Base: {result.baseVersion}</p>
+      <p>Modelo: {result.model}<br />{result.retrievalMethod && <>Recuperação: {result.retrievalProfile} · {result.retrievalMethod}<br /></>}Execução: {result.requestId}<br />Base: {result.baseVersion}</p>
     </details>}
   </div>;
 }

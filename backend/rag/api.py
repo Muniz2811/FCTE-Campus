@@ -39,7 +39,13 @@ def criar_servico():
     valores = dotenv_values(arquivo) if arquivo.is_file() else {}
     chave = os.environ.get('GEMINI_API_KEY') or valores.get('GEMINI_API_KEY') or ''
     config['geracao']['modelo'] = os.environ.get('GEMINI_MODEL') or valores.get('GEMINI_MODEL') or config['geracao']['modelo']
-    return ServicoRAG(config, chave)
+    log = logging.getLogger('uvicorn.error')
+    log.info('Inicializando RAG: perfil=%s, busca=%s, armazenamento=%s',
+             config.get('perfil', 'full'), config['busca']['metodo'], config['indice']['backend'])
+    servico = ServicoRAG(config, chave)
+    log.info('RAG pronto: %s fontes, %s chunks, reranker=%s',
+             servico.info['sources'], servico.info['chunks'], servico.info['rerankerEnabled'])
+    return servico
 
 
 def create_app(factory=criar_servico, *, acesso=None):

@@ -12,6 +12,9 @@ def main():
     parser.add_argument('--incluir-e5', action='store_true', help='preparar também o E5 para execução offline')
     args = parser.parse_args()
     config = carregar_config()
+    if config.get('perfil') == 'light':
+        print('Perfil light: BM25 usa textos do Supabase, sem modelos locais para preparar.')
+        return
     # Definir HF_HOME antes de importar o Hub, que captura esse caminho no import.
     configurar_cache(config)
     from huggingface_hub import snapshot_download

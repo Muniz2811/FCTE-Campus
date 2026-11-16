@@ -5,6 +5,10 @@ Backend local de consulta a documentos do campus Gama. O FCTE Campus envia pergu
 O armazenamento pode ser Chroma local (padrão) ou Supabase/pgvector. Consulte o
 [tutorial de migração](supabase/README.md) para enviar os vetores existentes sem refazer embeddings.
 
+`RAG_PROFILE=full` mantém o pipeline E5 + BM25/RRF + reranker. O deploy Docker usa
+`RAG_PROFILE=light` com Supabase: lê textos, recupera por BM25 e gera via Gemini, sem modelos locais.
+As dependências desse perfil estão em `requirements-api.txt`; a documentação de deploy está no README da raiz.
+
 ## Iniciar com o aplicativo
 
 Este backend faz parte do repositório [FCTE Campus](../README.md). Na raiz do repositório:

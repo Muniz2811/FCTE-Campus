@@ -75,7 +75,9 @@ def fonte_publica(trecho):
     return {'id': trecho['chunk_id'], 'sourceId': trecho['source_id'], 'title': trecho['titulo'],
             'excerpt': trecho['texto'], 'url': trecho['url'], 'section': ' > '.join(trecho['secoes']),
             'version': trecho['versao'], 'reviewedAt': trecho['data_revisao'],
-            'validUntil': trecho['validade'], 'distance': trecho['distancia']}
+            'validUntil': trecho['validade'],
+            **({'distance': trecho['distancia']} if trecho.get('distancia') is not None else {}),
+            **({'lexicalScore': trecho['score_bm25']} if 'score_bm25' in trecho else {})}
 
 
 class GeradorGemini:

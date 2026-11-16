@@ -18,6 +18,14 @@ def carregar_config(caminho: Path | str | None = None) -> dict:
     config['indice']['backend'] = ambiente.get('RAG_INDEX_BACKEND') or config['indice'].get('backend', 'chroma')
     if config['indice']['backend'] not in ('chroma', 'supabase'):
         raise ValueError('RAG_INDEX_BACKEND deve ser chroma ou supabase')
+    config['perfil'] = ambiente.get('RAG_PROFILE') or 'full'
+    if config['perfil'] not in ('full', 'light'):
+        raise ValueError('RAG_PROFILE deve ser full ou light')
+    if config['perfil'] == 'light':
+        if config['indice']['backend'] != 'supabase':
+            raise ValueError('O perfil light exige RAG_INDEX_BACKEND=supabase')
+        config['busca']['metodo'] = 'bm25'
+        config['busca']['reranker']['ativo'] = False
     return config
 
 

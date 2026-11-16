@@ -23,6 +23,11 @@ A migração preserva modelo/revisão E5, prefixos, normalização, IDs, versõe
 
 **Mover o banco não hospeda os modelos:** E5 e reranker continuam na máquina que executa a API. Os registros de consultas e o histórico usado nas perguntas de continuação continuam em `backend/data/execucoes/`. Esta etapa não resolve o consumo de memória nem a persistência desses registros em um futuro Render gratuito.
 
+**Perfil de deploy leve:** o Docker agora usa `RAG_PROFILE=light`, com leitura dos textos/metadados
+do Supabase e recuperação BM25, sem carregar E5 ou reranker. O perfil `full` preserva a busca vetorial
+descrita acima. Não é necessário executar o SQL ou migrar novamente para trocar o perfil.
+Com light, `rag:check` confere os textos/IDs e uma busca lexical; a verificação dos vetores continua no perfil full.
+
 ## 2. Criar ou escolher o projeto
 
 1. Entre em [supabase.com/dashboard](https://supabase.com/dashboard).

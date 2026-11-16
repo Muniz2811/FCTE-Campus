@@ -12,7 +12,7 @@ import httpx
 from rag.config import caminho_projeto
 from rag.consulta.geracao import FalhaGeracao, PROMPT
 from rag.consulta.llm_isolada import livre, PROMPT_LIVRE
-from rag.armazenamento.manifesto import gravar_json
+from rag.armazenamento.manifesto import gravar_json, hash_json
 
 RODADA = 'semana3-llm-rag-20261112-v1'
 
@@ -65,6 +65,10 @@ def painel_historico(info=None):
         'round': RODADA, 'date': '2026-11-12', 'reviewer': metricas['avaliador'],
         'model': cfg['config']['geracao']['modelo'], 'baseVersion': assinatura,
         'currentBaseMatches': info.get('baseVersion') == assinatura if info and assinatura else None,
+        'currentRetrievalMatches': (info.get('retrievalSignature') == hash_json(cfg['config']['busca'])
+                                    if info and info.get('retrievalSignature') else None),
+        'currentProfile': info.get('retrievalProfile') if info else None,
+        'currentMethod': info.get('retrievalMethod') if info else None,
         'arms': metricas['bracos'], 'scenarios': metricas['testes'],
         'questions': gold['perguntas'], 'judgments': metricas['perguntas'],
         'goals': gold['metas_piloto'], 'rubric': gold['rubrica'],
@@ -87,6 +91,9 @@ class Comparador:
         registro = {'id': str(uuid4()), 'arm': braco, 'question': texto,
                     'executedAt': datetime.now(timezone.utc).isoformat(),
                     'model': self.servico.info['model'], 'baseVersion': self.servico.info['baseVersion'],
+                    'retrievalProfile': self.servico.info.get('retrievalProfile'),
+                    'retrievalMethod': self.servico.info.get('retrievalMethod'),
+                    'retrievalSignature': self.servico.info.get('retrievalSignature'),
                     'generation': self.servico.config['geracao'],
                     'promptSha256': hashlib.sha256((PROMPT if braco == 'rag' else PROMPT_LIVRE).encode()).hexdigest()}
         try:

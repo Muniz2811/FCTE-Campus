@@ -1,0 +1,7 @@
+# Deploy light: API + Supabase REST + BM25 + Gemini. Sem modelos locais.
+pyyaml==6.0.2
+httpx==0.28.1
+tzdata==2025.2
+fastapi==0.162.0
+uvicorn==0.54.0
+python-dotenv==1.2.4

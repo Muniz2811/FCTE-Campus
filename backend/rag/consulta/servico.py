@@ -6,10 +6,9 @@ from uuid import uuid4
 
 from rag.consulta.busca import buscar
 from rag.config import caminho_projeto
-from rag.armazenamento.embeddings import VetorizadorE5
 from rag.consulta.geracao import GeradorGemini, FalhaGeracao, fonte_publica, PROMPT
-from rag.armazenamento.indexacao import abrir_indice
-from rag.armazenamento.manifesto import gravar_json, hash_bytes
+from rag.armazenamento.leitura import abrir_indice, carregar_base_lexical
+from rag.armazenamento.manifesto import gravar_json, hash_bytes, hash_json
 from rag.consulta.conversa import contexto_da_consulta, consulta_contextualizada
 from rag.ingestao.normalizacao import carregar_entidades, compilar
 
@@ -18,11 +17,20 @@ class ServicoRAG:
     def __init__(self, config, chave, modelo=None, gerador=None):
         self.config = config
         indice, manifesto = abrir_indice(config)
+        lexical = config['busca']['metodo'] == 'bm25'
         self.info = {'status': 'ready', 'generationConfigured': bool(chave),
                      'sources': manifesto['corpus']['total_fontes'], 'chunks': indice.contar(),
                      'baseVersion': manifesto['assinatura'], 'model': config['geracao']['modelo'],
-                     'vectorStore': config['indice'].get('backend', 'chroma')}
-        self.modelo = modelo if modelo is not None else VetorizadorE5(config['embeddings'])
+                     'vectorStore': config['indice'].get('backend', 'chroma'),
+                     'retrievalProfile': config.get('perfil', 'full'),
+                     'retrievalMethod': config['busca']['metodo'], 'vectorSearchEnabled': not lexical,
+                     'rerankerEnabled': bool(config['busca'].get('reranker', {}).get('ativo')),
+                     'retrievalSignature': hash_json(config['busca'])}
+        self.base_lexical = carregar_base_lexical(indice, manifesto, config) if lexical else None
+        self.modelo = modelo
+        if not lexical and modelo is None:
+            from rag.armazenamento.embeddings import VetorizadorE5
+            self.modelo = VetorizadorE5(config['embeddings'])
         self.entidades = compilar(carregar_entidades(caminho_projeto(config['caminhos']['entidades'])))
         self.gerador = gerador if gerador is not None else GeradorGemini(config['geracao'], chave)
         self.vaga = threading.BoundedSemaphore(1)
@@ -50,11 +58,15 @@ class ServicoRAG:
             if max_trechos is not None:
                 config_busca = deepcopy(self.config)
                 config_busca['busca']['top_k'] = min(max_trechos, self.config['busca']['top_k'])
-            recuperacao = buscar(consulta, config_busca, modelo=self.modelo)
+            recuperacao = buscar(consulta, config_busca, modelo=self.modelo, base_lexical=self.base_lexical)
             registro['recuperacao'] = recuperacao
             resultado = self.gerador.gerar(texto, recuperacao['trechos'], contexto=contexto)
             resposta = {**resultado, 'requestId': request_id, 'baseVersion': recuperacao['assinatura_indice'],
                         'model': self.config['geracao']['modelo'],
+                        'retrievalProfile': self.info['retrievalProfile'],
+                        'retrievalMethod': self.info['retrievalMethod'],
+                        'retrievalSignature': self.info['retrievalSignature'],
+                        'rerankerEnabled': self.info['rerankerEnabled'],
                         'retrieved': [fonte_publica(t) for t in recuperacao['trechos']]}
             registro['resposta'] = resposta
             gravar_json(caminho_projeto(self.config['caminhos']['execucoes']) / f'chat-{request_id}.json', registro)
