@@ -19,6 +19,7 @@ from rag.config import carregar_config, caminho_projeto, configurar_cache
 from rag.consulta.geracao import FalhaGeracao
 from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
+from rag.consulta.multiagente import OrquestradorMultiagente
 from rag.acesso import Acesso
 from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
 from rag.consulta.locais import consultar_locais
@@ -146,8 +147,19 @@ def create_app(factory=criar_servico, *, acesso=None):
         except (OSError, ValueError, KeyError):
             raise FalhaGeracao('Os arquivos da avaliação histórica não estão disponíveis.', 503) from None
 
+    @app.post('/api/v1/multiagent')
+    def multiagent(pergunta: Pergunta):
+        if app.state.rag is None:
+            raise FalhaGeracao('O backend RAG nao esta disponivel.', 503)
+        try:
+            return OrquestradorMultiagente(app.state.rag).executar(
+                pergunta.text, previous_request_id=str(pergunta.previousRequestId)
+                if pergunta.previousRequestId is not None else None)
+        except ValueError:
+            raise FalhaGeracao('Pergunta ou base documental invalida.', 503) from None
+
     @app.post('/api/v1/comparison/{arm}')
-    def comparison(arm: Literal['rag', 'llm'], pergunta: Pergunta):
+    def comparison(arm: Literal['rag', 'llm', 'multiagente'], pergunta: Pergunta):
         if app.state.comparador is None:
             raise FalhaGeracao('O backend RAG não está disponível.', 503)
         resultado = app.state.comparador.executar(arm, pergunta.text)

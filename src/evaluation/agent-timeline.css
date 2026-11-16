@@ -1,0 +1,18 @@
+/* Complemento responsivo para a terceira coluna da comparacao, sem substituir o tema. */
+.agent-timeline { margin-top: 1rem; padding: .85rem; border: 1px solid var(--border, #d1d5db); border-radius: .75rem; }
+.agent-timeline > summary { cursor: pointer; font-weight: 650; }
+.agent-timeline ol { padding-left: 1.4rem; margin: .85rem 0; }
+.agent-timeline ol > li { padding: .35rem .25rem .5rem; border-bottom: 1px solid var(--border, #e5e7eb); }
+.agent-step-heading { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: space-between; }
+.agent-step-heading span, .agent-timeline small, .agent-timeline-note { opacity: .8; font-size: .875rem; }
+.agent-timeline p { overflow-wrap: anywhere; margin: .4rem 0; }
+.agent-timeline li { overflow-wrap: anywhere; }
+.agent-timeline small { display: block; }
+.agent-timeline details summary { cursor: pointer; }
+.comparison-columns { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.comparison-answer { min-width: 0; }
+@media (min-width: 880px) { .comparison-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1300px) { .comparison-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .agent-timeline { padding: .6rem; } }
+
+.agent-draft { border-inline-start: 2px solid var(--border, #d1d5db); padding-inline-start: .75rem; margin: .6rem 0; }

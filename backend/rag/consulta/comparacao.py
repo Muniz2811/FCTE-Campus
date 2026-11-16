@@ -12,6 +12,7 @@ import httpx
 from rag.config import caminho_projeto
 from rag.consulta.geracao import FalhaGeracao, PROMPT
 from rag.consulta.llm_isolada import livre, PROMPT_LIVRE
+from rag.consulta.multiagente import OrquestradorMultiagente, PROMPT_PESQUISADOR, PROMPT_REDATOR, PROMPT_REVISOR
 from rag.armazenamento.manifesto import gravar_json, hash_json
 
 RODADA = 'semana3-llm-rag-20261112-v1'
@@ -95,11 +96,13 @@ class Comparador:
                     'retrievalMethod': self.servico.info.get('retrievalMethod'),
                     'retrievalSignature': self.servico.info.get('retrievalSignature'),
                     'generation': self.servico.config['geracao'],
-                    'promptSha256': hashlib.sha256((PROMPT if braco == 'rag' else PROMPT_LIVRE).encode()).hexdigest()}
+                    'promptSha256': hashlib.sha256((PROMPT if braco == 'rag' else PROMPT_LIVRE if braco == 'llm' else PROMPT_PESQUISADOR + PROMPT_REDATOR + PROMPT_REVISOR).encode()).hexdigest()}
         try:
             if braco == 'rag':
-                resposta = self.servico.perguntar(texto)  # Sem histórico nos dois braços.
-            else:
+                resposta = self.servico.perguntar(texto)  # Teste sem histórico entre perguntas.
+            elif braco == 'multiagente':
+                resposta = OrquestradorMultiagente(self.servico).executar(texto)
+            elif braco == 'llm':
                 gerador = self.servico.gerador
                 if not gerador.chave:
                     raise FalhaGeracao('Configure GEMINI_API_KEY no backend.', 503)
@@ -114,7 +117,7 @@ class Comparador:
                 finally:
                     self.vaga_llm.release()
             registro.update(technicalStatus=200, response=resposta)
-            if braco == 'rag':
+            if braco in ('rag', 'multiagente'):
                 try:
                     registro['traceability'] = rastrear(resposta, self.servico.config)
                 except (OSError, ValueError, KeyError):
