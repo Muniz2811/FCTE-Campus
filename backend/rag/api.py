@@ -21,6 +21,7 @@ from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
 from rag.acesso import Acesso
 from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
+from rag.consulta.locais import consultar_locais
 
 
 class Pergunta(BaseModel):
@@ -124,6 +125,10 @@ def create_app(factory=criar_servico, *, acesso=None):
             servico = app.state.rag
             if servico is None:
                 raise FalhaGeracao('O RAG do Grupo 09 está indisponível.', 503)
+            if entrada.contexto.navegacao is not None:
+                resultado = consultar_locais(entrada.contexto.navegacao, servico.config, servico.info['baseVersion'])
+                resultado['tempo_ms'] = int((time.monotonic() - inicio) * 1000)
+                return resultado
             limite = min(entrada.max_trechos, servico.config['busca']['top_k'])
             anterior = entrada.contexto.previous_request_id
             resposta = servico.perguntar(entrada.pergunta, previous_request_id=str(anterior) if anterior else None,

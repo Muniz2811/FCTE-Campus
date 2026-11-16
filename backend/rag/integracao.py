@@ -4,6 +4,7 @@ from typing import Literal
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field
+from rag.consulta.locais import PedidoNavegacao, PlanoNavegacao
 
 
 class ContextoIntegracao(BaseModel):
@@ -12,6 +13,7 @@ class ContextoIntegracao(BaseModel):
     data: date | None = None
     curso: str | None = Field(default=None, max_length=60)
     previous_request_id: UUID | None = None
+    navegacao: PedidoNavegacao | None = None
 
 
 class PerguntaIntegracao(BaseModel):
@@ -62,6 +64,8 @@ class RespostaIntegracao(BaseModel):
     retrieval_profile: str | None = None
     retrieval_method: str | None = None
     reranker_enabled: bool | None = None
+    backend: str | None = None
+    navegacao: PlanoNavegacao | None = None
 
 
 def fonte_integracao(fonte, n):

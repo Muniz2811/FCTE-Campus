@@ -29,6 +29,7 @@ COPY backend/config ./config
 COPY backend/scripts ./scripts
 COPY backend/data/catalogo ./data/catalogo
 COPY backend/data/chunks ./data/chunks
+COPY backend/data/imports/mapas ./data/imports/mapas
 COPY backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/metricas.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/gabarito.json backend/avaliacao/resultados/semana3-llm-rag-20261112-v1/configuracao.json ./avaliacao/resultados/semana3-llm-rag-20261112-v1/
 # Light não baixa modelos; full preserva o pipeline com E5 e reranker.
 # Nenhum perfil acessa Supabase ou Gemini durante o build.

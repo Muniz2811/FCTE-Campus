@@ -100,6 +100,16 @@ No Mac, use `./backend/.venv/bin/python`, `npm` e `RAG_PROFILE=full RAG_INDEX_BA
 
 Exemplos: “Onde tem banheiro no térreo da UAC?”, “Onde ficam os sanitários do piso superior da UED?”, “Em qual andar fica a I10?” e “Onde fica a S10?”. A pergunta por um banheiro mais próximo de você continua exigindo uma posição de origem e cálculo geográfico separado. As métricas anteriores permanecem históricas; esta expansão não reavalia automaticamente aqueles resultados.
 
+## Navegação do Milton usando o inventário do RAG
+
+O contrato `POST /perguntar` aceita um campo opcional `contexto.navegacao`. As operações `listar`, `contar`, `proximidade` e `rota` consultam exatamente as fichas em `data/imports/mapas`, conferidas contra o hash do catálogo. Os filtros opcionais são `categoria`, `predio_id`, `andar`, `nome` e `acessivel`. Essa consulta estruturada não chama Gemini, E5 ou reranker, nem se limita ao top-5 de chunks. Perguntas documentais continuam no pipeline existente.
+
+O resultado inclui `navegacao.locais`, com `predio_id`, `ambiente_id`, nome, andar, categoria e `fonte_n`, além das referências das fichas. A unidade de citação `map_<fonte>_<hash>` representa o inventário JSON completo; não é um chunk vetorial. O inventário inicial cobre UAC/UED (14 banheiros), não garante cobertura de todos os ambientes do campus.
+
+O coleta-fcte valida o contrato e os IDs contra suas plantas. No navegador, o motor A* existente compara rotas caminháveis; nenhuma posição pessoal é enviada ao RAG, Gemini, Supabase ou histórico do chat. GPS negado, impreciso, antigo ou fora do campus abre escolha manual de origem. Se o GPS estiver dentro de um prédio, o Milton pede um ambiente/andar, pois GPS não identifica pavimento. Nomes ambíguos pedem escolha de destino. Rotas incompletas não sustentam uma afirmação de menor percurso global.
+
+Para publicar: primeiro atualize o FCTE-Campus (o Dockerfile passa a incluir as fichas JSON) e depois o coleta-fcte. Os mesmos `G09_API_URL`, `G09_API_TOKEN` e `RAG_API_TOKEN` continuam válidos. Não há novo SQL, migração de banco ou reindexação de embeddings para essa integração. Perguntas normais e o contrato do RUmo permanecem compatíveis.
+
 ## Evidências e limites
 
 As avaliações anteriores são fotografias das configurações de cada rodada. Seus percentuais não devem ser atribuídos automaticamente ao reranker. O diagnóstico novo compara a seleção dos trechos; aprovação dos IDs de citação não substitui revisão semântica da resposta. Nenhum limiar comprova verdade ou atualidade. Perguntas conhecidas usadas no ajuste não são teste independente.
