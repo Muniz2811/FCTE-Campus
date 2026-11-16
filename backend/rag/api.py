@@ -64,6 +64,10 @@ def create_app(factory=criar_servico, *, acesso=None):
 
     app = FastAPI(title='FCTE Campus · Assistente RAG', version='1.0.0', lifespan=lifespan)
     hosts = [host.strip() for host in os.environ.get('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if host.strip()]
+    # O health check usa o domínio público real, que pode diferir do exemplo no .env.
+    host_render = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '').strip()
+    if host_render and host_render not in hosts:
+        hosts.append(host_render)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=hosts)
     origens = set(os.environ.get('RAG_ALLOWED_ORIGINS', 'http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://localhost:4173').split(','))
 
