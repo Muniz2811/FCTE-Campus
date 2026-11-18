@@ -43,6 +43,7 @@ export interface LiveResponse {
 export interface Attempt {
   id: string; arm: Arm; question: string; executedAt: string; model: string; baseVersion?: string;
   technicalStatus: number; elapsedSeconds: number | null; response?: LiveResponse; error?: string;
+  auditLogSaved?: boolean;
   generation?: Record<string, unknown>; promptSha256?: string;
   retrievalProfile?: string; retrievalMethod?: string; retrievalSignature?: string;
   traceability?: { resolved?: number | null; total?: number; value: number | null; reason: string };

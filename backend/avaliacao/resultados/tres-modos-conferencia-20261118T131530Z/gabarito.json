@@ -1,0 +1,105 @@
+{
+  "versao": "conferencia-1-2026-11-16",
+  "natureza": "Perguntas de formulacao nova, separadas das 15 ja utilizadas nos ajustes. Temas compartilham o mesmo corpus; isso nao equivale a avaliacao fora do dominio.",
+  "politica": "Congelar antes de executar; nao ajustar prompts, busca, modelo ou gabarito apos observar as respostas. Revisao humana obrigatoria.",
+  "perguntas": [
+    {
+      "id": "H01",
+      "tipo": "composta",
+      "respondiveis": true,
+      "pergunta": "Onde encontro COSMOS e LEMA? Informe predio, andar e sala de cada um.",
+      "referencia": "COSMOS no LDTEA, 2º andar, sala 304; LEMA no LDTEA, terreo, sala 103.",
+      "evidencias": [
+        {
+          "source_id": "DOC-005",
+          "trecho": "COSMOS LDTEA 2º andar sala 304; LEMA LDTEA terreo sala 103"
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "tipo": "composta",
+      "respondiveis": true,
+      "pergunta": "Em qual unidade ficam a biblioteca e o auditorio e quais espacos de estudo a biblioteca oferece?",
+      "referencia": "Biblioteca e auditorio na UAC; cabines individuais e mesas de estudo em grupo.",
+      "evidencias": [
+        {
+          "source_id": "DOC-001",
+          "trecho": "UAC: biblioteca e auditorio"
+        },
+        {
+          "source_id": "DOC-012",
+          "trecho": "cabines individuais e mesas em grupo"
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "tipo": "ambiguidade",
+      "respondiveis": true,
+      "pergunta": "Preciso visitar o CPL. E no campus Gama, em que conteiner encontro esse laboratorio?",
+      "referencia": "CPL (Chemical Propulsion Laboratory) no conteiner 07.",
+      "evidencias": [
+        {
+          "source_id": "DOC-005",
+          "trecho": "CPL, Chemical Propulsion Laboratory: Conteiner 07"
+        }
+      ]
+    },
+    {
+      "id": "H04",
+      "tipo": "contexto",
+      "respondiveis": true,
+      "pergunta": "Estou procurando a biblioteca da UAC. La posso estudar em grupo ou apenas individualmente?",
+      "referencia": "A biblioteca oferece cabines individuais e mesas para estudo em grupo.",
+      "evidencias": [
+        {
+          "source_id": "DOC-012",
+          "trecho": "cabines individuais e mesas para estudo em grupo"
+        }
+      ]
+    },
+    {
+      "id": "H05",
+      "tipo": "premissa_incorreta",
+      "respondiveis": true,
+      "pergunta": "O COSMOS fica na sala 101 do terreo, correto?",
+      "referencia": "Nao; COSMOS no LDTEA, segundo andar, sala 304.",
+      "evidencias": [
+        {
+          "source_id": "DOC-005",
+          "trecho": "COSMOS: LDTEA 2º andar sala 304"
+        }
+      ]
+    },
+    {
+      "id": "H06",
+      "tipo": "premissa_incorreta",
+      "respondiveis": true,
+      "pergunta": "Como a biblioteca atende somente alunos matriculados, visitantes de fora da UnB nao podem nem consultar os livros no local, certo?",
+      "referencia": "Falso; comunidade externa pode consultar no local, mas emprestimo e restrito a comunidade academica UnB.",
+      "evidencias": [
+        {
+          "source_id": "DOC-012",
+          "trecho": "aberta a comunidade externa; emprestimo apenas para comunidade academica"
+        }
+      ]
+    },
+    {
+      "id": "H07",
+      "tipo": "sem_resposta",
+      "respondiveis": false,
+      "pergunta": "Quantos estudantes estao dentro da sala I10 neste exato minuto?",
+      "referencia": "Nao ha contagem de ocupacao em tempo real.",
+      "evidencias": []
+    },
+    {
+      "id": "H08",
+      "tipo": "sem_resposta",
+      "respondiveis": false,
+      "pergunta": "Qual e o numero exato do proximo onibus a entrar no estacionamento da FCTE nos proximos cinco minutos?",
+      "referencia": "Nao ha dados de passagem e trajeto de onibus ao vivo na base.",
+      "evidencias": []
+    }
+  ]
+}

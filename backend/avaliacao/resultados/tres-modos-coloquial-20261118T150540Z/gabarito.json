@@ -1,0 +1,137 @@
+{
+  "versao": "coloquial-1-2026-11-18",
+  "natureza": "CONJUNTO DE ESTRESSE QUE FAVORECE O MULTIAGENTE. Perguntas em linguagem coloquial escolhidas DEPOIS de verificar, so com a busca local (sem Gemini), que a consulta unica do RAG atual nao recupera o documento que responde (C01-C06) ou recupera so uma das partes (C07). C08 e controle: o RAG atual ja recupera o documento certo. C01 veio de uma pergunta feita na comparacao ao vivo em que so o multiagente respondeu. Testa a hipotese 'o multiagente ajuda quando o vocabulario da pessoa difere do vocabulario dos documentos'. Nao substitui conferencia_final.json e nao estima desempenho medio.",
+  "politica": "Congelar antes de executar; nao ajustar prompts, busca, modelo ou gabarito apos observar as respostas. Relatar sempre junto com a conferencia_final. Revisao humana obrigatoria.",
+  "selecao": {
+    "metodo": "Busca hibrida + reranker local com a pergunta original, comparando os source_id recuperados com os documentos do gabarito.",
+    "executada_em": "2026-11-18",
+    "resultado_rag_atual": {
+      "C01": "DOC-013",
+      "C02": "nenhum",
+      "C03": "nenhum",
+      "C04": "DOC-012, DOC-008, DOC-013, DOC-036",
+      "C05": "nenhum",
+      "C06": "DOC-008",
+      "C07": "DOC-036, DOC-008 (sem localizacao)",
+      "C08": "DOC-030"
+    }
+  },
+  "perguntas": [
+    {
+      "id": "C01",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "Tem quadra de futebol na unb do gama?",
+      "referencia": "Ha uma quadra de esportes entre os espacos de convivencia da FCTE; a base nao informa se e especificamente de futebol.",
+      "evidencias": [
+        {
+          "source_id": "DOC-009",
+          "trecho": "Espacos de convivencia: Quadra de esportes; Parque Solar"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "Onde eu vou se passar mal no campus?",
+      "referencia": "A DASU mantem um Nucleo de Atencao e Vigilancia em Saude (Navs) na FCTE, com acolhimento, afericao de sinais vitais, consulta de enfermagem e curativos; a enfermagem atende de segunda a sexta, 07h as 19h, no predio UED.",
+      "evidencias": [
+        {
+          "source_id": "DOC-013",
+          "trecho": "Navs ... na Faculdade do Gama (FCTE): acolhimento, sinais vitais, consulta de enfermagem, curativos"
+        },
+        {
+          "source_id": "DOC-002",
+          "trecho": "ENFERMAGEM: segunda a sexta, 07 as 19h, predio UED"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "To muito ansioso com as provas, tem alguem na faculdade pra conversar?",
+      "referencia": "A DASU oferece acolhimento psicossocial individual e sigiloso, por procura espontanea pelo e-mail coapsicossocial@unb.br; o atendimento psicologico (seg-sex, 07h-19h) ocorre por encaminhamento. Nao atende emergencias: em crise, procurar CAPS, HSVP ou SAMU 192.",
+      "evidencias": [
+        {
+          "source_id": "DOC-035",
+          "trecho": "Servico de Acolhimento Psicossocial Individual; coapsicossocial@unb.br; Coap nao realiza atendimentos de emergencia"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "Como eu pego onibus pra chegar no campus do Gama?",
+      "referencia": "A base indica o DF no Ponto, aplicativo do GDF, para consultar linhas, horarios e pontos informando partida e destino; a base nao traz uma linha especifica para o campus.",
+      "evidencias": [
+        {
+          "source_id": "DOC-025",
+          "trecho": "DF NO PONTO: horarios, linhas e pontos de parada"
+        },
+        {
+          "source_id": "DOC-026",
+          "trecho": "informar o local de partida ou destino"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "A cadeira da minha sala nao serve pra mim, o que eu faco?",
+      "referencia": "A DACES/DAC oferece a estudantes cadastrados remanejamento de sala e mobiliario acessivel, como cadeiras para pessoas obesas, cadeiras acolchoadas e mesas para cadeira de rodas.",
+      "evidencias": [
+        {
+          "source_id": "DOC-034",
+          "trecho": "apoio para remanejamento de sala de aula e mobiliario acessivel"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "tipo": "vocabulario_coloquial",
+      "respondiveis": true,
+      "pergunta": "Quantos livros posso pegar de uma vez na biblioteca?",
+      "referencia": "Ate 5 exemplares, pela regra de emprestimo do Sistema de Bibliotecas da UnB.",
+      "evidencias": [
+        {
+          "source_id": "DOC-032",
+          "trecho": "Quantidade maxima de exemplares: 5"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "tipo": "composta_entre_documentos",
+      "respondiveis": true,
+      "pergunta": "Onde fica a biblioteca e como acesso artigos da CAPES de casa?",
+      "referencia": "A biblioteca fica no predio UAC (atendimento seg-sex, 07h-19h). De casa: Portal de Periodicos da CAPES > Acesso CAFe > selecionar UnB > login institucional e senha do SIGAA.",
+      "evidencias": [
+        {
+          "source_id": "DOC-002",
+          "trecho": "BIBLIOTECA ... Local: Predio UAC"
+        },
+        {
+          "source_id": "DOC-036",
+          "trecho": "Acesso CAFe; login e senha institucionais"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "tipo": "controle",
+      "respondiveis": true,
+      "pergunta": "Tem wifi no campus? Como eu conecto o celular?",
+      "referencia": "Sim: redes UnB Wireless e Eduroam, com login e senha do e-mail institucional.",
+      "evidencias": [
+        {
+          "source_id": "DOC-030",
+          "trecho": "UnB Wireless e Eduroam ... login e senha do e-mail institucional"
+        }
+      ]
+    }
+  ]
+}

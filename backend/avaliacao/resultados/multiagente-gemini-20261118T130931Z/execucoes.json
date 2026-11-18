@@ -1,0 +1,549 @@
+{
+  "natureza": "Testes de integracao com Gemini real (issues #1 e #2). Nao substitui a avaliacao da issue #4.",
+  "gitHead": "f45ffcc1e4f5eb694466cfa607d6015072cdbabd",
+  "modelo": "gemini-3.5-flash-lite",
+  "geracao": {
+    "provedor": "gemini",
+    "modelo": "gemini-3.5-flash-lite",
+    "temperatura": 0.1,
+    "timeout_s": 90,
+    "max_output_tokens": 3072
+  },
+  "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+  "retrievalSignature": "f571fcdc1349b69c7fc5f61c63b875d85cfbd7545714c27bc62c84c5401fd906",
+  "promptSha256": {
+    "pesquisador": "4c1bbc001f721de4298d93b4947e58de1cd691aa65591badf0452efa3f8b0306",
+    "redator": "cd3ebc709dd067e4e92d994c0504aec52dab83a6ad4111a3ee7497898027c595",
+    "revisor": "67ff9d7a5e6b2ddde0c063934d02d8daa8bd94a1ab08d9ce138891be65cfab0b"
+  },
+  "falhasProvedorRepetidas": [],
+  "casos": [
+    {
+      "caso": "contexto_turno_1",
+      "pergunta": "Onde fica a biblioteca do campus Gama?",
+      "resposta": {
+        "status": "answered",
+        "answer": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama. [1]\n\nA biblioteca fica situada no Prédio UAC. [2]",
+        "sources": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1060023307800293,
+            "lexicalScore": 10.301057389446155
+          },
+          {
+            "id": "c_ff640f1875faa059",
+            "sourceId": "DOC-002",
+            "title": "Contato da FCTE",
+            "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+            "url": "https://fcte.unb.br/contato/",
+            "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12250411510467529,
+            "lexicalScore": 6.200070923117932
+          }
+        ],
+        "claims": [
+          {
+            "text": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "sourceIds": [
+              "c_c8a0b710c3c50b09"
+            ]
+          },
+          {
+            "text": "A biblioteca fica situada no Prédio UAC.",
+            "sourceIds": [
+              "c_ff640f1875faa059"
+            ]
+          }
+        ],
+        "requestId": "b847ea94-05ad-4b65-a5f4-b01ede085d0e",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1060023307800293,
+            "lexicalScore": 10.301057389446155
+          },
+          {
+            "id": "c_1cfe0848c545f27c",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "Serviços > Comunidade Externa",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11567950248718262,
+            "lexicalScore": 10.333516262975566
+          },
+          {
+            "id": "c_17241a7563801760",
+            "sourceId": "DOC-008",
+            "title": "Biblioteca – Engenharia de Software",
+            "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+            "url": "https://software.unb.br/biblioteca/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1088482141494751,
+            "lexicalScore": 9.813428225936836
+          },
+          {
+            "id": "c_ff640f1875faa059",
+            "sourceId": "DOC-002",
+            "title": "Contato da FCTE",
+            "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+            "url": "https://fcte.unb.br/contato/",
+            "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12250411510467529,
+            "lexicalScore": 6.200070923117932
+          },
+          {
+            "id": "c_ce46e880e27ab7af",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nLaboratório de Sistemas Espaciais – LaSE\nSite: https://lase.unb.br/\nCoordenador: Manuel Nascimento Dias Barcelos\nContato: e-mail: manuelbarcelos@unb.br\nLocal: Prédio LDTEA – Térreo – Salas 104 e 108",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12818467617034912,
+            "lexicalScore": 3.6808465847306793
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 4577,
+          "candidatesTokenCount": 258,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 4835
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 145,
+              "candidatesTokenCount": 63,
+              "totalTokenCount": 208
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1704,
+              "candidatesTokenCount": 149,
+              "totalTokenCount": 1853
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2728,
+              "candidatesTokenCount": 46,
+              "totalTokenCount": 2774
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T13:09:39.072054+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 2246,
+            "at": "2026-11-18T13:09:41.318374+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 3993,
+            "at": "2026-11-18T13:09:45.311698+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2084,
+            "at": "2026-11-18T13:09:47.395542+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 2578,
+            "at": "2026-11-18T13:09:49.973684+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 2445,
+            "at": "2026-11-18T13:09:52.421293+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta cobre perfeitamente a pergunta, utilizando informações suportadas diretamente pelos chunks fornecidos e citando as fontes corretas."
+          }
+        ],
+        "searches": [
+          {
+            "query": "biblioteca FCTE UnB Gama localizacao",
+            "chunkIds": [
+              "c_c8a0b710c3c50b09",
+              "c_1cfe0848c545f27c",
+              "c_ff640f1875faa059",
+              "c_ce46e880e27ab7af",
+              "c_17241a7563801760"
+            ],
+            "candidatosAvaliados": 26
+          },
+          {
+            "query": "onde fica a biblioteca do campus Gama UnB",
+            "chunkIds": [
+              "c_c8a0b710c3c50b09",
+              "c_17241a7563801760",
+              "c_1cfe0848c545f27c",
+              "c_731826bb1c0cfdfc",
+              "c_5d991e58cb719826"
+            ],
+            "candidatosAvaliados": 16
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama. [1]\n\nA biblioteca fica situada no Prédio UAC. [2]",
+              "sources": [
+                {
+                  "id": "c_c8a0b710c3c50b09",
+                  "sourceId": "DOC-012",
+                  "title": "Biblioteca Campus Gama – BCE",
+                  "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+                  "url": "https://bce.unb.br/biblioteca-campus-gama/",
+                  "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.1060023307800293,
+                  "lexicalScore": 10.301057389446155
+                },
+                {
+                  "id": "c_ff640f1875faa059",
+                  "sourceId": "DOC-002",
+                  "title": "Contato da FCTE",
+                  "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+                  "url": "https://fcte.unb.br/contato/",
+                  "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.12250411510467529,
+                  "lexicalScore": 6.200070923117932
+                }
+              ],
+              "claims": [
+                {
+                  "text": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+                  "sourceIds": [
+                    "c_c8a0b710c3c50b09"
+                  ]
+                },
+                {
+                  "text": "A biblioteca fica situada no Prédio UAC.",
+                  "sourceIds": [
+                    "c_ff640f1875faa059"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      }
+    },
+    {
+      "caso": "contexto_turno_2",
+      "pergunta": "E la posso estudar em grupo ou so individualmente?",
+      "resposta": {
+        "status": "answered",
+        "answer": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo. [1]",
+        "sources": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11337071657180786,
+            "lexicalScore": 17.804352949756538
+          }
+        ],
+        "claims": [
+          {
+            "text": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo.",
+            "sourceIds": [
+              "c_c8a0b710c3c50b09"
+            ]
+          }
+        ],
+        "requestId": "0c50d9cb-a540-441c-8b3e-0287bc0ed379",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_1cfe0848c545f27c",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "Serviços > Comunidade Externa",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.08951246738433838,
+            "lexicalScore": 16.77541531274418
+          },
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11337071657180786,
+            "lexicalScore": 17.804352949756538
+          },
+          {
+            "id": "c_ff640f1875faa059",
+            "sourceId": "DOC-002",
+            "title": "Contato da FCTE",
+            "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+            "url": "https://fcte.unb.br/contato/",
+            "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11509042978286743,
+            "lexicalScore": 7.664198663898863
+          },
+          {
+            "id": "c_17241a7563801760",
+            "sourceId": "DOC-008",
+            "title": "Biblioteca – Engenharia de Software",
+            "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+            "url": "https://software.unb.br/biblioteca/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.13428598642349243,
+            "lexicalScore": 6.388434486061995
+          },
+          {
+            "id": "c_897e247efcea1137",
+            "sourceId": "DOC-040",
+            "title": "Biblioteca Digital e Sonora — BCE",
+            "excerpt": "Biblioteca Digital e Sonora — BCE\nBiblioteca Digital e Sonora\nPatrícia Nunes da Silva Arantes\nBibliotecária | Vespertino (BCE/GID/SBD)\n(61) 3107-2683\nbds.bce@unb.br\nDe 2ª a 6ª, das 14h às 20h\nYoutube Instagram Whatsapp Tiktok Spotify",
+            "url": "https://bce.unb.br/bibliotecas-digitais/bds/",
+            "section": "Biblioteca Digital e Sonora > Patrícia Nunes da Silva Arantes",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.13119029998779297,
+            "lexicalScore": 7.045107727107711
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 4146,
+          "candidatesTokenCount": 202,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 4348
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 225,
+              "candidatesTokenCount": 73,
+              "totalTokenCount": 298
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1760,
+              "candidatesTokenCount": 93,
+              "totalTokenCount": 1853
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2161,
+              "candidatesTokenCount": 36,
+              "totalTokenCount": 2197
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 38,
+            "at": "2026-11-18T13:10:00.465948+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 7615,
+            "at": "2026-11-18T13:10:08.080798+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 1949,
+            "at": "2026-11-18T13:10:10.029519+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2263,
+            "at": "2026-11-18T13:10:12.292537+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 6475,
+            "at": "2026-11-18T13:10:18.768827+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 7291,
+            "at": "2026-11-18T13:10:26.066122+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta responde diretamente à pergunta utilizando evidências corroboradas exatamente pelo chunk citado."
+          }
+        ],
+        "searches": [
+          {
+            "query": "Biblioteca Campus Gama BCE contato FCTE",
+            "chunkIds": [
+              "c_1cfe0848c545f27c",
+              "c_c8a0b710c3c50b09",
+              "c_ff640f1875faa059",
+              "c_17241a7563801760",
+              "c_897e247efcea1137"
+            ],
+            "candidatosAvaliados": 29
+          },
+          {
+            "query": "Biblioteca FCTE UnB Gama estudo em grupo ou individual",
+            "chunkIds": [
+              "c_c8a0b710c3c50b09",
+              "c_1cfe0848c545f27c",
+              "c_17241a7563801760",
+              "c_ff640f1875faa059",
+              "c_d358c91019bb9877"
+            ],
+            "candidatosAvaliados": 19
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo. [1]",
+              "sources": [
+                {
+                  "id": "c_c8a0b710c3c50b09",
+                  "sourceId": "DOC-012",
+                  "title": "Biblioteca Campus Gama – BCE",
+                  "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+                  "url": "https://bce.unb.br/biblioteca-campus-gama/",
+                  "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.11337071657180786,
+                  "lexicalScore": 17.804352949756538
+                }
+              ],
+              "claims": [
+                {
+                  "text": "A Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo.",
+                  "sourceIds": [
+                    "c_c8a0b710c3c50b09"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      },
+      "previousRequestId": "b847ea94-05ad-4b65-a5f4-b01ede085d0e"
+    }
+  ]
+}

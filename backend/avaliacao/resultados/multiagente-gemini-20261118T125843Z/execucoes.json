@@ -1,0 +1,1329 @@
+{
+  "natureza": "Testes de integracao com Gemini real (issues #1 e #2). Nao substitui a avaliacao da issue #4.",
+  "gitHead": "f45ffcc1e4f5eb694466cfa607d6015072cdbabd",
+  "modelo": "gemini-3.5-flash-lite",
+  "geracao": {
+    "provedor": "gemini",
+    "modelo": "gemini-3.5-flash-lite",
+    "temperatura": 0.1,
+    "timeout_s": 90,
+    "max_output_tokens": 3072
+  },
+  "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+  "retrievalSignature": "f571fcdc1349b69c7fc5f61c63b875d85cfbd7545714c27bc62c84c5401fd906",
+  "promptSha256": {
+    "pesquisador": "4c1bbc001f721de4298d93b4947e58de1cd691aa65591badf0452efa3f8b0306",
+    "redator": "cd3ebc709dd067e4e92d994c0504aec52dab83a6ad4111a3ee7497898027c595",
+    "revisor": "67ff9d7a5e6b2ddde0c063934d02d8daa8bd94a1ab08d9ce138891be65cfab0b"
+  },
+  "casos": [
+    {
+      "caso": "H01_composta",
+      "pergunta": "Onde encontro COSMOS e LEMA? Informe predio, andar e sala de cada um.",
+      "resposta": {
+        "status": "answered",
+        "answer": "O laboratório COSMOS localiza-se no Pr#00e9dio LDTEA, 2º andar, Sala 304. [1]\n\nO laboratório LEMA localiza-se no Pr#00e9dio LDTEA, T#00e9rreo, Sala 103. [1]",
+        "sources": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.0936424732208252,
+            "lexicalScore": 14.7385236103793
+          }
+        ],
+        "claims": [
+          {
+            "text": "O laboratório COSMOS localiza-se no Pr#00e9dio LDTEA, 2º andar, Sala 304.",
+            "sourceIds": [
+              "c_f2c6f00293fae365"
+            ]
+          },
+          {
+            "text": "O laboratório LEMA localiza-se no Pr#00e9dio LDTEA, T#00e9rreo, Sala 103.",
+            "sourceIds": [
+              "c_f2c6f00293fae365"
+            ]
+          }
+        ],
+        "requestId": "b6f68cec-34d2-4a81-b8e9-f4b5691cf990",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.0936424732208252,
+            "lexicalScore": 14.7385236103793
+          },
+          {
+            "id": "c_55ee7be5be11fb92",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Eletrônica\nLaboratório de Modelagem de Sistemas – LABMODSIS\nSite: https://eletronica.unb.br/2025/05/12/labmodsis/\nCoordenador: Luciano Emidio\nContato: e-mail: lucianofonseca@unb.br\nLocal: Prédio UAC – Sala ao lado do CPD\nLaboratório de Robótica e Sistemas de Controle – LARSIS\nSite: https://larsis.unb.br/\nCoordenador: Roberto de Souza Baptista\nContato: e-mail: robertobaptista@unb.br\nLocal: Prédio LDTEA – 1º andar – Sala 208\nLaboratório de Simulação e Software – LAB SS\nCoordenador: Daniel Costa Araújo\nContato: e-mail: daniel.araujo@unb.br\nLocal: Prédio UED – Térreo – Sala AT-44/29\nLaboratório Núcleo de Eletrônica e Instrumentação 1 – NEI1\nCoordenador: Daniel Costa Araújo\nContato: e-mail: daniel.araujo@unb.br\nLocal: Prédio UED – Térreo – Sala AT-72/29",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Eletrônica",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.10937613248825073,
+            "lexicalScore": 12.819076232226045
+          },
+          {
+            "id": "c_df45b0823ed5a0bc",
+            "sourceId": "DOC-018",
+            "title": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "excerpt": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nO Computational Aerospace Simulations & Modeling Laboratory (COSMOS), coordenado pela Prof.ª Polliana Candida Oliveira Martins, é um laboratório de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), especializado em simulações numéricas de sistemas aeroespaciais e análise de estruturas aeroespaciais. O COSMOS se dedica ao avanço de técnicas de modelagem computacional e à solução de problemas complexos em engenharia aeroespacial, promovendo inovação e formação de profissionais capacitados.",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "section": "Computational Aerospace Simulations & Modeling Laboratory​",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.118796706199646,
+            "lexicalScore": 9.53596419441906
+          },
+          {
+            "id": "c_8342bdbf90aca901",
+            "sourceId": "DOC-017",
+            "title": "Laboratório de Microeletrônica e Sistemas Embarcados",
+            "excerpt": "Laboratório de Microeletrônica e Sistemas Embarcados\nLaboratório de Microeletrônica e Sistemas Embarcados\nInfraestrutura e Equipamentos\nO LabMicro possui uma infraestrutura de ponta no prédio LDTEA da FCTE, com uma área de 45 m² equipada com seis estações de trabalho, osciloscópios, fontes de alimentação, geradores de sinais, e kits de desenvolvimento FPGA. Conta também com kits para rádios definidos por software (SDR) e sistemas embarcados baseados em processadores ARM Cortex A9 e ARM R5. Essa estrutura permite a realização de projetos complexos e a formação prática dos alunos.\nColaboração e Parcerias\nO LabMicro mantém parcerias estratégicas com outros laboratórios da FCTE e da Faculdade de Tecnologia (FT) da UnB, especialmente com o Laboratório de Dispositivos e Circuitos Integrados (LDCI) da FT. Essas colaborações possibilitam a caracterização elétrica de dispositivos e circuitos integrados, cobrindo uma faixa de frequência de sub-Hz até 3 GHz, fortalecendo a pesquisa e desenvolvimento de tecnologias de ponta.",
+            "url": "https://lite.unb.br/laboratorio-de-microeletronica-e-sistemas-embarcados/",
+            "section": "Laboratório de Microeletrônica e Sistemas Embarcados > Infraestrutura e Equipamentos > Laboratório de Microeletrônica e Sistemas Embarcados > Colaboração e Parcerias",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11159676313400269,
+            "lexicalScore": 6.1828076462253
+          },
+          {
+            "id": "c_d6a2631ef4c0ed6a",
+            "sourceId": "DOC-022",
+            "title": "Termofluidos LITE",
+            "excerpt": "Termofluidos LITE\nLaboratório de Termofluidos\nO Laboratório de Termofluidos (LabTermo), coordenado pelo Prof. Luciano Gonçalves Noleto, é uma unidade de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), dedicada ao estudo e desenvolvimento em áreas relacionadas à mecânica dos fluidos, transferência de calor e aproveitamento de energia. Com uma abordagem multidisciplinar, o LabTermo foca no avanço de tecnologias para sistemas térmicos e hidráulicos, promovendo a eficiência energética e soluções sustentáveis para aplicações industriais e acadêmicas.",
+            "url": "https://lite.unb.br/laboratorio-de-termofluidos/",
+            "section": "Laboratório de Termofluidos",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11194002628326416
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 4013,
+          "candidatesTokenCount": 309,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 4322
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 156,
+              "candidatesTokenCount": 81,
+              "totalTokenCount": 237
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1661,
+              "candidatesTokenCount": 155,
+              "totalTokenCount": 1816
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2196,
+              "candidatesTokenCount": 73,
+              "totalTokenCount": 2269
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T12:58:51.613765+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 9173,
+            "at": "2026-11-18T12:59:00.786738+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 4002,
+            "at": "2026-11-18T12:59:04.788589+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2051,
+            "at": "2026-11-18T12:59:06.839291+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 2128,
+            "at": "2026-11-18T12:59:08.967898+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 7755,
+            "at": "2026-11-18T12:59:16.724805+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta cobre completamente o pedido, informando prédio, andar e sala para COSMOS e LEMA, e todas as afirmações são rigorosamente corroboradas pelo chunk citado (c_f2c6f00293fae365)."
+          }
+        ],
+        "searches": [
+          {
+            "query": "onde fica o laboratorio COSMOS FCTE UnB predio andar sala",
+            "chunkIds": [
+              "c_f2c6f00293fae365",
+              "c_55ee7be5be11fb92",
+              "c_df45b0823ed5a0bc",
+              "c_8342bdbf90aca901",
+              "c_d358c91019bb9877"
+            ],
+            "candidatosAvaliados": 26
+          },
+          {
+            "query": "onde fica o laboratorio LEMA FCTE UnB predio andar sala",
+            "chunkIds": [
+              "c_f2c6f00293fae365",
+              "c_6bbc4a7ded869187",
+              "c_8342bdbf90aca901",
+              "c_d6a2631ef4c0ed6a",
+              "c_45e04c73c85bdc29"
+            ],
+            "candidatosAvaliados": 25
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "O laboratório COSMOS localiza-se no Pr#00e9dio LDTEA, 2º andar, Sala 304. [1]\n\nO laboratório LEMA localiza-se no Pr#00e9dio LDTEA, T#00e9rreo, Sala 103. [1]",
+              "sources": [
+                {
+                  "id": "c_f2c6f00293fae365",
+                  "sourceId": "DOC-005",
+                  "title": "Diretório de laboratórios da FCTE",
+                  "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+                  "url": "https://fcte.unb.br/homologa_laboratorios/",
+                  "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.0936424732208252,
+                  "lexicalScore": 14.7385236103793
+                }
+              ],
+              "claims": [
+                {
+                  "text": "O laboratório COSMOS localiza-se no Pr#00e9dio LDTEA, 2º andar, Sala 304.",
+                  "sourceIds": [
+                    "c_f2c6f00293fae365"
+                  ]
+                },
+                {
+                  "text": "O laboratório LEMA localiza-se no Pr#00e9dio LDTEA, T#00e9rreo, Sala 103.",
+                  "sourceIds": [
+                    "c_f2c6f00293fae365"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      },
+      "referencia": "COSMOS no LDTEA, 2º andar, sala 304; LEMA no LDTEA, terreo, sala 103."
+    },
+    {
+      "caso": "H05_premissa_incorreta",
+      "pergunta": "O COSMOS fica na sala 101 do terreo, correto?",
+      "resposta": {
+        "status": "answered",
+        "answer": "A premissa está incorreta. O COSMOS fica localizado no Prédio LDTEA, no 2 andar, na Sala 304. [1]",
+        "sources": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11883044242858887,
+            "lexicalScore": 8.459801290339247
+          }
+        ],
+        "claims": [
+          {
+            "text": "A premissa está incorreta. O COSMOS fica localizado no Prédio LDTEA, no 2 andar, na Sala 304.",
+            "sourceIds": [
+              "c_f2c6f00293fae365"
+            ]
+          }
+        ],
+        "requestId": "e0c7ff39-bf8c-482f-89ed-b668f0850caf",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_df45b0823ed5a0bc",
+            "sourceId": "DOC-018",
+            "title": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "excerpt": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nO Computational Aerospace Simulations & Modeling Laboratory (COSMOS), coordenado pela Prof.ª Polliana Candida Oliveira Martins, é um laboratório de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), especializado em simulações numéricas de sistemas aeroespaciais e análise de estruturas aeroespaciais. O COSMOS se dedica ao avanço de técnicas de modelagem computacional e à solução de problemas complexos em engenharia aeroespacial, promovendo inovação e formação de profissionais capacitados.",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "section": "Computational Aerospace Simulations & Modeling Laboratory​",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11396139860153198,
+            "lexicalScore": 8.210322469491626
+          },
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11883044242858887,
+            "lexicalScore": 8.459801290339247
+          },
+          {
+            "id": "c_75606552bab0593d",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios da Engenharia de Energia\nLaboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia – LabNanotec\nSite: https://nanotecnologia.unb.br/\nCoordenadora: Maria Del Pilar Hidalgo\nContato: e-mail: pilar@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 101\nLaboratório de Eletricidade Aplicada – LEA\nCoordenador: Jorge Cormane\nContato: e-mail: jcormane@unb.br\nLocal: Prédio UED – Térreo – Sala AT-46/7\nLaboratório de Energia, Ambiente e Sociedade – LABENSO\nCoordenadora: Josiane do Socorro Aguiar\nContato: e-mail: josiane@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 307",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios da Engenharia de Energia",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.13892269134521484,
+            "lexicalScore": 5.654259058134126
+          },
+          {
+            "id": "c_2d85dbef5af80376",
+            "sourceId": "DOC-018",
+            "title": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "excerpt": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nContribuição para Inovação e Formação\nO COSMOS desempenha um papel fundamental na formação de engenheiros aeroespaciais, oferecendo uma base prática e teórica sólida em modelagem e simulação. Suas pesquisas contribuem para o avanço da ciência e tecnologia aeroespacial, fortalecendo a posição da UnB como um polo de inovação em engenharia.",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "section": "Computational Aerospace Simulations & Modeling Laboratory​ > Contribuição para Inovação e Formação",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.13862532377243042,
+            "lexicalScore": 6.343851480326593
+          },
+          {
+            "id": "c_8342bdbf90aca901",
+            "sourceId": "DOC-017",
+            "title": "Laboratório de Microeletrônica e Sistemas Embarcados",
+            "excerpt": "Laboratório de Microeletrônica e Sistemas Embarcados\nLaboratório de Microeletrônica e Sistemas Embarcados\nInfraestrutura e Equipamentos\nO LabMicro possui uma infraestrutura de ponta no prédio LDTEA da FCTE, com uma área de 45 m² equipada com seis estações de trabalho, osciloscópios, fontes de alimentação, geradores de sinais, e kits de desenvolvimento FPGA. Conta também com kits para rádios definidos por software (SDR) e sistemas embarcados baseados em processadores ARM Cortex A9 e ARM R5. Essa estrutura permite a realização de projetos complexos e a formação prática dos alunos.\nColaboração e Parcerias\nO LabMicro mantém parcerias estratégicas com outros laboratórios da FCTE e da Faculdade de Tecnologia (FT) da UnB, especialmente com o Laboratório de Dispositivos e Circuitos Integrados (LDCI) da FT. Essas colaborações possibilitam a caracterização elétrica de dispositivos e circuitos integrados, cobrindo uma faixa de frequência de sub-Hz até 3 GHz, fortalecendo a pesquisa e desenvolvimento de tecnologias de ponta.",
+            "url": "https://lite.unb.br/laboratorio-de-microeletronica-e-sistemas-embarcados/",
+            "section": "Laboratório de Microeletrônica e Sistemas Embarcados > Infraestrutura e Equipamentos > Laboratório de Microeletrônica e Sistemas Embarcados > Colaboração e Parcerias",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12322217226028442,
+            "lexicalScore": 3.787056023000841
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 3670,
+          "candidatesTokenCount": 196,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 3866
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 152,
+              "candidatesTokenCount": 64,
+              "totalTokenCount": 216
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1541,
+              "candidatesTokenCount": 74,
+              "totalTokenCount": 1615
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 1977,
+              "candidatesTokenCount": 58,
+              "totalTokenCount": 2035
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T12:59:24.738508+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 2275,
+            "at": "2026-11-18T12:59:27.013580+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 1957,
+            "at": "2026-11-18T12:59:28.971137+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2074,
+            "at": "2026-11-18T12:59:31.044973+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 1400,
+            "at": "2026-11-18T12:59:32.445521+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 981,
+            "at": "2026-11-18T12:59:33.427120+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta está correta, corrige a premissa falsa e está devidamente fundamentada pelo chunk c_f2c6f00293fae365."
+          }
+        ],
+        "searches": [
+          {
+            "query": "COSMOS FCTE UnB sala",
+            "chunkIds": [
+              "c_df45b0823ed5a0bc",
+              "c_f2c6f00293fae365",
+              "c_75606552bab0593d",
+              "c_2d85dbef5af80376",
+              "c_d358c91019bb9877"
+            ],
+            "candidatosAvaliados": 29
+          },
+          {
+            "query": "laboratorio COSMOS FCTE localizacao",
+            "chunkIds": [
+              "c_df45b0823ed5a0bc",
+              "c_f2c6f00293fae365",
+              "c_87b53807e864553c",
+              "c_8342bdbf90aca901",
+              "c_d6a2631ef4c0ed6a"
+            ],
+            "candidatosAvaliados": 26
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "A premissa está incorreta. O COSMOS fica localizado no Prédio LDTEA, no 2 andar, na Sala 304. [1]",
+              "sources": [
+                {
+                  "id": "c_f2c6f00293fae365",
+                  "sourceId": "DOC-005",
+                  "title": "Diretório de laboratórios da FCTE",
+                  "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+                  "url": "https://fcte.unb.br/homologa_laboratorios/",
+                  "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.11883044242858887,
+                  "lexicalScore": 8.459801290339247
+                }
+              ],
+              "claims": [
+                {
+                  "text": "A premissa está incorreta. O COSMOS fica localizado no Prédio LDTEA, no 2 andar, na Sala 304.",
+                  "sourceIds": [
+                    "c_f2c6f00293fae365"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      },
+      "referencia": "Nao; COSMOS no LDTEA, segundo andar, sala 304."
+    },
+    {
+      "caso": "H07_sem_resposta",
+      "pergunta": "Quantos estudantes estao dentro da sala I10 neste exato minuto?",
+      "resposta": {
+        "status": "insufficient",
+        "message": "Nao ha evidencia suficiente para informar o numero de estudantes dentro da sala I10 neste momento.",
+        "sources": [],
+        "claims": [],
+        "requestId": "85e6df9a-557a-4c2c-b527-0892c8a92f64",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_45e04c73c85bdc29",
+            "sourceId": "DOC-001",
+            "title": "Infraestrutura da FCTE",
+            "excerpt": "Infraestrutura da FCTE\nInfraestrutura\nA atual sede do campus da FCTE conta com uma Unidade Acadêmica (UAC), uma Unidade de Ensino e Docência (UED) e um centro de convivência. Os edifícios são de dois pavimentos, sendo o centro de convivência no andar térreo. A área construída prevista para cada uma das unidades é de aproximadamente 5.200 m². Na UED estão locadas as salas de professores, os serviços de secretaria, laboratórios, diretoria e coordenação acadêmica. Na UAC, estão locadas salas de aula, laboratórios de informática, biblioteca e auditório.",
+            "url": "https://fcte.unb.br/infraestrutura/",
+            "section": "Infraestrutura",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12912136316299438,
+            "lexicalScore": 6.986017079158358
+          },
+          {
+            "id": "c_656d20356f40f1db",
+            "sourceId": "MAP-UAC-0",
+            "title": "Mapeamento interno da UAC — Térreo",
+            "excerpt": "Mapeamento interno da UAC — Térreo\nMapeamento interno da UAC — Térreo\nConvivencia\nCantina (identificador no mapa: T-051), Térreo da UAC. Ponto aproximado: latitude -15.9890299, longitude -48.0450907.\nElevador\nPlataforma Elevatória (identificador no mapa: T-014), Térreo da UAC. Ponto aproximado: latitude -15.9888551, longitude -48.0448438.\nEscada\nEscada (identificador no mapa: T-019), Térreo da UAC. Ponto aproximado: latitude -15.9888730, longitude -48.0448823.\nEscada (identificador no mapa: T-022), Térreo da UAC. Ponto aproximado: latitude -15.9892750, longitude -48.0444972.\nLaboratorio\nSala de Informática - Apoio (identificador no mapa: T-039), Térreo da UAC. Ponto aproximado: latitude -15.9893471, longitude -48.0445819.\nI10 (identificador no mapa: T-043), Térreo da UAC. Ponto aproximado: latitude -15.9893860, longitude -48.0446255.",
+            "url": "https://github.com/Muniz2811/FCTE-Campus/blob/main/backend/data/imports/mapas/MAP-UAC-0.json",
+            "section": "Mapeamento interno da UAC — Térreo > Convivencia > Mapeamento interno da UAC — Térreo > Elevador > Mapeamento interno da UAC — Térreo > Escada > Mapeamento interno da UAC — Térreo > Laboratorio",
+            "version": "2026-11-16-a454c6d2",
+            "reviewedAt": "2026-11-16",
+            "validUntil": "desconhecida",
+            "distance": 0.15676188468933105,
+            "lexicalScore": 5.271026411485846
+          },
+          {
+            "id": "c_0904be5ddfac8a87",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia de Software\nCentro de Estudos Desenvolvimento e Inovação em Software – CEDIS\nSite: http://www.cedis.unb.br\nCoordenador: André Luiz Peron Martins\nContato: e-mail: andrelanna@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 310\nInformation Technology Research and Application Center – ITRAC\nSite: http://itrac.unb.br\nCoordenadora: Rejane Maria da Costa Figueiredo\nContato: e-mail: rejanecosta@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 312 e Contêiner 16\nLaboratório Avançado de Produção, Pesquisa e Inovação em Software – LAPPIS\nSite: https://www.lappis.rocks/\nCoordenadora: Carla Rocha Silva Aguiar\nContato: e-mail: caguiar@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 313\nLaboratório de Desenvolvimento de Software – LDS\nCoordenador: Fernando William Cruz\nContato: e-mail: fwcruz@unb.br\nLocal: Prédio UED – Térreo – Sala AT-41/29",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia de Software",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12235426902770996,
+            "lexicalScore": 5.338342445564569
+          },
+          {
+            "id": "c_29946fe4e7700814",
+            "sourceId": "MAP-UAC-0",
+            "title": "Mapeamento interno da UAC — Térreo",
+            "excerpt": "Mapeamento interno da UAC — Térreo\nMapeamento interno da UAC — Térreo\nBanheiros e sanitários\nSanitário Feminino (identificador no mapa: T-034), Térreo da UAC. Categoria: banheiro / sanitário / WC. Referências próximas no desenho: Sala de Informática - Apoio (T-039), I10 (T-043). Ponto aproximado: latitude -15.9893462, longitude -48.0445558.",
+            "url": "https://github.com/Muniz2811/FCTE-Campus/blob/main/backend/data/imports/mapas/MAP-UAC-0.json",
+            "section": "Mapeamento interno da UAC — Térreo > Banheiros e sanitários",
+            "version": "2026-11-16-a454c6d2",
+            "reviewedAt": "2026-11-16",
+            "validUntil": "desconhecida",
+            "distance": 0.18117141723632812,
+            "lexicalScore": 7.381146973040963
+          },
+          {
+            "id": "c_75606552bab0593d",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios da Engenharia de Energia\nLaboratório Compartilhado de Ensino e Pesquisa em Nanotecnologia – LabNanotec\nSite: https://nanotecnologia.unb.br/\nCoordenadora: Maria Del Pilar Hidalgo\nContato: e-mail: pilar@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 101\nLaboratório de Eletricidade Aplicada – LEA\nCoordenador: Jorge Cormane\nContato: e-mail: jcormane@unb.br\nLocal: Prédio UED – Térreo – Sala AT-46/7\nLaboratório de Energia, Ambiente e Sociedade – LABENSO\nCoordenadora: Josiane do Socorro Aguiar\nContato: e-mail: josiane@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 307",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios da Engenharia de Energia",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1304144263267517,
+            "lexicalScore": 5.654259058134126
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 3592,
+          "candidatesTokenCount": 166,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 3758
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 152,
+              "candidatesTokenCount": 71,
+              "totalTokenCount": 223
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1757,
+              "candidatesTokenCount": 44,
+              "totalTokenCount": 1801
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 1683,
+              "candidatesTokenCount": 51,
+              "totalTokenCount": 1734
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T12:59:41.434991+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 8230,
+            "at": "2026-11-18T12:59:49.665315+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2249,
+            "at": "2026-11-18T12:59:51.914017+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2319,
+            "at": "2026-11-18T12:59:54.232851+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 1025,
+            "at": "2026-11-18T12:59:55.258162+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 1150,
+            "at": "2026-11-18T12:59:56.408292+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta identificou corretamente que os trechos fornecidos nao contem informacoes sobre a quantidade de estudantes presentes na sala I10 no momento atual."
+          }
+        ],
+        "searches": [
+          {
+            "query": "ocupacao atual sala I10 FCTE UnB",
+            "chunkIds": [
+              "c_45e04c73c85bdc29",
+              "c_0904be5ddfac8a87",
+              "c_75606552bab0593d",
+              "c_cc682c7a6e300856",
+              "c_bdf6877d01ab763b"
+            ],
+            "candidatosAvaliados": 25
+          },
+          {
+            "query": "estudantes na sala I10",
+            "chunkIds": [
+              "c_656d20356f40f1db",
+              "c_29946fe4e7700814"
+            ],
+            "candidatosAvaliados": 2
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "insufficient",
+              "message": "Nao ha evidencia suficiente para informar o numero de estudantes dentro da sala I10 neste momento.",
+              "sources": [],
+              "claims": []
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "insuficiente",
+        "auditLogSaved": true
+      },
+      "referencia": "Nao ha contagem de ocupacao em tempo real."
+    },
+    {
+      "caso": "revisor_detecta_erro_injetado",
+      "pergunta": "Em que predio, andar e sala fica o laboratorio COSMOS?",
+      "resposta": {
+        "status": "answered",
+        "answer": "O laboratorio COSMOS fica localizado no Predio LDTEA, no 2 andar, Sala 304. [1]",
+        "sources": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11797869205474854,
+            "lexicalScore": 14.7385236103793
+          }
+        ],
+        "claims": [
+          {
+            "text": "O laboratorio COSMOS fica localizado no Predio LDTEA, no 2 andar, Sala 304.",
+            "sourceIds": [
+              "c_f2c6f00293fae365"
+            ]
+          }
+        ],
+        "requestId": "d28a6f17-ad2e-4bdf-b912-cb3c25135754",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_f2c6f00293fae365",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11797869205474854,
+            "lexicalScore": 14.7385236103793
+          },
+          {
+            "id": "c_df45b0823ed5a0bc",
+            "sourceId": "DOC-018",
+            "title": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "excerpt": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nO Computational Aerospace Simulations & Modeling Laboratory (COSMOS), coordenado pela Prof.ª Polliana Candida Oliveira Martins, é um laboratório de pesquisa da Faculdade de Ciências e Tecnologias em Engenharia (FCTE) da Universidade de Brasília (UnB), especializado em simulações numéricas de sistemas aeroespaciais e análise de estruturas aeroespaciais. O COSMOS se dedica ao avanço de técnicas de modelagem computacional e à solução de problemas complexos em engenharia aeroespacial, promovendo inovação e formação de profissionais capacitados.",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "section": "Computational Aerospace Simulations & Modeling Laboratory​",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.10082131624221802,
+            "lexicalScore": 8.210322469491626
+          },
+          {
+            "id": "c_55ee7be5be11fb92",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Eletrônica\nLaboratório de Modelagem de Sistemas – LABMODSIS\nSite: https://eletronica.unb.br/2025/05/12/labmodsis/\nCoordenador: Luciano Emidio\nContato: e-mail: lucianofonseca@unb.br\nLocal: Prédio UAC – Sala ao lado do CPD\nLaboratório de Robótica e Sistemas de Controle – LARSIS\nSite: https://larsis.unb.br/\nCoordenador: Roberto de Souza Baptista\nContato: e-mail: robertobaptista@unb.br\nLocal: Prédio LDTEA – 1º andar – Sala 208\nLaboratório de Simulação e Software – LAB SS\nCoordenador: Daniel Costa Araújo\nContato: e-mail: daniel.araujo@unb.br\nLocal: Prédio UED – Térreo – Sala AT-44/29\nLaboratório Núcleo de Eletrônica e Instrumentação 1 – NEI1\nCoordenador: Daniel Costa Araújo\nContato: e-mail: daniel.araujo@unb.br\nLocal: Prédio UED – Térreo – Sala AT-72/29",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Eletrônica",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1338922381401062,
+            "lexicalScore": 12.819076232226045
+          },
+          {
+            "id": "c_2d85dbef5af80376",
+            "sourceId": "DOC-018",
+            "title": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory",
+            "excerpt": "COSMOS – Computational Aerospace Simulations & Modeling Laboratory\nComputational Aerospace Simulations & Modeling Laboratory​\nContribuição para Inovação e Formação\nO COSMOS desempenha um papel fundamental na formação de engenheiros aeroespaciais, oferecendo uma base prática e teórica sólida em modelagem e simulação. Suas pesquisas contribuem para o avanço da ciência e tecnologia aeroespacial, fortalecendo a posição da UnB como um polo de inovação em engenharia.",
+            "url": "https://lite.unb.br/computational-aerospace-simulations-modeling-laboratory/",
+            "section": "Computational Aerospace Simulations & Modeling Laboratory​ > Contribuição para Inovação e Formação",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1317341923713684,
+            "lexicalScore": 6.343851480326593
+          },
+          {
+            "id": "c_8342bdbf90aca901",
+            "sourceId": "DOC-017",
+            "title": "Laboratório de Microeletrônica e Sistemas Embarcados",
+            "excerpt": "Laboratório de Microeletrônica e Sistemas Embarcados\nLaboratório de Microeletrônica e Sistemas Embarcados\nInfraestrutura e Equipamentos\nO LabMicro possui uma infraestrutura de ponta no prédio LDTEA da FCTE, com uma área de 45 m² equipada com seis estações de trabalho, osciloscópios, fontes de alimentação, geradores de sinais, e kits de desenvolvimento FPGA. Conta também com kits para rádios definidos por software (SDR) e sistemas embarcados baseados em processadores ARM Cortex A9 e ARM R5. Essa estrutura permite a realização de projetos complexos e a formação prática dos alunos.\nColaboração e Parcerias\nO LabMicro mantém parcerias estratégicas com outros laboratórios da FCTE e da Faculdade de Tecnologia (FT) da UnB, especialmente com o Laboratório de Dispositivos e Circuitos Integrados (LDCI) da FT. Essas colaborações possibilitam a caracterização elétrica de dispositivos e circuitos integrados, cobrindo uma faixa de frequência de sub-Hz até 3 GHz, fortalecendo a pesquisa e desenvolvimento de tecnologias de ponta.",
+            "url": "https://lite.unb.br/laboratorio-de-microeletronica-e-sistemas-embarcados/",
+            "section": "Laboratório de Microeletrônica e Sistemas Embarcados > Infraestrutura e Equipamentos > Laboratório de Microeletrônica e Sistemas Embarcados > Colaboração e Parcerias",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1311708688735962,
+            "lexicalScore": 6.1828076462253
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 5919,
+          "candidatesTokenCount": 325,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 6244
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 150,
+              "candidatesTokenCount": 89,
+              "totalTokenCount": 239
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {}
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2032,
+              "candidatesTokenCount": 106,
+              "totalTokenCount": 2138
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1697,
+              "candidatesTokenCount": 93,
+              "totalTokenCount": 1790
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2040,
+              "candidatesTokenCount": 37,
+              "totalTokenCount": 2077
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 4,
+          "calls": 5
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T13:00:04.416958+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 3772,
+            "at": "2026-11-18T13:00:08.189338+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2075,
+            "at": "2026-11-18T13:00:10.264443+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2323,
+            "at": "2026-11-18T13:00:12.587937+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 3525,
+            "at": "2026-11-18T13:00:16.113466+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T13:00:16.113677+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 15360,
+            "at": "2026-11-18T13:00:31.473444+00:00",
+            "decision": "corrigir",
+            "feedback": "A resposta fornecida contem informacoes incorretas sobre a localizacao do laboratorio COSMOS. O trecho citado (DOC-005) indica que o laboratorio COSMOS fica no Prédio LDTEA, 2º andar, Sala 304, e nao na sala 101, no terreo da UAC."
+          },
+          {
+            "agent": "redator",
+            "action": "corrigir",
+            "status": "ok",
+            "durationMs": 7275,
+            "at": "2026-11-18T13:00:38.748858+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar_correcao",
+            "status": "ok",
+            "durationMs": 9563,
+            "at": "2026-11-18T13:00:48.312296+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta está completa, correta e totalmente fundamentada pelas evidências fornecidas."
+          }
+        ],
+        "searches": [
+          {
+            "query": "laboratorio COSMOS predio andar sala FCTE UnB",
+            "chunkIds": [
+              "c_f2c6f00293fae365",
+              "c_55ee7be5be11fb92",
+              "c_df45b0823ed5a0bc",
+              "c_8342bdbf90aca901",
+              "c_2d85dbef5af80376"
+            ],
+            "candidatosAvaliados": 27
+          },
+          {
+            "query": "localizacao laboratorio COSMOS FCTE Gama",
+            "chunkIds": [
+              "c_f2c6f00293fae365",
+              "c_df45b0823ed5a0bc",
+              "c_6bbc4a7ded869187",
+              "c_c8a0b710c3c50b09",
+              "c_553a868a5910bf1c"
+            ],
+            "candidatosAvaliados": 26
+          },
+          {
+            "query": "COSMOS FCTE UnB",
+            "chunkIds": [
+              "c_df45b0823ed5a0bc",
+              "c_f2c6f00293fae365",
+              "c_2d85dbef5af80376",
+              "c_ce46e880e27ab7af",
+              "c_bdf6877d01ab763b"
+            ],
+            "candidatosAvaliados": 29
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "O laboratorio COSMOS fica na sala 101, no terreo da UAC. [1]",
+              "sources": [
+                {
+                  "id": "c_f2c6f00293fae365",
+                  "sourceId": "DOC-005",
+                  "title": "Diretório de laboratórios da FCTE",
+                  "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+                  "url": "https://fcte.unb.br/homologa_laboratorios/",
+                  "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.11797869205474854,
+                  "lexicalScore": 14.7385236103793
+                }
+              ],
+              "claims": [
+                {
+                  "text": "O laboratorio COSMOS fica na sala 101, no terreo da UAC.",
+                  "sourceIds": [
+                    "c_f2c6f00293fae365"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "round": 1,
+            "response": {
+              "status": "answered",
+              "answer": "O laboratorio COSMOS fica localizado no Predio LDTEA, no 2 andar, Sala 304. [1]",
+              "sources": [
+                {
+                  "id": "c_f2c6f00293fae365",
+                  "sourceId": "DOC-005",
+                  "title": "Diretório de laboratórios da FCTE",
+                  "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nChemical Propulsion Laboratory – CPL\nSite: https://cpl.unb.br/\nCoordenador: Olexiy Shynkarenko\nContato: e-mail: olexiy@aerospace.unb.br\nLocal: Contêiner 07\nComputational Aerospace Simulations & Modeling Laboratory – COSMOS\nSite: https://lite.unb.br/2024/11/15/computational-aerospace-simulations-modeling-laboratory/\nCoordenadora: Polliana Candida Oliveira Martins\nContato: e-mail: polliana.martins@unb.br\nLocal: Prédio LDTEA – 2º andar – Sala 304\nLaboratório de Estruturas e Materiais Aeroespaciais – LEMA\nSite: https://lema.unb.br/\nCoordenador: Artem Andrianov\nContato: e-mail: andrianov@unb.br\nLocal: Prédio LDTEA – Térreo – Sala 103",
+                  "url": "https://fcte.unb.br/homologa_laboratorios/",
+                  "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.11797869205474854,
+                  "lexicalScore": 14.7385236103793
+                }
+              ],
+              "claims": [
+                {
+                  "text": "O laboratorio COSMOS fica localizado no Predio LDTEA, no 2 andar, Sala 304.",
+                  "sourceIds": [
+                    "c_f2c6f00293fae365"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 5,
+        "correctionRounds": 1,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      },
+      "decisoesRevisor": [
+        "corrigir",
+        "aprovar"
+      ],
+      "observacao": "Primeiro rascunho injetado (sala 101). Revisor e correcao sao chamadas reais."
+    },
+    {
+      "caso": "contexto_turno_1",
+      "pergunta": "Onde fica a biblioteca do campus Gama?",
+      "resposta": {
+        "status": "answered",
+        "answer": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama. [1]\n\nA biblioteca fica situada no Prédio UAC. [2]",
+        "sources": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1060023307800293,
+            "lexicalScore": 10.301057389446155
+          },
+          {
+            "id": "c_ff640f1875faa059",
+            "sourceId": "DOC-002",
+            "title": "Contato da FCTE",
+            "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+            "url": "https://fcte.unb.br/contato/",
+            "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12250411510467529,
+            "lexicalScore": 6.200070923117932
+          }
+        ],
+        "claims": [
+          {
+            "text": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "sourceIds": [
+              "c_c8a0b710c3c50b09"
+            ]
+          },
+          {
+            "text": "A biblioteca fica situada no Prédio UAC.",
+            "sourceIds": [
+              "c_ff640f1875faa059"
+            ]
+          }
+        ],
+        "requestId": "2a670cad-fa62-4354-ae88-abdc54eb25a2",
+        "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+        "model": "gemini-3.5-flash-lite",
+        "retrieved": [
+          {
+            "id": "c_c8a0b710c3c50b09",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1060023307800293,
+            "lexicalScore": 10.301057389446155
+          },
+          {
+            "id": "c_1cfe0848c545f27c",
+            "sourceId": "DOC-012",
+            "title": "Biblioteca Campus Gama – BCE",
+            "excerpt": "Biblioteca Campus Gama – BCE\nServiços\nOs empréstimos poderão ser feitos durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nAs devoluções poderão ser feitas durante o horário de funcionamento da biblioteca, sem necessidade de agendamento prévio.\nLevantamento bibliográfico, orientação à pesquisa em bases de dados, orientação para desenvolvimento de trabalho acadêmico, orientação quanto ao uso de normas para elaboração de trabalhos acadêmicos, elaboração de fichas catalográficas e outros. E-mail para contato: biblioteca.fcte@unb.br\nA biblioteca foi criada para atender os cursos de graduação e pós-graduação oferecidos na FCTE, mas também atende a comunidade acadêmica dos outros campi da UnB.\nComunidade Externa\nA utilização da Biblioteca Campus Gama é aberta à comunidade externa, sem a necessidade de credenciamento ou agendamento.\nNo entanto, ressaltamos os seguintes aspectos:",
+            "url": "https://bce.unb.br/biblioteca-campus-gama/",
+            "section": "Serviços > Comunidade Externa",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.11567950248718262,
+            "lexicalScore": 10.333516262975566
+          },
+          {
+            "id": "c_17241a7563801760",
+            "sourceId": "DOC-008",
+            "title": "Biblioteca – Engenharia de Software",
+            "excerpt": "Biblioteca – Engenharia de Software\nA biblioteca do Campus Gama conta atualmente com 2810 exemplares de livros físicos de 961 títulos distintos, englobando livros e normas técnicas. Movimenta cerca de 7.757 empréstimos/renovações a discentes em um ano, das quais 51% são livros da área de Matemática e Ciências Naturais (Área 5 da classificação CDU).\nA biblioteca também disponibilizada a todos os alunos os livros eletrônicos da Ebook Central, de propriedade da ProQuest. A Ebook Central permite o acesso online e o download de seus livros a qualquer aluno do campus. O download pode ser feito em PDF – capítulo a capítulo– ou como diretamente um e-book com ADOBE DRM (Digital Rights Management), em que a visualização expira simulando o final do empréstimo. A UnB é signatária da modalidade ACADEMIC COMPLETE da Ebook Central, que apresenta mais de 80.000 títulos.",
+            "url": "https://software.unb.br/biblioteca/",
+            "section": "",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.1088482141494751,
+            "lexicalScore": 9.813428225936836
+          },
+          {
+            "id": "c_ff640f1875faa059",
+            "sourceId": "DOC-002",
+            "title": "Contato da FCTE",
+            "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+            "url": "https://fcte.unb.br/contato/",
+            "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12250411510467529,
+            "lexicalScore": 6.200070923117932
+          },
+          {
+            "id": "c_ce46e880e27ab7af",
+            "sourceId": "DOC-005",
+            "title": "Diretório de laboratórios da FCTE",
+            "excerpt": "Diretório de laboratórios da FCTE\nLaboratórios FCTE\nLaboratórios de Engenharia Aeroespacial\nLaboratório de Sistemas Espaciais – LaSE\nSite: https://lase.unb.br/\nCoordenador: Manuel Nascimento Dias Barcelos\nContato: e-mail: manuelbarcelos@unb.br\nLocal: Prédio LDTEA – Térreo – Salas 104 e 108",
+            "url": "https://fcte.unb.br/homologa_laboratorios/",
+            "section": "Laboratórios FCTE > Laboratórios de Engenharia Aeroespacial",
+            "version": "2026-11-11",
+            "reviewedAt": "2026-11-11",
+            "validUntil": "desconhecida",
+            "distance": 0.12818467617034912,
+            "lexicalScore": 3.6808465847306793
+          }
+        ],
+        "usage": {
+          "promptTokenCount": 4577,
+          "candidatesTokenCount": 267,
+          "thoughtsTokenCount": 0,
+          "totalTokenCount": 4844
+        },
+        "usageByAgent": [
+          {
+            "agent": "pesquisador",
+            "usage": {
+              "promptTokenCount": 145,
+              "candidatesTokenCount": 63,
+              "totalTokenCount": 208
+            }
+          },
+          {
+            "agent": "redator",
+            "usage": {
+              "promptTokenCount": 1704,
+              "candidatesTokenCount": 149,
+              "totalTokenCount": 1853
+            }
+          },
+          {
+            "agent": "revisor",
+            "usage": {
+              "promptTokenCount": 2728,
+              "candidatesTokenCount": 55,
+              "totalTokenCount": 2783
+            }
+          }
+        ],
+        "usageCoverage": {
+          "callsWithUsage": 3,
+          "calls": 3
+        },
+        "trace": [
+          {
+            "agent": "pesquisador",
+            "action": "contexto",
+            "status": "ok",
+            "durationMs": 0,
+            "at": "2026-11-18T13:00:56.325686+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "planejar",
+            "status": "ok",
+            "durationMs": 9758,
+            "at": "2026-11-18T13:01:06.084009+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2495,
+            "at": "2026-11-18T13:01:08.578865+00:00"
+          },
+          {
+            "agent": "pesquisador",
+            "action": "recuperar",
+            "status": "ok",
+            "durationMs": 2303,
+            "at": "2026-11-18T13:01:10.882022+00:00"
+          },
+          {
+            "agent": "redator",
+            "action": "redigir",
+            "status": "ok",
+            "durationMs": 1842,
+            "at": "2026-11-18T13:01:12.723798+00:00"
+          },
+          {
+            "agent": "revisor",
+            "action": "revisar",
+            "status": "ok",
+            "durationMs": 11622,
+            "at": "2026-11-18T13:01:24.345584+00:00",
+            "decision": "aprovar",
+            "feedback": "A resposta cobre perfeitamente a pergunta, utilizando as evidências corretas para indicar tanto a localização geral na FCTE quanto a localização específica no Prédio UAC."
+          }
+        ],
+        "searches": [
+          {
+            "query": "biblioteca FCTE UnB Gama localizacao",
+            "chunkIds": [
+              "c_c8a0b710c3c50b09",
+              "c_1cfe0848c545f27c",
+              "c_ff640f1875faa059",
+              "c_ce46e880e27ab7af",
+              "c_17241a7563801760"
+            ],
+            "candidatosAvaliados": 26
+          },
+          {
+            "query": "onde fica a biblioteca do campus Gama UnB",
+            "chunkIds": [
+              "c_c8a0b710c3c50b09",
+              "c_17241a7563801760",
+              "c_1cfe0848c545f27c",
+              "c_731826bb1c0cfdfc",
+              "c_5d991e58cb719826"
+            ],
+            "candidatosAvaliados": 16
+          }
+        ],
+        "drafts": [
+          {
+            "round": 0,
+            "response": {
+              "status": "answered",
+              "answer": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama. [1]\n\nA biblioteca fica situada no Prédio UAC. [2]",
+              "sources": [
+                {
+                  "id": "c_c8a0b710c3c50b09",
+                  "sourceId": "DOC-012",
+                  "title": "Biblioteca Campus Gama – BCE",
+                  "excerpt": "Biblioteca Campus Gama – BCE\nBIBLIOTECA SETORIAL CAMPUS GAMA\nA Biblioteca da Faculdade do Gama tem como objetivo a disseminação da informação, oferecendo suporte bibliográfico especializado aos cursos ofertados no campus, sendo eles: Engenharia Aeroespacial (graduação); Engenharia Automotiva (graduação); Engenharia Eletrônica (graduação); Engenharia de Energia (graduação); Engenharia de Software (graduação); Engenharia Biomédica (pós-graduação) e Integridade de Materiais da Engenharia (pós-graduação).\nA Biblioteca do Campus Gama dispõe de espaço para estudo com cabines individuais e mesas para estudo em grupo, além de disponibilizar computadores para pesquisa no catálogo online e laboratório de acesso digital.\nO acervo é voltado para as áreas da Engenharia. Atualmente, é composto por cerca de 1.482 títulos e 5.727 exemplares. A unidade disponibiliza acesso e pesquisa a todo acervo digital do Sistema de Bibliotecas da UnB – SiB-UnB.\nLocalizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+                  "url": "https://bce.unb.br/biblioteca-campus-gama/",
+                  "section": "BIBLIOTECA SETORIAL CAMPUS GAMA",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.1060023307800293,
+                  "lexicalScore": 10.301057389446155
+                },
+                {
+                  "id": "c_ff640f1875faa059",
+                  "sourceId": "DOC-002",
+                  "title": "Contato da FCTE",
+                  "excerpt": "Contato da FCTE\nSecretaria de Graduação\nADMINISTRAÇÃO\nAtendimento Presencial:\nSegunda a sexta-feira\nHorário: 08h-12h e 14h-18h.\nLocal : prédio UED\nContatos:\nEmail: adm.fcte@unb.br\nSEI: FCTE/ADM\nNúmeros: (61) 3107-8940\nServidores em Trabalho Híbrido 40 horas semanais – PGD – atendimento Presencial:\nEloyane de Sousa Fernandes (licença capacitação)\nLeda Nobre (terça e quinta) 08h-12h e 13h às 17h\nMichelle Luciana (segunda e quarta) 08-12 e 13h às 17h\nRaimundo Nonato – 07h -12h e 13h-16h30\nValdemir Gomes – 08h-12h e 14h- 18h\nBIBLIOTECA\nAtendimento Presencial:\nSegunda a Sexta-feira\nHorário: 07h às 19h\nLocal: Prédio UAC\nContatos:\nEmail: biblioteca.fcte@unb.br\nSEI: FCTE/BIBLIOTECA\nContato: (61) 3107-8942\nServidores:\nKathryn Cardim – 07h às 13h\nMaurílio Alves – 13h às 19h\nRenivaldo Costa – 07h às 13h",
+                  "url": "https://fcte.unb.br/contato/",
+                  "section": "Secretaria de Graduação > ADMINISTRAÇÃO > Secretaria de Graduação > BIBLIOTECA",
+                  "version": "2026-11-11",
+                  "reviewedAt": "2026-11-11",
+                  "validUntil": "desconhecida",
+                  "distance": 0.12250411510467529,
+                  "lexicalScore": 6.200070923117932
+                }
+              ],
+              "claims": [
+                {
+                  "text": "A Biblioteca do Campus Gama está localizada na Faculdade de Ciências e Tecnologias em Engenharia (FCTE), no Gama.",
+                  "sourceIds": [
+                    "c_c8a0b710c3c50b09"
+                  ]
+                },
+                {
+                  "text": "A biblioteca fica situada no Prédio UAC.",
+                  "sourceIds": [
+                    "c_ff640f1875faa059"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "llmCalls": 3,
+        "correctionRounds": 0,
+        "multiagent": true,
+        "decision": "aprovado",
+        "auditLogSaved": true
+      }
+    }
+  ]
+}

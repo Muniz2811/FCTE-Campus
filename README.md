@@ -12,6 +12,8 @@ O padrão continua sendo Chroma local até configurar `RAG_INDEX_BACKEND=supabas
 O Docker usa `RAG_PROFILE=light` e Supabase por padrão: lê os textos, recupera por BM25 e gera com Gemini,
 sem instalar PyTorch ou baixar modelos. A API do coleta-fcte permanece `POST /perguntar`.
 
+**Servir o RAG pelo MacBook:** o [plano e tutorial com ngrok](docs/servir-no-mac.md) mantém o pipeline completo no Mac e o Coleta no Render. O comando `bash servir-ngrok.command` publica somente a API autenticada e reutiliza o endereço fixo da conta gratuita.
+
 **Mapeamento no RAG:** a base foi ampliada com quatro fichas da UAC/UED, contendo ambientes por andar e referências dos banheiros. Agora são **41 fontes e 214 chunks**. Os 174 trechos anteriores foram preservados. Consulte [importação dos mapas e atualização segura do Supabase](backend/README.md#alimentar-o-rag-com-os-mapas-da-coleta). O deploy antigo permanece com a base anterior até receber este código; a API nova abre o snapshot correspondente ao seu próprio catálogo/chunks, sem substituir a coleção usada pela versão anterior.
 
 ## Executar localmente
@@ -176,7 +178,8 @@ Na aplicação:
 
 1. Em **Conversa**, pergunte: “Na biblioteca do Gama há lugar para estudar sozinho e em grupo?”. Confira a resposta, as fontes e os trechos recuperados.
 2. Em **Métricas do RAG**, confira os resultados históricos, as explicações e o exemplo interativo. Abrir essa aba não faz chamadas ao Gemini.
-3. Em **Comparar ao vivo**, envie a mesma pergunta aos dois sistemas. Confira as duas respostas, tempos e tokens; esse envio pode consumir duas chamadas Gemini. As métricas semânticas dependem da revisão guiada.
+3. Em **Comparar ao vivo**, envie a mesma pergunta aos três modos: Gemini isolado, RAG atual e RAG multiagente. Confira as respostas, tempos, tokens e a linha do tempo dos agentes; esse envio pode consumir de 3 a 7 chamadas Gemini. As métricas semânticas dependem da revisão guiada.
+4. Em **Como funciona**, veja o caminho de uma pergunta em cada modo e o fluxo interno do multiagente, com os números medidos em 18/11/2026. Abrir essa aba não faz chamadas ao Gemini.
 
 Para verificar apenas a recuperação pelo terminal, sem chamar o Gemini:
 
@@ -203,7 +206,7 @@ npm run build
 npm run dev:rag
 ```
 
-Abra **[http://127.0.0.1:8001](http://127.0.0.1:8001)**. A API também serve a interface de `dist/`, incluindo as três abas. Não é necessário manter o Vite aberto nessa opção. Após mudar o frontend, refaça o build; esse modo não tem atualização automática dos arquivos da interface.
+Abra **[http://127.0.0.1:8001](http://127.0.0.1:8001)**. A API também serve a interface de `dist/`, incluindo as quatro abas. Não é necessário manter o Vite aberto nessa opção. Após mudar o frontend, refaça o build; esse modo não tem atualização automática dos arquivos da interface.
 
 #### Problemas comuns no Mac
 
@@ -432,13 +435,13 @@ O índice inicial está dentro da imagem e reaparece ao recriar o contêiner. Al
 
 ## Fluxo do RAG
 
-A navegação possui **Conversa**, **Métricas do RAG** e **Comparar ao vivo**. O painel histórico lê os artefatos preservados de `backend/avaliacao/resultados/semana3-llm-rag-20261112-v1`, com fórmulas, exemplos interativos, quatro cenários e limitações. Não recalcula os resultados antigos com respostas novas.
+A navegação possui **Conversa**, **Métricas do RAG**, **Comparar ao vivo** e **Como funciona**. O painel histórico lê os artefatos preservados de `backend/avaliacao/resultados/semana3-llm-rag-20261112-v1`, com fórmulas, exemplos interativos, quatro cenários e limitações. Não recalcula os resultados antigos com respostas novas. A aba **Como funciona** mostra números fixos da rodada de 18/11/2026, com origem em `src/evaluation/route-data.ts`.
 
-Na comparação ao vivo, a mesma pergunta é enviada em paralelo ao **RAG atual completo** e ao **mesmo Gemini sem documentos**, sem histórico nos dois braços. Cada envio pode consumir duas chamadas da API. Tempo, tokens disponíveis, disponibilidade e rastreabilidade documental são medidos; qualidade factual, relevância, completude, ausência e premissas exigem a revisão guiada. O gabarito é mostrado ao revisor e não é enviado como contexto ao modelo. Métricas sem julgamento ou denominador ficam pendentes ou N/A.
+Na comparação ao vivo, a mesma pergunta é enviada, em sequência, ao **Gemini sem documentos**, ao **RAG atual completo** e ao **RAG multiagente** (Pesquisador → Redator → Revisor, ver `backend/RELATORIO_MULTIAGENTE.md`), sem histórico entre os braços. Cada envio pode consumir de 3 a 7 chamadas da API. Tempo, tokens disponíveis, disponibilidade e rastreabilidade documental são medidos; qualidade factual, relevância, completude, ausência e premissas exigem a revisão guiada. O gabarito é mostrado ao revisor e não é enviado como contexto ao modelo. Métricas sem julgamento ou denominador ficam pendentes ou N/A.
 
 A primeira saída válida de cada execução é preservada. A interface permite repetir somente falhas técnicas; todas as tentativas continuam no histórico. A sessão agrega os contadores julgados, mostra a cobertura da revisão e permite exportar JSON com respostas, configurações, hashes dos prompts, tentativas e julgamentos. Sessões do navegador ficam em memória; os registros do servidor são privados em `backend/data/execucoes/comparacao-*.json`. Repetir uma pergunta como nova execução não torna a amostra independente.
 
-Endpoints adicionais: `GET /api/v1/evaluation`, `POST /api/v1/comparison/rag` e `POST /api/v1/comparison/llm` (corpo `{ "text": "sua pergunta", "campus": "gama" }`). A comparação usa a mesma chave secreta do backend. O prompt e o contrato do braço isolado são compartilhados com o script histórico em `rag/consulta/llm_isolada.py`.
+Endpoints adicionais: `GET /api/v1/evaluation`, `POST /api/v1/comparison/rag`, `POST /api/v1/comparison/llm` e `POST /api/v1/comparison/multiagente` (corpo `{ "text": "sua pergunta", "campus": "gama" }`). `POST /api/v1/multiagent` executa só o fluxo multiagente e, como `/perguntar`, exige token Bearer em deploy. A comparação usa a mesma chave secreta do backend. O prompt e o contrato do braço isolado são compartilhados com o script histórico em `rag/consulta/llm_isolada.py`.
 
 O Docker inclui apenas os três artefatos necessários ao painel. Como originais e extrações não entram nessa imagem, a rastreabilidade **completa** ao vivo fica N/A nesse deploy; os IDs e fontes continuam disponíveis para inspeção. Localmente, com esses arquivos presentes, a cadeia é conferida até o hash do original. Persistência continua sendo o ensaio histórico em processos novos; uma consulta HTTP não o substitui.
 

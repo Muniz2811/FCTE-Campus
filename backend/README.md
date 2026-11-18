@@ -72,6 +72,15 @@ Execute pela raiz do repositório, sem precisar configurar PYTHONPATH:
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
+Os testes acima não chamam o Gemini. Para validar o fluxo multiagente com o índice local e o Gemini real (cerca de 25 chamadas; o servidor `dev:rag` deve estar parado, porque dois processos não podem abrir o mesmo Chroma no Windows):
+
+```powershell
+$env:RAG_TEST_GEMINI='1'; $env:HF_HUB_OFFLINE='1'
+.\.venv\Scripts\python.exe -m pytest tests/test_multiagente_gemini.py -v -s
+```
+
+Para comparar os três modos, use `scripts/comparar_tres_modos.py --conjunto conferencia` (perguntas formais) ou `--conjunto coloquial` (conjunto de estresse que favorece o multiagente; relate sempre junto da conferência). Detalhes em `RELATORIO_MULTIAGENTE.md`.
+
 `01_adquirir.py` baixa fontes; `02_extrair.py` prepara o texto. Não é necessário reexecutar ingestão ao iniciar a API. Chunks: alvo 300 tokens, sobreposição até 40 apenas em subdivisões longas. E5: 384 dimensões, prefixos passage/query e normalização L2.
 
 A base possui 46 fontes aprovadas, 41 fontes indexadas e 214 chunks. As quatro fichas de mapeamento acrescentam 40 chunks aos 174 anteriores. Cinco exclusões estão documentadas no catálogo: quatro downloads indisponíveis e o mapa CEPLAN histórico de 2015. O edital DOC-042 é histórico e não participa das consultas atuais. RU, disciplinas, ocupação ao vivo e cálculo de trajetos de ônibus estão fora do módulo.

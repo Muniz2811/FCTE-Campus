@@ -15,6 +15,8 @@ from starlette.responses import JSONResponse
 from rag.config import caminho_projeto
 
 LOCAL_HOSTS = {'127.0.0.1', 'localhost', '[::1]'}
+# Rotas entre serviços. O chat web e a comparação ao vivo continuam públicos por decisão do projeto.
+ROTAS_PROTEGIDAS = {'/perguntar', '/api/v1/multiagent'}
 
 
 @dataclass
@@ -23,6 +25,7 @@ class Acesso:
     token: str = field(default='', repr=False)
     falhas: dict = field(default_factory=dict, repr=False)
     trava: threading.Lock = field(default_factory=threading.Lock, repr=False)
+    somente_integracao: bool = False
 
     def __post_init__(self):
         if self.obrigatorio and len(self.token) < 32:
@@ -36,7 +39,7 @@ class Acesso:
         valores = dotenv_values(arquivo) if arquivo.is_file() else {}
         def obter(nome, padrao=''):
             return os.environ.get(nome, valores.get(nome) or padrao)
-        hosts = {h.strip() for h in os.environ.get('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if h.strip()}
+        hosts = {h.strip() for h in obter('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if h.strip()}
         publico = bool(hosts - LOCAL_HOSTS) or os.environ.get('RENDER', '').lower() == 'true'
         flag = obter('RAG_REQUIRE_AUTH', 'true' if publico else 'false').strip().lower()
         if flag not in {'true', 'false'}:
@@ -44,10 +47,15 @@ class Acesso:
         obrigatorio = flag == 'true'
         if publico and not obrigatorio:
             raise ValueError('Hospedagem pública exige RAG_REQUIRE_AUTH=true.')
-        return cls(obrigatorio, obter('RAG_API_TOKEN'))
+        api_only = obter('RAG_API_ONLY', 'false').strip().lower()
+        if api_only not in {'true', 'false'}:
+            raise ValueError('RAG_API_ONLY deve ser true ou false.')
+        if api_only == 'true' and not obrigatorio:
+            raise ValueError('RAG_API_ONLY exige RAG_REQUIRE_AUTH=true.')
+        return cls(obrigatorio, obter('RAG_API_TOKEN'), somente_integracao=api_only == 'true')
 
     async def proteger(self, request):
-        if not self.obrigatorio or request.url.path != '/perguntar':
+        if not self.obrigatorio or request.url.path not in ROTAS_PROTEGIDAS:
             return None
         ip = request.client.host if request.client else 'desconhecido'
         agora = time.monotonic()
