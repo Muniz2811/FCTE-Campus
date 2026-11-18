@@ -3,7 +3,7 @@
 **Grupo:** 09 — Residência em IA, FCTE/UnB
 **Projeto:** [Muniz2811/FCTE-Campus](https://github.com/Muniz2811/FCTE-Campus)
 **Issues:** [#1](https://github.com/Muniz2811/FCTE-Campus/issues/1), [#2](https://github.com/Muniz2811/FCTE-Campus/issues/2), [#3](https://github.com/Muniz2811/FCTE-Campus/issues/3), [#4](https://github.com/Muniz2811/FCTE-Campus/issues/4)
-**Situação:** implementação preparada; **resultados ao vivo, revisão humana, validação integrada e conclusão final pendentes**.
+**Situação:** implementação testada com índice local e Gemini real (seção 7.1); rodada de conferência dos três modos executada (seção 7.2); **revisão humana dos julgamentos e conclusão final pendentes**.
 
 ## 1. Objetivo
 
@@ -12,18 +12,34 @@ Comparar (A) Gemini isolado, (B) RAG atual e (C) RAG multiagente com a mesma ver
 ## 2. Arquitetura
 
 ```mermaid
-flowchart LR
-    U[Pergunta] --> P[Pesquisador]
-    P --> B[Busca híbrida E5 + BM25/RRF]
-    B --> R[Reranker + chunks versionados]
-    R --> D[Redator Gemini]
-    D --> V[Revisor Gemini]
-    V -->|aprovar| F[Resposta com fontes]
-    V -->|corrigir, até uma rodada| D
-    V -->|insuficiente| X[Abstenção]
+flowchart TD
+    U([Pergunta]) --> VAGA{Vaga livre?}
+    VAGA -- não --> E429[429 consulta em andamento]
+    VAGA -- sim --> CTX[Contexto via previousRequestId]
+    subgraph PESQ [Pesquisador]
+        CTX --> PLAN[Gemini planeja 1–3 subconsultas]
+        PLAN --> B[Busca híbrida E5 + BM25/RRF → Chroma → reranker]
+        B --> M[Mescla intercalada: até 5 chunks, máx 2 por fonte]
+    end
+    M --> TEM{Há trechos?}
+    TEM -- não --> X1[Abstenção sem chamar o Redator]
+    TEM -- sim --> D[Redator Gemini: claims com chunk_ids]
+    D --> VAL{chunk_ids citados foram recuperados?}
+    VAL -- não --> F502[Falha técnica: citação bloqueada]
+    VAL -- sim --> V[Revisor Gemini]
+    V -->|aprovar| F([Resposta com fontes])
+    V -->|corrigir, 1ª vez| D2[Redator refaz com feedback e claims_problematicas]
+    D2 --> V2[Revisor reavalia]
+    V2 -->|aprovar| F
+    V2 -->|corrigir de novo| X2[Abstenção: nao_aprovado_apos_correcao]
+    V -->|insuficiente| X3[Abstenção]
+    V2 -->|insuficiente| X3
+    F & X1 & X2 & X3 & F502 --> LOG[(Log por requestId) → libera a vaga]
 ```
 
-A classe `OrquestradorMultiagente` tem orçamento padrão de até 3 buscas, 5 chamadas Gemini e 240 segundos totais. O Pesquisador planeja subconsultas; o Redator produz claims com `chunk_ids`; o backend rejeita referências inexistentes no contexto; o Revisor avalia completude e suporte semântico com decisão `aprovar`, `corrigir` ou `insuficiente`. A correção pode ocorrer **no máximo uma vez**. Todos os estados, decisões e tempos são registrados por `requestId` em `backend/data/execucoes/multiagent-*.json`.
+A classe `OrquestradorMultiagente` tem orçamento padrão de até 3 buscas, 5 chamadas Gemini e 240 segundos totais. O Pesquisador planeja subconsultas; o Redator produz claims com `chunk_ids`; o backend rejeita referências inexistentes no contexto; o Revisor avalia completude e suporte semântico com decisão `aprovar`, `corrigir` ou `insuficiente`. A correção pode ocorrer **no máximo uma vez**; se o Revisor recusar de novo, a decisão final é `nao_aprovado_apos_correcao`. Quando o próprio Redator se abstém, sua mensagem de lacuna é preservada. O feedback do Revisor é marcado no prompt do Redator como indicação do que revisar, nunca como evidência. Todos os estados, decisões e tempos são registrados por `requestId` em `backend/data/execucoes/multiagent-*.json`; uma falha ao gravar esse log não descarta a resposta (`auditLogSaved: false`) e a vaga de concorrência é sempre liberada.
+
+`/api/v1/multiagent` exige token Bearer em deploy (como `/perguntar`). A comparação ao vivo `/api/v1/comparison/{arm}` permanece pública por decisão do projeto.
 
 A verificação de ID documenta a **cadeia de fonte**, mas não prova automaticamente a verdade semântica. O julgamento humano permanece obrigatório.
 
@@ -106,13 +122,46 @@ A rodada anterior [`semana3-llm-rag-20261112-v1`](https://github.com/Muniz2811/F
 
 Esses resultados **não medem** o multiagente e **não são comparáveis diretamente** com uma nova rodada cuja base ou configuração tenha sido alterada.
 
-## 7. Resultados da nova rodada
+## 7. Resultados
 
-**PENDENTE DE EXECUÇÃO**. Inserir aqui a tabela extraída de `metricas.json` dos três modos. Não publicar números artificiais. Documentar casos concretos com pergunta, resposta, trecho, erro ou acerto, revisor responsável e link para os artefatos.
+### 7.1 Testes de integração com Gemini real (issues #1 e #2)
+
+`backend/tests/test_multiagente_gemini.py` usa o índice local e o Gemini configurado (`gemini-3.5-flash-lite`). É pulado sem `RAG_TEST_GEMINI=1`, para a suíte comum não gastar cota. Evidências completas (plano, buscas, rascunhos, pareceres, tokens por agente) em [`avaliacao/resultados/multiagente-gemini-*`](avaliacao/resultados/).
+
+| Cenário | Resultado observado | Chamadas | Tokens |
+|---|---|---:|---:|
+| Esquemas `Plano`, `SaidaGerador`, `Parecer` | Aceitos pelo Gemini com saída estruturada | 3 | 865 |
+| Composta (H01) | 2 subconsultas; COSMOS sala 304 e LEMA sala 103; aprovado | 3 | 4.322 |
+| Premissa incorreta (H05) | "A premissa está incorreta… sala 304"; aprovado | 3 | 3.866 |
+| Sem resposta (H07) | Abstenção, nenhuma claim | 3 | 3.758 |
+| Revisor com erro injetado | Primeiro rascunho substituído por "sala 101, térreo da UAC"; o Revisor real pediu correção citando a sala 304; o Redator corrigiu e o Revisor aprovou | 5 | 6.244 |
+| Complemento de conversa | "E lá posso estudar em grupo?" com `previousRequestId`: "lá" resolvido como a biblioteca; cabines individuais e mesas em grupo | 3 + 3 | 9.183 |
+
+O caso do Revisor usa um primeiro rascunho injetado porque, com respostas corretas de primeira, a correção nunca seria acionada; Revisor e correção continuam sendo chamadas reais, e a injeção está registrada na evidência.
+
+### 7.2 Rodada de conferência dos três modos
+
+Pasta: [`avaliacao/resultados/tres-modos-conferencia-20261118T131530Z`](avaliacao/resultados/tres-modos-conferencia-20261118T131530Z). 24/24 execuções concluídas, hashes de código, base e configuração preservados.
+
+**Medidas operacionais** (não dependem de julgamento):
+
+| Medida | Gemini isolado | RAG atual | RAG multiagente |
+|---|---:|---:|---:|
+| Latência média válida | 11,40 s | 10,25 s | 21,94 s |
+| Latência mediana válida | 10,66 s | 9,32 s | 16,34 s |
+| Tokens das 8 respostas válidas | 2.502 | 18.743 | 34.054 |
+| Chamadas Gemini (multiagente) | — | — | 24 |
+| Rodadas de correção | — | — | 0 |
+| Sucesso na primeira tentativa | 5/8 | 6/8 | 6/8 |
+| Sucesso por tentativa | 8/12 | 8/10 | 8/11 |
+
+As 9 falhas técnicas foram do provedor (8× HTTP 503 de conexão ou alta demanda, 1× 504 por timeout) e atingiram os três modos. No RAG atual, H07 não chamou o Gemini por falta de evidência, por isso o consumo registrado cobre 7/8 respostas.
+
+**Medidas de qualidade: PENDENTES DE REVISÃO HUMANA.** Há uma pré-avaliação não revisada no `julgamentos.json` da pasta local, não versionada. Os números finais entram aqui após a validação com os documentos originais e o recálculo de `metricas.json`.
 
 ### Análise das correções
 
-**PENDENTE DE REVISÃO HUMANA**. Registrar, para cada execução corrigida, o texto anterior, o feedback, o texto final e se a correção melhorou ou prejudicou o resultado. As decisões do Revisor por si só não são evidência de melhoria.
+Nenhuma rodada de correção ocorreu nas 8 perguntas da conferência: o Revisor aprovou o primeiro rascunho em todas as respondíveis. O único caso de correção observado com Gemini real é o do rascunho injetado (seção 7.1), em que o resultado melhorou (sala 101 → 304).
 
 ## 8. Limitações
 
@@ -122,6 +171,11 @@ Esses resultados **não medem** o multiagente e **não são comparáveis diretam
 - Tokens ausentes não podem ser inferidos como zero consumo.
 - Testes de carga, usuário real, histórico interturnos e deploy público não são cobertos pelo experimento padronizado.
 - O uso de vários agentes consome mais chamadas; benefício precisa superar os custos e o tempo adicional.
+- O provedor Gemini respondeu com HTTP 503 ("high demand") e latências de até ~50 s durante os testes. Com 3 a 5 chamadas encadeadas, o multiagente é o modo mais exposto a essas falhas.
+- O Revisor detectou uma afirmação **errada** (caso injetado), mas aprovou respostas **incompletas**: a biblioteca localizada só como "na FCTE" e a H06 sem a restrição de empréstimo presente no trecho recuperado.
+- O modelo produziu ao menos um escape de caractere quebrado na saída (`Pr#00e9dio`).
+- `/api/v1/comparison/multiagente` é público e consome a mesma cota do endpoint protegido.
+- Cancelar a requisição no navegador não interrompe a execução no backend, e a busca não tem timeout próprio.
 
 ## 9. Conclusão
 
