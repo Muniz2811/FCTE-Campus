@@ -83,6 +83,14 @@
 .route-table thead th.multiagente { color: var(--ochre); }
 .route-table thead th:first-child { color: var(--muted); }
 .route-page .bar-row { grid-template-columns: 84px minmax(40px, 1fr) 90px; }
+.route-row-note { display: block; margin-top: 3px; font-size: 12px; color: var(--muted); }
+.route-table td:first-child b { color: var(--green-deep); margin-right: 6px; }
+.route-outcome { display: inline-block; font-size: 12px; font-weight: 650; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
+.route-outcome.ok { color: var(--green-deep); background: #e3f1e7; }
+.route-outcome.partial { color: #7a5300; background: var(--ochre-soft); }
+.route-outcome.none { color: var(--muted); background: #edf2f4; }
+.route-outcome.wrong { color: #a3361f; background: #f8e6e1; }
+.route-outcome.fail { color: var(--muted); background: transparent; border: 1px dashed #c9d6dc; }
 .route-page .bar-row.rag .bar-track > div { background: var(--green); }
 .route-page .bar-row.multiagente .bar-track > div { background: var(--ochre); }
 

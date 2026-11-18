@@ -69,9 +69,26 @@ export const quality: { label: string; values: Record<RouteArm, Ratio> }[] = [
   { label: 'Reconhecimento de ausência', values: { llm: r(2, 2), rag: r(2, 2), multiagente: r(2, 2) } },
 ];
 
+// Conjunto coloquial (FAVORECE O MULTIAGENTE): backend/avaliacao/resultados/tres-modos-coloquial-20261118T150540Z.
+// Resultado por modo: 'ok' respondeu certo, 'partial' certo mas incompleto, 'none' não encontrou, 'wrong' afirmou algo errado, 'fail' falha do provedor.
+export type Outcome = 'ok' | 'partial' | 'none' | 'wrong' | 'fail';
+export const COLLOQUIAL = { folder: 'backend/avaliacao/resultados/tres-modos-coloquial-20261118T150540Z',
+  medians: { llm: '8,5 s', rag: '9,4 s', multiagente: '30,9 s' } as Record<RouteArm, string>,
+  tokens: { llm: '2.579', rag: '10.503', multiagente: '36.931' } as Record<RouteArm, string> };
+export const colloquial: { id: string; question: string; outcomes: Record<RouteArm, Outcome>; note: string }[] = [
+  { id: 'C01', question: 'Tem quadra de futebol na unb do gama?', outcomes: { llm: 'wrong', rag: 'none', multiagente: 'none' }, note: 'O multiagente acertou numa sessão ao vivo, mas não nesta rodada.' },
+  { id: 'C02', question: 'Onde eu vou se passar mal no campus?', outcomes: { llm: 'wrong', rag: 'none', multiagente: 'ok' }, note: 'Multiagente achou o Navs da DASU na FCTE.' },
+  { id: 'C03', question: 'Tô muito ansioso com as provas, tem alguém pra conversar?', outcomes: { llm: 'wrong', rag: 'none', multiagente: 'ok' }, note: 'Multiagente achou SOU e DASU; o Gemini inventou serviços.' },
+  { id: 'C04', question: 'Como eu pego ônibus pra chegar no campus do Gama?', outcomes: { llm: 'fail', rag: 'none', multiagente: 'none' }, note: 'Nenhum achou o DF no Ponto.' },
+  { id: 'C05', question: 'A cadeira da minha sala não serve pra mim, o que eu faço?', outcomes: { llm: 'wrong', rag: 'none', multiagente: 'none' }, note: 'Nenhum achou o apoio da DACES.' },
+  { id: 'C06', question: 'Quantos livros posso pegar de uma vez na biblioteca?', outcomes: { llm: 'none', rag: 'none', multiagente: 'none' }, note: 'Multiagente recuperou o documento certo e mesmo assim se absteve.' },
+  { id: 'C07', question: 'Onde fica a biblioteca e como acesso artigos da CAPES de casa?', outcomes: { llm: 'partial', rag: 'wrong', multiagente: 'partial' }, note: 'RAG deu a Biblioteca Central; multiagente acertou a CAPES.' },
+  { id: 'C08', question: 'Tem wifi no campus? Como eu conecto o celular? (controle)', outcomes: { llm: 'partial', rag: 'ok', multiagente: 'ok' }, note: 'Controle: o multiagente não piorou.' },
+];
+
 export const testSteps = [
   { value: '90', title: 'Testes unitários', text: 'Gemini simulado, sem custo. Os 6 testes novos falham no código original e passam no corrigido.', done: true },
   { value: '6', title: 'Cenários com Gemini real', text: 'Composta, premissa incorreta, sem resposta, Revisor pegando erro injetado e conversa com contexto.', done: true },
-  { value: '24', title: 'Comparação dos 3 modos', text: '8 perguntas novas em cada modo. 9 falhas técnicas do provedor, recuperadas na repetição.', done: true },
-  { value: '24', title: 'Julgamento humano', text: 'Pré-avaliação feita contra o gabarito e os trechos. Falta uma pessoa conferir nos documentos originais.', done: false },
+  { value: '48', title: 'Comparação dos 3 modos', text: '8 perguntas formais e 8 coloquiais em cada modo. As falhas técnicas foram do provedor e ficaram registradas.', done: true },
+  { value: '48', title: 'Julgamento humano', text: 'Pré-avaliação feita contra o gabarito e os trechos. Falta uma pessoa conferir nos documentos originais.', done: false },
 ];

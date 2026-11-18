@@ -2,7 +2,9 @@ import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { EvaluationHeading } from './MetricsPanel';
 import { ratio } from './model';
-import { EXAMPLE, ROUND, lanes, operational, quality, testSteps, type RouteArm } from './route-data';
+import { COLLOQUIAL, EXAMPLE, ROUND, colloquial, lanes, operational, quality, testSteps, type Outcome, type RouteArm } from './route-data';
+
+const outcomeLabel: Record<Outcome, string> = { ok: 'Respondeu', partial: 'Parcial', none: 'Não encontrou', wrong: 'Errou', fail: 'Falha técnica' };
 import '../design/route.css';
 
 const armLabel: Record<RouteArm, string> = { llm: 'Gemini', rag: 'RAG', multiagente: 'Multiagente' };
@@ -101,9 +103,19 @@ export function RouteExplainer() {
       <div className="quality-charts">{quality.map(q => <QualityBars key={q.label} {...q} />)}</div>
     </section>
 
+    <section className="report-section"><h2>Quando a pessoa fala do seu jeito.</h2>
+      <p>A pergunta “Tem quadra de futebol na unb do gama?” mostrou o ponto fraco do RAG atual: o documento diz “Quadra de esportes”, e a busca única não encontra. O Pesquisador do multiagente reescreve a busca com outras palavras. Testamos isso com 8 perguntas coloquiais.</p>
+      <aside className="evaluation-notice"><strong>Este conjunto favorece o multiagente de propósito.</strong><p>As perguntas foram escolhidas depois de confirmar que a busca do RAG atual não encontra o documento certo (C01–C06) ou encontra só uma parte (C07). A C08 é controle. Ele testa uma hipótese e não mede o desempenho médio.</p></aside>
+      <div className="route-table"><table><thead><tr><th>Pergunta</th>{arms.map(arm => <th key={arm} className={arm}>{armLabel[arm]}</th>)}</tr></thead>
+        <tbody>{colloquial.map(row => <tr key={row.id}><td><b>{row.id}</b> {row.question}<small className="route-row-note">{row.note}</small></td>
+          {arms.map(arm => <td key={arm}><span className={`route-outcome ${row.outcomes[arm]}`}>{outcomeLabel[row.outcomes[arm]]}</span></td>)}</tr>)}
+          <tr><td>Latência mediana · tokens</td>{arms.map(arm => <td key={arm}>{COLLOQUIAL.medians[arm]} · {COLLOQUIAL.tokens[arm]}</td>)}</tr></tbody></table></div>
+      <p>O multiagente respondeu C02 e C03 e acertou a parte da CAPES na C07, onde o RAG atual errou a biblioteca. Mas o ganho é instável: a quadra (C01) foi encontrada numa sessão ao vivo e não nesta rodada. Ele vem da reformulação das buscas, não do Revisor, e custou cerca de 3× o tempo e os tokens do RAG atual.</p>
+    </section>
+
     <aside className="evaluation-notice"><strong>* Qualidade ainda não revisada por pessoa.</strong>
       <p>Completude, premissas e ausência vêm de uma pré-avaliação feita contra o gabarito e o texto dos trechos. Os números passam a valer depois que alguém do grupo conferir cada resposta nos documentos originais. Tempos, tokens e chamadas são medidas automáticas e já são finais.</p>
-      <p>Origem: {ROUND.folder}.</p>
+      <p>Origem: {ROUND.folder} e {COLLOQUIAL.folder}.</p>
     </aside>
   </div>;
 }
