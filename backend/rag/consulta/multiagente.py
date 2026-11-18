@@ -121,6 +121,9 @@ class OrquestradorMultiagente:
             raise FalhaGeracao('Cota Gemini atingida.', 429)
         if resposta.status_code in (400, 401, 403, 404):
             raise FalhaGeracao('Gemini recusou modelo, chave ou esquema estruturado.', 503)
+        if resposta.status_code == 503:
+            # Observado em teste real: "model is currently experiencing high demand".
+            raise FalhaGeracao(f'Gemini sobrecarregado na etapa {etapa}; tente novamente.', 503)
         if not resposta.is_success:
             raise FalhaGeracao('Falha temporaria de Gemini.', 502)
         try:
