@@ -30,6 +30,8 @@ from rag.consulta.llm_isolada import PROMPT_LIVRE
 from rag.consulta.geracao import PROMPT
 
 BRACOS = ('llm', 'rag', 'multiagente')
+CONJUNTOS = {'desenvolvimento': 'gabarito.json', 'conferencia': 'conferencia_final.json',
+             'coloquial': 'conferencia_coloquial.json'}
 
 
 def ler(arquivo):
@@ -43,7 +45,8 @@ def hash_file(arquivo):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--env-file', required=True)
-    parser.add_argument('--conjunto', choices=['desenvolvimento', 'conferencia'], default='conferencia')
+    parser.add_argument('--conjunto', choices=sorted(CONJUNTOS), default='conferencia',
+                        help='coloquial e um conjunto de estresse que favorece o multiagente; relate junto da conferencia')
     parser.add_argument('--pasta', help='Pasta de resultados nova ou usada para retomar')
     parser.add_argument('--max-tentativas', type=int, default=3)
     parser.add_argument('--intervalo', type=float, default=4.5)
@@ -60,7 +63,7 @@ def main():
     cfg = carregar_config()
     cfg['geracao']['modelo'] = os.environ.get('GEMINI_MODEL') or settings.get('GEMINI_MODEL') or cfg['geracao']['modelo']
     configurar_cache(cfg)
-    referencia = ROOT / 'avaliacao' / ('conferencia_final.json' if args.conjunto == 'conferencia' else 'gabarito.json')
+    referencia = ROOT / 'avaliacao' / CONJUNTOS[args.conjunto]
     monitored = ['config/rag.yaml', 'data/catalogo/fontes.csv', 'data/chunks/chunks.jsonl',
                  'data/index/manifesto.json', str(referencia.relative_to(ROOT)),
                  *[str(p.relative_to(ROOT)).replace('\\', '/') for p in sorted((ROOT/'rag').rglob('*.py'))]]
