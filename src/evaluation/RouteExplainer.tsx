@@ -97,7 +97,7 @@ export function RouteExplainer() {
     </section>
 
     <section className="report-section"><h2>O que a conferência mostrou.</h2>
-      <p>Na amostra, RAG atual e multiagente empataram em qualidade; o multiagente levou cerca de 1,8× o tempo e 1,8× os tokens. O Revisor não precisou corrigir nenhuma resposta real: só corrigiu quando injetamos um erro de propósito.</p>
+      <p>Na pré-avaliação ainda não revisada por uma pessoa, RAG atual e multiagente empataram em qualidade; o multiagente levou cerca de 1,8× a latência mediana e 1,8× os tokens. O Revisor não precisou corrigir nenhuma resposta dessa rodada: corrigiu quando injetamos um erro de propósito.</p>
       <div className="route-table"><table><thead><tr><th>Medida (8 perguntas)</th>{arms.map(arm => <th key={arm} className={arm}>{armLabel[arm]}</th>)}</tr></thead>
         <tbody>{operational.map(row => <tr key={row.label}><td>{row.label}</td>{arms.map(arm => <td key={arm}>{row.values[arm]}</td>)}</tr>)}</tbody></table></div>
       <div className="quality-charts">{quality.map(q => <QualityBars key={q.label} {...q} />)}</div>

@@ -12,6 +12,8 @@ O padrão continua sendo Chroma local até configurar `RAG_INDEX_BACKEND=supabas
 O Docker usa `RAG_PROFILE=light` e Supabase por padrão: lê os textos, recupera por BM25 e gera com Gemini,
 sem instalar PyTorch ou baixar modelos. A API do coleta-fcte permanece `POST /perguntar`.
 
+**Servir o RAG pelo MacBook:** o [plano e tutorial com ngrok](docs/servir-no-mac.md) mantém o pipeline completo no Mac e o Coleta no Render. O comando `bash servir-ngrok.command` publica somente a API autenticada e reutiliza o endereço fixo da conta gratuita.
+
 **Mapeamento no RAG:** a base foi ampliada com quatro fichas da UAC/UED, contendo ambientes por andar e referências dos banheiros. Agora são **41 fontes e 214 chunks**. Os 174 trechos anteriores foram preservados. Consulte [importação dos mapas e atualização segura do Supabase](backend/README.md#alimentar-o-rag-com-os-mapas-da-coleta). O deploy antigo permanece com a base anterior até receber este código; a API nova abre o snapshot correspondente ao seu próprio catálogo/chunks, sem substituir a coleção usada pela versão anterior.
 
 ## Executar localmente

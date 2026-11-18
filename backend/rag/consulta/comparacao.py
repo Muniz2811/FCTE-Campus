@@ -2,6 +2,7 @@
 import hashlib
 import csv
 import json
+import logging
 import threading
 import time
 from datetime import datetime, timezone
@@ -132,6 +133,11 @@ class Comparador:
             registro.update(technicalStatus=503, error='Não foi possível concluir a comparação. Confira o backend.')
         registro['elapsedSeconds'] = round(time.perf_counter() - inicio, 4)
         # Cada tentativa fica preservada; um erro não é uma abstenção correta.
-        gravar_json(caminho_projeto(self.servico.config['caminhos']['execucoes']) /
-                    f'comparacao-{registro["id"]}.json', registro)
+        try:
+            registro['auditLogSaved'] = True
+            gravar_json(caminho_projeto(self.servico.config['caminhos']['execucoes']) /
+                        f'comparacao-{registro["id"]}.json', registro)
+        except (OSError, ValueError, TypeError):
+            registro['auditLogSaved'] = False
+            logging.getLogger(__name__).warning('Log da comparação %s não foi gravado.', registro['id'])
         return registro

@@ -43,6 +43,10 @@ A classe `OrquestradorMultiagente` tem orçamento padrão de até 3 buscas, 5 ch
 
 A verificação de ID documenta a **cadeia de fonte**, mas não prova automaticamente a verdade semântica. O julgamento humano permanece obrigatório.
 
+Na revisão de integração, o prazo passou a ser conferido antes e depois de cada etapa, inclusive após o parecer final. A execução não publica uma aprovação concluída fora do orçamento. Esse controle é cooperativo: não interrompe à força uma busca local já em andamento. A comparação também preserva a resposta se seu próprio log falhar, sinalizando `auditLogSaved: false`.
+
+Para servir no MacBook, consulte [o tutorial do ngrok](../docs/servir-no-mac.md). O modo somente API mantém `/perguntar` e `/api/v1/multiagent` autenticados, com o chat público independente desativado nessa execução.
+
 ## 3. Controle experimental
 
 - **Desenvolvimento/regressão:** `backend/avaliacao/gabarito.json`, 15 perguntas já usadas em ajustes. Esse conjunto **não é cego**.

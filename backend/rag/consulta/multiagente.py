@@ -182,6 +182,8 @@ class OrquestradorMultiagente:
             t = time.monotonic()
             try:
                 resultado = fn()
+                if restante() <= 0:
+                    raise FalhaGeracao('Limite global de tempo atingido.', 504)
                 log['trace'].append({'agent': nome, 'action': acao, 'status': 'ok',
                                      'durationMs': round((time.monotonic()-t)*1000),
                                      'at': datetime.now(timezone.utc).isoformat()})
