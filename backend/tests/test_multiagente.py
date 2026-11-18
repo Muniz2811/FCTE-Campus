@@ -69,10 +69,12 @@ def test_aprovacao_e_rastreio(svc,tmp_path):
 
 def test_revisor_solicita_uma_correcao(svc):
     contador={'redator':0,'revisor':0}
-    def invocar(agent,*args):
+    recebido=[]
+    def invocar(agent,_prompt,_modelo,dados,_timeout):
         if agent=='pesquisador': return plano()
         if agent=='redator':
             contador['redator']+=1
+            recebido.append((dados['feedback_revisor'],dados['claims_problematicas']))
             return saida(contador['redator']==2), {'totalTokenCount':10}
         contador['revisor']+=1
         decisao='corrigir' if contador['revisor']==1 else 'aprovar'
@@ -82,6 +84,7 @@ def test_revisor_solicita_uma_correcao(svc):
     assert result['llmCalls']==5
     assert result['correctionRounds']==1
     assert contador=={'redator':2,'revisor':2}
+    assert recebido==[('',[]),('A sala correta e a 304.',[0])]
     assert 'sala 304' in result['answer']
     assert any(s.get('decision')=='corrigir' for s in result['trace'])
 
@@ -163,3 +166,51 @@ def test_revisor_declara_insuficiencia_mesmo_com_trechos(svc):
     assert res['status']=='insufficient'
     assert not res['claims']
     assert res['decision']=='insuficiente'
+
+
+def test_abstencao_do_redator_preserva_mensagem_propria(svc):
+    lacuna='A base cita o LDTEA, mas nao informa horario de funcionamento do COSMOS.'
+    def invocar(agent,*_):
+        if agent=='pesquisador': return plano()
+        if agent=='redator':
+            return SaidaGerador.model_validate({'status':'insufficient','message':lacuna,'claims':[]}), {}
+        return Parecer(decisao='aprovar',feedback='',claims_problematicas=[]), {}
+    res=OrquestradorMultiagente(svc,pesquisar=buscar,invocar=invocar).executar('Qual o horario do COSMOS?')
+    assert res['status']=='insufficient'
+    assert res['message']==lacuna
+    assert res['decision']=='insuficiente'
+
+
+def test_recusa_apos_unica_correcao_e_identificada(svc):
+    def invocar(agent,*_):
+        if agent=='pesquisador': return plano()
+        if agent=='redator': return saida(False), {}
+        return Parecer(decisao='corrigir',feedback='Sala sem suporte.',claims_problematicas=[0]), {}
+    res=OrquestradorMultiagente(svc,pesquisar=buscar,invocar=invocar).executar('Onde fica COSMOS?')
+    assert res['status']=='insufficient' and not res['claims']
+    assert res['decision']=='nao_aprovado_apos_correcao'
+    assert res['correctionRounds']==1 and len(res['drafts'])==2
+
+
+def test_falha_antes_do_fluxo_libera_trava(svc):
+    svc.info={'model':'gemini-test'}  # sem baseVersion: KeyError ao montar o log
+    with pytest.raises(FalhaGeracao) as ex:
+        OrquestradorMultiagente(svc,pesquisar=buscar,invocar=lambda *_: plano()).executar('Onde fica COSMOS?')
+    assert ex.value.status==503
+    assert svc.vaga.acquire(blocking=False), 'Trava deve ser liberada'
+    svc.vaga.release()
+
+
+def test_falha_ao_gravar_log_nao_derruba_resposta(svc,monkeypatch):
+    from rag.consulta import multiagente
+    def disco_cheio(*_): raise OSError('disco cheio')
+    monkeypatch.setattr(multiagente,'gravar_json',disco_cheio)
+    def invocar(agent,*_):
+        if agent=='pesquisador': return plano()
+        if agent=='redator': return saida(), {}
+        return Parecer(decisao='aprovar',feedback='',claims_problematicas=[]), {}
+    res=OrquestradorMultiagente(svc,pesquisar=buscar,invocar=invocar).executar('Onde fica COSMOS?')
+    assert res['status']=='answered'
+    assert res['auditLogSaved'] is False
+    assert svc.vaga.acquire(blocking=False)
+    svc.vaga.release()

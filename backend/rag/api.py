@@ -155,8 +155,9 @@ def create_app(factory=criar_servico, *, acesso=None):
             return OrquestradorMultiagente(app.state.rag).executar(
                 pergunta.text, previous_request_id=str(pergunta.previousRequestId)
                 if pergunta.previousRequestId is not None else None)
-        except ValueError:
-            raise FalhaGeracao('Pergunta ou base documental invalida.', 503) from None
+        except (ValueError, OSError, KeyError, TypeError):
+            # A pergunta ja foi validada pelo schema (422); o que sobra e configuracao, indice ou disco.
+            raise FalhaGeracao('Falha tecnica no fluxo multiagente. Confira configuracao e indice do backend.', 503) from None
 
     @app.post('/api/v1/comparison/{arm}')
     def comparison(arm: Literal['rag', 'llm', 'multiagente'], pergunta: Pergunta):

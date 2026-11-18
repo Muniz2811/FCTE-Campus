@@ -59,9 +59,10 @@ def test_chat_online_publico_e_integracao_protegida_por_token(monkeypatch, tmp_p
         assert client.get('/index.html').status_code == 200
         assert client.get('/api/v1/health').status_code == 200
         assert client.post('/api/v1/chat', json={'text': 'Onde fica?'}).status_code == 200
-        for path in ('/api/v1/comparison/llm', '/api/v1/comparison/rag'):
+        for path in ('/api/v1/comparison/llm', '/api/v1/comparison/rag', '/api/v1/comparison/multiagente'):
             assert client.post(path, json={}).status_code == 422  # sem bloqueio de login
         assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}).status_code == 401
+        assert client.post('/api/v1/multiagent', json={'text': 'Onde fica?'}).status_code == 401
         assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}, auth=('equipe', 'legado')).status_code == 401
         assert client.post('/perguntar', json={'pergunta': 'Onde fica?'}, headers={'Authorization': 'Bearer errado'}).status_code == 401
 

@@ -15,6 +15,8 @@ from starlette.responses import JSONResponse
 from rag.config import caminho_projeto
 
 LOCAL_HOSTS = {'127.0.0.1', 'localhost', '[::1]'}
+# Rotas entre serviços. O chat web e a comparação ao vivo continuam públicos por decisão do projeto.
+ROTAS_PROTEGIDAS = {'/perguntar', '/api/v1/multiagent'}
 
 
 @dataclass
@@ -47,7 +49,7 @@ class Acesso:
         return cls(obrigatorio, obter('RAG_API_TOKEN'))
 
     async def proteger(self, request):
-        if not self.obrigatorio or request.url.path != '/perguntar':
+        if not self.obrigatorio or request.url.path not in ROTAS_PROTEGIDAS:
             return None
         ip = request.client.host if request.client else 'desconhecido'
         agora = time.monotonic()

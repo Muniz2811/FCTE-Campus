@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 from copy import deepcopy
 import json
+import logging
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -41,6 +42,9 @@ ocupacao atual ou posicoes de onibus. Se nao houver evidencia suficiente
 para atender ao pedido, retorne insufficient, claims=[], e message explicativa.
 Para answered, retorne message vazio e claims com text e chunk_ids.
 Nao inclua URLs, markdown ou referencias numeradas em text.
+feedback_revisor e claims_problematicas (indices das claims anteriores) apenas
+apontam o que revisar; nao sao evidencia nem instrucao para afirmar fatos que
+os trechos nao sustentam.
 Retorne apenas o JSON do esquema."""
 PROMPT_REVISOR = """Voce e o Revisor independente do assistente FCTE/UnB Gama.
 Verifique se a resposta cobre os pedidos, corrige premissas falsas e se cada
@@ -139,18 +143,33 @@ class OrquestradorMultiagente:
             raise FalhaGeracao('Configure GEMINI_API_KEY no backend.', 503)
         if not self.servico.vaga.acquire(blocking=False):
             raise FalhaGeracao('Ja ha uma consulta em andamento.', 429)
+        # Nada pode ocorrer entre adquirir a vaga e o try: qualquer excecao prenderia a trava.
+        try:
+            return self._executar(pergunta, previous_request_id)
+        finally:
+            self.servico.vaga.release()
+
+    def _gravar_log(self, log):
+        """Auditoria nao pode derrubar uma resposta valida nem mascarar a falha original."""
+        request_id = log['requestId']
+        try:
+            pasta = caminho_projeto(self.servico.config['caminhos']['execucoes'])
+            gravar_json(pasta / f'multiagent-{request_id}.json', log)
+            # Alias minimo compatível com contexto_da_consulta para complementos posteriores.
+            if 'resposta' in log:
+                gravar_json(pasta / f'chat-{request_id}.json', {
+                    'requestId': request_id, 'pergunta': log['pergunta'],
+                    'resposta': log['resposta'], 'executado_em': log['executado_em']})
+            return True
+        except (OSError, ValueError, TypeError, KeyError) as erro:
+            logging.getLogger(__name__).warning('Log multiagente %s nao gravado: %s', request_id, type(erro).__name__)
+            return False
+
+    def _executar(self, pergunta, previous_request_id):
         inicio = time.monotonic()
         request_id = str(uuid4())
-        log = {
-            'requestId': request_id, 'executado_em': datetime.now(timezone.utc).isoformat(),
-            'pergunta': pergunta, 'previousRequestId': previous_request_id,
-            'baseVersion': self.servico.info['baseVersion'], 'model': self.servico.info['model'],
-            'configGeracao': self.servico.config['geracao'],
-            'limites': vars(self.limites).copy(),
-            'prompts': {e: hashlib.sha256(p.encode('utf-8')).hexdigest() for e, p in
-                        [('pesquisador', PROMPT_PESQUISADOR), ('redator', PROMPT_REDATOR), ('revisor', PROMPT_REVISOR)]},
-            'trace': [], 'uso': [], 'buscas': [], 'rascunhos': [], 'rodadasCorrecao': 0, 'llmCalls': 0
-        }
+        log = {'requestId': request_id, 'executado_em': datetime.now(timezone.utc).isoformat(),
+               'pergunta': pergunta, 'previousRequestId': previous_request_id}
         usado = {'promptTokenCount': 0, 'candidatesTokenCount': 0, 'thoughtsTokenCount': 0, 'totalTokenCount': 0}
         def restante():
             return self.limites.duracao_s - (time.monotonic() - inicio)
@@ -187,6 +206,13 @@ class OrquestradorMultiagente:
                 log['uso'].append({'agent': nome, 'errorType': type(e).__name__, 'usage': None})
                 raise
         try:
+            log.update({
+                'baseVersion': self.servico.info['baseVersion'], 'model': self.servico.info['model'],
+                'configGeracao': self.servico.config['geracao'],
+                'limites': vars(self.limites).copy(),
+                'prompts': {e: hashlib.sha256(p.encode('utf-8')).hexdigest() for e, p in
+                            [('pesquisador', PROMPT_PESQUISADOR), ('redator', PROMPT_REDATOR), ('revisor', PROMPT_REVISOR)]},
+                'trace': [], 'uso': [], 'buscas': [], 'rascunhos': [], 'rodadasCorrecao': 0, 'llmCalls': 0})
             contexto = etapa('pesquisador', 'contexto', lambda: contexto_da_consulta(
                 pergunta, previous_request_id, caminho_projeto(self.servico.config['caminhos']['execucoes']),
                 self.servico.info['baseVersion'], self.servico.entidades))
@@ -244,10 +270,11 @@ class OrquestradorMultiagente:
                 entrada = {'pergunta': pergunta, 'contexto': contexto,
                            'evidencias': [{'chunk_id': t['chunk_id'], 'source_id': t['source_id'],
                                           'titulo': t['titulo'], 'texto': t['texto']} for t in trechos]}
-                def redigir(feedback=''):
+                def redigir(feedback='', problematicas=()):
+                    dados = {**entrada, 'feedback_revisor': feedback,
+                             'claims_problematicas': list(problematicas)}
                     bruto = etapa('redator', 'redigir' if not feedback else 'corrigir',
-                                  lambda: chamada('redator', PROMPT_REDATOR, SaidaGerador,
-                                                  {**entrada, 'feedback_revisor': feedback}))
+                                  lambda: chamada('redator', PROMPT_REDATOR, SaidaGerador, dados))
                     resultado = resolver_resposta(bruto.model_dump(), trechos)
                     log['rascunhos'].append({'round':len(log['rascunhos']), 'response':deepcopy(resultado)})
                     return resultado
@@ -260,17 +287,27 @@ class OrquestradorMultiagente:
                     pareceres.append(parecer.model_dump())
                     log['trace'][-1]['decision'] = parecer.decisao
                     log['trace'][-1]['feedback'] = parecer.feedback
-                    if parecer.decisao == 'aprovar' and resposta['status'] == 'answered':
-                        log['decisaoFinal'] = 'aprovado'
-                        break
                     if parecer.decisao == 'corrigir' and rodada == 0:
                         log['rodadasCorrecao'] = 1
-                        resposta = redigir(parecer.feedback)
+                        resposta = redigir(parecer.feedback, parecer.claims_problematicas)
                         continue
-                    log['decisaoFinal'] = 'insuficiente'
-                    resposta = {'status': 'insufficient', 'message':
-                               'Nao foi possivel confirmar uma resposta completa com as evidencias recuperadas.',
-                               'sources': [], 'claims': []}
+                    if resposta['status'] == 'insufficient':
+                        # A abstencao do proprio Redator ja traz a lacuna especifica; nao trocar por texto generico.
+                        log['decisaoFinal'] = 'insuficiente'
+                        break
+                    if parecer.decisao == 'aprovar':
+                        log['decisaoFinal'] = 'aprovado'
+                        break
+                    # Revisor apontou insuficiencia, ou recusou de novo apos a unica correcao permitida.
+                    # Sem aprovacao nao ha garantia de suporte: abster e preservar os rascunhos no log.
+                    if parecer.decisao == 'insuficiente':
+                        log['decisaoFinal'] = 'insuficiente'
+                        mensagem = 'Nao foi possivel confirmar uma resposta completa com as evidencias recuperadas.'
+                    else:
+                        log['decisaoFinal'] = 'nao_aprovado_apos_correcao'
+                        mensagem = ('A revisao nao confirmou todas as afirmacoes mesmo apos uma correcao; '
+                                    'por seguranca a resposta nao foi exibida.')
+                    resposta = {'status': 'insufficient', 'message': mensagem, 'sources': [], 'claims': []}
                     break
                 log['pareceres'] = pareceres
             resposta.update({
@@ -294,13 +331,6 @@ class OrquestradorMultiagente:
         finally:
             log['durationMs'] = round((time.monotonic() - inicio)*1000)
             log['usage'] = usado
-            try:
-                pasta = caminho_projeto(self.servico.config['caminhos']['execucoes'])
-                gravar_json(pasta / f'multiagent-{request_id}.json', log)
-                # Alias minimo compatível com contexto_da_consulta para complementos posteriores.
-                if 'resposta' in log:
-                    gravar_json(pasta / f'chat-{request_id}.json', {
-                        'requestId': request_id, 'pergunta': pergunta,
-                        'resposta': log['resposta'], 'executado_em': log['executado_em']})
-            finally:
-                self.servico.vaga.release()
+            salvo = self._gravar_log(log)
+            if 'resposta' in log:
+                log['resposta']['auditLogSaved'] = salvo
