@@ -50,6 +50,8 @@ def main():
     parser.add_argument('--pasta', help='Pasta de resultados nova ou usada para retomar')
     parser.add_argument('--max-tentativas', type=int, default=3)
     parser.add_argument('--intervalo', type=float, default=4.5)
+    parser.add_argument('--somente', nargs='+', metavar='QID:BRACO',
+                        help='Ao retomar, repete apenas estes pares (ex.: C07:multiagente); os demais ficam como estao')
     args = parser.parse_args()
     if args.max_tentativas < 1 or args.intervalo < 0:
         parser.error('Tentativas e intervalo invalidos')
@@ -106,6 +108,8 @@ def main():
         for item in dados['ordem']:
             qid,arm = item['qid'],item['braco']
             if any(s['qid']==qid and s['braco']==arm for s in dados['selecionadas']):
+                continue
+            if args.somente and f'{qid}:{arm}' not in args.somente:
                 continue
             tentativas = [t for t in dados['tentativas'] if t['qid']==qid and t['braco']==arm]
             for indice in range(len(tentativas), args.max_tentativas):

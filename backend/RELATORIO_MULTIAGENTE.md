@@ -3,7 +3,7 @@
 **Grupo:** 09 — Residência em IA, FCTE/UnB
 **Projeto:** [Muniz2811/FCTE-Campus](https://github.com/Muniz2811/FCTE-Campus)
 **Issues:** [#1](https://github.com/Muniz2811/FCTE-Campus/issues/1), [#2](https://github.com/Muniz2811/FCTE-Campus/issues/2), [#3](https://github.com/Muniz2811/FCTE-Campus/issues/3), [#4](https://github.com/Muniz2811/FCTE-Campus/issues/4)
-**Situação:** implementação testada com índice local e Gemini real (seção 7.1); rodada de conferência dos três modos executada (seção 7.2); **revisão humana dos julgamentos e conclusão final pendentes**.
+**Situação:** implementação testada com índice local e Gemini real (seção 7.1); rodadas dos três modos executadas com perguntas formais (seção 7.2) e com um conjunto coloquial que favorece o multiagente (seção 7.3); **revisão humana dos julgamentos pendente**; conclusão preliminar na seção 9.
 
 ## 1. Objetivo
 
@@ -163,6 +163,32 @@ As 9 falhas técnicas foram do provedor (8× HTTP 503 de conexão ou alta demand
 
 Nenhuma rodada de correção ocorreu nas 8 perguntas da conferência: o Revisor aprovou o primeiro rascunho em todas as respondíveis. O único caso de correção observado com Gemini real é o do rascunho injetado (seção 7.1), em que o resultado melhorou (sala 101 → 304).
 
+### 7.3 Conjunto coloquial — FAVORECE O MULTIAGENTE
+
+> Conjunto de estresse escolhido **depois** de verificar, só com a busca local, que a consulta única do RAG atual não recupera o documento que responde (C01–C06) ou recupera só uma parte (C07). C08 é controle. Testa a hipótese "o multiagente ajuda quando o vocabulário da pessoa difere do dos documentos". **Não estima desempenho médio** e deve ser lido junto da seção 7.2. Definição em [`avaliacao/conferencia_coloquial.json`](avaliacao/conferencia_coloquial.json).
+
+Pasta: [`avaliacao/resultados/tres-modos-coloquial-20261118T150540Z`](avaliacao/resultados/tres-modos-coloquial-20261118T150540Z). 23/24 execuções válidas (C04 do Gemini isolado falhou 3 vezes por 503), hashes preservados. C07 e C08 do multiagente só concluíram na 4ª tentativa, após três HTTP 503 do provedor; todas as tentativas estão registradas.
+
+| Pergunta | Gemini isolado | RAG atual | Multiagente |
+|---|---|---|---|
+| C01 quadra de futebol | Inventou que não há quadra | Não encontrou | Não encontrou nesta rodada |
+| C02 passar mal | Conselho genérico sem fonte | Não encontrou | **Navs da DASU na FCTE** |
+| C03 ansiedade | Inventou serviços (CAE, NAP) | Não encontrou | **SOU e DASU** |
+| C04 ônibus | Falha do provedor | Não encontrou | Não encontrou |
+| C05 cadeira inadequada | Conselho genérico sem fonte | Não encontrou | Não encontrou |
+| C06 quantos livros | Absteve-se | Não encontrou | Recuperou DOC-032 e ainda assim se absteve |
+| C07 biblioteca + CAPES | Localização vaga | **Errou**: deu a Biblioteca Central (Darcy Ribeiro) | CAPES correto; localização vaga ("na FCTE") |
+| C08 wifi (controle) | Aproximado, sem fonte | Correto | Correto |
+
+| Medida operacional | Gemini isolado | RAG atual | Multiagente |
+|---|---:|---:|---:|
+| Latência mediana válida | 8,5 s | 9,4 s | 30,9 s |
+| Tokens das respostas válidas | 2.579 | 10.503 | 36.931 |
+| Sucesso na primeira tentativa | 3/8 | 5/8 | 4/8 |
+| Rodadas de correção | — | — | 0 |
+
+Leitura preliminar, **pendente de revisão humana**: o multiagente foi melhor em C02, C03 e C07, empatou nas demais e não piorou o controle. O ganho vem da **reformulação das subconsultas pelo Pesquisador**, não do Revisor (nenhuma correção ocorreu). Ele é **instável**: C01 foi respondida corretamente numa sessão da comparação ao vivo (subconsulta "infraestrutura esportiva quadra" encontrou DOC-009) e não foi respondida nesta rodada, com subconsultas diferentes. Em C06 a busca encontrou o documento certo, mas Redator e Revisor não usaram a linha "Quantidade máxima de exemplares: 5".
+
 ## 8. Limitações
 
 - 15 perguntas de regressão conhecidas e 8 de conferência com sobreposição de temas; amostra pequena.
@@ -179,7 +205,14 @@ Nenhuma rodada de correção ocorreu nas 8 perguntas da conferência: o Revisor 
 
 ## 9. Conclusão
 
-**PENDENTE.** Selecionar, após a revisão da conferência, o fluxo que melhor equilibra completude, corroboração factual, disponibilidade, latência, tokens, rastreabilidade e correção de premissas. A comparação anterior favoreceu o RAG atual frente ao Gemini isolado, mas não demonstra superioridade do multiagente.
+**PRELIMINAR — pendente de revisão humana dos julgamentos.**
+
+- **Gemini isolado não serve como fluxo do produto:** inventou nomes de laboratórios, unidades e serviços nos dois conjuntos.
+- **Perguntas formais (seção 7.2):** RAG atual e multiagente empataram em qualidade; o multiagente custou ~1,8× tempo e tokens.
+- **Perguntas coloquiais (seção 7.3, conjunto que o favorece):** o multiagente respondeu 3 perguntas que o RAG atual não respondeu ou errou, a ~3,3× o tempo e ~3,5× os tokens, com resultado instável entre execuções.
+- **O Revisor não justificou seu custo:** nenhuma correção em 16 perguntas reais; detecta afirmações erradas, mas aprova respostas incompletas.
+
+Recomendação preliminar: manter o **RAG atual** como fluxo padrão e avaliar, como próximo experimento, um **RAG com reformulação de consulta** (uma chamada para gerar subconsultas + uma para responder, sem Revisor), que concentra o ganho observado a um custo menor.
 
 ## 10. Referências
 
