@@ -1,0 +1,65 @@
+{
+  "natureza": "Testes de integracao com Gemini real (issues #1 e #2). Nao substitui a avaliacao da issue #4.",
+  "gitHead": "f45ffcc1e4f5eb694466cfa607d6015072cdbabd",
+  "modelo": "gemini-3.5-flash-lite",
+  "geracao": {
+    "provedor": "gemini",
+    "modelo": "gemini-3.5-flash-lite",
+    "temperatura": 0.1,
+    "timeout_s": 90,
+    "max_output_tokens": 3072
+  },
+  "baseVersion": "7c47ac4dc0add1417ace5b9480cadb0142aaf5ca26929503f2e2f8b347be1e85",
+  "retrievalSignature": "f571fcdc1349b69c7fc5f61c63b875d85cfbd7545714c27bc62c84c5401fd906",
+  "promptSha256": {
+    "pesquisador": "4c1bbc001f721de4298d93b4947e58de1cd691aa65591badf0452efa3f8b0306",
+    "redator": "cd3ebc709dd067e4e92d994c0504aec52dab83a6ad4111a3ee7497898027c595",
+    "revisor": "67ff9d7a5e6b2ddde0c063934d02d8daa8bd94a1ab08d9ce138891be65cfab0b"
+  },
+  "casos": [
+    {
+      "caso": "schemas",
+      "plano": {
+        "subconsultas": [
+          "onde fica a biblioteca da FCTE UnB Gama",
+          "localizacao da biblioteca FGA"
+        ],
+        "reformulacao": "Qual e a localizacao da biblioteca da Faculdade do Gama da Universidade de Brasilia (FCTE/UnB)?"
+      },
+      "rascunho": {
+        "status": "answered",
+        "message": "",
+        "claims": [
+          {
+            "text": "A biblioteca do campus Gama fica na UAC.",
+            "chunk_ids": [
+              "c_teste"
+            ]
+          }
+        ]
+      },
+      "parecer": {
+        "decisao": "aprovar",
+        "feedback": "A resposta cobre o pedido e todas as claims estao devidamente corroboradas pelos chunks citados.",
+        "claims_problematicas": []
+      },
+      "uso": [
+        {
+          "promptTokenCount": 142,
+          "candidatesTokenCount": 58,
+          "totalTokenCount": 200
+        },
+        {
+          "promptTokenCount": 331,
+          "candidatesTokenCount": 38,
+          "totalTokenCount": 369
+        },
+        {
+          "promptTokenCount": 256,
+          "candidatesTokenCount": 40,
+          "totalTokenCount": 296
+        }
+      ]
+    }
+  ]
+}

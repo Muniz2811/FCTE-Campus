@@ -1,3 +1,4 @@
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = ["gemini: integracao real com Gemini e indice local; gasta cota, exige RAG_TEST_GEMINI=1"]

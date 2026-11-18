@@ -1,6 +1,7 @@
 import type { KnowledgeSource } from '../knowledge/application/assistant';
 
-export type Arm = 'rag' | 'llm';
+export type Arm = 'rag' | 'llm' | 'multiagente';
+export type HistoricalArm = 'rag' | 'llm';
 export interface Ratio { numerador: number; denominador: number; valor: number | null }
 export interface Scores {
   tarefas: number; completude: Ratio; corroboracao: Ratio; ausencia: Ratio; premissas: Ratio;
@@ -17,21 +18,32 @@ export interface GoldQuestion { id: string; pergunta: string; referencia: string
 export interface Evaluation {
   round: string; date: string; reviewer: string; model: string; baseVersion: string | null; currentBaseMatches: boolean | null;
   currentRetrievalMatches?: boolean | null; currentProfile?: string | null; currentMethod?: string | null;
-  arms: Record<Arm, Scores>; scenarios: Record<string, Record<Arm, Scores>>; questions: GoldQuestion[];
+  arms: Record<HistoricalArm, Scores> & Partial<Record<'multiagente', Scores>>; scenarios: Record<string, Record<HistoricalArm, Scores>>; questions: GoldQuestion[];
   goals: Record<string, number | string>; rubric: Record<string, string>;
   judgments: { qid: string; braco: Arm; completa: boolean; ausencia_correta?: boolean | null; observacao: string }[];
   persistence: { success: boolean; executedAt: string }; artifacts: { path: string; sha256: string }[];
 }
+export interface AgentStep {
+  agent: string; action: string; status: string; durationMs: number;
+  decision?: string; feedback?: string; errorType?: string;
+}
+export interface AgentSearch { query: string; chunkIds: string[]; reformulacao?: boolean }
+export interface AgentUsage { agent: string; usage?: Record<string, number> | null; errorType?: string }
 export interface LiveResponse {
   status: 'answered' | 'insufficient'; answer?: string; message?: string;
   claims: { text: string; sourceIds?: string[]; fontes?: string[] }[];
   sources?: KnowledgeSource[]; retrieved?: KnowledgeSource[]; requestId?: string; model?: string; baseVersion?: string;
   retrievalProfile?: string; retrievalMethod?: string;
   usage?: Record<string, number>; providerModelVersion?: string;
+  trace?: AgentStep[]; searches?: AgentSearch[]; usageByAgent?: AgentUsage[];
+  llmCalls?: number; correctionRounds?: number; multiagent?: boolean; decision?: string;
+  usageCoverage?: { callsWithUsage: number; calls: number };
+  drafts?: { round: number; response: { status: string; answer?: string; message?: string; claims: { text: string; sourceIds?: string[] }[] } }[];
 }
 export interface Attempt {
   id: string; arm: Arm; question: string; executedAt: string; model: string; baseVersion?: string;
   technicalStatus: number; elapsedSeconds: number | null; response?: LiveResponse; error?: string;
+  auditLogSaved?: boolean;
   generation?: Record<string, unknown>; promptSha256?: string;
   retrievalProfile?: string; retrievalMethod?: string; retrievalSignature?: string;
   traceability?: { resolved?: number | null; total?: number; value: number | null; reason: string };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, BookOpenText, ExternalLink, FlaskConical, MessageCircle, Plus } from 'lucide-react';
+import { BarChart3, BookOpenText, ExternalLink, FlaskConical, MessageCircle, Plus, Route } from 'lucide-react';
 import { AssistantPanel } from '../knowledge/presentation/AssistantPanel';
 import { useChat } from '../knowledge/presentation/use-chat';
 import { Brand } from '../design/Brand';
 import { MetricsPanel } from '../evaluation/MetricsPanel';
 import { LiveComparison } from '../evaluation/LiveComparison';
+import { RouteExplainer } from '../evaluation/RouteExplainer';
 import type { Evaluation } from '../evaluation/model';
 
 export function App() {
@@ -29,14 +30,16 @@ export function App() {
     return () => { active = false; controller.abort(); window.clearTimeout(timeout); };
   }, [revision]);
   const navigation = [{ id: 'chat', label: 'Conversa', Icon: MessageCircle },
-    { id: 'metrics', label: 'Métricas do RAG', Icon: BarChart3 }, { id: 'comparison', label: 'Comparar ao vivo', Icon: FlaskConical }];
+    { id: 'metrics', label: 'Métricas do RAG', Icon: BarChart3 }, { id: 'comparison', label: 'Comparar ao vivo', Icon: FlaskConical },
+    { id: 'route', label: 'Como funciona', Icon: Route }];
+  const skipTarget: Record<string, string> = { chat: '#campus-question', metrics: '#metrics-panel', comparison: '#comparison-question', route: '#route-panel' };
   const newConversation = () => {
     setTab('chat');
     chat.clear();
     requestAnimationFrame(() => document.querySelector<HTMLTextAreaElement>('#campus-question')?.focus());
   };
   return <div className="chat-app">
-    <a href={tab === 'chat' ? '#campus-question' : tab === 'metrics' ? '#metrics-panel' : '#comparison-question'} className="skip-link">Ir para o conteúdo</a>
+    <a href={skipTarget[tab]} className="skip-link">Ir para o conteúdo</a>
     <aside className="workspace-sidebar" aria-label="Sobre o assistente">
       <Brand />
       <nav className="workspace-navigation" aria-label="Seções">{navigation.map(({ id, label, Icon }) => <button key={id} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}><Icon size={19} />{label}</button>)}</nav>
@@ -62,6 +65,7 @@ export function App() {
       <section className="workspace-view" hidden={tab !== 'chat'} aria-label="Conversa"><AssistantPanel chat={chat} onNewConversation={newConversation} /></section>
       <section className="workspace-view" hidden={tab !== 'metrics'} aria-label="Métricas do RAG"><MetricsPanel data={evaluation} error={evaluationError} reload={() => setRevision(v => v + 1)} /></section>
       <section className="workspace-view" hidden={tab !== 'comparison'} aria-label="Comparação ao vivo"><LiveComparison data={evaluation} /></section>
+      <section className="workspace-view" hidden={tab !== 'route'} aria-label="Como funciona"><RouteExplainer /></section>
     </main>
     <nav className="mobile-navigation" aria-label="Seções">{navigation.map(({ id, label, Icon }) => <button key={id} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}><Icon size={20} /><span>{label}</span></button>)}</nav>
   </div>;

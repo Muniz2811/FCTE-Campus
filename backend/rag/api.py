@@ -15,10 +15,11 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from rag.config import carregar_config, caminho_projeto, configurar_cache
+from rag.config import carregar_config, caminho_projeto, configurar_cache, ambiente_backend
 from rag.consulta.geracao import FalhaGeracao
 from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
+from rag.consulta.multiagente import OrquestradorMultiagente
 from rag.acesso import Acesso
 from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
 from rag.consulta.locais import consultar_locais
@@ -63,17 +64,23 @@ def create_app(factory=criar_servico, *, acesso=None):
         if app.state.rag is not None:
             app.state.rag.close()
 
-    app = FastAPI(title='FCTE Campus · Assistente RAG', version='1.0.0', lifespan=lifespan)
-    hosts = [host.strip() for host in os.environ.get('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if host.strip()]
+    app = FastAPI(title='FCTE Campus · Assistente RAG', version='1.0.0', lifespan=lifespan,
+                  docs_url=None if acesso.somente_integracao else '/docs',
+                  redoc_url=None if acesso.somente_integracao else '/redoc',
+                  openapi_url=None if acesso.somente_integracao else '/openapi.json')
+    ambiente = ambiente_backend()
+    hosts = [host.strip() for host in ambiente.get('RAG_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1]').split(',') if host.strip()]
     # O health check usa o domínio público real, que pode diferir do exemplo no .env.
     host_render = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '').strip()
     if host_render and host_render not in hosts:
         hosts.append(host_render)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=hosts)
-    origens = set(os.environ.get('RAG_ALLOWED_ORIGINS', 'http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://localhost:4173').split(','))
+    origens = set(ambiente.get('RAG_ALLOWED_ORIGINS', 'http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://localhost:4173').split(','))
 
     @app.middleware('http')
     async def proteger(request, call_next):
+        if acesso.somente_integracao and request.url.path not in {'/perguntar', '/api/v1/health', '/api/v1/multiagent'}:
+            return JSONResponse({'detail': 'Not Found'}, status_code=404)
         origem = request.headers.get('origin')
         if origem and origem not in origens and origem != str(request.base_url).rstrip('/'):
             return JSONResponse({'detail': 'Origem não autorizada.'}, status_code=403)
@@ -146,8 +153,20 @@ def create_app(factory=criar_servico, *, acesso=None):
         except (OSError, ValueError, KeyError):
             raise FalhaGeracao('Os arquivos da avaliação histórica não estão disponíveis.', 503) from None
 
+    @app.post('/api/v1/multiagent')
+    def multiagent(pergunta: Pergunta):
+        if app.state.rag is None:
+            raise FalhaGeracao('O backend RAG nao esta disponivel.', 503)
+        try:
+            return OrquestradorMultiagente(app.state.rag).executar(
+                pergunta.text, previous_request_id=str(pergunta.previousRequestId)
+                if pergunta.previousRequestId is not None else None)
+        except (ValueError, OSError, KeyError, TypeError):
+            # A pergunta ja foi validada pelo schema (422); o que sobra e configuracao, indice ou disco.
+            raise FalhaGeracao('Falha tecnica no fluxo multiagente. Confira configuracao e indice do backend.', 503) from None
+
     @app.post('/api/v1/comparison/{arm}')
-    def comparison(arm: Literal['rag', 'llm'], pergunta: Pergunta):
+    def comparison(arm: Literal['rag', 'llm', 'multiagente'], pergunta: Pergunta):
         if app.state.comparador is None:
             raise FalhaGeracao('O backend RAG não está disponível.', 503)
         resultado = app.state.comparador.executar(arm, pergunta.text)
