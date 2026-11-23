@@ -1,15 +1,16 @@
 """Chat e API v1. Em produção, a mesma aplicação serve o build do frontend."""
 import asyncio
 import logging
+import secrets
 import os
 import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from dotenv import dotenv_values
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
@@ -21,6 +22,7 @@ from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
 from rag.consulta.multiagente import OrquestradorMultiagente
 from rag.acesso import Acesso
+from rag import monitor
 from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
 from rag.consulta.locais import consultar_locais
 
@@ -77,9 +79,13 @@ def create_app(factory=criar_servico, *, acesso=None):
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=hosts)
     origens = set(ambiente.get('RAG_ALLOWED_ORIGINS', 'http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://localhost:4173').split(','))
 
+    leitura = ambiente.get('RAG_MONITOR_READ_TOKEN') or ''
+    painel = '/api/v1/monitor'
+    ingestao = painel + '/eventos'
+
     @app.middleware('http')
     async def proteger(request, call_next):
-        if acesso.somente_integracao and request.url.path not in {'/perguntar', '/api/v1/health', '/api/v1/multiagent'}:
+        if acesso.somente_integracao and request.url.path not in {'/perguntar', '/api/v1/health', '/api/v1/multiagent', painel, ingestao}:
             return JSONResponse({'detail': 'Not Found'}, status_code=404)
         origem = request.headers.get('origin')
         if origem and origem not in origens and origem != str(request.base_url).rstrip('/'):
@@ -93,7 +99,34 @@ def create_app(factory=criar_servico, *, acesso=None):
         bloqueio = await acesso.proteger(request)
         if bloqueio is not None:
             return bloqueio
-        resposta = await call_next(request)
+        caminho = request.url.path
+        if caminho in {painel, ingestao}:
+            chave = leitura if caminho == painel else acesso.token
+            if len(chave) < 32 or not secrets.compare_digest(
+                request.headers.get('authorization', '').encode(), ('Bearer ' + chave).encode()
+            ):
+                return JSONResponse({'detail': 'Credencial do monitor inválida.'}, status_code=401)
+        instrumentar = caminho in {'/perguntar', '/api/v1/chat', '/api/v1/multiagent'} or caminho.startswith('/api/v1/comparison/')
+        if instrumentar and request.method == 'POST':
+            trace, parent = str(uuid4()), None
+            if caminho == '/perguntar' and acesso.obrigatorio:
+                try:
+                    trace_recebido = UUID(request.headers.get('x-milton-trace', ''))
+                    parent = str(UUID(request.headers.get('x-milton-parent', '')))
+                    trace = str(trace_recebido)
+                except ValueError:
+                    pass
+            token = monitor.contexto.set((trace, parent))
+            try:
+                with monitor.etapa('FCTE-Campus ' + caminho) as evento:
+                    resposta = await call_next(request)
+                    if resposta.status_code >= 400:
+                        evento['resultado'] = 'erro'
+                    evento['http'] = resposta.status_code
+            finally:
+                monitor.contexto.reset(token)
+        else:
+            resposta = await call_next(request)
         resposta.headers['Cache-Control'] = 'no-store' if request.url.path.startswith('/api/') or request.url.path == '/perguntar' else 'no-cache'
         resposta.headers['X-Content-Type-Options'] = 'nosniff'
         return resposta
@@ -101,6 +134,14 @@ def create_app(factory=criar_servico, *, acesso=None):
     @app.exception_handler(FalhaGeracao)
     async def falha_geracao(_request, erro):
         return JSONResponse({'detail': str(erro)}, status_code=erro.status)
+
+    @app.post(ingestao, status_code=200)
+    def receber_evento(evento: monitor.EventoMilton):
+        monitor.registrar(evento.model_dump(mode='json'))
+
+    @app.get(painel)
+    def monitor_ao_vivo():
+        return {'execucoes': monitor.recentes()}
 
     @app.get('/api/v1/health')
     def health():

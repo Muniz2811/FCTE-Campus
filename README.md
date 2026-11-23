@@ -473,3 +473,12 @@ npm.cmd run rag:check
 ```
 
 Os testes existentes não chamam Gemini. A documentação técnica está em [backend/README.md](backend/README.md), e a metodologia e os resultados históricos em [Relatório da Semana 3](backend/RELATORIO_SEMANA_3_LLM_X_RAG.md).
+
+## Monitorar o Milton ao vivo pelo Mac
+
+1. No Mac, gere um token exclusivo de leitura com `openssl rand -hex 32`. Em `backend/.env`, defina `RAG_MONITOR_READ_TOKEN` com esse valor. Mantenha a autenticação entre serviços habilitada e o ngrok apontado para a porta 8001.
+2. Na raiz do FCTE-Campus, execute `npm run dev:rag`. Em outro terminal, execute `npm run dev`. Abra http://127.0.0.1:5173, entre em **Ao vivo** e informe o token de leitura. O Vite encaminha as consultas ao backend local inclusive quando `RAG_API_ONLY=true`.
+3. No serviço coleta-fcte do Render, com a versão instrumentada publicada, configure `G09_MONITOR_ATIVO=true`. A exportação usa os mesmos `G09_API_URL` e `G09_API_TOKEN` de /perguntar. O token de leitura pertence exclusivamente ao painel.
+4. Envie ao Milton “Onde tem cabine de estudo individual?”. Acompanhe o roteamento, a chamada HTTP e as etapas que o RAG realmente executar. Experimente também “Quanto custa o RU?” para observar a chamada externa ao Grupo 04.
+
+O Mac reúne os eventos pelo identificador de execução. O painel consulta a API a cada 1,5 s enquanto está aberto. O buffer comporta 100 execuções recentes por processo e é reiniciado com o backend. Rode com um worker. A entrega de eventos do Render é de melhor esforço: se o Mac dormir, o túnel cair ou a fila encher, o rastreamento pode ficar incompleto. O monitor recebe nomes de etapas, estado, durações e contadores disponíveis, sem texto das perguntas ou coordenadas.
