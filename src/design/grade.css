@@ -1,0 +1,62 @@
+.grade-content { gap: 28px; }
+.grade-intro h1 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1.14; font-weight: 650; letter-spacing: -.03em; }
+.grade-intro h1 span { color: var(--green-deep); }
+.grade-intro > p { color: var(--muted); line-height: 1.65; font-size: 16px; max-width: 58ch; margin-top: 16px; }
+.grade-intro > .grade-privacy { display: flex; gap: 10px; align-items: flex-start; padding: 12px 15px; border: 1px solid #d5e4da; border-radius: 12px; background: #f1f7f2; color: #27573d; font-size: 14px; line-height: 1.55; }
+.grade-privacy svg { margin-top: 3px; color: var(--green-deep); }
+.grade-form { display: grid; gap: 14px; padding: 20px; border: 1px solid #ccd9dd; border-radius: 16px; background: var(--paper); }
+.grade-form:focus-within { border-color: var(--green); }
+.grade-file { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.grade-file-button { display: inline-flex; align-items: center; gap: 9px; min-height: 46px; padding: 10px 17px; border: 1px dashed #8aa0ac; border-radius: 12px; color: var(--blue); font-weight: 650; cursor: pointer; transition: background .18s, border-color .18s; }
+.grade-file-button:hover { background: #eef4f8; border-color: var(--blue); }
+.grade-file input:focus-visible + p, .grade-file input:focus-visible ~ .grade-file-button { outline: 3px solid #2c78c7; outline-offset: 3px; }
+.grade-file:has(input:focus-visible) .grade-file-button { outline: 3px solid #2c78c7; outline-offset: 3px; }
+.grade-file-hint { color: var(--muted); font-size: 14px; }
+.grade-file-name { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 15px; }
+.grade-file-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 34ch; }
+.grade-file-name span { color: var(--muted); font-size: 13px; }
+.grade-label { font-size: 14px; font-weight: 650; color: var(--ink); }
+.grade-label span { font-weight: 400; color: var(--muted); }
+.grade-form textarea { width: 100%; padding: 12px 14px; border: 1px solid #ccd9dd; border-radius: 12px; resize: vertical; font-size: 16px; line-height: 1.5; color: var(--ink); background: var(--paper); }
+.grade-form textarea:disabled { background: #f3f6f7; }
+.grade-actions { display: flex; justify-content: flex-end; }
+.grade-submit { display: inline-flex; align-items: center; gap: 9px; justify-content: center; background: var(--green-deep); font-weight: 650; }
+.grade-submit:hover:enabled { background: #005124; }
+.grade-submit:disabled { color: #60786b; background: #e2ebe4; }
+.grade-pending { padding-bottom: 0; }
+.grade-error { margin: 0; max-width: none; }
+.grade-result { display: grid; gap: 24px; }
+.grade-summary h2 { font-size: 24px; font-weight: 650; letter-spacing: -.02em; }
+.grade-summary p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.grade-answer { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+.grade-question { font-size: 16px; line-height: 1.6; color: var(--ink); overflow-wrap: anywhere; white-space: pre-wrap; }
+.grade-answer-label { margin-top: 18px; color: var(--green-deep); }
+.grade-citations { display: grid; gap: 4px; }
+.grade-classes { display: grid; gap: 16px; }
+.grade-class { display: grid; gap: 13px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+.grade-class header { display: grid; gap: 4px; }
+.grade-class h3 { font-size: 17px; line-height: 1.4; font-weight: 650; overflow-wrap: anywhere; }
+.grade-class h3 span { display: inline-block; margin-right: 10px; padding: 2px 8px; border-radius: 7px; background: #eaf0f4; color: var(--blue-deep); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.grade-class header p { color: var(--muted); font-size: 14px; }
+.grade-status { justify-self: start; margin-top: 4px; padding: 3px 10px; border-radius: 20px; background: var(--ochre-soft); color: var(--ochre); font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .02em; }
+.grade-meetings { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.grade-meetings li { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 9px; background: #f1f5f7; font-size: 14px; font-variant-numeric: tabular-nums; }
+.grade-meetings svg { color: var(--green-deep); }
+.grade-empty { color: var(--muted); font-size: 14px; }
+.grade-places { display: grid; gap: 8px; }
+.grade-declared, .grade-place { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 14px; line-height: 1.5; }
+.grade-declared { align-items: center; color: var(--muted); }
+.grade-declared svg { color: var(--green-deep); }
+.grade-declared strong { color: var(--ink); }
+.grade-place { flex-direction: column; align-items: flex-start; gap: 2px; padding: 9px 13px; border-left: 3px solid var(--green); background: #f4f8f5; border-radius: 0 9px 9px 0; }
+.grade-place small { color: var(--muted); font-size: 12px; }
+.grade-issues { display: grid; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.grade-issues li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #795a27; }
+.grade-issues svg { margin-top: 3px; }
+.grade-issues--global { padding: 12px 15px; border: 1px solid #e3d7bc; border-radius: 12px; background: #fffaf0; }
+@media (max-width: 520px) {
+  .grade-form { padding: 15px; }
+  .grade-class { padding: 15px; }
+  .grade-actions .primary-button { width: 100%; }
+  .grade-file-name strong { max-width: 22ch; }
+}

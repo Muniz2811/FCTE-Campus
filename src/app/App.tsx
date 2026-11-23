@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, BookOpenText, ExternalLink, FlaskConical, MessageCircle, Plus, Route } from 'lucide-react';
+import { BarChart3, BookOpenText, CalendarDays, ExternalLink, FlaskConical, MessageCircle, Plus, Route } from 'lucide-react';
 import { AssistantPanel } from '../knowledge/presentation/AssistantPanel';
+import { GradePanel } from '../knowledge/presentation/GradePanel';
 import { useChat } from '../knowledge/presentation/use-chat';
 import { Brand } from '../design/Brand';
 import { MetricsPanel } from '../evaluation/MetricsPanel';
@@ -30,9 +31,10 @@ export function App() {
     return () => { active = false; controller.abort(); window.clearTimeout(timeout); };
   }, [revision]);
   const navigation = [{ id: 'chat', label: 'Conversa', Icon: MessageCircle },
+    { id: 'grade', label: 'Minha grade', Icon: CalendarDays },
     { id: 'metrics', label: 'Métricas do RAG', Icon: BarChart3 }, { id: 'comparison', label: 'Comparar ao vivo', Icon: FlaskConical },
     { id: 'route', label: 'Como funciona', Icon: Route }];
-  const skipTarget: Record<string, string> = { chat: '#campus-question', metrics: '#metrics-panel', comparison: '#comparison-question', route: '#route-panel' };
+  const skipTarget: Record<string, string> = { chat: '#campus-question', grade: '#grade-file', metrics: '#metrics-panel', comparison: '#comparison-question', route: '#route-panel' };
   const newConversation = () => {
     setTab('chat');
     chat.clear();
@@ -63,6 +65,7 @@ export function App() {
     </aside>
     <main className="conversation-workspace">
       <section className="workspace-view" hidden={tab !== 'chat'} aria-label="Conversa"><AssistantPanel chat={chat} onNewConversation={newConversation} /></section>
+      <section className="workspace-view" hidden={tab !== 'grade'} aria-label="Minha grade"><GradePanel /></section>
       <section className="workspace-view" hidden={tab !== 'metrics'} aria-label="Métricas do RAG"><MetricsPanel data={evaluation} error={evaluationError} reload={() => setRevision(v => v + 1)} /></section>
       <section className="workspace-view" hidden={tab !== 'comparison'} aria-label="Comparação ao vivo"><LiveComparison data={evaluation} /></section>
       <section className="workspace-view" hidden={tab !== 'route'} aria-label="Como funciona"><RouteExplainer /></section>
