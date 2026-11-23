@@ -1,0 +1,68 @@
+{
+  "grade": {
+    "versaoContrato": "1",
+    "semestre": "2099.1",
+    "curso": "CURSO DE EXEMPLO/FCTE - Bacharelado - Presencial",
+    "origem": "imagem",
+    "status": "parcial",
+    "turmas": [
+      {
+        "codigoComponente": "FGA9002",
+        "nomeComponente": "OUTRO COMPONENTE DE EXEMPLO",
+        "cargaHoraria": 60,
+        "turma": "Turma 01",
+        "situacaoOriginal": "AGUARDANDO PROCESSAMENTO",
+        "encontros": [
+          {"dia": "seg", "inicio": "14:00", "fim": "15:50"},
+          {"dia": "qua", "inicio": "14:00", "fim": "15:50"}
+        ],
+        "localTextoOriginal": "FCTE - S10 / MOCAP",
+        "locaisDeclarados": [
+          {"textoOriginal": "FCTE - S10", "situacao": "declarado", "codigo": "S10"},
+          {"textoOriginal": "MOCAP", "situacao": "declarado", "codigo": "MOCAP"}
+        ],
+        "vinculoEncontrosLocais": "nao_informado",
+        "evidencias": [
+          {"tipo": "tabela", "referencia": "Turmas selecionadas, linha 2", "pagina": 1,
+           "textoOriginal": "FCTE - S10 / MOCAP"}
+        ],
+        "conhecimentoDaBase": [],
+        "pendencias": [
+          {"codigo": "situacao_aguardando_processamento", "codigoComponente": "FGA9002",
+           "mensagem": "A matrícula nesta turma ainda aguarda processamento."},
+          {"codigo": "locais_sem_vinculo_com_encontros", "codigoComponente": "FGA9002",
+           "mensagem": "O documento lista dois locais para a turma sem dizer qual encontro usa qual."}
+        ]
+      },
+      {
+        "codigoComponente": "FGA9003",
+        "nomeComponente": "COMPONENTE COM LOCAL INDEFINIDO",
+        "cargaHoraria": 60,
+        "turma": "Turma 01",
+        "situacaoOriginal": "AGUARDANDO PROCESSAMENTO",
+        "encontros": [
+          {"dia": "ter", "inicio": "18:00", "fim": "19:50"}
+        ],
+        "localTextoOriginal": "A definir",
+        "locaisDeclarados": [
+          {"textoOriginal": "A definir", "situacao": "a_definir"}
+        ],
+        "vinculoEncontrosLocais": "nao_informado",
+        "evidencias": [
+          {"tipo": "tabela", "referencia": "Turmas selecionadas, linha 3", "pagina": 1}
+        ],
+        "conhecimentoDaBase": [],
+        "pendencias": [
+          {"codigo": "situacao_aguardando_processamento", "codigoComponente": "FGA9003",
+           "mensagem": "A matrícula nesta turma ainda aguarda processamento."},
+          {"codigo": "local_a_definir", "codigoComponente": "FGA9003",
+           "mensagem": "O local ainda não foi definido no documento."}
+        ]
+      }
+    ],
+    "pendencias": []
+  },
+  "pergunta": "Onde é minha aula de segunda?",
+  "resposta": "O documento lista dois locais (FCTE - S10 e MOCAP) para essa turma, mas não informa qual deles é usado em cada encontro.",
+  "fontes": []
+}

@@ -1,0 +1,44 @@
+{
+  "grade": {
+    "versaoContrato": "1",
+    "semestre": "2099.1",
+    "curso": "CURSO DE EXEMPLO/FCTE - Bacharelado - Presencial",
+    "origem": "pdf_texto",
+    "status": "completa",
+    "turmas": [
+      {
+        "codigoComponente": "FGA9001",
+        "nomeComponente": "COMPONENTE DE EXEMPLO",
+        "cargaHoraria": 60,
+        "turma": "Turma 01",
+        "situacaoOriginal": "MATRICULADO",
+        "encontros": [
+          {"dia": "seg", "inicio": "14:00", "fim": "15:50"},
+          {"dia": "qua", "inicio": "14:00", "fim": "15:50"}
+        ],
+        "localTextoOriginal": "FCTE - S2",
+        "locaisDeclarados": [
+          {"textoOriginal": "FCTE - S2", "situacao": "declarado", "codigo": "S2", "nome": "Sala S2"}
+        ],
+        "vinculoEncontrosLocais": "nao_informado",
+        "evidencias": [
+          {"tipo": "tabela", "referencia": "Turmas selecionadas, linha 1", "pagina": 1,
+           "textoOriginal": "FGA9001 - COMPONENTE DE EXEMPLO - 60h"},
+          {"tipo": "tabela", "referencia": "Grade semanal, seg e qua 14:00-15:50", "pagina": 1}
+        ],
+        "conhecimentoDaBase": [
+          {"identificador": "DOC-EXEMPLO-001", "titulo": "Inventário de salas (exemplo)",
+           "versaoFonte": "exemplo-v1", "assunto": "Sala S2"}
+        ],
+        "pendencias": []
+      }
+    ],
+    "pendencias": []
+  },
+  "pergunta": "Onde é minha aula de segunda?",
+  "resposta": "Segundo o documento, a turma tem aula às segundas das 14:00 às 15:50 e o local declarado é FCTE - S2. [1]",
+  "fontes": [
+    {"identificador": "DOC-EXEMPLO-001", "titulo": "Inventário de salas (exemplo)",
+     "versaoFonte": "exemplo-v1", "assunto": "Sala S2"}
+  ]
+}
