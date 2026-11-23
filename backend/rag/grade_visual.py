@@ -36,8 +36,9 @@ LADO_MAX_RECORTE = 1800
 # Modelos com raciocínio gastam parte da saída "pensando"; com 1000 tokens a resposta era cortada.
 TOKENS_LOCALIZAR = 4000
 TOKENS_EXTRAIR = 12000
-TENTATIVAS = 5
-ESPERA_BASE_S = 2.0  # 2, 4, 8, 16 s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
+TENTATIVAS = 8
+ESPERA_BASE_S = 2.0   # 2, 4, 8, 15, 15... s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
+ESPERA_MAX_S = 15.0
 LARGURA_MIN_RECORTE = 900
 MARGEM = 8                # em milésimos da imagem, ao redor de cada recorte
 TOLERANCIA_FUSAO_MIN = 10  # a grade do SIGAA deixa 5 min entre 18:55 e 19:00
@@ -321,10 +322,10 @@ class LeitorVisual:
             except httpx.RequestError:
                 if tentativa == TENTATIVAS - 1:
                     raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
-                time.sleep(ESPERA_BASE_S * 2 ** tentativa)
+                time.sleep(min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S))
                 continue
             if resposta.status_code in (500, 502, 503, 504) and tentativa < TENTATIVAS - 1:
-                time.sleep(ESPERA_BASE_S * 2 ** tentativa)
+                time.sleep(min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S))
                 continue
             break
         if resposta.status_code == 429:
