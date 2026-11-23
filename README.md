@@ -334,6 +334,17 @@ O build padrão é **light + Supabase**: instala apenas `backend/requirements-ap
 
 No início do serviço, o perfil leve lê do Supabase somente texto e metadados dos chunks. Confere manifesto, hashes, IDs e conteúdo contra o corpus versionado, mantém esse snapshot em memória e refaz os filtros de aprovação, abrangência e validade a cada pergunta. Mudanças na base exigem atualizar os arquivos correspondentes e reiniciar/republicar a API. Vetores já existentes continuam preservados no Supabase.
 
+**Teste local com um comando.** O `compose.yaml` da raiz é só para testes locais; o Render continua construindo o `Dockerfile` e não o usa.
+
+```sh
+docker compose up --build                      # full + Chroma local: só exige GEMINI_API_KEY em backend/.env
+docker compose --profile supabase up --build   # light + Supabase, como no Render: exige SUPABASE_URL e SUPABASE_SECRET_KEY
+```
+
+Abra `http://localhost:8000`. Os dois serviços usam a porta 8000; suba um por vez. O primeiro build do perfil full é demorado (PyTorch, E5, reranker e indexação).
+
+Equivalente manual, sem compose:
+
 ```sh
 docker build -t fcte-chat .
 docker run --rm -p 127.0.0.1:8000:8000 --env-file backend/.env -e RAG_PROFILE=light -e RAG_INDEX_BACKEND=supabase -e RAG_REQUIRE_AUTH=false fcte-chat

@@ -1,0 +1,50 @@
+# Execução LOCAL para testes. O deploy no Render não usa este arquivo:
+# ele constrói o ./Dockerfile diretamente, com variáveis do painel.
+#
+#   docker compose up --build                       # full + Chroma local (só precisa de GEMINI_API_KEY)
+#   docker compose --profile supabase up --build    # light + Supabase (igual ao Render; precisa das chaves)
+#
+# Abra http://localhost:8000. Os dois serviços usam a porta 8000: suba um por vez.
+# A porta é publicada somente em loopback porque a autenticação fica desligada.
+
+x-local: &local
+  env_file:
+    - path: backend/.env
+      required: false
+  ports:
+    - "127.0.0.1:8000:8000"
+  restart: "no"
+
+services:
+  rag:
+    <<: *local
+    image: fcte-chat-local
+    build:
+      context: .
+      args:
+        RAG_PROFILE: full
+        RAG_INDEX_BACKEND: chroma
+    environment:
+      RAG_PROFILE: full
+      RAG_INDEX_BACKEND: chroma
+      RAG_REQUIRE_AUTH: "false"
+      RAG_API_ONLY: "false"
+      RAG_ALLOWED_HOSTS: localhost,127.0.0.1
+      RAG_ALLOWED_ORIGINS: http://localhost:8000,http://127.0.0.1:8000
+
+  rag-supabase:
+    <<: *local
+    profiles: ["supabase"]
+    image: fcte-chat
+    build:
+      context: .
+      args:
+        RAG_PROFILE: light
+        RAG_INDEX_BACKEND: supabase
+    environment:
+      RAG_PROFILE: light
+      RAG_INDEX_BACKEND: supabase
+      RAG_REQUIRE_AUTH: "false"
+      RAG_API_ONLY: "false"
+      RAG_ALLOWED_HOSTS: localhost,127.0.0.1
+      RAG_ALLOWED_ORIGINS: http://localhost:8000,http://127.0.0.1:8000
