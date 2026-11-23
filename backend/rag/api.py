@@ -2,6 +2,7 @@
 import asyncio
 import logging
 import os
+import threading
 import time
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -9,7 +10,7 @@ from typing import Literal
 from uuid import UUID
 
 from dotenv import dotenv_values
-from fastapi import FastAPI
+from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
@@ -23,6 +24,12 @@ from rag.consulta.multiagente import OrquestradorMultiagente
 from rag.acesso import Acesso
 from rag.integracao import PerguntaIntegracao, RespostaIntegracao, resposta_integracao, indisponivel
 from rag.consulta.locais import consultar_locais
+from rag.grade import RespostaGrade
+from rag.grade_consulta import consultar_grade
+from rag.grade_visual import LeitorVisual, LIMITE_BYTES
+
+ROTA_GRADE = '/api/v1/grade/consultar'
+LIMITE_CORPO_GRADE = LIMITE_BYTES + 64 * 1024  # arquivo + campos do multipart
 
 
 class Pergunta(BaseModel):
@@ -50,8 +57,10 @@ def criar_servico():
     return servico
 
 
-def create_app(factory=criar_servico, *, acesso=None):
+def create_app(factory=criar_servico, *, acesso=None, grade=None):
+    """`grade(conteudo, pergunta)` é injetável em testes; por padrão usa o leitor visual e o gerador do serviço."""
     acesso = acesso if acesso is not None else Acesso.do_ambiente()
+    vaga_grade = threading.BoundedSemaphore(1)  # uma leitura de documento por vez: cota do Gemini e memória
     @asynccontextmanager
     async def lifespan(app):
         try:
@@ -60,6 +69,14 @@ def create_app(factory=criar_servico, *, acesso=None):
             logging.getLogger(__name__).error('Inicialização do RAG falhou: %s', type(erro).__name__)
             app.state.rag = None
         app.state.comparador = Comparador(app.state.rag) if app.state.rag is not None else None
+        servico = app.state.rag
+        if grade is not None:
+            app.state.grade = grade
+        elif servico is not None and hasattr(servico, 'gerador'):
+            leitor = LeitorVisual(servico.config['geracao'], servico.gerador.chave)
+            app.state.grade = lambda conteudo, pergunta: consultar_grade(conteudo, pergunta, leitor, servico.gerador)
+        else:
+            app.state.grade = None
         yield
         if app.state.rag is not None:
             app.state.rag.close()
@@ -86,8 +103,9 @@ def create_app(factory=criar_servico, *, acesso=None):
             return JSONResponse({'detail': 'Origem não autorizada.'}, status_code=403)
         if request.method == 'POST':
             try:
-                if int(request.headers.get('content-length', '0')) > 8192:
-                    return JSONResponse({'detail': 'Pergunta muito grande.'}, status_code=413)
+                limite = LIMITE_CORPO_GRADE if request.url.path == ROTA_GRADE else 8192
+                if int(request.headers.get('content-length', '0')) > limite:
+                    return JSONResponse({'detail': 'Arquivo muito grande.' if limite != 8192 else 'Pergunta muito grande.'}, status_code=413)
             except ValueError:
                 return JSONResponse({'detail': 'Requisição inválida.'}, status_code=400)
         bloqueio = await acesso.proteger(request)
@@ -145,6 +163,26 @@ def create_app(factory=criar_servico, *, acesso=None):
             status = erro.status if isinstance(erro, FalhaGeracao) else 503
             mensagem = str(erro) if isinstance(erro, FalhaGeracao) else 'Não foi possível consultar a base do Grupo 09.'
             return JSONResponse(indisponivel(mensagem, status, int((time.monotonic() - inicio) * 1000)), status_code=status)
+
+    @app.post(ROTA_GRADE, response_model=RespostaGrade,
+              responses={413: {'description': 'Arquivo acima de 8 MB'}, 415: {'description': 'Tipo de arquivo não aceito'},
+                         422: {'description': 'Arquivo ilegível'}, 429: {'description': 'Leitura em andamento ou cota atingida'},
+                         503: {'description': 'Serviço indisponível'}})
+    def grade_consultar(arquivo: UploadFile = File(...), pergunta: str | None = Form(default=None, max_length=1200)):
+        # Rota pública como o chat. O arquivo é lido só em memória; nada é gravado em data/execucoes.
+        if app.state.grade is None:
+            raise FalhaGeracao('A leitura de documentos não está disponível. Confira o terminal do backend.', 503)
+        conteudo = arquivo.file.read(LIMITE_BYTES + 1)
+        if len(conteudo) > LIMITE_BYTES:
+            raise FalhaGeracao('O arquivo excede o limite de 8 MB.', 413)
+        if not conteudo:
+            raise FalhaGeracao('O arquivo enviado está vazio.', 422)
+        if not vaga_grade.acquire(blocking=False):
+            raise FalhaGeracao('Já há um documento sendo lido. Aguarde e tente novamente.', 429)
+        try:
+            return app.state.grade(conteudo, pergunta)
+        finally:
+            vaga_grade.release()
 
     @app.get('/api/v1/evaluation')
     def evaluation():

@@ -31,3 +31,4 @@ pymupdf==1.26.6
 
 # Leitura visual da grade (imagens): recorte e reencode
 pillow==13.0.0
+python-multipart==0.0.34

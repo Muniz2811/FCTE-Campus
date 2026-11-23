@@ -80,6 +80,7 @@ CodigoPendencia = Literal[
     'local_a_definir',
     'local_nao_encontrado_na_base',
     'local_ambiguo_na_base',
+    'enriquecimento_indisponivel',
     'encontros_ausentes',
     'tabela_ausente',
     'semestre_ausente',
@@ -130,8 +131,19 @@ class GradeImportada(_Modelo):
     pendencias: list[Pendencia] = Field(default_factory=list)
 
 
+class Citacao(_Modelo):
+    """Evidência de uma afirmação da resposta, com a origem separada: o comprovante ou a base do campus."""
+    n: int = Field(ge=1)
+    origem: Literal['comprovante', 'base']
+    referencia: str = Field(max_length=80)  # código do componente (comprovante) ou identificador da fonte (base)
+    trecho: str = Field(max_length=1500)
+    versao: str | None = Field(default=None, max_length=80)
+
+
 class RespostaGrade(_Modelo):
     grade: GradeImportada
     pergunta: str | None = Field(default=None, max_length=1200)
     resposta: str | None = None
+    respostaStatus: Literal['respondida', 'insuficiente', 'sem_pergunta', 'indisponivel'] = 'sem_pergunta'
+    citacoes: list[Citacao] = Field(default_factory=list)
     fontes: list[VinculoBase] = Field(default_factory=list)
