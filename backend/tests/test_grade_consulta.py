@@ -85,9 +85,49 @@ def test_sem_pergunta_nao_chama_o_gerador():
     assert len(resposta.grade.turmas) == 3
 
 
-def test_falha_do_gerador_devolve_a_grade_sem_resposta():
+def test_falha_do_gerador_devolve_a_grade_sem_resposta(monkeypatch):
+    monkeypatch.setattr('rag.grade_consulta.time.sleep', lambda s: None)
     resposta = consultar_grade(PDF_FALSO, 'Pergunta?', LeitorFalso(), GeradorFalso(falhar=True))
     assert resposta.respostaStatus == 'indisponivel' and resposta.resposta is None and resposta.grade.turmas
+
+
+def test_gerador_repete_falha_passageira_e_responde(monkeypatch):
+    monkeypatch.setattr('rag.grade_consulta.time.sleep', lambda s: None)
+
+    class Instavel(GeradorFalso):
+        def gerar(self, pergunta, trechos, contexto=None):
+            if len(self.chamadas) < 2:
+                self.chamadas.append('falha')
+                raise FalhaGeracao('Gemini sobrecarregado', 502)
+            return super().gerar(pergunta, trechos, contexto)
+    gerador = Instavel()
+    resposta = consultar_grade(PDF_FALSO, 'Onde fica a sala da FGA0083?', LeitorFalso(), gerador)
+    assert resposta.respostaStatus == 'respondida' and len(gerador.chamadas) == 3
+
+
+def test_timeout_do_gerador_e_repetido(monkeypatch):
+    monkeypatch.setattr('rag.grade_consulta.time.sleep', lambda s: None)
+
+    class Pendurado(GeradorFalso):
+        def gerar(self, pergunta, trechos, contexto=None):
+            if len(self.chamadas) < 1:
+                self.chamadas.append('timeout')
+                raise FalhaGeracao('O Gemini demorou a responder.', 504)
+            return super().gerar(pergunta, trechos, contexto)
+    resposta = consultar_grade(PDF_FALSO, 'Onde fica a sala da FGA0083?', LeitorFalso(), Pendurado())
+    assert resposta.respostaStatus == 'respondida'
+
+
+def test_cota_do_gemini_nao_e_repetida(monkeypatch):
+    monkeypatch.setattr('rag.grade_consulta.time.sleep', lambda s: None)
+    chamadas = []
+
+    class SemCota:
+        def gerar(self, pergunta, trechos, contexto=None):
+            chamadas.append(1)
+            raise FalhaGeracao('Limite atingido', 429)
+    resposta = consultar_grade(PDF_FALSO, 'Pergunta?', LeitorFalso(), SemCota())
+    assert resposta.respostaStatus == 'indisponivel' and len(chamadas) == 1
 
 
 def test_arquivo_sem_turmas_nao_chama_o_gerador():

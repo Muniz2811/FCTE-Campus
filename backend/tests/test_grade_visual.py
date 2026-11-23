@@ -187,6 +187,24 @@ def test_falha_de_conexao_antes_de_chegar_ao_google_e_repetida(monkeypatch):
     assert ler.ler(imagem_sintetica()).turmas
 
 
+def test_resposta_pendurada_e_repetida_com_timeout_curto(monkeypatch):
+    monkeypatch.setattr('rag.grade_visual.time.sleep', lambda s: None)
+    estados = {'n': 0, 'timeouts': []}
+
+    def handler(request):
+        estados['n'] += 1
+        estados['timeouts'].append(request.extensions['timeout']['read'])
+        if estados['n'] == 1:
+            raise httpx.ReadTimeout('pendurado', request=request)
+        corpo = json.loads(request.content)
+        dados = CAIXAS if corpo['systemInstruction']['parts'][0]['text'] == PROMPT_LOCALIZAR else LEITURA
+        return httpx.Response(200, json={'candidates': [{'finishReason': 'STOP', 'content': {
+            'parts': [{'text': json.dumps(dados)}]}}]})
+    ler = LeitorVisual({'modelo': 'gemini-exemplo', 'timeout_s': 90}, 'chave-falsa', transport=httpx.MockTransport(handler))
+    assert ler.ler(imagem_sintetica()).turmas
+    assert max(estados['timeouts']) <= 30  # nunca espera 90 s por uma chamada
+
+
 def test_o_tempo_total_da_leitura_e_limitado(monkeypatch):
     esperas = []
     monkeypatch.setattr('rag.grade_visual.time.sleep', esperas.append)

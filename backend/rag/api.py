@@ -17,7 +17,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from rag.config import carregar_config, caminho_projeto, configurar_cache, ambiente_backend
-from rag.consulta.geracao import FalhaGeracao
+from rag.consulta.geracao import FalhaGeracao, GeradorGemini
 from rag.consulta.servico import ServicoRAG
 from rag.consulta.comparacao import Comparador, painel_historico
 from rag.consulta.multiagente import OrquestradorMultiagente
@@ -30,6 +30,7 @@ from rag.grade_visual import LeitorVisual, LIMITE_BYTES
 
 ROTA_GRADE = '/api/v1/grade/consultar'
 LIMITE_CORPO_GRADE = LIMITE_BYTES + 64 * 1024  # arquivo + campos do multipart
+TIMEOUT_GERACAO_GRADE_S = 30
 
 
 class Pergunta(BaseModel):
@@ -74,7 +75,9 @@ def create_app(factory=criar_servico, *, acesso=None, grade=None):
             app.state.grade = grade
         elif servico is not None and hasattr(servico, 'gerador'):
             leitor = LeitorVisual(servico.config['geracao'], servico.gerador.chave)
-            app.state.grade = lambda conteudo, pergunta: consultar_grade(conteudo, pergunta, leitor, servico.gerador)
+            # Gerador próprio com timeout curto: uma chamada pendurada é repetida em vez de esperar 90 s.
+            gerador = GeradorGemini({**servico.config['geracao'], 'timeout_s': TIMEOUT_GERACAO_GRADE_S}, servico.gerador.chave)
+            app.state.grade = lambda conteudo, pergunta: consultar_grade(conteudo, pergunta, leitor, gerador)
         else:
             app.state.grade = None
         yield

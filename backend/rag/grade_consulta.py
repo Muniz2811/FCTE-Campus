@@ -6,11 +6,15 @@ gravado em `data/execucoes` nem indexado; a pergunta e o arquivo existem só em 
 """
 from __future__ import annotations
 
+import time
+
 from rag.consulta.geracao import FalhaGeracao
 from rag.grade import Citacao, GradeImportada, Pendencia, RespostaGrade, VinculoBase
 from rag.grade_locais import Inventario, enriquecer_grade
 
 ORIGEM_COMPROVANTE = 'COMPROVANTE'
+TENTATIVAS_GERACAO = 8   # o Gemini devolve 502/503 passageiros em picos de demanda
+ESPERA_GERACAO_S = 2.0
 DIAS = {'seg': 'segunda-feira', 'ter': 'terça-feira', 'qua': 'quarta-feira',
         'qui': 'quinta-feira', 'sex': 'sexta-feira', 'sab': 'sábado'}
 AVISOS = {
@@ -93,6 +97,17 @@ def _citacoes(fontes_publicas: list[dict]) -> tuple[list[Citacao], list[VinculoB
     return citacoes, list(vinculos.values())
 
 
+def _gerar(gerador, pergunta: str, trechos: list[dict]) -> dict:
+    """Repete falhas passageiras do Gemini (5xx, conexão e timeout); só a cota (429) não repete."""
+    for tentativa in range(TENTATIVAS_GERACAO):
+        try:
+            return gerador.gerar(pergunta, trechos)
+        except FalhaGeracao as erro:
+            if erro.status not in (502, 503, 504) or tentativa == TENTATIVAS_GERACAO - 1:
+                raise
+            time.sleep(ESPERA_GERACAO_S)
+
+
 def consultar_grade(conteudo: bytes, pergunta: str | None, leitor, gerador, inventario: Inventario | None = None) -> RespostaGrade:
     grade = _enriquecer(leitor.ler(conteudo), inventario)  # falhas de leitura sobem como FalhaGeracao
     pergunta = (pergunta or '').strip() or None
@@ -102,7 +117,7 @@ def consultar_grade(conteudo: bytes, pergunta: str | None, leitor, gerador, inve
         return RespostaGrade(grade=grade, pergunta=pergunta, respostaStatus='insuficiente',
                              resposta='Não encontrei turmas no arquivo enviado para responder.')
     try:
-        resultado = gerador.gerar(pergunta, montar_trechos(grade))
+        resultado = _gerar(gerador, pergunta, montar_trechos(grade))
     except FalhaGeracao:
         return RespostaGrade(grade=grade, pergunta=pergunta, respostaStatus='indisponivel')
     if resultado['status'] != 'answered':

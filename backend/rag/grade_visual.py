@@ -36,10 +36,11 @@ LADO_MAX_RECORTE = 1800
 # Modelos com raciocínio gastam parte da saída "pensando"; com 1000 tokens a resposta era cortada.
 TOKENS_LOCALIZAR = 4000
 TOKENS_EXTRAIR = 12000
-TENTATIVAS = 10
+TENTATIVAS = 40  # o limite real é o PRAZO_S
+TIMEOUT_CHAMADA_S = 30.0  # uma chamada normal leva 2-10 s; esperar 90 s por uma pendurada desperdiça o prazo
 PRAZO_S = 170.0       # tempo total das tentativas por leitura; a interface espera 200 s
-ESPERA_BASE_S = 2.0   # 2, 4, 8, 15, 15... s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
-ESPERA_MAX_S = 15.0
+ESPERA_BASE_S = 2.0   # 2, 4, 4... s: o 503 do Gemini é sobrecarga pontual (a extração falha ~7 em 8), então
+ESPERA_MAX_S = 4.0    # muitas tentativas curtas valem mais que poucas longas
 LARGURA_MIN_RECORTE = 900
 MARGEM = 8                # em milésimos da imagem, ao redor de cada recorte
 TOLERANCIA_FUSAO_MIN = 10  # a grade do SIGAA deixa 5 min entre 18:55 e 19:00
@@ -315,21 +316,19 @@ class LeitorVisual:
                                       'responseMimeType': 'application/json', 'responseJsonSchema': esquema}}
         prazo = prazo or time.monotonic() + PRAZO_S
         resposta = None
-        for tentativa in range(TENTATIVAS):  # reconexão e 5xx são passageiros; leitura lenta e 429 não repetem
+        for tentativa in range(TENTATIVAS):  # reconexão, timeout e 5xx são passageiros; só 429 (cota) não repete
             restante = prazo - time.monotonic()
             espera = min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S)
             ultima = tentativa == TENTATIVAS - 1 or restante <= espera + 5
             try:
                 resposta = self.cliente.post(ENDPOINT.format(self.config['modelo']),
                                              headers={'x-goog-api-key': self.chave}, json=corpo,
-                                             timeout=max(5.0, min(float(self.config['timeout_s']), restante)))
-            except httpx.ConnectTimeout:  # a conexão nem chegou ao Google: nada foi consumido
+                                             timeout=max(5.0, min(float(self.config['timeout_s']), TIMEOUT_CHAMADA_S, restante)))
+            except httpx.TimeoutException:  # conexão ou resposta pendurada: tenta de novo com timeout curto
                 if ultima:
-                    raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
+                    raise FalhaGeracao('O Gemini demorou a responder. Tente novamente.', 504) from None
                 time.sleep(espera)
                 continue
-            except httpx.TimeoutException:
-                raise FalhaGeracao('O Gemini demorou a responder. Tente novamente.', 504) from None
             except httpx.RequestError:
                 if ultima:
                     raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
