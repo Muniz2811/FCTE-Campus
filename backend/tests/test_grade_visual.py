@@ -135,3 +135,29 @@ def test_campo_ambiguo_e_marcado_sem_preenchimento_presumido():
 def test_arquivo_invalido(conteudo):
     with pytest.raises(FalhaGeracao):
         leitor()[0].ler(conteudo)
+
+
+def test_sobrecarga_503_e_repetida_com_espera_e_depois_funciona(monkeypatch):
+    esperas = []
+    monkeypatch.setattr('rag.grade_visual.time.sleep', esperas.append)
+    estados = {'n': 0}
+
+    def handler(request):
+        estados['n'] += 1
+        if estados['n'] <= 2:
+            return httpx.Response(503, json={'error': {'status': 'UNAVAILABLE'}})
+        corpo = json.loads(request.content)
+        dados = CAIXAS if corpo['systemInstruction']['parts'][0]['text'] == PROMPT_LOCALIZAR else LEITURA
+        return httpx.Response(200, json={'candidates': [{'finishReason': 'STOP', 'content': {
+            'parts': [{'text': json.dumps(dados)}]}}]})
+    ler = LeitorVisual(CONFIG, 'chave-falsa', transport=httpx.MockTransport(handler))
+    assert ler.ler(imagem_sintetica()).turmas
+    assert esperas == [2.0, 4.0]
+
+
+def test_sobrecarga_persistente_falha_com_mensagem_clara(monkeypatch):
+    monkeypatch.setattr('rag.grade_visual.time.sleep', lambda s: None)
+    ler = LeitorVisual(CONFIG, 'chave-falsa', transport=httpx.MockTransport(
+        lambda r: httpx.Response(503, json={'error': {'status': 'UNAVAILABLE'}})))
+    with pytest.raises(FalhaGeracao):
+        ler.ler(imagem_sintetica())

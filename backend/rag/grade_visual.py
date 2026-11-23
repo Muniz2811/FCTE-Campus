@@ -18,6 +18,7 @@ import base64
 import io
 import json
 import re
+import time
 from typing import Literal
 
 import fitz
@@ -32,7 +33,8 @@ LIMITE_BYTES = 8 * 1024 * 1024
 LIMITE_LADO = 6000
 LADO_MINIATURA = 360
 LADO_MAX_RECORTE = 1800
-TENTATIVAS = 3
+TENTATIVAS = 5
+ESPERA_BASE_S = 2.0  # 2, 4, 8, 16 s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
 LARGURA_MIN_RECORTE = 900
 MARGEM = 8                # em milésimos da imagem, ao redor de cada recorte
 TOLERANCIA_FUSAO_MIN = 10  # a grade do SIGAA deixa 5 min entre 18:55 e 19:00
@@ -309,8 +311,10 @@ class LeitorVisual:
             except httpx.RequestError:
                 if tentativa == TENTATIVAS - 1:
                     raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
+                time.sleep(ESPERA_BASE_S * 2 ** tentativa)
                 continue
             if resposta.status_code in (500, 502, 503, 504) and tentativa < TENTATIVAS - 1:
+                time.sleep(ESPERA_BASE_S * 2 ** tentativa)
                 continue
             break
         if resposta.status_code == 429:
