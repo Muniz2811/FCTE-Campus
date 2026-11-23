@@ -60,11 +60,26 @@ class VinculoBase(_Modelo):
     assunto: str | None = Field(default=None, max_length=200)
 
 
+class LocalizacaoBase(_Modelo):
+    """Onde a base do Grupo 09 situa um local declarado. O texto original do comprovante é
+    preservado em `textoOriginal`; `precisao` diz até onde a fonte confirma (o andar pode ficar em aberto)."""
+    textoOriginal: str = Field(min_length=1, max_length=80)
+    predio: str = Field(max_length=40)
+    andar: str | None = Field(default=None, max_length=40)
+    nivel: int | None = Field(default=None, ge=-5, le=40)
+    ambienteId: str | None = Field(default=None, max_length=40)
+    evidencia: Literal['mapa', 'texto']
+    precisao: Literal['ambiente', 'predio']
+    fonte: VinculoBase
+    limitacoes: str | None = Field(default=None, max_length=500)
+
+
 CodigoPendencia = Literal[
     'situacao_aguardando_processamento',
     'locais_sem_vinculo_com_encontros',
     'local_a_definir',
     'local_nao_encontrado_na_base',
+    'local_ambiguo_na_base',
     'encontros_ausentes',
     'tabela_ausente',
     'semestre_ausente',
@@ -91,6 +106,7 @@ class Turma(_Modelo):
     vinculoEncontrosLocais: Literal['nao_informado'] = 'nao_informado'
     evidencias: list[Evidencia] = Field(default_factory=list)
     conhecimentoDaBase: list[VinculoBase] = Field(default_factory=list)
+    localizacoes: list[LocalizacaoBase] = Field(default_factory=list)
     pendencias: list[Pendencia] = Field(default_factory=list)
 
     @model_validator(mode='after')
