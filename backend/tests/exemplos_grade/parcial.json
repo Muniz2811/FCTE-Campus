@@ -60,7 +60,10 @@
         ]
       }
     ],
-    "pendencias": []
+    "pendencias": [
+      {"codigo": "leitura_incerta",
+       "mensagem": "Uma célula da grade semanal (sex) está ilegível e não foi usada."}
+    ]
   },
   "pergunta": "Onde é minha aula de segunda?",
   "resposta": "O documento lista dois locais (FCTE - S10 e MOCAP) para essa turma, mas não informa qual deles é usado em cada encontro.",

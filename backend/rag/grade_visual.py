@@ -27,7 +27,8 @@ from PIL import Image, UnidentifiedImageError
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from rag.consulta.geracao import FalhaGeracao
-from rag.grade import Encontro, Evidencia, GradeImportada, LocalDeclarado, Pendencia, Turma
+from rag.grade import (Encontro, Evidencia, GradeImportada, LocalDeclarado, Pendencia,
+                       PENDENCIAS_DE_LEITURA, Turma)
 
 LIMITE_BYTES = 8 * 1024 * 1024
 LIMITE_LADO = 6000
@@ -167,6 +168,14 @@ def _recortar(imagem: Image.Image, caixa: _Caixa | None) -> Image.Image | None:
     return recorte
 
 
+def _nome_turma(texto: str | None) -> str | None:
+    """Padroniza como no documento: "Turma 01", tanto para "01" quanto para "turma 01"."""
+    if not texto or not texto.strip():
+        return None
+    achado = re.fullmatch(r'(?:turma\s+)?(\S+)', texto.strip(), re.I)
+    return f'Turma {achado.group(1)}' if achado else texto.strip()
+
+
 def _minutos(hhmm: str) -> int:
     return int(hhmm[:2]) * 60 + int(hhmm[3:])
 
@@ -274,13 +283,14 @@ def montar_grade(leitura: _Leitura, origem: str, *, tabela_turmas: bool, tabela_
         turmas.append(Turma(
             codigoComponente=codigo, nomeComponente=(linha.nome or None) if linha else None,
             cargaHoraria=linha.carga_horaria if linha and linha.carga_horaria and 0 < linha.carga_horaria <= 600 else None,
-            turma=re.sub(r'^turma\s+', '', linha.turma.strip(), flags=re.I) or None if linha and linha.turma else None,
+            turma=_nome_turma(linha.turma) if linha else None,
             situacaoOriginal=(linha.situacao or None) if linha else None,
             encontros=encontros, localTextoOriginal=(linha.local or None) if linha else None,
             locaisDeclarados=locais, evidencias=evidencias, pendencias=p))
     return GradeImportada(
         semestre=semestre, origem=origem, turmas=turmas, pendencias=pendencias,
-        status='parcial' if pendencias or any(t.pendencias for t in turmas) else 'completa')
+        status='parcial' if any(p.codigo in PENDENCIAS_DE_LEITURA
+                                for p in [*pendencias, *(q for t in turmas for q in t.pendencias)]) else 'completa')
 
 
 class LeitorVisual:

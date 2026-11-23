@@ -73,7 +73,8 @@ def codigos(pendencias):
 def test_print_completo_funde_horarios_e_preserva_locais_sem_vinculo():
     ler, _ = leitor()
     grade = ler.ler(imagem_sintetica())
-    assert grade.origem == 'imagem' and grade.semestre == '2099.1' and grade.status == 'parcial'
+    assert grade.origem == 'imagem' and grade.semestre == '2099.1'
+    assert grade.status == 'completa'  # aguardando processamento e locais múltiplos são fatos, não lacunas
     t1, t2, t3 = grade.turmas
     assert [(e.dia, e.inicio, e.fim) for e in t1.encontros] == [('seg', '14:00', '15:50')]
     assert [(e.dia, e.inicio, e.fim) for e in t3.encontros] == [('qua', '18:00', '19:50')]
@@ -81,6 +82,7 @@ def test_print_completo_funde_horarios_e_preserva_locais_sem_vinculo():
     assert 'locais_sem_vinculo_com_encontros' in codigos(t2.pendencias)
     assert t3.locaisDeclarados[0].situacao == 'a_definir' and 'local_a_definir' in codigos(t3.pendencias)
     assert 'situacao_aguardando_processamento' in codigos(t1.pendencias)
+    assert [t.turma for t in grade.turmas] == ['Turma 01'] * 3
 
 
 def test_pdf_visual_retorna_os_mesmos_campos_do_print():
@@ -110,6 +112,12 @@ def test_print_cortado_indica_a_tabela_ausente_e_nao_inventa_horarios():
     assert grade.status == 'parcial' and grade.semestre is None
     assert 'tabela_ausente' in codigos(grade.pendencias) and 'semestre_ausente' in codigos(grade.pendencias)
     assert all(t.encontros == [] for t in grade.turmas)
+
+
+@pytest.mark.parametrize('lido', ['01', 'Turma 01', 'turma 01', ' TURMA 01 '])
+def test_turma_sai_sempre_como_no_documento(lido):
+    leitura = {**LEITURA, 'turmas': [{**LEITURA['turmas'][0], 'turma': lido}]}
+    assert leitor(leitura=leitura)[0].ler(imagem_sintetica()).turmas[0].turma == 'Turma 01'
 
 
 def test_sem_tabelas_nao_faz_segunda_chamada():
