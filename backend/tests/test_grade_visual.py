@@ -169,3 +169,30 @@ def test_sobrecarga_persistente_falha_com_mensagem_clara(monkeypatch):
         lambda r: httpx.Response(503, json={'error': {'status': 'UNAVAILABLE'}})))
     with pytest.raises(FalhaGeracao):
         ler.ler(imagem_sintetica())
+
+
+def test_falha_de_conexao_antes_de_chegar_ao_google_e_repetida(monkeypatch):
+    monkeypatch.setattr('rag.grade_visual.time.sleep', lambda s: None)
+    estados = {'n': 0}
+
+    def handler(request):
+        estados['n'] += 1
+        if estados['n'] <= 2:
+            raise httpx.ConnectTimeout('sem conexão', request=request)
+        corpo = json.loads(request.content)
+        dados = CAIXAS if corpo['systemInstruction']['parts'][0]['text'] == PROMPT_LOCALIZAR else LEITURA
+        return httpx.Response(200, json={'candidates': [{'finishReason': 'STOP', 'content': {
+            'parts': [{'text': json.dumps(dados)}]}}]})
+    ler = LeitorVisual(CONFIG, 'chave-falsa', transport=httpx.MockTransport(handler))
+    assert ler.ler(imagem_sintetica()).turmas
+
+
+def test_o_tempo_total_da_leitura_e_limitado(monkeypatch):
+    esperas = []
+    monkeypatch.setattr('rag.grade_visual.time.sleep', esperas.append)
+    monkeypatch.setattr('rag.grade_visual.PRAZO_S', 0.0)  # sem orçamento: não espera nem repete
+    ler = LeitorVisual(CONFIG, 'chave-falsa', transport=httpx.MockTransport(
+        lambda r: httpx.Response(503, json={'error': {'status': 'UNAVAILABLE'}})))
+    with pytest.raises(FalhaGeracao):
+        ler.ler(imagem_sintetica())
+    assert esperas == []

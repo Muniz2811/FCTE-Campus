@@ -36,7 +36,8 @@ LADO_MAX_RECORTE = 1800
 # Modelos com raciocínio gastam parte da saída "pensando"; com 1000 tokens a resposta era cortada.
 TOKENS_LOCALIZAR = 4000
 TOKENS_EXTRAIR = 12000
-TENTATIVAS = 8
+TENTATIVAS = 10
+PRAZO_S = 170.0       # tempo total das tentativas por leitura; a interface espera 200 s
 ESPERA_BASE_S = 2.0   # 2, 4, 8, 15, 15... s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
 ESPERA_MAX_S = 15.0
 LARGURA_MIN_RECORTE = 900
@@ -304,7 +305,7 @@ class LeitorVisual:
     def close(self):
         self.cliente.close()
 
-    def _chamar(self, instrucao: str, imagens: list[bytes], esquema: dict, max_tokens: int) -> dict:
+    def _chamar(self, instrucao: str, imagens: list[bytes], esquema: dict, max_tokens: int, *, prazo: float | None = None) -> dict:
         if not self.chave:
             raise FalhaGeracao('Configure GEMINI_API_KEY no ambiente do backend RAG.', 503)
         partes = [{'inlineData': {'mimeType': 'image/png', 'data': base64.b64encode(i).decode()}} for i in imagens]
@@ -312,20 +313,30 @@ class LeitorVisual:
                  'contents': [{'role': 'user', 'parts': partes}],
                  'generationConfig': {'temperature': 0, 'maxOutputTokens': max_tokens,
                                       'responseMimeType': 'application/json', 'responseJsonSchema': esquema}}
+        prazo = prazo or time.monotonic() + PRAZO_S
         resposta = None
-        for tentativa in range(TENTATIVAS):  # reconexões e 5xx passageiros; timeout e 429 não repetem
+        for tentativa in range(TENTATIVAS):  # reconexão e 5xx são passageiros; leitura lenta e 429 não repetem
+            restante = prazo - time.monotonic()
+            espera = min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S)
+            ultima = tentativa == TENTATIVAS - 1 or restante <= espera + 5
             try:
                 resposta = self.cliente.post(ENDPOINT.format(self.config['modelo']),
-                                             headers={'x-goog-api-key': self.chave}, json=corpo)
+                                             headers={'x-goog-api-key': self.chave}, json=corpo,
+                                             timeout=max(5.0, min(float(self.config['timeout_s']), restante)))
+            except httpx.ConnectTimeout:  # a conexão nem chegou ao Google: nada foi consumido
+                if ultima:
+                    raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
+                time.sleep(espera)
+                continue
             except httpx.TimeoutException:
                 raise FalhaGeracao('O Gemini demorou a responder. Tente novamente.', 504) from None
             except httpx.RequestError:
-                if tentativa == TENTATIVAS - 1:
+                if ultima:
                     raise FalhaGeracao('Não foi possível conectar ao Gemini. Confira sua internet.', 503) from None
-                time.sleep(min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S))
+                time.sleep(espera)
                 continue
-            if resposta.status_code in (500, 502, 503, 504) and tentativa < TENTATIVAS - 1:
-                time.sleep(min(ESPERA_BASE_S * 2 ** tentativa, ESPERA_MAX_S))
+            if resposta.status_code in (500, 502, 503, 504) and not ultima:
+                time.sleep(espera)
                 continue
             break
         if resposta.status_code == 429:
@@ -345,9 +356,10 @@ class LeitorVisual:
 
     def ler(self, conteudo: bytes) -> GradeImportada:
         imagem, origem = _para_imagem(conteudo)
+        prazo = time.monotonic() + PRAZO_S  # um orçamento de tempo para as duas chamadas
         try:
             local = _Localizacao.model_validate(
-                self._chamar(PROMPT_LOCALIZAR, [_miniatura(imagem)], _Localizacao.model_json_schema(), TOKENS_LOCALIZAR))
+                self._chamar(PROMPT_LOCALIZAR, [_miniatura(imagem)], _Localizacao.model_json_schema(), TOKENS_LOCALIZAR, prazo=prazo))
         except ValidationError:
             raise FalhaGeracao('Não foi possível localizar as tabelas no arquivo.') from None
         recortes = {nome: _recortar(imagem, getattr(local, nome)) for nome in ('tabela_turmas', 'tabela_grade', 'periodo')}
@@ -356,7 +368,7 @@ class LeitorVisual:
             return montar_grade(_Leitura(), origem, tabela_turmas=False, tabela_grade=False, periodo_visivel=False)
         try:
             leitura = _Leitura.model_validate(
-                self._chamar(PROMPT_EXTRAIR, [_png(r) for r in presentes], _Leitura.model_json_schema(), TOKENS_EXTRAIR))
+                self._chamar(PROMPT_EXTRAIR, [_png(r) for r in presentes], _Leitura.model_json_schema(), TOKENS_EXTRAIR, prazo=prazo))
         except ValidationError:
             raise FalhaGeracao('O Gemini retornou uma leitura inválida. Tente outro arquivo.') from None
         return montar_grade(leitura, origem, tabela_turmas=recortes['tabela_turmas'] is not None,
