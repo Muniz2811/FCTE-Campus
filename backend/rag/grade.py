@@ -66,6 +66,8 @@ CodigoPendencia = Literal[
     'local_a_definir',
     'local_nao_encontrado_na_base',
     'encontros_ausentes',
+    'tabela_ausente',
+    'semestre_ausente',
     'leitura_incerta',
 ]
 
@@ -80,8 +82,9 @@ class Turma(_Modelo):
     codigoComponente: str = Field(pattern=r'^[A-Z]{2,4}\d{3,4}$')
     nomeComponente: str | None = Field(default=None, max_length=200)
     cargaHoraria: int | None = Field(default=None, ge=1, le=600)
-    turma: str = Field(min_length=1, max_length=20)
-    situacaoOriginal: str = Field(min_length=1, max_length=80)
+    # Opcionais: um print cortado pode mostrar só a grade semanal, sem a tabela de turmas.
+    turma: str | None = Field(default=None, max_length=20)
+    situacaoOriginal: str | None = Field(default=None, max_length=80)
     encontros: list[Encontro] = Field(default_factory=list)
     localTextoOriginal: str | None = Field(default=None, max_length=120)
     locaisDeclarados: list[LocalDeclarado] = Field(default_factory=list)
@@ -104,7 +107,7 @@ class Turma(_Modelo):
 
 class GradeImportada(_Modelo):
     versaoContrato: Literal['1'] = '1'
-    semestre: str = Field(pattern=r'^\d{4}\.[1-3]$')
+    semestre: str | None = Field(default=None, pattern=r'^\d{4}\.[1-3]$')
     curso: str | None = Field(default=None, max_length=200)
     origem: Literal['pdf_texto', 'pdf_visual', 'imagem', 'formulario']
     status: Literal['completa', 'parcial']

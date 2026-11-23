@@ -28,3 +28,6 @@ python-dotenv==1.2.4
 
 # Extração de PDFs com referências por página
 pymupdf==1.26.6
+
+# Leitura visual da grade (imagens): recorte e reencode
+pillow==13.0.0
