@@ -33,6 +33,9 @@ LIMITE_BYTES = 8 * 1024 * 1024
 LIMITE_LADO = 6000
 LADO_MINIATURA = 360
 LADO_MAX_RECORTE = 1800
+# Modelos com raciocínio gastam parte da saída "pensando"; com 1000 tokens a resposta era cortada.
+TOKENS_LOCALIZAR = 4000
+TOKENS_EXTRAIR = 12000
 TENTATIVAS = 5
 ESPERA_BASE_S = 2.0  # 2, 4, 8, 16 s entre tentativas: o 503 do Gemini é sobrecarga, não erro nosso
 LARGURA_MIN_RECORTE = 900
@@ -343,7 +346,7 @@ class LeitorVisual:
         imagem, origem = _para_imagem(conteudo)
         try:
             local = _Localizacao.model_validate(
-                self._chamar(PROMPT_LOCALIZAR, [_miniatura(imagem)], _Localizacao.model_json_schema(), 1000))
+                self._chamar(PROMPT_LOCALIZAR, [_miniatura(imagem)], _Localizacao.model_json_schema(), TOKENS_LOCALIZAR))
         except ValidationError:
             raise FalhaGeracao('Não foi possível localizar as tabelas no arquivo.') from None
         recortes = {nome: _recortar(imagem, getattr(local, nome)) for nome in ('tabela_turmas', 'tabela_grade', 'periodo')}
@@ -352,7 +355,7 @@ class LeitorVisual:
             return montar_grade(_Leitura(), origem, tabela_turmas=False, tabela_grade=False, periodo_visivel=False)
         try:
             leitura = _Leitura.model_validate(
-                self._chamar(PROMPT_EXTRAIR, [_png(r) for r in presentes], _Leitura.model_json_schema(), 4000))
+                self._chamar(PROMPT_EXTRAIR, [_png(r) for r in presentes], _Leitura.model_json_schema(), TOKENS_EXTRAIR))
         except ValidationError:
             raise FalhaGeracao('O Gemini retornou uma leitura inválida. Tente outro arquivo.') from None
         return montar_grade(leitura, origem, tabela_turmas=recortes['tabela_turmas'] is not None,
