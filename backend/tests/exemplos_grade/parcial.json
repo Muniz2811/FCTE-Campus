@@ -4,7 +4,6 @@
     "semestre": "2099.1",
     "curso": "CURSO DE EXEMPLO/FCTE - Bacharelado - Presencial",
     "origem": "imagem",
-    "status": "parcial",
     "turmas": [
       {
         "codigoComponente": "FGA9002",

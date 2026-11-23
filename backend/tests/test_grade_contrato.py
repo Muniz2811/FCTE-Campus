@@ -34,20 +34,6 @@ def test_recusa_dados_do_aluno(campo):
         RespostaGrade.model_validate(dados)
 
 
-def test_pendencia_informativa_nao_impede_status_completo():
-    dados = carregar('parcial.json')
-    dados['grade']['pendencias'] = []
-    dados['grade']['status'] = 'completa'
-    RespostaGrade.model_validate(dados)
-
-
-def test_completa_com_lacuna_de_leitura_e_recusada():
-    dados = carregar('parcial.json')
-    dados['grade']['status'] = 'completa'
-    with pytest.raises(ValidationError):
-        RespostaGrade.model_validate(dados)
-
-
 def test_dois_locais_sem_pendencia_e_recusado():
     dados = carregar('parcial.json')
     dados['grade']['turmas'][0]['pendencias'] = []

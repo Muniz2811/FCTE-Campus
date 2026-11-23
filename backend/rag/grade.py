@@ -72,11 +72,6 @@ CodigoPendencia = Literal[
 ]
 
 
-# Lacunas de leitura do arquivo: só elas tornam a grade `parcial`. Os demais códigos
-# (aguardando processamento, locais sem vínculo, local a definir) são fatos do documento.
-PENDENCIAS_DE_LEITURA = frozenset({'encontros_ausentes', 'tabela_ausente', 'semestre_ausente', 'leitura_incerta'})
-
-
 class Pendencia(_Modelo):
     codigo: CodigoPendencia
     mensagem: str = Field(min_length=1, max_length=300)
@@ -115,17 +110,8 @@ class GradeImportada(_Modelo):
     semestre: str | None = Field(default=None, pattern=r'^\d{4}\.[1-3]$')
     curso: str | None = Field(default=None, max_length=200)
     origem: Literal['pdf_texto', 'pdf_visual', 'imagem', 'formulario']
-    # Completude da LEITURA do arquivo; não é a situação da matrícula do aluno.
-    status: Literal['completa', 'parcial']
     turmas: list[Turma] = Field(max_length=40)
     pendencias: list[Pendencia] = Field(default_factory=list)
-
-    @model_validator(mode='after')
-    def _status_coerente(self):
-        todas = [*self.pendencias, *(p for t in self.turmas for p in t.pendencias)]
-        if self.status == 'completa' and any(p.codigo in PENDENCIAS_DE_LEITURA for p in todas):
-            raise ValueError('Grade com lacunas de leitura deve ter status parcial.')
-        return self
 
 
 class RespostaGrade(_Modelo):

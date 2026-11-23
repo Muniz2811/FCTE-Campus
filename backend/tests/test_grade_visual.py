@@ -74,7 +74,7 @@ def test_print_completo_funde_horarios_e_preserva_locais_sem_vinculo():
     ler, _ = leitor()
     grade = ler.ler(imagem_sintetica())
     assert grade.origem == 'imagem' and grade.semestre == '2099.1'
-    assert grade.status == 'completa'  # aguardando processamento e locais múltiplos são fatos, não lacunas
+    assert grade.pendencias == []  # aguardando processamento e locais múltiplos são avisos por turma
     t1, t2, t3 = grade.turmas
     assert [(e.dia, e.inicio, e.fim) for e in t1.encontros] == [('seg', '14:00', '15:50')]
     assert [(e.dia, e.inicio, e.fim) for e in t3.encontros] == [('qua', '18:00', '19:50')]
@@ -109,7 +109,7 @@ def test_print_cortado_indica_a_tabela_ausente_e_nao_inventa_horarios():
     caixas = {**CAIXAS, 'tabela_grade': None, 'periodo': None}
     leitura = {'semestre': None, 'turmas': LEITURA['turmas'], 'celulas': []}
     grade = leitor(caixas, leitura)[0].ler(imagem_sintetica())
-    assert grade.status == 'parcial' and grade.semestre is None
+    assert grade.semestre is None
     assert 'tabela_ausente' in codigos(grade.pendencias) and 'semestre_ausente' in codigos(grade.pendencias)
     assert all(t.encontros == [] for t in grade.turmas)
 

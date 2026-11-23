@@ -27,8 +27,7 @@ from PIL import Image, UnidentifiedImageError
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from rag.consulta.geracao import FalhaGeracao
-from rag.grade import (Encontro, Evidencia, GradeImportada, LocalDeclarado, Pendencia,
-                       PENDENCIAS_DE_LEITURA, Turma)
+from rag.grade import Encontro, Evidencia, GradeImportada, LocalDeclarado, Pendencia, Turma
 
 LIMITE_BYTES = 8 * 1024 * 1024
 LIMITE_LADO = 6000
@@ -288,9 +287,7 @@ def montar_grade(leitura: _Leitura, origem: str, *, tabela_turmas: bool, tabela_
             encontros=encontros, localTextoOriginal=(linha.local or None) if linha else None,
             locaisDeclarados=locais, evidencias=evidencias, pendencias=p))
     return GradeImportada(
-        semestre=semestre, origem=origem, turmas=turmas, pendencias=pendencias,
-        status='parcial' if any(p.codigo in PENDENCIAS_DE_LEITURA
-                                for p in [*pendencias, *(q for t in turmas for q in t.pendencias)]) else 'completa')
+        semestre=semestre, origem=origem, turmas=turmas, pendencias=pendencias)
 
 
 class LeitorVisual:
