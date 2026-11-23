@@ -33,6 +33,7 @@ LIMITE_LADO = 6000
 LADO_MINIATURA = 360
 LADO_MAX_RECORTE = 1800
 TENTATIVAS = 3
+LARGURA_MIN_RECORTE = 900
 MARGEM = 8                # em milésimos da imagem, ao redor de cada recorte
 TOLERANCIA_FUSAO_MIN = 10  # a grade do SIGAA deixa 5 min entre 18:55 e 19:00
 DIAS = ('seg', 'ter', 'qua', 'qui', 'sex', 'sab')
@@ -157,6 +158,9 @@ def _recortar(imagem: Image.Image, caixa: _Caixa | None) -> Image.Image | None:
                            round(x1 * largura / 1000), round(y1 * altura / 1000)))
     if recorte.width < 40 or recorte.height < 12:
         return None
+    if recorte.width < LARGURA_MIN_RECORTE:  # recortes pequenos (a linha do período) ficam ilegíveis
+        fator = LARGURA_MIN_RECORTE / recorte.width
+        recorte = recorte.resize((LARGURA_MIN_RECORTE, round(recorte.height * fator)), Image.LANCZOS)
     recorte.thumbnail((LADO_MAX_RECORTE, LADO_MAX_RECORTE))
     return recorte
 
@@ -268,7 +272,7 @@ def montar_grade(leitura: _Leitura, origem: str, *, tabela_turmas: bool, tabela_
         turmas.append(Turma(
             codigoComponente=codigo, nomeComponente=(linha.nome or None) if linha else None,
             cargaHoraria=linha.carga_horaria if linha and linha.carga_horaria and 0 < linha.carga_horaria <= 600 else None,
-            turma=(linha.turma or None) if linha else None,
+            turma=re.sub(r'^turma\s+', '', linha.turma.strip(), flags=re.I) or None if linha and linha.turma else None,
             situacaoOriginal=(linha.situacao or None) if linha else None,
             encontros=encontros, localTextoOriginal=(linha.local or None) if linha else None,
             locaisDeclarados=locais, evidencias=evidencias, pendencias=p))
