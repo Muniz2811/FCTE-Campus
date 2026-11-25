@@ -3,6 +3,7 @@ import { BarChart3, BookOpenText, CalendarDays, ExternalLink, FlaskConical, Mess
 import { AssistantPanel } from '../knowledge/presentation/AssistantPanel';
 import { GradePanel } from '../knowledge/presentation/GradePanel';
 import { useChat } from '../knowledge/presentation/use-chat';
+import { MonitorPanel } from '../evaluation/MonitorPanel';
 import { Brand } from '../design/Brand';
 import { MetricsPanel } from '../evaluation/MetricsPanel';
 import { LiveComparison } from '../evaluation/LiveComparison';
@@ -33,8 +34,9 @@ export function App() {
   const navigation = [{ id: 'chat', label: 'Conversa', Icon: MessageCircle },
     { id: 'grade', label: 'Minha grade', Icon: CalendarDays },
     { id: 'metrics', label: 'Métricas do RAG', Icon: BarChart3 }, { id: 'comparison', label: 'Comparar ao vivo', Icon: FlaskConical },
+    { id: 'monitor', label: 'Ao vivo', Icon: Route },
     { id: 'route', label: 'Como funciona', Icon: Route }];
-  const skipTarget: Record<string, string> = { chat: '#campus-question', grade: '#grade-file', metrics: '#metrics-panel', comparison: '#comparison-question', route: '#route-panel' };
+  const skipTarget: Record<string, string> = { monitor: '#live-monitor', chat: '#campus-question', grade: '#grade-file', metrics: '#metrics-panel', comparison: '#comparison-question', route: '#route-panel' };
   const newConversation = () => {
     setTab('chat');
     chat.clear();
@@ -68,6 +70,7 @@ export function App() {
       <section className="workspace-view" hidden={tab !== 'grade'} aria-label="Minha grade"><GradePanel /></section>
       <section className="workspace-view" hidden={tab !== 'metrics'} aria-label="Métricas do RAG"><MetricsPanel data={evaluation} error={evaluationError} reload={() => setRevision(v => v + 1)} /></section>
       <section className="workspace-view" hidden={tab !== 'comparison'} aria-label="Comparação ao vivo"><LiveComparison data={evaluation} /></section>
+      {tab === 'monitor' && <section className="workspace-view"><MonitorPanel /></section>}
       <section className="workspace-view" hidden={tab !== 'route'} aria-label="Como funciona"><RouteExplainer /></section>
     </main>
     <nav className="mobile-navigation" aria-label="Seções">{navigation.map(({ id, label, Icon }) => <button key={id} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}><Icon size={20} /><span>{label}</span></button>)}</nav>

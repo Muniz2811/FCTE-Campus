@@ -13,6 +13,9 @@ from rag.consulta.conversa import contexto_da_consulta, consulta_contextualizada
 from rag.ingestao.normalizacao import carregar_entidades, compilar
 
 
+from rag.monitor import etapa
+
+
 class ServicoRAG:
     def __init__(self, config, chave, modelo=None, gerador=None):
         self.config = config
@@ -58,9 +61,15 @@ class ServicoRAG:
             if max_trechos is not None:
                 config_busca = deepcopy(self.config)
                 config_busca['busca']['top_k'] = min(max_trechos, self.config['busca']['top_k'])
-            recuperacao = buscar(consulta, config_busca, modelo=self.modelo, base_lexical=self.base_lexical)
+            with etapa('Busca') as evento:
+                recuperacao = buscar(consulta, config_busca, modelo=self.modelo, base_lexical=self.base_lexical)
+                evento['trechos'] = len(recuperacao['trechos'])
+                evento['detalhe'] = self.info['retrievalMethod']
             registro['recuperacao'] = recuperacao
-            resultado = self.gerador.gerar(texto, recuperacao['trechos'], contexto=contexto)
+            with etapa('Geração') as evento:
+                evento['modelo'] = self.config['geracao']['modelo']
+                resultado = self.gerador.gerar(texto, recuperacao['trechos'], contexto=contexto)
+                evento['tokens'] = resultado.get('usage', {}).get('totalTokenCount')
             resposta = {**resultado, 'requestId': request_id, 'baseVersion': recuperacao['assinatura_indice'],
                         'model': self.config['geracao']['modelo'],
                         'retrievalProfile': self.info['retrievalProfile'],

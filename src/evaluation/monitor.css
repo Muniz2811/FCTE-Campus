@@ -1,0 +1,11 @@
+.monitor-page form, .monitor-page label { display: grid; gap: .65rem; }
+.monitor-page form, .monitor-page > label { margin-block: 1.5rem; }
+.monitor-page input, .monitor-page select, .monitor-page button { padding: .65rem; border: 1px solid var(--line); border-radius: 8px; }
+.monitor-page button { justify-self: start; background: var(--green-deep); color: white; padding-inline: 1.5rem; }
+.monitor-tree, .monitor-tree ul { list-style: none; padding: 0; }
+.monitor-tree ul { margin-left: clamp(.5rem, 2vw, 1.5rem); border-left: 2px solid var(--line); padding-left: .65rem; }
+.monitor-node { margin-block: .5rem; padding: .65rem .85rem; border: 1px solid var(--line); border-left: 4px solid var(--green-deep); border-radius: 6px; }
+.monitor-node[data-status="erro"] { border-left-color: #ac3030; }
+.monitor-node[data-status="executando"] { border-left-color: #b58411; }
+.monitor-node span, .monitor-node small { color: var(--muted); }
+.monitor-node small { display: block; }
