@@ -6,6 +6,7 @@ gravado em `data/execucoes` nem indexado; a pergunta e o arquivo existem só em 
 """
 from __future__ import annotations
 
+from collections import Counter
 import time
 
 from rag.consulta.geracao import FalhaGeracao
@@ -17,15 +18,7 @@ TENTATIVAS_GERACAO = 8   # o Gemini devolve 502/503 passageiros em picos de dema
 ESPERA_GERACAO_S = 2.0
 DIAS = {'seg': 'segunda-feira', 'ter': 'terça-feira', 'qua': 'quarta-feira',
         'qui': 'quinta-feira', 'sex': 'sexta-feira', 'sab': 'sábado'}
-AVISOS = {
-    'locais_sem_vinculo_com_encontros': 'O comprovante lista mais de um local para a turma sem informar qual deles é usado em cada encontro.',
-    'local_a_definir': 'O local desta turma consta como "A definir" no comprovante.',
-    'encontros_ausentes': 'Nenhum horário desta turma foi lido na grade semanal do comprovante.',
-    'leitura_incerta': 'Parte desta linha do comprovante ficou ilegível e precisa de conferência.',
-}
-
-
-def _trecho_comprovante(grade: GradeImportada, turma) -> dict:
+def _trecho_comprovante(grade: GradeImportada, turma, chave: str) -> dict:
     partes = [f'{turma.codigoComponente}' + (f' - {turma.nomeComponente}' if turma.nomeComponente else '')
               + (f' ({turma.cargaHoraria}h)' if turma.cargaHoraria else '') + '.']
     if turma.turma:
@@ -37,23 +30,24 @@ def _trecho_comprovante(grade: GradeImportada, turma) -> dict:
             f'{DIAS[e.dia]} das {e.inicio} às {e.fim}' for e in turma.encontros) + '.')
     if turma.localTextoOriginal:
         partes.append(f'Local declarado no comprovante: {turma.localTextoOriginal}.')
-    partes += [AVISOS[p.codigo] for p in turma.pendencias if p.codigo in AVISOS]
-    return {'chunk_id': f'doc_{turma.codigoComponente}', 'source_id': ORIGEM_COMPROVANTE,
+    partes += [p.mensagem for p in [*grade.pendencias, *turma.pendencias]]
+    return {'chunk_id': f'doc_{chave}', 'source_id': ORIGEM_COMPROVANTE,
             'titulo': 'Comprovante de matrícula enviado', 'texto': ' '.join(partes), 'url': '',
-            'secoes': ['Turmas selecionadas'], 'versao': grade.semestre or '', 'data_revisao': '',
+            'secoes': [e.referencia for e in turma.evidencias], 'versao': grade.semestre or '', 'data_revisao': '',
             'validade': 'desconhecida'}
 
 
-def _trechos_base(turma) -> list[dict]:
+def _trechos_base(turma, chave: str) -> list[dict]:
     trechos = []
     for i, loc in enumerate(turma.localizacoes):
         onde = f'prédio {loc.predio}' + (f', andar {loc.andar}' if loc.andar else '; o andar não é confirmado pela fonte')
         if loc.ambienteId:
             onde += f' (ambiente {loc.ambienteId})'
-        texto = f'Local "{loc.textoOriginal}" do componente {turma.codigoComponente}: {onde}.'
+        identificacao = ' '.join(filter(None, [turma.codigoComponente, turma.turma]))
+        texto = f'Local "{loc.textoOriginal}" do componente {identificacao}: {onde}.'
         if loc.limitacoes:
             texto += f' Limitação da fonte: {loc.limitacoes}'
-        trechos.append({'chunk_id': f'base_{turma.codigoComponente}_{i}', 'source_id': loc.fonte.identificador,
+        trechos.append({'chunk_id': f'base_{chave}_{i}', 'source_id': loc.fonte.identificador,
                         'titulo': loc.fonte.titulo, 'texto': texto, 'url': '', 'secoes': [loc.predio],
                         'versao': loc.fonte.versaoFonte, 'data_revisao': '', 'validade': 'desconhecida'})
     return trechos
@@ -61,9 +55,13 @@ def _trechos_base(turma) -> list[dict]:
 
 def montar_trechos(grade: GradeImportada) -> list[dict]:
     trechos = []
-    for turma in grade.turmas:
-        trechos.append(_trecho_comprovante(grade, turma))
-        trechos += _trechos_base(turma)
+    total = Counter(t.codigoComponente for t in grade.turmas)
+    for indice, turma in enumerate(grade.turmas, 1):
+        chave = turma.codigoComponente
+        if total[chave] > 1:
+            chave += f'__{indice}'
+        trechos.append(_trecho_comprovante(grade, turma, chave))
+        trechos += _trechos_base(turma, chave)
     return trechos
 
 

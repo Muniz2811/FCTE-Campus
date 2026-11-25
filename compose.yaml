@@ -2,7 +2,7 @@
 # ele constrói o ./Dockerfile diretamente, com variáveis do painel.
 #
 #   docker compose up --build                       # full + Chroma local (só precisa de GEMINI_API_KEY)
-#   docker compose --profile supabase up --build    # light + Supabase (igual ao Render; precisa das chaves)
+#   docker compose --profile supabase up --build rag-supabase    # light + Supabase (igual ao Render; precisa das chaves)
 #
 # Abra http://localhost:8000. Os dois serviços usam a porta 8000: suba um por vez.
 # A porta é publicada somente em loopback porque a autenticação fica desligada.

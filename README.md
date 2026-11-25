@@ -338,7 +338,7 @@ No início do serviço, o perfil leve lê do Supabase somente texto e metadados 
 
 ```sh
 docker compose up --build                      # full + Chroma local: só exige GEMINI_API_KEY em backend/.env
-docker compose --profile supabase up --build   # light + Supabase, como no Render: exige SUPABASE_URL e SUPABASE_SECRET_KEY
+docker compose --profile supabase up --build rag-supabase   # light + Supabase, como no Render: exige SUPABASE_URL e SUPABASE_SECRET_KEY
 ```
 
 Abra `http://localhost:8000`. Os dois serviços usam a porta 8000; suba um por vez. O primeiro build do perfil full é demorado (PyTorch, E5, reranker e indexação).
@@ -493,3 +493,9 @@ Os testes existentes não chamam Gemini. A documentação técnica está em [bac
 4. Envie ao Milton “Onde tem cabine de estudo individual?”. Acompanhe o roteamento, a chamada HTTP e as etapas que o RAG realmente executar. Experimente também “Quanto custa o RU?” para observar a chamada externa ao Grupo 04.
 
 O Mac reúne os eventos pelo identificador de execução. O painel consulta a API a cada 1,5 s enquanto está aberto. O buffer comporta 100 execuções recentes por processo e é reiniciado com o backend. Rode com um worker. A entrega de eventos do Render é de melhor esforço: se o Mac dormir, o túnel cair ou a fila encher, o rastreamento pode ficar incompleto. O monitor recebe nomes de etapas, estado, durações e contadores disponíveis, sem texto das perguntas ou coordenadas.
+
+### Leitura visual da grade do SIGAA
+
+A aba **Minha grade** usa o mesmo caminho para um print PNG/JPEG e para a primeira página de um PDF renderizada em imagem. O PyMuPDF executa OCR local com o [modelo português do Tesseract](https://github.com/tesseract-ocr/tessdata_fast/tree/87416418657359cb625c412a48b6e1d6d41c29bd). O modelo e a licença ficam em `backend/rag/tessdata/`. O semestre é lido localmente. Apenas as linhas reconhecidas das tabelas são recortadas para transcrição pelo Gemini.
+
+Se o cabeçalho de uma tabela estiver cortado ou ilegível, a extração pode ser parcial. Duas turmas com o mesmo código conservam seus locais e referências separados. Quando a grade semanal informa apenas o código, o sistema sinaliza a ambiguidade do horário.

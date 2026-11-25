@@ -58,7 +58,7 @@ function Result({ result }: { result: GradeResult }) {
         : <p className={`chat-answer-text ${result.answerStatus === 'insuficiente' ? 'chat-answer--insufficient' : ''}`}>{result.answer}</p>}
       {result.citations.length > 0 && <Citations citations={result.citations} />}
     </div>}
-    <div className="grade-classes">{result.classes.map(item => <ClassCard key={item.code} item={item} />)}</div>
+    <div className="grade-classes">{result.classes.map((item, index) => <ClassCard key={`${item.code}-${index}`} item={item} />)}</div>
   </section>;
 }
 
@@ -74,7 +74,7 @@ export function GradePanel() {
       <div className="grade-intro">
         <h1>Leia sua grade<br /><span>do comprovante de matrícula.</span></h1>
         <p>Envie o PDF ou um print do comprovante do SIGAA. Mostramos as turmas, os horários e onde ficam as salas, com a fonte de cada informação.</p>
-        <p className="grade-privacy"><ShieldCheck size={16} />O arquivo é lido em memória e não é guardado nem indexado. Ao serviço de IA vão só uma miniatura ilegível da página e os recortes das tabelas; o bloco com nome e matrícula não é enviado.</p>
+        <p className="grade-privacy"><ShieldCheck size={16} />O arquivo é lido em memória e não é guardado nem indexado. O OCR local identifica as tabelas. A IA recebe apenas os recortes das linhas reconhecidas.</p>
       </div>
       <form className="grade-form" onSubmit={event => { event.preventDefault(); void grade.submit(); }}>
         <div className="grade-file">
