@@ -1,27 +1,35 @@
-import { ArrowUp, ArrowUpRight, BookOpenText, Check, ChevronRight, LoaderCircle, Plus, RefreshCw, Square } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, BookOpenText, Check, ChevronRight, FlaskConical, LibraryBig, MapPin, Pause, Play, Plus, RefreshCw, Square } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Brand } from '../../design/Brand';
+import { CampusScene } from '../../design/CampusScene';
 import { ChatAnswer } from './ChatAnswer';
 import type { useChat } from './use-chat';
 
 const suggestions = [
-  'Onde fica o laboratório COSMOS?',
-  'Quais espaços de estudo a biblioteca oferece?',
-  'Pessoas de fora da UnB podem usar a biblioteca?',
+  { label: 'Localizar um laboratório', question: 'Onde fica o laboratório COSMOS?', Icon: FlaskConical },
+  { label: 'Encontrar um espaço de estudo', question: 'Quais espaços de estudo a biblioteca oferece?', Icon: MapPin },
+  { label: 'Usar a biblioteca como visitante', question: 'Pessoas de fora da UnB podem usar a biblioteca?', Icon: LibraryBig },
 ];
 
-export function AssistantPanel({ chat, onNewConversation }: {
-  chat: ReturnType<typeof useChat>; onNewConversation(): void;
+export function AssistantPanel({ active, chat, onNewConversation }: {
+  active: boolean; chat: ReturnType<typeof useChat>; onNewConversation(): void;
 }) {
   const { draft, setDraft } = chat;
   const body = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const reduced = useReducedMotion();
   const [copied, setCopied] = useState(false);
+  const [orbitPaused, setOrbitPaused] = useState(false);
+  const hasMessages = chat.messages.length > 0;
   const connected = chat.health.status === 'ready' && chat.health.generationConfigured;
   useEffect(() => {
-    body.current?.scrollTo({ top: body.current.scrollHeight, behavior: reduced ? 'instant' : 'smooth' });
+    const viewport = body.current;
+    if (!viewport) return;
+    viewport.scrollTo({
+      top: chat.messages.length ? viewport.scrollHeight : 0,
+      behavior: reduced || !chat.messages.length ? 'instant' : 'smooth',
+    });
   }, [chat.messages.length, chat.pending, reduced]);
   useEffect(() => {
     if (!input.current) return;
@@ -45,11 +53,17 @@ export function AssistantPanel({ chat, onNewConversation }: {
     try { await navigator.clipboard.writeText(text); setCopied(true); }
     catch { /* A conversa continua disponível para seleção e cópia manual. */ }
   };
-  return <section className="chat-panel" aria-label="Chat com as fontes do campus">
+  return <section className={`chat-panel assistant-panel ${hasMessages ? 'has-messages' : ''} ${chat.pending ? 'is-pending' : ''}`} aria-label="Chat com as fontes do campus">
+    <CampusScene paused={!active || orbitPaused || !!reduced} focused={hasMessages} pending={chat.pending} />
     <header className="chat-heading">
       <div className="mobile-brand"><Brand /></div>
       <div className="desktop-heading"><span className="heading-dot" /><strong>Assistente FCTE</strong><ChevronRight size={13} /><span>Campus Gama</span></div>
       <div className="chat-actions">
+        {!hasMessages && !reduced && <button className="orbit-toggle icon-button" type="button"
+          aria-label={orbitPaused ? 'Retomar animação do fundo' : 'Pausar animação do fundo'}
+          onClick={() => setOrbitPaused(value => !value)}>
+          {orbitPaused ? <Play size={16} /> : <Pause size={16} />}
+        </button>}
         {chat.messages.length > 0 && <button className="copy-conversation" aria-label="Copiar conversa com as fontes" onClick={() => void copyConversation()}>
           {copied && <Check size={14} />}{copied ? 'Copiado' : 'Copiar'}
         </button>}
@@ -61,16 +75,20 @@ export function AssistantPanel({ chat, onNewConversation }: {
     </header>
     <div className="chat-body" ref={body}>
       <div className={`conversation-content ${!chat.messages.length ? 'is-empty' : ''}`}>
-        {!chat.messages.length && <motion.div className="chat-welcome" initial={false} animate={{ opacity: 1 }}>
-          <div className="welcome-mark" aria-hidden="true"><BookOpenText size={38} strokeWidth={1.35} /><span /></div>
-          <h1>O que você quer saber<br /><span>sobre a FCTE?</span></h1>
-          <p>Encontre informações sobre espaços, laboratórios e serviços do campus. Cada resposta mostra de onde veio a informação.</p>
+        {!chat.messages.length && <div className="chat-welcome">
+          <div className="campus-hero">
+            <div className="campus-hero-copy">
+              <h1>Explore a FCTE.<br /><span>Pergunte ao campus.</span></h1>
+              <p>Encontre laboratórios, espaços de estudo e serviços da UnB Gama. Cada resposta aponta para suas fontes.</p>
+            </div>
+          </div>
+          <h2 className="suggestion-title">Experimente perguntar</h2>
           <div className="chat-suggestions" aria-label="Sugestões de perguntas">
-            {suggestions.map(question => <button key={question} disabled={!connected || chat.pending} onClick={() => send(question)}>
-              <span>{question}</span><ArrowUpRight size={19} />
+            {suggestions.map(({ label, question, Icon }) => <button key={question} disabled={!connected || chat.pending} onClick={() => send(question)}>
+              <Icon size={19} /><span>{label}</span><ArrowUpRight size={16} />
             </button>)}
           </div>
-        </motion.div>}
+        </div>}
         {chat.health.status === 'unavailable' && <div className="chat-connection" role="status">
           <p>{chat.health.message}</p><button className="text-button" onClick={() => void chat.refresh()}><RefreshCw size={15} />Verificar conexão</button>
         </div>}
@@ -84,7 +102,10 @@ export function AssistantPanel({ chat, onNewConversation }: {
             <span className="chat-message-label">{message.role === 'user' ? 'Você' : <><BookOpenText size={17} />Assistente FCTE</>}</span>
             {message.role === 'user' ? <p>{message.text}</p> : <ChatAnswer result={message.result} onRetry={() => void chat.send(message.question)} />}
           </motion.article>)}
-          {chat.pending && <div className="chat-pending" role="status"><LoaderCircle size={18} className="chat-spinner" /><span>Consultando as fontes do campus…</span></div>}
+          {chat.pending && <div className="chat-pending" role="status">
+            <span className="query-orbit" aria-hidden="true"><i /><i /><i /></span>
+            <div><strong>Consultando as fontes do campus</strong><p>A busca e a geração da resposta estão em andamento.</p></div>
+          </div>}
         </div>
       </div>
     </div>

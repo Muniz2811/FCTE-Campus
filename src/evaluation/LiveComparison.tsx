@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowUp, Download, LoaderCircle, RefreshCw, Square } from 'lucide-react';
+import { ArrowUp, Bot, Database, Download, LoaderCircle, RefreshCw, Square, Workflow } from 'lucide-react';
 import { ChatAnswer } from '../knowledge/presentation/ChatAnswer';
 import { AgentTimeline } from './AgentTimeline';
 import { compare, fraction, percent, safeUrl, type Arm, type Attempt, type Evaluation, type GoldQuestion, type Ratio } from './model';
@@ -88,8 +88,9 @@ function ReviewPanel({ attempt, gold, review, update }: { attempt: Attempt; gold
 }
 
 function Answer({ arm, attempts, pending, retry }: { arm: Arm; attempts: Attempt[]; pending: boolean; retry(): void }) {
+  const Icon = { llm: Bot, rag: Database, multiagente: Workflow }[arm];
   const selected = attempts.find(a => a.technicalStatus === 200), last = attempts.at(-1), result = selected?.response;
-  return <article className={`comparison-answer ${arm}`}><header><span className="arm-dot" /><h2>{armName(arm)}</h2><small>{arm === 'multiagente' ? 'Pesquisador → Redator → Revisor' : arm === 'rag' ? 'Com documentos recuperados' : 'Sem documentos, busca ou histórico'}</small></header>
+  return <article className={`comparison-answer ${arm}`}><header><span className="section-icon" aria-hidden="true"><Icon size={17} /></span><h2>{armName(arm)}</h2><small>{arm === 'multiagente' ? 'Pesquisador → Redator → Revisor' : arm === 'rag' ? 'Com documentos recuperados' : 'Sem documentos, busca ou histórico'}</small></header>
     <div className="answer-content" aria-live="polite">{pending ? <p className="live-pending"><LoaderCircle className="chat-spinner" size={18} />{arm !== 'llm' ? 'Recuperando evidências e consultando o Gemini…' : 'Consultando o Gemini…'}</p> : result ? <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
       {arm !== 'llm' ? <ChatAnswer result={result.status === 'answered' ? { ...result, status: 'answered', answer: result.answer ?? '', sources: result.sources ?? [] } : { ...result, status: 'insufficient', message: result.message ?? '' }} onRetry={retry} /> : <><p className="chat-answer-text">{result.status === 'answered' ? result.claims.map(c => c.text).join('\n\n') : result.message}</p>{result.claims.some(c => c.fontes?.length) && <details className="chat-references"><summary>URLs sugeridas pelo Gemini · sem versão preservada</summary><ul>{[...new Set(result.claims.flatMap(c => c.fontes ?? []))].map(url => <li key={url}>{safeUrl(url) ? <a href={url} target="_blank" rel="noreferrer">{url}</a> : 'URL inválida omitida'}</li>)}</ul></details>}</>}
     </motion.div> : last ? <div role="alert"><p>{last.error} {last.technicalStatus > 0 ? `(HTTP ${last.technicalStatus})` : ''}</p><button className="text-button" onClick={retry}><RefreshCw size={15} />Repetir falha técnica</button></div> : <p className="empty-comparison">A mesma pergunta chegará aos três sistemas. As respostas aparecerão aqui.</p>}

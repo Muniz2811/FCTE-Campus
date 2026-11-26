@@ -5,6 +5,7 @@ import './design/tokens.css';
 import './design/chat.css';
 import './design/evaluation.css';
 import './design/grade.css';
+import './design/workspace.css';
 import { App } from './app/App';
 import { AppErrorBoundary } from './app/AppErrorBoundary';
 

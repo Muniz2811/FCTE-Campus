@@ -1,7 +1,10 @@
-.grade-content { gap: 28px; }
-.grade-intro h1 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1.14; font-weight: 650; letter-spacing: -.03em; }
-.grade-intro h1 span { color: var(--green-deep); }
-.grade-intro > p { color: var(--muted); line-height: 1.65; font-size: 16px; max-width: 58ch; margin-top: 16px; }
+.grade-content { display: grid; align-content: start; gap: 20px; }
+.grade-content > [role="status"]:empty { display: none; }
+.grade-content > .composer-note { margin: 0; }
+.grade-panel { grid-template-rows: auto minmax(0, 1fr); }
+.grade-intro h1 { font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.1; font-weight: 630; letter-spacing: -.03em; }
+.grade-intro h1 span { color: #a1f4bd; }
+.grade-intro > p { color: #c7dfeb; line-height: 1.65; font-size: 16px; max-width: 58ch; margin-top: 16px; }
 .grade-intro > .grade-privacy { display: flex; gap: 10px; align-items: flex-start; padding: 12px 15px; border: 1px solid #d5e4da; border-radius: 12px; background: #f1f7f2; color: #27573d; font-size: 14px; line-height: 1.55; }
 .grade-privacy svg { margin-top: 3px; color: var(--green-deep); }
 .grade-form { display: grid; gap: 14px; padding: 20px; border: 1px solid #ccd9dd; border-radius: 16px; background: var(--paper); }
@@ -23,7 +26,6 @@
 .grade-submit { display: inline-flex; align-items: center; gap: 9px; justify-content: center; background: var(--green-deep); font-weight: 650; }
 .grade-submit:hover:enabled { background: #005124; }
 .grade-submit:disabled { color: #60786b; background: #e2ebe4; }
-.grade-pending { padding-bottom: 0; }
 .grade-error { margin: 0; max-width: none; }
 .grade-result { display: grid; gap: 24px; }
 .grade-summary h2 { font-size: 24px; font-weight: 650; letter-spacing: -.02em; }

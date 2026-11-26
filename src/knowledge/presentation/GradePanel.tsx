@@ -72,7 +72,7 @@ export function GradePanel() {
     </header>
     <div className="chat-body"><div className="conversation-content grade-content">
       <div className="grade-intro">
-        <h1>Leia sua grade<br /><span>do comprovante de matrícula.</span></h1>
+        <h1 id="grade-title" tabIndex={-1}>Leia sua grade<br /><span> do comprovante de matrícula.</span></h1>
         <p>Envie o PDF ou um print do comprovante do SIGAA. Mostramos as turmas, os horários e onde ficam as salas, com a fonte de cada informação.</p>
         <p className="grade-privacy"><ShieldCheck size={16} />O arquivo é lido em memória e não é guardado nem indexado. O OCR local identifica as tabelas. A IA recebe apenas os recortes das linhas reconhecidas.</p>
       </div>
@@ -89,18 +89,18 @@ export function GradePanel() {
         <textarea id="grade-question" value={grade.question} onChange={event => grade.setQuestion(event.target.value)} maxLength={1200} rows={2}
           placeholder="Ex.: Quais aulas tenho na quarta e onde ficam as salas?" disabled={grade.pending} />
         <div className="grade-actions">
-          {grade.pending ? <button type="button" className="primary-button grade-submit" onClick={grade.cancel}><Square size={15} fill="currentColor" />Parar de aguardar</button>
-            : <button type="submit" className="primary-button grade-submit" disabled={!grade.file}>Ler comprovante</button>}
+          {grade.pending ? <button key="cancel" type="button" className="primary-button grade-submit" onClick={grade.cancel}><Square size={15} fill="currentColor" />Parar de aguardar</button>
+            : <button key="submit" type="submit" className="primary-button grade-submit" disabled={!grade.file}>Ler comprovante</button>}
         </div>
       </form>
+      <p className="composer-note">{note}</p>
       <div role="status" aria-live="polite">
-        {grade.pending && <div className="chat-pending grade-pending"><LoaderCircle size={18} className="chat-spinner" />
+        {grade.pending && <div className="chat-pending"><LoaderCircle size={18} className="chat-spinner" aria-hidden="true" />
           <span>Lendo o documento… pode levar mais de um minuto quando o serviço de IA está ocupado.</span></div>}
         {grade.outcome?.status === 'unavailable' && <div className="chat-connection grade-error"><p>{grade.outcome.message}</p>
           <button className="text-button" onClick={() => void grade.submit()}>Tentar novamente</button></div>}
       </div>
       {grade.outcome?.status === 'ok' && <Result result={grade.outcome.result} />}
     </div></div>
-    <div className="composer-wrap"><p className="composer-note">{note}</p></div>
   </section>;
 }
