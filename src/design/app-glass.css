@@ -277,3 +277,22 @@
   .chat-app .workspace-sidebar.manter-aberta .new-conversation.liquid-button { width: 100%; transition: none; }
   .chat-app .workspace-sidebar.manter-aberta, .chat-app .workspace-sidebar.manter-aberta * { transition-duration: 0s !important; }
 }
+
+/* Celular: a coluna do chat nunca passa da tela. O grid usava a largura mínima do cabeçalho
+   (marca + ações) e empurrava mensagens, sugestões e composer para fora pela direita. */
+.chat-app .chat-panel { grid-template-columns: minmax(0, 1fr); }
+.chat-app .chat-heading, .chat-app .chat-actions { min-width: 0; }
+@media (max-width: 580px) {
+  .chat-app .chat-heading { gap: 8px; padding-inline: 14px; }
+  .chat-app .chat-actions { gap: 6px; flex-shrink: 0; }
+  /* Conexão: só o ponto de estado; o texto continua para leitores de tela. */
+  .connection-status.liquid-glass { font-size: 0; gap: 0; padding: 9px; }
+  .connection-status.liquid-glass > span { width: 8px; height: 8px; }
+  .chat-app .mobile-brand .brand-wordmark strong { font-size: 17px; }
+  .chat-app .copy-conversation { font-size: 13px; }
+}
+/* Barra inferior: a seleção fica dentro do botão, com folga da borda da barra. */
+@media (max-width: 850px) {
+  .chat-app .mobile-navigation.liquid-glass { padding: 6px; }
+  .chat-app .mobile-selection { inset: 3px 4px; border-radius: 13px; }
+}

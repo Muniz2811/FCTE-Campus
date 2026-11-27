@@ -198,8 +198,9 @@ export function CampusScene({ paused, focused, pending, pulso, ancora, destaques
         cena.onda += dt * .9;
         const o = cena.onda;
         ctx.globalCompositeOperation = aditivo;
-        ctx.strokeStyle = comAlfa(cores.aura[0], Math.max(0, .55 * (1 - o)));
-        ctx.lineWidth = 2 + 10 * (1 - o);
+        // Na conversa o livro é gigante: a onda fica fina e discreta para não virar um anel pesado.
+        ctx.strokeStyle = comAlfa(cores.aura[0], Math.max(0, (.55 - .3 * m) * (1 - o)));
+        ctx.lineWidth = (2 + 10 * (1 - o)) * (1 - .7 * m);
         ctx.beginPath(); ctx.arc(x, y, r * (.7 + o * 1.6), 0, TAU); ctx.stroke();
         if (o >= 1) cena.onda = -1;
       }
