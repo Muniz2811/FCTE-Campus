@@ -9,6 +9,7 @@ import './design/workspace.css';
 import './design/liquid-glass.css';
 import './design/campus-glass.css';
 import './design/app-glass.css';
+import './design/importacao.css';
 import { App } from './app/App';
 import { AppErrorBoundary } from './app/AppErrorBoundary';
 
