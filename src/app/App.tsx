@@ -1,9 +1,13 @@
-import { useEffect, useState, type CSSProperties } from 'react';
-import { ChevronRight, ExternalLink, Plus } from 'lucide-react';
+import { Fragment, useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+import { LiquidButton } from '../design/liquid-glass/LiquidButton';
+import { AlternarTema } from '../design/tema/AlternarTema';
+import { ExternalLink, Plus } from 'lucide-react';
 import { AssistantPanel } from '../knowledge/presentation/AssistantPanel';
 import { GradePanel } from '../knowledge/presentation/GradePanel';
 import { useChat } from '../knowledge/presentation/use-chat';
 import { Brand } from '../design/Brand';
+import { LiquidGlass } from '../design/liquid-glass/LiquidGlass';
 import { SectionIcon, type SectionId } from '../design/SectionIcon';
 import { MetricsPanel } from '../evaluation/MetricsPanel';
 import { LiveComparison } from '../evaluation/LiveComparison';
@@ -44,20 +48,28 @@ export function App() {
   };
   return <div className="chat-app">
     <a href={skipTarget[tab]} className="skip-link">Ir para o conteúdo</a>
-    <aside className="workspace-sidebar" aria-label="Sobre o assistente">
+    {/* O foco num item largo rolava a barra na horizontal; recolhida, ela ficava sem ícones. */}
+    <aside className="workspace-sidebar" aria-label="Sobre o assistente" onScroll={event => { if (event.currentTarget.scrollLeft) event.currentTarget.scrollLeft = 0; }}>
       <Brand />
-      <button className="new-conversation" aria-label="Nova conversa" onClick={newConversation} disabled={chat.pending}>
+      <LiquidButton className="new-conversation" aria-label="Nova conversa" onClick={newConversation} disabled={chat.pending}>
         <Plus size={18} aria-hidden="true" /><span className="sidebar-label">Nova conversa</span>
-      </button>
-      <nav className="workspace-navigation" aria-label="Seções" style={{ '--section-index': navigation.findIndex(item => item.id === tab) } as CSSProperties}>
-        <span className="sidebar-selection" aria-hidden="true" />
-        {navigation.map(({ id, label }) => <button key={id} aria-label={label} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}>
-          <SectionIcon section={id} /><span className="sidebar-label">{label}</span>
-        </button>)}
+      </LiquidButton>
+      <nav className="workspace-navigation" aria-label="Seções">
+        {navigation.map(({ id, label }, index) => <Fragment key={id}>
+          {index === 2 && <span className="sidebar-divider" aria-hidden="true" />}
+          <button aria-label={label} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}>
+            {tab === id && <motion.span layoutId="sidebar-selection" className="sidebar-selection" aria-hidden="true"
+              transition={{ type: 'spring', stiffness: 420, damping: 34 }}>
+              <LiquidGlass as="span" raio={14} refracao={false} className="sidebar-selection-vidro" />
+            </motion.span>}
+            <SectionIcon section={id} /><span className="sidebar-label">{label}</span>
+          </button>
+        </Fragment>)}
       </nav>
       <div className="sidebar-bottom">
+        <AlternarTema className="sidebar-theme" variante="linha" />
         {chat.health.status === 'ready' && <p className="base-summary"><span className="live-dot" />
-          <span className="sidebar-label">{chat.health.sources} fontes · {chat.health.chunks} trechos na base</span>
+          <span className="sidebar-label">{chat.health.chunks} trechos de {chat.health.sources} fontes</span>
         </p>}
         <a className="project-link" href="https://github.com/Muniz2811/FCTE-Campus" target="_blank" rel="noreferrer" aria-label="Conheça o projeto (nova aba)">
           <ExternalLink size={16} aria-hidden="true" /><span className="sidebar-label">Conheça o projeto</span>
@@ -68,7 +80,7 @@ export function App() {
     <main className={`conversation-workspace ${tab !== 'chat' && tab !== 'grade' ? 'has-workspace-heading' : ''}`}>
       {tab !== 'chat' && tab !== 'grade' && <header className="workspace-heading">
         <div className="mobile-brand"><Brand /></div>
-        <div className="workspace-crumb"><span>FCTE Campus</span><ChevronRight size={14} /><strong>{navigation.find(item => item.id === tab)?.label}</strong></div>
+        <AlternarTema className="mobile-theme" />
       </header>}
       <section className="workspace-view" hidden={tab !== 'chat'} aria-label="Conversa"><AssistantPanel active={tab === 'chat'} chat={chat} onNewConversation={newConversation} /></section>
       <section className="workspace-view" hidden={tab !== 'grade'} aria-label="Minha grade"><GradePanel /></section>
@@ -76,6 +88,9 @@ export function App() {
       <section className="workspace-view" hidden={tab !== 'comparison'} aria-label="Comparação ao vivo"><LiveComparison data={evaluation} /></section>
       <section className="workspace-view" hidden={tab !== 'route'} aria-label="Como funciona"><RouteExplainer /></section>
     </main>
-    <nav className="mobile-navigation" aria-label="Seções">{navigation.map(({ id, label, short }) => <button key={id} aria-label={label} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}><SectionIcon section={id} /><span>{short}</span></button>)}</nav>
+    <LiquidGlass as="nav" raio={22} className="mobile-navigation" aria-label="Seções">{navigation.map(({ id, label, short }) => <button key={id} aria-label={label} aria-current={tab === id ? 'page' : undefined} onClick={() => setTab(id)}>
+      {tab === id && <motion.span layoutId="mobile-selection" className="mobile-selection" aria-hidden="true" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />}
+      <SectionIcon section={id} /><span>{short}</span>
+    </button>)}</LiquidGlass>
   </div>;
 }

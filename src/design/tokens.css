@@ -8,6 +8,7 @@
   --blue: #003f7a; --blue-deep: #092c4b; --green: #008137; --green-deep: #006b2d;
   --yellow: #ffcc00; --ochre: #8f6400; --ochre-soft: #f8f0dc; --ink: #183244; --muted: #60717c; --line: #e2e8eb;
   --paper: #fff; --canvas: #f0f5f4; color: var(--ink); background: var(--canvas);
+  color-scheme: light dark;
 }
 * { box-sizing: border-box; }
 body { margin: 0; }

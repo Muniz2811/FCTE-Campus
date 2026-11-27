@@ -1,0 +1,279 @@
+/* Padrão visual do app inteiro: tema manual, alternador, botão líquido, trilho de vidro e abas. */
+
+/* Tema escolhido à mão: troca o color-scheme e todas as cores light-dark() acompanham. */
+:root[data-tema="claro"], :root[data-tema="claro"] .chat-app { color-scheme: light; }
+:root[data-tema="escuro"], :root[data-tema="escuro"] .chat-app { color-scheme: dark; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* Aura ambiente atrás de tudo, para o vidro ter cor para refratar. */
+.chat-app {
+  /* No claro, luzes mais fortes: sobre fundo claro um degradê fraco some. */
+  --amb-1: light-dark(color-mix(in srgb, #8fb8ff 46%, transparent), color-mix(in srgb, #3a63c7 22%, transparent));
+  --amb-2: light-dark(color-mix(in srgb, #7fd8a6 42%, transparent), color-mix(in srgb, #1f9e63 18%, transparent));
+  --amb-3: light-dark(color-mix(in srgb, #ffd36e 34%, transparent), color-mix(in srgb, #d9a020 10%, transparent));
+  --amb-4: light-dark(color-mix(in srgb, #f3a6d8 26%, transparent), color-mix(in srgb, #7a4fd1 10%, transparent));
+  background:
+    radial-gradient(48% 46% at 90% 6%, var(--amb-1), transparent 70%),
+    radial-gradient(44% 42% at 4% 98%, var(--amb-2), transparent 70%),
+    radial-gradient(34% 34% at 64% 62%, var(--amb-3), transparent 70%),
+    radial-gradient(30% 30% at 30% 18%, var(--amb-4), transparent 70%),
+    var(--canvas);
+  background-attachment: fixed;
+}
+/* O painel do chat deixa a aura do app aparecer atrás da cena. */
+.chat-app .assistant-panel { background: transparent; }
+.chat-app .evaluation-page, .chat-app .grade-panel, .chat-app .workspace-view { background: transparent; }
+
+/* Vidro em CSS para superfícies grandes (a refração por SVG fica nos elementos pequenos). */
+.chat-app :is(.metric-headlines article, .metric-chart, .metric-insight, .evaluation-page .pill-disclosure, .comparison-form,
+  .comparison-answer, .live-review, .route-question, .route-lane, .grade-form, .grade-class, .chunk-example,
+  .evaluation-page .chat-references, .grade-panel .chat-references, .evaluation-notice, .grade-privacy) {
+  background: color-mix(in srgb, var(--paper) 58%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
+  border-radius: 18px;
+  box-shadow: inset 1px 1px 0 light-dark(#ffffffc8, #ffffff12), inset -1px -1px 0 light-dark(#ffffff70, #ffffff08),
+              0 16px 36px -26px light-dark(#1b2a3a66, #000000aa);
+}
+.chat-app .evaluation-page .pill-disclosure[open] { background: color-mix(in srgb, var(--paper) 74%, transparent); border-color: color-mix(in srgb, var(--acento, var(--green)) 35%, transparent); }
+.chat-app .grade-privacy { color: var(--ink); }
+.chat-app .evaluation-notice { color: light-dark(#6c4500, #ffdfae); }
+.chat-app :is(.evaluation-page, .grade-panel) :is(select, input, textarea) {
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  transition: border-color .2s, box-shadow .2s;
+}
+.chat-app :is(.evaluation-page, .grade-panel) :is(select, input, textarea):focus-visible {
+  outline: none; border-color: var(--green); box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 25%, transparent);
+}
+.chat-app .metric-switch { background: color-mix(in srgb, var(--paper) 50%, transparent); border-radius: 12px; }
+.chat-app .metric-switch button[aria-pressed=true] { background: var(--ink); color: var(--canvas); }
+.chat-app :is(.metric-track, .evaluation-page .bar-track) { background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.chat-app .evaluation-heading h1, .chat-app .grade-intro h1 { letter-spacing: -.045em; font-weight: 650; }
+
+/* "Como funciona": etiquetas e chips com a cor de cada modo, legíveis nos dois temas. */
+.chat-app .route-lane { --arm-soft: color-mix(in srgb, var(--arm, var(--green)) 16%, transparent); }
+.chat-app .route-chips code { color: var(--ink); background: color-mix(in srgb, var(--arm, var(--green)) 16%, transparent); }
+.chat-app .route-calls { background: color-mix(in srgb, var(--arm, var(--green)) 16%, transparent); }
+.chat-app .route-outcome.ok { background: color-mix(in srgb, var(--green) 16%, transparent); }
+
+/* Entrada escalonada do conteúdo de cada aba */
+.workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > * { animation: entra .6s cubic-bezier(.16, 1, .3, 1) backwards; }
+.workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > :nth-child(2) { animation-delay: .06s; }
+.workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > :nth-child(3) { animation-delay: .12s; }
+.workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > :nth-child(4) { animation-delay: .18s; }
+.workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > :nth-child(n+5) { animation-delay: .24s; }
+.chat-app :is(.metric-headlines article, .comparison-answer, .route-lane) { animation: entra .6s cubic-bezier(.16, 1, .3, 1) backwards; }
+.chat-app :is(.metric-headlines article, .comparison-answer, .route-lane):nth-child(2) { animation-delay: .08s; }
+.chat-app :is(.metric-headlines article, .comparison-answer, .route-lane):nth-child(3) { animation-delay: .16s; }
+.chat-app .metric-headlines article:nth-child(4) { animation-delay: .24s; }
+@keyframes empurra { 0% { translate: -5px 0; } 45% { translate: 4px 0; } 75% { translate: -1px 0; } 100% { translate: 0 0; } }
+@keyframes entra { from { opacity: 0; transform: translateY(14px); filter: blur(5px); } }
+.chat-app :is(.metric-headlines article, .route-lane, .comparison-answer) { transition: transform .35s cubic-bezier(.23, 1, .32, 1), box-shadow .35s; }
+@media (hover: hover) {
+  .chat-app :is(.metric-headlines article, .route-lane):hover { transform: translateY(-3px); }
+}
+
+/* Botão líquido: o contorno é um caminho calculado em JS (clip-path) e o degradê preenche a forma real. */
+.liquid-button {
+  --lb-cor: light-dark(#14202b, #eef6f2);
+  --lb-tinta: light-dark(#ffffff, #0b1a14);
+  --lb-raio: 999px;
+  --lb-raio-px: 999;
+  /* Paleta do vídeo: quente perto do cursor (bege e rosa), malva embaixo, azul acinzentado longe. */
+  --lb-iris:
+    radial-gradient(34% 110% at var(--ix, 35%) var(--iy, 50%), #c9a78e 0%, #bb879b 38%, transparent 74%),
+    radial-gradient(48% 140% at 82% 42%, #6f86ad 0%, transparent 72%),
+    radial-gradient(42% 120% at 46% 88%, #9a6b9c 0%, transparent 70%),
+    linear-gradient(100deg, #8a7290, #6b7ca2);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  color: var(--lb-tinta);
+  font-weight: 650;
+  transition: transform .3s cubic-bezier(.23, 1, .32, 1), opacity .2s, color .35s;
+}
+.liquid-button[data-ativo] { color: #ffffff; }
+.liquid-button-forma {
+  position: absolute; inset: calc(var(--lb-margem, 28px) * -1); z-index: -1; pointer-events: none;
+  transition: filter .5s ease-out;
+}
+/* Halo rosado difuso que acompanha o contorno (o filtro do pai enxerga o filho já recortado). */
+.liquid-button[data-ativo] .liquid-button-forma { filter: drop-shadow(0 0 12px rgb(214 150 190 / .45)) drop-shadow(0 8px 18px rgb(110 130 200 / .22)); }
+.liquid-button-corpo {
+  position: absolute; inset: 0;
+  background: var(--lb-cor);
+  clip-path: inset(var(--lb-margem, 28px) round var(--lb-raio));
+}
+.liquid-button-iris { position: absolute; inset: 0; opacity: 0; background: var(--lb-iris); transition: opacity .5s ease-out; }
+.liquid-button[data-ativo] .liquid-button-iris { opacity: 1; }
+.liquid-button-rotulo { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.liquid-button:active:not(:disabled) { transform: scale(.96); transition-duration: .12s; }
+.liquid-button:disabled { cursor: not-allowed; --lb-cor: color-mix(in srgb, var(--ink) 12%, var(--canvas)); --lb-tinta: color-mix(in srgb, var(--ink) 42%, transparent); }
+.liquid-button:disabled .liquid-button-iris { display: none; }
+.chat-app .liquid-button.primary-button, .chat-app .liquid-button.grade-submit { background: none; color: var(--lb-tinta); padding: 11px 20px; min-height: 46px; }
+.chat-app .liquid-button.primary-button[data-ativo], .chat-app .liquid-button.grade-submit[data-ativo] { color: #ffffff; }
+.chat-app .liquid-button.grade-submit:hover:enabled { background: none; }
+.assistant-panel .chat-send.liquid-button { --lb-cor: var(--acento); --lb-tinta: var(--acento-tinta); --lb-raio: 16px; --lb-raio-px: 16; background: none; }
+.assistant-panel .chat-send.liquid-button:hover:enabled { background: none; transform: none; }
+.assistant-panel .chat-send.liquid-button[data-ativo] { color: #ffffff; }
+.assistant-panel .chat-send.liquid-button:disabled { background: none; --lb-cor: color-mix(in srgb, var(--ink) 10%, var(--canvas)); }
+
+/* Alternador de tema */
+.alternar-tema {
+  position: relative;
+  flex: 0 0 auto;
+  width: 54px;
+  height: 30px;
+  padding: 0;
+  border-radius: 11px;
+  background: light-dark(#dfe4e8, #0a0e13);
+  box-shadow: inset 0 1px 3px light-dark(#0000002e, #000000b3), inset 0 -1px 0 light-dark(#ffffffb0, #ffffff14);
+}
+.alternar-tema-botao {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #e9edff;
+  background: linear-gradient(160deg, #2c3240, #151922);
+  box-shadow: 0 0 0 1.5px #9aa5ff, 0 0 12px #7f8cffaa, 0 3px 8px #0008;
+  transition: transform .55s cubic-bezier(.65, 0, .35, 1), box-shadow .55s, background .55s, color .55s;
+}
+.alternar-tema[data-tema="claro"] .alternar-tema-botao {
+  transform: translateX(24px);
+  color: #4a3510;
+  background: linear-gradient(160deg, #ffffff, #eceff2);
+  box-shadow: 0 0 0 1.5px #ffb21a, 0 0 14px #ffb21a99, 0 3px 8px #00000033;
+}
+.alternar-tema canvas { width: 20px; height: 20px; }
+.alternar-tema:active .alternar-tema-botao { scale: .92; }
+.mobile-theme { display: none; }
+
+/* Trilho lateral flutuante de vidro */
+@media (min-width: 851px) {
+  .chat-app { grid-template-columns: 100px minmax(0, 1fr); }
+  .chat-app .workspace-sidebar {
+    inset: 12px auto 12px 12px;
+    border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--paper) 52%, transparent);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    backdrop-filter: blur(22px) saturate(170%);
+    box-shadow: inset 1px 1px 0 light-dark(#ffffffd0, #ffffff14), 0 22px 44px -26px light-dark(#1b2a3a80, #000000cc);
+    padding: 16px 11px 14px;
+    gap: 12px;
+  }
+  .chat-app .workspace-sidebar:is(:hover, :has(:focus-visible)) { background: color-mix(in srgb, var(--paper) 78%, transparent); }
+  /* Recolhido: "+" é um quadrado do tamanho das pastilhas, centrado. Aberto: vira pílula com o rótulo. */
+  .chat-app .workspace-sidebar .new-conversation.liquid-button {
+    justify-content: flex-start; align-self: center; width: 44px; min-height: 44px; height: 44px; margin: 4px 0 0; padding: 0 13px;
+    border: 0; background: none; color: var(--lb-tinta);
+    --lb-raio: 14px;
+    --lb-raio-px: 14;
+    transition: width .29s cubic-bezier(.23, 1, .32, 1), transform .3s cubic-bezier(.23, 1, .32, 1);
+  }
+  .chat-app .workspace-sidebar:is(:hover, :has(:focus-visible)) .new-conversation.liquid-button { width: 100%; }
+  .chat-app .workspace-sidebar .new-conversation.liquid-button svg { color: inherit; }
+  .chat-app .workspace-sidebar .new-conversation.liquid-button[data-ativo] { color: #ffffff; }
+  .chat-app .workspace-sidebar .new-conversation .liquid-button-rotulo { gap: 12px; }
+  /* Recuo de 9px: com a borda de 1px, a pastilha de 32px fica exatamente no centro do trilho recolhido. */
+  .chat-app .workspace-sidebar .workspace-navigation > button { position: relative; isolation: isolate; border-radius: 12px; min-width: 0; overflow: hidden; padding-inline: 9px; }
+  .chat-app .workspace-sidebar .new-conversation.liquid-button { min-width: 0; }
+  .chat-app .workspace-sidebar .new-conversation .liquid-button-rotulo { overflow: hidden; white-space: nowrap; max-width: 100%; }
+  .chat-app .workspace-sidebar .new-conversation.liquid-button .liquid-button-rotulo { justify-content: flex-start; }
+  .chat-app .workspace-sidebar .workspace-navigation > button:not([aria-current]):hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+  /* Seleção: vidro líquido de verdade, que desliza entre os itens. */
+  .chat-app .sidebar-selection {
+    display: block; position: absolute; inset: 0; height: auto; z-index: -1; transform: none;
+    border: 0; background: none; box-shadow: none; transition: none;
+  }
+  /* Vidro dentro de vidro: o backdrop aninhado só enxerga o trilho translúcido e escurece.
+     Aqui ficam coloração, luz nas bordas e sombra, sem desfoque nem refração. */
+  .chat-app .sidebar-selection-vidro { position: absolute; inset: 0; display: block; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .chat-app .sidebar-selection-vidro::before { background: light-dark(#ffffffd9, #ffffff17); }
+  .chat-app .sidebar-divider { display: block; height: 1px; margin: 4px 10px; background: var(--line); }
+  .chat-app .sidebar-bottom { display: grid; gap: 6px; padding-top: 14px; border-top-color: var(--line); }
+  /* O alternador cabe no trilho recolhido, centrado; ponto e link alinhados ao mesmo eixo dos ícones. */
+  /* Tema como linha da navegação: pastilha na coluna dos ícones, rótulo na coluna dos textos. */
+  .chat-app .alternar-tema--linha {
+    display: flex; align-items: center; gap: 10px; width: 100%; height: var(--sidebar-row, 47px); min-width: 0;
+    padding: 6px 9px; margin: 0 0 4px; border: 1px solid transparent; border-radius: 12px; overflow: hidden; white-space: nowrap;
+    background: none; box-shadow: none; color: var(--muted); font-size: 15px; text-align: left;
+    transition: background-color .18s;
+  }
+  .chat-app .alternar-tema--linha:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+  .chat-app .alternar-tema--linha[data-tema] .alternar-tema-botao {
+    position: relative; top: auto; left: auto; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 10px;
+    transform: none; animation: empurra .55s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .chat-app .alternar-tema--linha canvas { width: 22px; height: 22px; }
+  .chat-app .sidebar-bottom .base-summary { padding-inline-start: 22.5px; }
+  .chat-app .sidebar-bottom .project-link { padding-inline-start: 18px; }
+  .chat-app .workspace-sidebar .brand { padding-inline-start: 5px; }
+
+  /* Pastilhas dos ícones em vidro */
+  .chat-app .workspace-sidebar .section-icon {
+    border: 0;
+    background: linear-gradient(150deg, light-dark(#ffffffe6, #ffffff1f), light-dark(#ffffff66, #ffffff08));
+    box-shadow: inset 1px 1px 0 light-dark(#ffffff, #ffffff30), inset -1px -1px 0 light-dark(#0000000d, #00000040),
+                0 4px 10px -6px light-dark(#1b2a3a59, #000000aa);
+    color: var(--muted);
+  }
+  .chat-app .workspace-sidebar button[aria-current] .section-icon {
+    color: light-dark(#0a6338, #9be8bd);
+    background: linear-gradient(150deg, light-dark(#ffffff, #ffffff2e), light-dark(#e3f4ea, #9be8bd1a));
+  }
+  .chat-app .workspace-sidebar .brand { padding-inline-start: 6px; }
+  .chat-app .conversation-workspace > .workspace-heading,
+  .chat-app .grade-panel > .chat-heading { display: none; }
+  .chat-app .grade-panel { grid-template-rows: minmax(0, 1fr) auto; }
+  .chat-app .has-workspace-heading { grid-template-rows: minmax(0, 1fr); }
+}
+.chat-app .brand-symbol { width: 42px; border: 0; background: none; box-shadow: none; }
+.chat-app .mobile-brand .brand-symbol { width: 34px; }
+.sidebar-divider { display: none; }
+
+/* Celular */
+@media (max-width: 850px) {
+  .mobile-theme { display: inline-block; }
+  .chat-app .mobile-navigation button { position: relative; isolation: isolate; background: none !important; }
+  .chat-app .mobile-selection { position: absolute; inset: 0; z-index: -1; border-radius: 14px; background: color-mix(in srgb, currentColor 13%, transparent); }
+  .chat-app :is(.workspace-heading, .grade-panel .chat-heading) { justify-content: space-between; background: transparent; border-bottom: 0; }
+}
+
+@media (max-width: 580px) {
+  .chat-app .mobile-brand .brand-wordmark small, .assistant-panel .orbit-toggle { display: none; }
+  .chat-app .mobile-brand .brand-wordmark strong { white-space: nowrap; }
+}
+
+/* Conversa: o mapa da base fica visível atrás das mensagens. */
+.assistant-panel.has-messages .campus-scene { opacity: .9; }
+.assistant-panel.has-messages .campus-scene::after {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--canvas) 55%, transparent) 0%, transparent 46%),
+              linear-gradient(0deg, var(--canvas) 0%, transparent 18%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workspace-view:not([hidden]) :is(.evaluation-page, .grade-content) > *, .chat-app :is(.metric-headlines article, .comparison-answer, .route-lane) { animation: none; }
+  .alternar-tema-botao { transition-duration: .01ms; animation: none !important; }
+}
+
+/* Troca de tema com a sidebar aberta: a View Transition tira o :hover; a classe mantém tudo aberto. */
+@media (min-width: 851px) {
+  .chat-app .workspace-sidebar.manter-aberta { width: var(--sidebar-width); background: color-mix(in srgb, var(--paper) 78%, transparent); }
+  .chat-app .workspace-sidebar.manter-aberta :is(.brand-wordmark, .sidebar-label, .academic-note) { opacity: 1; transform: none; visibility: visible; transition: none; }
+  .chat-app .workspace-sidebar.manter-aberta .new-conversation.liquid-button { width: 100%; transition: none; }
+  .chat-app .workspace-sidebar.manter-aberta, .chat-app .workspace-sidebar.manter-aberta * { transition-duration: 0s !important; }
+}

@@ -18,7 +18,6 @@ from typing import Literal
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from rag.monitor import etapa as medir
 from rag.armazenamento.manifesto import gravar_json
 from rag.config import caminho_projeto
 from rag.consulta.busca import buscar
@@ -182,8 +181,7 @@ class OrquestradorMultiagente:
                 raise FalhaGeracao('Limite global de tempo atingido.', 504)
             t = time.monotonic()
             try:
-                with medir(f'{nome} · {acao}'):
-                    resultado = fn()
+                resultado = fn()
                 if restante() <= 0:
                     raise FalhaGeracao('Limite global de tempo atingido.', 504)
                 log['trace'].append({'agent': nome, 'action': acao, 'status': 'ok',
@@ -202,11 +200,8 @@ class OrquestradorMultiagente:
                 raise FalhaGeracao('Limite global de tempo atingido.', 504)
             log['llmCalls'] += 1  # Conta inclusive uma chamada que falhe.
             try:
-                with medir('Chamada Gemini') as evento:
-                    evento['modelo'] = self.servico.info['model']
-                    resultado, uso = self.invocar(nome, prompt, modelo, dados,
-                                                  min(float(self.servico.config['geracao']['timeout_s']), restante()))
-                    evento['tokens'] = (uso or {}).get('totalTokenCount')
+                resultado, uso = self.invocar(nome, prompt, modelo, dados,
+                                              min(float(self.servico.config['geracao']['timeout_s']), restante()))
                 uso = uso or {}
                 log['uso'].append({'agent': nome, 'usage': uso})
                 for campo in usado:

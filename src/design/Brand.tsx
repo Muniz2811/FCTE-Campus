@@ -1,8 +1,8 @@
-import { BookOpenText } from 'lucide-react';
+import { MascoteMini } from './mascote/MascoteMini';
 
 export function Brand() {
   return <div className="brand">
-    <span className="brand-symbol" aria-hidden="true"><BookOpenText size={25} strokeWidth={1.6} /></span>
-    <span className="brand-wordmark"><strong>FCTE Campus</strong><small>Assistente com fontes</small></span>
+    <span className="brand-symbol" aria-hidden="true"><MascoteMini tamanho={30} /></span>
+    <span className="brand-wordmark"><strong>FCTE Campus</strong><small>Respostas com fonte</small></span>
   </div>;
 }

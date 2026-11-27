@@ -1,0 +1,74 @@
+/* Vidro líquido. Parâmetros: claro = branco 6–22%, desfoque 2px, saturação 180%, brilho 1.06;
+   escuro = rgb(20 20 24) 16–38%, desfoque 2px, saturação 160%, brilho 0.8. */
+.liquid-glass {
+  --lg-tinta: 255 255 255;
+  --lg-min: .06;
+  --lg-max: .22;
+  --lg-sat: 180%;
+  --lg-brilho: 1.06;
+  --lg-luz: 255 255 255;
+  --lg-luz-forte: .7;
+  --lg-luz-fraca: .3;
+  --lg-texto: rgb(16 24 32 / .9);
+  --lg-sombra: 0 1px 1px rgb(10 20 30 / .05), 0 14px 34px -16px rgb(10 20 30 / .32);
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--lg-raio, 22px);
+  color: var(--lg-texto);
+  /* 1. Projeção */
+  box-shadow: var(--lg-sombra);
+  /* 2. Desfoque e iluminação; 3. refração quando o navegador aceita url() aqui */
+  -webkit-backdrop-filter: blur(2px) saturate(var(--lg-sat)) brightness(var(--lg-brilho));
+  backdrop-filter: var(--lg-refracao,) blur(2px) saturate(var(--lg-sat)) brightness(var(--lg-brilho));
+}
+.liquid-glass[data-tom="escuro"] {
+  --lg-tinta: 20 20 24;
+  --lg-min: .16;
+  --lg-max: .38;
+  --lg-sat: 160%;
+  --lg-brilho: .8;
+  --lg-luz-forte: .38;
+  --lg-luz-fraca: .14;
+  --lg-texto: rgb(244 248 252 / .93);
+  --lg-sombra: 0 1px 1px rgb(0 0 0 / .2), 0 18px 40px -18px rgb(0 0 0 / .7);
+}
+/* 4. Coloração: a opacidade sobe com a complexidade do fundo lido atrás do vidro. */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: rgb(var(--lg-tinta) / calc(var(--lg-min) + (var(--lg-max) - var(--lg-min)) * var(--lg-mistura, .5)));
+  transition: background-color .4s ease-out;
+}
+/* 5. Luz nas bordas: faixa em cima à esquerda, embaixo à direita, e uma faixa recuada para dentro. */
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgb(var(--lg-luz) / var(--lg-luz-forte)), rgb(var(--lg-luz) / 0) 32% 68%, rgb(var(--lg-luz) / var(--lg-luz-fraca)));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  box-shadow: inset 3px 3px 3px -3px rgb(var(--lg-luz) / calc(var(--lg-luz-forte) * .5)),
+              inset -3px -3px 3px -3px rgb(var(--lg-luz) / calc(var(--lg-luz-fraca) * .6));
+}
+/* 6. O texto carrega um pouco da cor do fundo: tinta translúcida em vez de cor pura. */
+.liquid-glass :is(small, .lg-secundario) { color: color-mix(in srgb, currentColor 72%, transparent); }
+.liquid-glass-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+:is(button, a).liquid-glass { transition: transform .32s cubic-bezier(.23, 1, .32, 1), box-shadow .32s; }
+:is(button, a).liquid-glass:is(:hover, :focus-visible):not(:disabled) { transform: translateY(-2px); }
+:is(button, a).liquid-glass:active:not(:disabled) { transform: scale(.97); transition-duration: .12s; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .liquid-glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .liquid-glass::before { background: rgb(var(--lg-tinta) / .92); }
+  .liquid-glass[data-tom="claro"]::before { background: rgb(250 251 252 / .96); }
+}

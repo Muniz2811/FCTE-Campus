@@ -1,4 +1,6 @@
-import { BookOpen, CalendarDays, ChevronRight, FileUp, LoaderCircle, MapPin, ShieldCheck, Square, TriangleAlert, X } from 'lucide-react';
+import { LiquidButton } from '../../design/liquid-glass/LiquidButton';
+import { AlternarTema } from '../../design/tema/AlternarTema';
+import { BookOpen, CalendarDays, FileUp, LoaderCircle, MapPin, ShieldCheck, Square, TriangleAlert, X } from 'lucide-react';
 import type { GradeCitation, GradeClass, GradeDay, GradeResult } from '../application/grade';
 import { Brand } from '../../design/Brand';
 import { useGrade } from './use-grade';
@@ -68,7 +70,7 @@ export function GradePanel() {
   return <section className="chat-panel grade-panel" aria-label="Minha grade">
     <header className="chat-heading">
       <div className="mobile-brand"><Brand /></div>
-      <div className="desktop-heading"><span className="heading-dot" /><strong>Minha grade</strong><ChevronRight size={13} /><span>Comprovante de matrícula</span></div>
+      <AlternarTema className="mobile-theme" />
     </header>
     <div className="chat-body"><div className="conversation-content grade-content">
       <div className="grade-intro">
@@ -89,8 +91,8 @@ export function GradePanel() {
         <textarea id="grade-question" value={grade.question} onChange={event => grade.setQuestion(event.target.value)} maxLength={1200} rows={2}
           placeholder="Ex.: Quais aulas tenho na quarta e onde ficam as salas?" disabled={grade.pending} />
         <div className="grade-actions">
-          {grade.pending ? <button key="cancel" type="button" className="primary-button grade-submit" onClick={grade.cancel}><Square size={15} fill="currentColor" />Parar de aguardar</button>
-            : <button key="submit" type="submit" className="primary-button grade-submit" disabled={!grade.file}>Ler comprovante</button>}
+          {grade.pending ? <LiquidButton key="cancel" type="button" className="primary-button grade-submit" onClick={grade.cancel}><Square size={15} fill="currentColor" />Parar de aguardar</LiquidButton>
+            : <LiquidButton key="submit" type="submit" className="primary-button grade-submit" disabled={!grade.file}>Ler comprovante</LiquidButton>}
         </div>
       </form>
       <p className="composer-note">{note}</p>

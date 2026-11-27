@@ -6,6 +6,9 @@ import './design/chat.css';
 import './design/evaluation.css';
 import './design/grade.css';
 import './design/workspace.css';
+import './design/liquid-glass.css';
+import './design/campus-glass.css';
+import './design/app-glass.css';
 import { App } from './app/App';
 import { AppErrorBoundary } from './app/AppErrorBoundary';
 
